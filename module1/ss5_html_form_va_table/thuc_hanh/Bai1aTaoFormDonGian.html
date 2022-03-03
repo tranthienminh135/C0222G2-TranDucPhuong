@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HTML links</title>
+    <style>
+        body {
+            background-color: #d5feff;
+        }
+
+        .form {
+            width: 400px;
+            height: 250px;
+            padding: 5px;
+            margin: 0px auto;
+            background-color: white;
+        }
+
+        .title {
+            text-align: center;
+            color: white;
+            background-color: red;
+            padding: 2px;
+        }
+
+        .info {
+            display: block;
+            width: 30%;
+            height: 250px;
+            float: left;
+            color: blue;
+        }
+        .data {
+            display: block;
+            width: 70%;
+            height: 100%;
+            float: right;
+            color: darkorange;
+        }
+    </style>
+</head>
+<body>
+<div class="form">
+    <div class="title">
+        <strong>SỞ THÍCH CỦA BẠN</strong>
+    </div>
+    <form action="#" method="get">
+        <div class="info">
+            <p>
+                <label for="yourname">Họ và tên:</label>
+            </p>
+            <p>
+                <label for="email">Email:</label>
+            </p>
+            <p>
+                <label for="hobby">Sở thích:</label>
+            </p>
+        </div>
+        <div class="data">
+            <p>
+                <input type="text" name="yourname">
+            </p>
+            <p>
+                <input type="text" name="email">
+            </p>
+            <p>
+                <input type="checkbox" name="hobby">Thể thao
+                <input type="checkbox" name="hobby">Âm nhạc
+                <input type="checkbox" name="hobby">Đọc sách
+            </p>
+            <p>
+                <input type="checkbox" name="hobby">Lướt web
+                <input type="checkbox" name="hobby">Chơi game
+                <input type="checkbox" name="hobby">Điện ảnh
+            </p>
+            <p>
+                <input type="checkbox" name="hobby">Đọc sách
+            </p>
+        </div>
+        <div class="button">
+            <input type="submit" value="Gửi thông tin">
+            <input type="reset" value="Nhập lại">
+        </div>
+    </form>
+</div>
+</body>
+</html>

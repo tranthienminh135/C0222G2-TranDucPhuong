@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HTML links</title>
+    <style>
+        .form {
+            width: 400px;
+            height: 400px;
+            padding: 5px;
+            margin: 0px auto;
+            background-color: #fffda9;
+        }
+
+        .title {
+            color: #204dfb;
+            background-color: #d4fdd6;
+            padding: 2px;
+        }
+
+        .info {
+            display: block;
+            width: 30%;
+            height: 400px;
+            float: left;
+            color: blue;
+            padding-top: 3px;
+        }
+        .locate {
+            padding-bottom: 45px;
+        }
+
+        .data {
+            display: block;
+            width: 70%;
+            height: 100%;
+            float: right;
+            color: orangered;
+        }
+    </style>
+</head>
+<body>
+<div class="form">
+    <div class="title">
+        <strong>ĐĂNG KÝ HỌC VIÊN</strong>
+    </div>
+    <form action="#" method="get">
+        <div class="info">
+            <p>
+                <label for="yourname">Họ và tên:</label>
+            </p>
+            <p>
+                <label for="date">Ngày sinh:</label>
+            </p>
+            <p>
+                <label for="gender">Giới tính:</label>
+            </p>
+            <p class="locate">
+                <label for="locate">Địa chỉ:</label>
+            </p>
+            <p>
+                <label for="class">Lớp:</label>
+            </p>
+            <p>
+                <label for="email">Email:</label>
+            </p>
+            <p>
+                <label for="phone">Điện thoại:</label>
+            </p>
+
+        </div>
+        <div class="data">
+            <p>
+                <input type="text" name="yourname">
+            </p>
+            <p>
+                <input type="text" name="date">
+            </p>
+            <p>
+                <input type="radio" name="gender" id="male">Nam
+                <input type="radio" name="gender" id="female">Nữ
+            </p>
+            <p>
+                <textarea style="resize: none" name="locate" id="" cols="20" rows="3"></textarea>
+            </p>
+            <p>
+                <select name="class" id="">
+                    <option value="" disabled selected>- Chọn lớp -</option>
+                    <option value="classA" >Lớp A</option>
+                    <option value="classB">Lớp B</option>
+                    <option value="classC">Lớp C</option>
+                    <option value="classD">Lớp D</option>
+                </select>
+            </p>
+            <p>
+                <input type="text" name="email">
+            </p>
+            <p>
+                <input type="text" name="phone">
+            </p>
+        </div>
+        <div class="button">
+            <input type="submit" value="Đăng ký">
+            <input type="reset" value="Nhập lại">
+        </div>
+    </form>
+</div>
+</body>
+</html>
