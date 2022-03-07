@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Caculator</title>
+    <style>
+        .container {
+            width: 20%;
+            height: auto;
+            padding: 30px;
+            margin: 0px auto;
+            border: 3px solid black;
+        }
+
+        .container-button {
+            width: 100%;
+            margin: 0px auto;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        button {
+            width: 72px;
+            height: 72px;
+            font-size: 20px;
+        }
+
+        .cal {
+            width: 100%;
+        }
+
+        .number {
+            width: 95%;
+            height: 50px;
+            padding-left: 10px;
+        }
+
+        .equal {
+            width: 98%;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="title">Caculator</h1>
+    <p class="cal">
+        <input id="number" type="text" autofocus class="number">
+    </p>
+    <div class="container-button">
+        <p class="cal">
+            <button type="submit" onclick="getNumber('del')">AC</button>
+            <button type="submit" onclick="getNumber('leftRound')">(</button>
+            <button type="submit" onclick="getNumber('rightRound')">)</button>
+            <button type="submit" onclick="getNumber('add')">+</button>
+        </p>
+        <p class="cal">
+            <button type="submit" onclick="getNumber('one')">1</button>
+            <button type="submit" onclick="getNumber('two')">2</button>
+            <button type="submit" onclick="getNumber('three')">3</button>
+            <button type="submit" onclick="getNumber('sub')">-</button>
+        </p>
+        <p class="cal">
+            <button type="submit" onclick="getNumber('four')">4</button>
+            <button type="submit" onclick="getNumber('five')">5</button>
+            <button type="submit" onclick="getNumber('six')">6</button>
+            <button type="submit" onclick="getNumber('mul')">*</button>
+        </p>
+        <p class="cal">
+            <button type="submit" onclick="getNumber('seven')">7</button>
+            <button type="submit" onclick="getNumber('eight')">8</button>
+            <button type="submit" onclick="getNumber('nine')">9</button>
+            <button type="submit" onclick="getNumber('div')">/</button>
+        </p>
+    </div>
+
+    <p>
+        <button type="submit" onclick="getNumber('equal')" class="equal">=</button>
+    </p>
+</div>
+<script>
+    let stringNum = "";
+
+    function getNumber(num) {
+        switch (num) {
+            case 'one':
+                stringNum = stringNum + 1;
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'two':
+                stringNum = stringNum + 2;
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'three':
+                stringNum = stringNum + 3;
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'four':
+                stringNum = stringNum + 4;
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'five':
+                stringNum = stringNum + 5;
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'six':
+                stringNum = stringNum + 6;
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'seven':
+                stringNum = stringNum + 7;
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'eight':
+                stringNum = stringNum + 8;
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'nine':
+                stringNum = stringNum + 9;
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'add':
+                stringNum = stringNum + '+';
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'sub':
+                stringNum = stringNum + '-';
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'mul':
+                if ( ((stringNum.substr(stringNum.length - 1)) === '+') ||
+                    ((stringNum.substr(stringNum.length - 1)) === '-') ||
+                    ((stringNum.substr(stringNum.length - 1)) === '/') ) {
+                    stringNum = stringNum.slice(0, stringNum.length - 1);
+                    stringNum = stringNum + '*';
+                } else {
+                    stringNum = stringNum + '*';
+                }
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'div':
+                if ( ((stringNum.substr(stringNum.length - 1)) === '+') ||
+                    ((stringNum.substr(stringNum.length - 1)) === '-') ||
+                    ((stringNum.substr(stringNum.length - 1)) === '*') ) {
+                    stringNum = stringNum.slice(0, stringNum.length - 1);
+                    stringNum = stringNum + '/';
+                } else {
+                    stringNum = stringNum + '/';
+                }
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'del':
+                stringNum = "";
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'leftRound':
+                stringNum = stringNum + '(';
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'rightRound':
+                stringNum = stringNum + ')';
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'equal':
+                let inputNumber = document.getElementById("number").value;
+
+                if (inputNumber === undefined) {
+                    document.getElementById("number").value = eval(stringNum);
+                } else {
+                    document.getElementById("number").value = eval(inputNumber);
+                }
+                break;
+        }
+    }
+</script>
+</body>
+</html>
