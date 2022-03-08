@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Caculator</title>
+</head>
+<body>
+<div class="container">
+    <img id="img" src="picture/walkingMan.png" width="300px"/>
+    <hr>
+    <p>Click button below to move the image to right</p>
+    <button type="submit" onclick="moveRight()">Click me!</button>
+</div>
+<script>
+    function init() {
+        let img = null;
+        img = document.getElementById("img");
+        img.style.position = "relative";
+        img.style.left = "0px";
+    }
+    function moveRight() {
+        img.style.left = parseInt(img.style.left) + 30 + "px";
+    }
+    window.onload = init();
+</script>
+</body>
+</html>

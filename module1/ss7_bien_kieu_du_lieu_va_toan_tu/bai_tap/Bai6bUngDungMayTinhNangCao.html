@@ -38,7 +38,11 @@
         }
 
         .equal {
-            width: 98%;
+            width: 49%;
+            padding: 0px;
+        }
+        .zero {
+            width: 49%;
             padding: 0px;
         }
     </style>
@@ -77,6 +81,7 @@
     </div>
 
     <p>
+        <button type="submit" onclick="getNumber('zero')" class="zero">0</button>
         <button type="submit" onclick="getNumber('equal')" class="equal">=</button>
     </p>
 </div>
@@ -119,6 +124,10 @@
                 break;
             case 'nine':
                 stringNum = stringNum + 9;
+                document.getElementById("number").value = stringNum;
+                break;
+            case 'zero':
+                stringNum = stringNum + 0;
                 document.getElementById("number").value = stringNum;
                 break;
             case 'add':

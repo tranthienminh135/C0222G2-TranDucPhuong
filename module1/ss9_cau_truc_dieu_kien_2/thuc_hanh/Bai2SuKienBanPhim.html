@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Police</title>
+</head>
+<body onload="eventKey()">
+<div class="container">
+    <img id="police"
+         src="https://png.pngtree.com/element_our/20190523/ourlarge/pngtree-q-version-cute-saluting-police-cartoon-design-image_1086705.jpg"
+         width="300px" style="position: absolute; left: 0px; top: 0px;"/>
+</div>
+
+<script>
+    function upPolice() {
+        let element = document.getElementById("police");
+        element.style.top = parseInt(element.style.top) - 10 + "px";
+    }
+
+    function downPolice() {
+        let element = document.getElementById("police");
+        element.style.top = parseInt(element.style.top) + 10 + "px";
+    }
+
+    function leftPolice() {
+        let element = document.getElementById("police");
+        element.style.left = parseInt(element.style.left) - 10 + "px";
+    }
+
+    function rightPolice() {
+        let element = document.getElementById("police");
+        element.style.left = parseInt(element.style.left) + 10 + "px";
+    }
+
+    function move(evt) {
+        switch (evt.keyCode) {
+            case 38:
+                upPolice();
+                break;
+            case 40:
+                downPolice();
+                break;
+            case 37:
+                leftPolice();
+                break;
+            case 39:
+                rightPolice();
+                break;
+        }
+    }
+
+    function eventKey() {
+        window.addEventListener("keydown", move);
+    }
+</script>
+</body>
+</html>

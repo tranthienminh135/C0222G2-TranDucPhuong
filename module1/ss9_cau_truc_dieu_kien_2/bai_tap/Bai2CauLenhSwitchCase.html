@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+</head>
+<body>
+<p>
+    <input type="number" id="thang" max="12">
+    <button type="submit" onclick="tinhSoNgay()">Tinh So Ngay</button>
+</p>
+<p>
+    Ket qua: <span id="thangResult"></span>
+</p>
+<script>
+    function tinhSoNgay() {
+        let thang = document.getElementById('thang').value;
+        switch (thang) {
+            case '1':
+                document.getElementById('thangResult').innerHTML = 'Thang ' + thang + " co 31 ngay!";
+                break;
+            case '2':
+                document.getElementById('thangResult').innerHTML = 'Thang ' + thang + " co 28 ngay, nam nhuan co 29 ngay!";
+                break;
+            case '3':
+                document.getElementById('thangResult').innerHTML = 'Thang ' + thang + " co 31 ngay!";
+                break;
+            case '4':
+                document.getElementById('thangResult').innerHTML = 'Thang ' + thang + " co 30 ngay!";
+                break;
+            case '5':
+                document.getElementById('thangResult').innerHTML = 'Thang ' + thang + " co 31 ngay!";
+                break;
+            case '6':
+                document.getElementById('thangResult').innerHTML = 'Thang ' + thang + " co 30 ngay!";
+                break;
+            case '7':
+                document.getElementById('thangResult').innerHTML = 'Thang ' + thang + " co 31 ngay!";
+                break;
+            case '8':
+                document.getElementById('thangResult').innerHTML = 'Thang ' + thang + " co 30 ngay!";
+                break;
+            case '9':
+                document.getElementById('thangResult').innerHTML = 'Thang ' + thang + " co 31 ngay!";
+                break;
+            case '10':
+                document.getElementById('thangResult').innerHTML = 'Thang ' + thang + " co 30 ngay!";
+                break;
+            case '11':
+                document.getElementById('thangResult').innerHTML = 'Thang ' + thang + " co 31 ngay!";
+                break;
+            case '12':
+                document.getElementById('thangResult').innerHTML = 'Thang ' + thang + " co 30 ngay!";
+                break;
+            default:
+                document.getElementById('thangResult').innerHTML = '1 nam chi co 12 thang!';
+                break;
+        }
+    }
+</script>
+</body>
+</html>
