@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    let soPhutGoi = parseInt(prompt("Nhap phut giay goi"));
+    let phiThueBao = 25000;
+
+    if (soPhutGoi >= 200) {
+        phiThueBao = phiThueBao + 50*600 + 150*400 + (soPhutGoi - 200)*200;
+        document.write('So phut goi: ' + soPhutGoi + ' phut ');
+        document.write('<br>');
+        document.write('Phi thue bao sau khi thuc hien ' + soPhutGoi + ' phut goi la: ' + phiThueBao.toLocaleString());
+    } else if (soPhutGoi >= 50) {
+        console.log(phiThueBao);
+        phiThueBao = phiThueBao + 50*600 + (soPhutGoi - 50)*400;
+        document.write('So phut goi: ' + soPhutGoi + ' phut ');
+        document.write('<br>');
+        document.write('Phi thue bao sau khi thuc hien ' + soPhutGoi + ' phut goi la: ' + phiThueBao.toLocaleString());
+    } else {
+        phiThueBao = phiThueBao + soPhutGoi*600;
+        document.write('So phut goi: ' + soPhutGoi + ' phut ');
+        document.write('<br>');
+        document.write('Phi thue bao sau khi thuc hien ' + soPhutGoi + ' phut goi la: ' + phiThueBao.toLocaleString());
+    }
+</script>
+</body>
+</html>

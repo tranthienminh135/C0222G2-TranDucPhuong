@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+        .container {
+            width: 25%;
+            margin: 0px auto;
+            border: 3px solid deeppink;
+            border-radius: 20px;
+            padding: 20px;
+            color: deeppink;
+        }
+        .button {
+            width: 35%;
+            margin: 0px auto;
+        }
+        button {
+            font-size: 15px;
+            font-weight: bold;
+            color: deeppink;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 style="text-align: center">Do You Love Me?</h1>
+    <p class="button">
+        <button type="submit" onclick="clickYes()">Yes!</button>
+        <button type="submit" onmouseover="onMouse()" id="no" style="float: right;">No!</button>
+    </p>
+</div>
+<script>
+    function clickYes() {
+        alert('Yep! I love you too.');
+    }
+    function onMouse() {
+        let width = parseInt(Math.floor(Math.random() * 1500));
+        let height = parseInt(Math.floor(Math.random() * 400));
+
+        document.getElementById("no").style.position = 'absolute';
+        document.getElementById("no").style.left = width + 'px';
+        document.getElementById("no").style.top = height + 'px';
+
+        console.log(window.innerWidth);
+    }
+</script>
+</body>
+</html>

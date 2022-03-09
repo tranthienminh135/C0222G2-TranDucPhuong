@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    let soDien = parseFloat(prompt('Nhap so dien (kWh): '));
+    let tienDien = 0;
+
+    if (soDien >= 401) {
+        tienDien = 50*1678 + 50*1734 + 100*2014 + 100*2536 + 100*2834 + (soDien - 400)*2927;
+        document.write('So kW dien la: ' + soDien + 'kWh');
+        document.write('<br>');
+        document.write('Tien dien phai tra cho ' + soDien + 'kW dien la: ' + tienDien.toLocaleString());
+    } else if (soDien >= 301) {
+        tienDien = 50*1678 + 50*1734 + 100*2014 + 100*2536 + (soDien - 300)*2834;
+        document.write('So kW dien la: ' + soDien + 'kWh');
+        document.write('<br>');
+        document.write('Tien dien phai tra cho ' + soDien + 'kW dien la: ' + tienDien.toLocaleString());
+    } else if (soDien >= 201) {
+        tienDien = 50*1678 + 50*1734 + 100*2014 + (soDien - 200)*2536;
+        document.write('So kW dien la: ' + soDien + 'kWh');
+        document.write('<br>');
+        document.write('Tien dien phai tra cho ' + soDien + 'kW dien la: ' + tienDien.toLocaleString());
+    } else if (soDien >= 101) {
+        tienDien = 50*1678 + 50*1734 + (soDien - 100)*2014;
+        document.write('So kW dien la: ' + soDien + 'kWh');
+        document.write('<br>');
+        document.write('Tien dien phai tra cho ' + soDien + 'kW dien la: ' + tienDien.toLocaleString());
+    } else if (soDien >= 51) {
+        tienDien = 50*1678 + (soDien - 50);
+        document.write('So kW dien la: ' + soDien + 'kWh');
+        document.write('<br>');
+        document.write('Tien dien phai tra cho ' + soDien + 'kW dien la: ' + tienDien.toLocaleString());
+    } else {
+        tienDien = soDien*1678;
+        document.write('So kW dien la: ' + soDien + 'kWh');
+        document.write('<br>');
+        document.write('Tien dien phai tra cho ' + soDien + 'kW dien la: ' + tienDien.toLocaleString());
+    }
+</script>
+</body>
+</html>

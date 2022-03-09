@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    let canhA = parseFloat(prompt('Nhap canh a: '));
+    let canhB = parseFloat(prompt('Nhap canh b: '));
+    let canhC = parseFloat(prompt('Nhap canh c: '));
+
+    if (canhA > 0 && canhB > 0 && canhC > 0) {
+        if (canhA + canhB > canhC) {
+            if (canhB + canhC > canhA) {
+                if (canhA + canhC > canhB) {
+                    document.write(canhA + ' ' + canhB + ' ' + canhC + ' la canh cua mot tam giac!');
+                } else {
+                    document.write(canhA + ' ' + canhB + ' ' + canhC + ' khong phai la canh cua mot tam giac!');
+                }
+            } else {
+                document.write(canhA + ' ' + canhB + ' ' + canhC + ' khong phai la canh cua mot tam giac!');
+            }
+        } else {
+            document.write(canhA + ' ' + canhB + ' ' + canhC + ' khong phai la canh cua mot tam giac!');
+        }
+    } else {
+        document.write(canhA + ' ' + canhB + ' ' + canhC + ' khong phai la canh cua mot tam giac!');
+    }
+</script>
+</body>
+</html>

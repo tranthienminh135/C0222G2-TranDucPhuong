@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    let doanhSo = parseInt(prompt("Nhap doanh thu: "));
+    let hoaHong;
+
+    if (doanhSo >= 300000000) {
+        hoaHong = doanhSo * 0.2;
+        document.write("Tong doanh so: " + doanhSo.toLocaleString());
+        document.write('<br>');
+        document.write("Chiet khau: 20%");
+        document.write('<br>');
+        document.write("Hoa hong nhan duoc: " + hoaHong.toLocaleString());
+
+    } else if (doanhSo > 100000000) {
+        hoaHong = doanhSo * 0.1;
+        document.write("Tong doanh so: " + doanhSo.toLocaleString());
+        document.write('<br>');
+        document.write("Chiet khau: 10%");
+        document.write('<br>');
+        document.write("Hoa hong nhan duoc: " + hoaHong.toLocaleString());
+    } else {
+        hoaHong = doanhSo * 0.05;
+        document.write("Tong doanh so: " + doanhSo.toLocaleString());
+        document.write('<br>');
+        document.write("Chiet khau: 5%");
+        document.write('<br>');
+        document.write("Hoa hong nhan duoc: " + hoaHong.toLocaleString());
+    }
+</script>
+</body>
+</html>

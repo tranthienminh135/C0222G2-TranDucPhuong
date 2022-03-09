@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    let thuNhap = parseFloat(prompt('Nhap so tien: '));
+    let tienThue;
+
+    if (thuNhap >= 80000000) {
+        tienThue = thuNhap * 0.35;
+        document.write('Thu nhap: ' + thuNhap.toLocaleString());
+        document.write('<br>');
+        document.write('So tien thue phai tra: ' + tienThue.toLocaleString());
+    } else if (thuNhap >= 52000000) {
+        tienThue = thuNhap * 0.3;
+        document.write('Thu nhap: ' + thuNhap.toLocaleString());
+        document.write('<br>');
+        document.write('So tien thue phai tra: ' + tienThue.toLocaleString());
+    } else if (thuNhap >= 32000000) {
+        tienThue = thuNhap * 0.25;
+        document.write('Thu nhap: ' + thuNhap.toLocaleString());
+        document.write('<br>');
+        document.write('So tien thue phai tra: ' + tienThue.toLocaleString());
+    } else if (thuNhap >= 18000000) {
+        tienThue = thuNhap * 0.2;
+        document.write('Thu nhap: ' + thuNhap.toLocaleString());
+        document.write('<br>');
+        document.write('So tien thue phai tra: ' + tienThue.toLocaleString());
+    } else if (thuNhap >= 10000000) {
+        tienThue = thuNhap * 0.15;
+        document.write('Thu nhap: ' + thuNhap.toLocaleString());
+        document.write('<br>');
+        document.write('So tien thue phai tra: ' + tienThue.toLocaleString());
+    } else if (thuNhap >= 5000000) {
+        tienThue = thuNhap * 0.1;
+        document.write('Thu nhap: ' + thuNhap.toLocaleString());
+        document.write('<br>');
+        document.write('So tien thue phai tra: ' + tienThue.toLocaleString());
+    } else {
+        document.write('Thu nhap: ' + thuNhap.toLocaleString());
+        document.write('<br>');
+        document.write('Khong phai chiu thue.');
+    }
+</script>
+</body>
+</html>
