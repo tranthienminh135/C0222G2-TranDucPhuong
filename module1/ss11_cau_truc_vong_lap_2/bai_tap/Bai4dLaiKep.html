@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    let soTienBanDau = parseFloat(prompt('Nhap so tien: '));
+    let soThangChoVay = parseFloat(prompt('Nhap so thang: '));
+    let laiSuatHangThang = parseFloat(prompt('Nhap lai suat (%): '));
+    laiSuatHangThang = laiSuatHangThang / 100;
+    let soTienLai = 0;
+
+    for (let i = 1; i <= soThangChoVay; i++) {
+        console.log(i);
+        soTienLai = soTienBanDau * laiSuatHangThang;
+        console.log('tien lai: ' + soTienLai.toLocaleString());
+        soTienBanDau = soTienBanDau + soTienLai;
+        console.log('tien ban dau: ' + soTienBanDau.toLocaleString());
+    }
+    document.write('Tien lai ' + soTienLai.toLocaleString());
+</script>
+</body>
+</html>

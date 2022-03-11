@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+</head>
+<body>
+<script>
+
+   let nhietDo;
+   let flag = true;
+
+   while ( flag !== false ) {
+       nhietDo = parseInt(prompt('Nhap nhiet do: '));
+       if (nhietDo > 100) {
+           alert('Hay giam nhiet do: ');
+       } else if (nhietDo < 20) {
+           alert('Hay tang nhiet do:')
+       } else {
+           flag === false;
+           document.write('Nhiet do hien tai: ' + nhietDo);
+           break;
+       }
+
+   }
+</script>
+</body>
+
+</html>

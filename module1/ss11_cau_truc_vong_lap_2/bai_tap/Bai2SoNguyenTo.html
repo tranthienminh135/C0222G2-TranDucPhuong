@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+</head>
+<body>
+<script>
+    for (let n = 1; n < 50; n++) {
+        let flag = true;
+
+        if (n < 2) {
+            flag = false;
+        } else if (n > 2) {
+            if (n % 2 === 0) {
+                flag = false;
+            }
+        }
+
+        for (let i = 3; i <= n - 1; i += 2) {
+            if (n % i === 0) {
+                flag = false;
+            }
+        }
+
+        if (flag === true) {
+            console.log(n);
+        }
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+</head>
+<body>
+<script>
+    let tong = 0;
+    let dem = 0;
+    let n = 10;
+    for (let i = 1; i < n; i++) {
+        if (dem < 30) {
+            if (i % 7 === 0) {
+                console.log(i);
+                tong = tong + i;
+                dem++;
+            }
+            n++;
+        }
+    }
+    console.log('Tong cua 30 so chia het cho 7: ' + tong);
+    console.log('dem: ' + dem);
+</script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+</head>
+<body>
+<script>
+    let num = 0;
+    let a = 0;
+    let b = 1;
+    let score = 0;
+    for (let i = 1; i <= 20; i++) {
+        num = a + b;
+        a = b;
+        b = num;
+        if (num % 5 === 0) {
+            score = num;
+            break;
+        }
+    }
+    console.log('So dau tien trong day fibonaci chia het cho 5 la: ' + score);
+</script>
+</body>
+
+</html>
