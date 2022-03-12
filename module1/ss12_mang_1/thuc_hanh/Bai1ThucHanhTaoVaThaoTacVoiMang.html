@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+    </style>
+</head>
+<body>
+<p>
+    <label for="enterArrayList">Enter Member: </label>
+    <input type="text" id="enterArray">
+</p>
+<p>
+    <button type="submit" onclick="addArray()">Add</button>
+    <button type="submit" onclick="displayArray()">Display</button>
+</p>
+<p>
+    Your list Member: <span id="displayArray"></span>
+</p>
+<script>
+    let i = 0;
+    let myArray = Array();
+
+    function addArray() {
+        if (document.getElementById("enterArray").value !== '') {
+            myArray[i] = document.getElementById("enterArray").value;
+            i++;
+        } else {
+            alert('Enter Member!');
+        }
+        console.log(myArray);
+        document.getElementById("enterArray").value = '';
+    }
+
+    function displayArray() {
+        let array = '';
+        for (let i = 0; i < myArray.length; i++) {
+                array += myArray[i];
+        }
+        document.getElementById("displayArray").innerHTML = array;
+    }
+
+</script>
+</body>
+
+</html>

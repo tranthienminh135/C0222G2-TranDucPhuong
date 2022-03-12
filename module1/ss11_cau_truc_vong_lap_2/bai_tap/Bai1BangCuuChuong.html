@@ -6,19 +6,17 @@
 </head>
 <body>
 <script>
-    document.write('<table border="1">');
+    let table = '<table border="1">';
 
-    for (let i = 2; i < 10; i++) {
-        document.write('<tr>');
-        for (let j = 1; j <= 10; j++) {
-            document.write('<td>');
-            document.write(i + ' * ' + j + ' = ' + (i * j));
-            document.write('</td>');
+    for (let i = 1; i < 10; i++) {
+        table += '<tr>';
+        for (let j = 2; j <= 10; j++) {
+            table += '<td>' + j + '*' + i + '=' + (i * j) + '</td>';
         }
-        document.write('</tr>');
+        table += '</tr>';
     }
-
-    document.write('</tabel>');
+    table += '</tabel>';
+    document.write(table);
 </script>
 </body>
 

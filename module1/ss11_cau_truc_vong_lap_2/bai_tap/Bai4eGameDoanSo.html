@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+        .choice {
+            font-size: 20px;
+            font-weight: bold;
+            width: 120px;
+            margin: 0px auto;
+        }
+        .container {
+            width: 300px;
+            margin: 0px auto;
+            position: relative;
+        }
+
+        .number {
+            width: 100px;
+            position: absolute;
+            left: 100px;
+            top: 50px;
+            text-align: center;
+        }
+
+        .number span {
+            width: 78%;
+            display: block;
+            border: 1px solid black;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .button {
+            position: absolute;
+            top: 300px;
+            left: 80px;
+        }
+    </style>
+</head>
+<body>
+<p>
+    <h1 style="text-align: center">Ai là ông hoàng đọc lệnh?</h1>
+    <h3 style="text-align: center">Lựa chọn của bạn?</h3>
+</p>
+<p class="choice">
+    <label for="tai">Tài</label>
+    <input type="checkbox" id="tai" onclick="checkBoxTai()">
+    <label for="">Xỉu</label>
+    <input type="checkbox" id="xiu" onclick="checkBoxXiu()">
+    <p id="checkTrueFalse" style="text-align: center; font-size: 20px"></p>
+</p>
+
+<div class="container">
+
+    <p>
+    <div class="number">
+        <input id="a" style="width: 50px; height: 50px; font-weight: bold; font-size: 20px; text-align: center" readonly>
+        <input id="b" style="width: 50px; height: 50px; font-weight: bold; font-size: 20px; text-align: center" readonly>
+        <input id="c" style="width: 50px; height: 50px; font-weight: bold; font-size: 20px; text-align: center" readonly>
+        <h4 id="result">Result</h4>
+
+    </div>
+    <div class="img">
+        <img src="https://e7.pngegg.com/pngimages/986/697/png-clipart-platter-plate-tableware-plate-plate-lunch-dinnerware-set.png" width="350px" id="img" style="position: absolute"/>
+    </div>
+    <div class="button">
+        <p>
+            <button type="submit" onclick="start()">Start</button>
+            <button type="reset" onclick="reset()">Reset</button>
+            <button type="submit" onclick="showResult()">Open</button>
+        </p>
+    </div>
+    </p>
+
+</div>
+
+<script>
+    function start() {
+        let a = parseInt((Math.random() * 6) + 3);
+        let b = parseInt((Math.random() * 6) + 1);
+        let c = parseInt((Math.random() * 6) + 1);
+
+        let sum = a + b + c;
+        if (sum >= 11) {
+            document.getElementById("result").innerText = sum + ' diem = Tai';
+            document.getElementById("a").value = a;
+            document.getElementById("b").value = b;
+            document.getElementById("c").value = c;
+        } else {
+            document.getElementById("result").innerText = sum + ' diem = Xiu';
+            document.getElementById("a").value = a;
+            document.getElementById("b").value = b;
+            document.getElementById("c").value = c;
+        }
+    }
+
+    function reset() {
+        let a = 0;
+        let b = 0;
+        let c = 0;
+
+        let sum = a + b + c;
+
+        document.getElementById("a").innerText = a;
+        document.getElementById("b").innerText = b;
+        document.getElementById("c").innerText = c;
+        document.getElementById("result").innerText = '0 diem';
+
+        document.getElementById("img").style.left = 0 + 'px';
+
+        document.getElementById("tai").checked = false;
+        document.getElementById("xiu").checked = false;
+        document.getElementById("checkTrueFalse").innerText = " ";
+
+    }
+
+    function showResult() {
+        document.getElementById("img").style.left = 300 + 'px';
+        let a = parseInt(document.getElementById("a").value);
+        let b = parseInt(document.getElementById("b").value);
+        let c = parseInt(document.getElementById("c").value);
+        let flag = false;
+
+        let sum = parseInt(a + b + c);
+
+        if (document.getElementById("tai").checked === true) {
+            console.log(document.getElementById("tai").checked);
+            console.log(sum)
+            if (sum >= 11) {
+                flag === true;
+                document.getElementById("checkTrueFalse").innerText = "Đúng";
+            } else {
+                flag === false
+                document.getElementById("checkTrueFalse").innerText = "Sai";
+            }
+        } else if (document.getElementById("xiu").checked === true) {
+            console.log(document.getElementById("xiu").checked);
+            if (sum < 11) {
+                flag === true;
+                document.getElementById("checkTrueFalse").innerText = "Đúng";
+            } else {
+                flag === false;
+                document.getElementById("checkTrueFalse").innerText = "Sai";
+            }
+        }
+    }
+    function checkBoxTai() {
+        if (document.getElementById("xiu").checked === true) {
+            document.getElementById("xiu").checked = false;
+        } else {
+            document.getElementById("tai").checked = true;
+        }
+    }
+    function checkBoxXiu() {
+        if (document.getElementById("tai").checked === true) {
+            document.getElementById("tai").checked = false;
+        } else {
+            document.getElementById("xiu").checked = true;
+        }
+    }
+</script>
+</body>
+
+</html>
