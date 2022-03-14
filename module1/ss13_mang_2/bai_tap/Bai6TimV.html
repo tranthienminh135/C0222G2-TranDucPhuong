@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt('Nhap so luong phan tu: '));
+    let myArray = Array(n);
+    let flag = true;
+
+
+    for (i = 0; i < n; i++) {
+        myArray[i] = prompt("Nhap phan tu o vi tri thu  " + i + " : ");
+    }
+
+    let v = parseInt(prompt("Nhap vao so muon tim: "));
+
+    for (let i = 0; i < myArray.length; i++) {
+        if (myArray[i] == v) {
+            flag = true;
+            break;
+        } else {
+            flag = false;
+        }
+    }
+    if (flag === true) {
+        console.log("V is in the array");
+    } else {
+        console.log("V is NOT in the array");
+    }
+</script>
+</body>
+
+</html>

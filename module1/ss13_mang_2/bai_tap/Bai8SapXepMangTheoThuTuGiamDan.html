@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt('Nhap so luong phan tu: '));
+    let myArray = Array(n);
+
+
+    for (i = 0; i < n; i++) {
+        myArray[i] = prompt("Nhap phan tu o vi tri thu  " + i + " : ");
+    }
+
+    myArray.sort(function (a, b) {
+        return b - a;
+    })
+
+    console.log(myArray);
+</script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+    </style>
+</head>
+<body>
+<h3>Caro Game Simple</h3>
+<p id="carogame"></p>
+
+<input type="button" value="Change Value" onclick="changeValue()">
+<script>
+    let width = parseInt(prompt("Nhap chieu rong ban co: "));
+    let myArray = new Array(width);
+
+    for (i = 0; i < width; i++) {
+        myArray[i] = new Array(width);
+    }
+    for (let i = 0; i < myArray.length; i++) {
+        for (let j = 0; j < myArray[i].length; j++) {
+            myArray[i][j] = 0;
+        }
+    }
+
+    let arrayTable = '<table border="1" cellpadding="5px">';
+    for (let i = 0; i < myArray.length; i++) {
+        arrayTable += '<tr>';
+        for (let j = 0; j < myArray[i].length; j++) {
+            arrayTable += '<td>' + myArray[i][j] + '</td>';
+        }
+        arrayTable += '</tr>';
+
+    }
+    arrayTable += '<table border="1">';
+    document.getElementById('carogame').innerHTML = arrayTable;
+
+    function changeValue() {
+        let positionX = parseInt(prompt("Nhap x: "));
+        let positionY = parseInt(prompt("Nhap y: "));
+
+        myArray[positionX][positionY] = 'x';
+
+        let arrayTable = '<table border="1" cellpadding="5px">';
+        for (let i = 0; i < myArray.length; i++) {
+            arrayTable += '<tr>';
+            for (let j = 0; j < myArray[i].length; j++) {
+                arrayTable += '<td>' + myArray[i][j] + '</td>';
+            }
+            arrayTable += '</tr>';
+
+        }
+        arrayTable += '<table border="1">';
+        document.getElementById('carogame').innerHTML = arrayTable;
+
+    }
+</script>
+</body>
+
+</html>

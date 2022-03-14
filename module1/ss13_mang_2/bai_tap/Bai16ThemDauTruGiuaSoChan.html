@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    let myArray = [1, 2, 4, 5, 5, 6, 2, 3, 9, 10, 8, 13];
+    for (let i = 0; i < myArray.length; i++) {
+        if (myArray[i] % 2 === 0 && myArray[i+1] % 2 === 0) {
+            myArray.splice((i+1), 0, "-");
+        }
+    }
+    console.log(myArray.join(" "));
+</script>
+</body>
+
+</html>

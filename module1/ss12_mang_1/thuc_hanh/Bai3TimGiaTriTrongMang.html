@@ -8,15 +8,36 @@
 </head>
 <body>
 <script>
-    let myArray = [-3, 5, 1, 3, 2, 10];
+    let myArray = [4, 5, 6, 7, 8, 9];
     let value = parseInt(prompt('Nhap gia tri can tim: '));
+    let flag = true;
 
+    //Cach 1: su dung method every
+    // let isNotFound = myArray.every(function (array) {
+    //     return array !== value;
+    // })
+
+    //Cach 2: cam co
     for (i = 0; i < myArray.length; i++) {
-        if (value == myArray[i]) {
+        if (myArray[i] == value) {
+            flag = true;
+            break;
+        } else {
+            flag = false;
+        }
+    }
+
+    console.log(flag);
+    for (i = 0; i < myArray.length; i++) {
+        if (flag === false) {
+            console.log("Khong co gia tri nao bang: " + value + " trong mang!");
+            break;
+        } else if (value == myArray[i]) {
             console.log('Gia tri ' + value + ' o vi tri thu ' + i);
             break;
         }
     }
+
 </script>
 </body>
 

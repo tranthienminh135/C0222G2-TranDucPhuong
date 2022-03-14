@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    let myArray = ["c", "s", 3, "2", 6, "1", 53, "asd", 5];
+    let count = 0;
+
+    for (let i = 0; i < myArray.length; i++) {
+        if ((typeof myArray[i]) == "number") {
+            count++;
+        }
+    }
+    console.log("So luong ky tu so trong mang la: " + count);
+</script>
+</body>
+
+</html>
