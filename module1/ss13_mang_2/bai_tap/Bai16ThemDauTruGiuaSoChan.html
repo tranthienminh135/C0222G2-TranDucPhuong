@@ -8,13 +8,13 @@
 </head>
 <body>
 <script>
-    let myArray = [1, 2, 4, 5, 5, 6, 2, 3, 9, 10, 8, 13];
-    for (let i = 0; i < myArray.length; i++) {
-        if (myArray[i] % 2 === 0 && myArray[i+1] % 2 === 0) {
-            myArray.splice((i+1), 0, "-");
+    let myString = String(prompt("Nhap vao so: "));
+    for (let i = 0; i < myString.length-1; i++) {
+        if (parseInt(myString.charAt(i)) % 2 === 0 && myString.charAt(i + 1) % 2 === 0) {
+            myString = myString.slice(0, i + 1) + "-" + myString.slice(i + 1);
         }
     }
-    console.log(myArray.join(" "));
+    console.log(myString);
 </script>
 </body>
 

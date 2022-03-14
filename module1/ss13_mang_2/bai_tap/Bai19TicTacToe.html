@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS</title>
+    <style>
+        .container {
+            width: 400px;
+            margin: 0px auto;
+        }
+
+        .button {
+            width: 35%;
+            margin: 0px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 style="text-align: center">Caro Game Simple</h2>
+    <p id="carogame"></p>
+    <div class="button">
+        <input type="button" value="Player A" onclick="changeValueA()">
+        <input type="button" value="Player B" onclick="changeValueB()">
+    </div>
+
+</div>
+
+<script>
+    let width = 8;
+    let myArray = new Array(width);
+
+    for (i = 0; i < width; i++) {
+        myArray[i] = new Array(width);
+    }
+    for (let i = 0; i < myArray.length; i++) {
+        for (let j = 0; j < myArray[i].length; j++) {
+            myArray[i][j] = ".";
+        }
+    }
+
+    let arrayTable = '<table border="1" cellpadding="5px">';
+    for (let i = 0; i < myArray.length; i++) {
+        arrayTable += '<tr>';
+        for (let j = 0; j < myArray[i].length; j++) {
+            arrayTable += '<td style="padding: 20px;">' + myArray[i][j] + '<input type="hidden" id="aBox">' + '</td>';
+        }
+        arrayTable += '</tr>';
+
+    }
+    arrayTable += '<table border="1">';
+    document.getElementById('carogame').innerHTML = arrayTable;
+
+    function changeValueA() {
+        let positionX = parseInt(prompt("Nhap x: "));
+        let positionY = parseInt(prompt("Nhap y: "));
+
+        if (myArray[positionX][positionY] !== 'o') {
+            myArray[positionX][positionY] = 'x';
+        } else {
+            alert('Vi tri da ton tai');
+        }
+
+        let arrayTable = '<table border="1" cellpadding="5px">';
+        for (let i = 0; i < myArray.length; i++) {
+
+            arrayTable += '<tr>';
+            for (let j = 0; j < myArray[i].length; j++) {
+
+                arrayTable += '<td style="padding: 20px;">' + myArray[i][j] + '</td>';
+            }
+            arrayTable += '</tr>';
+
+        }
+        arrayTable += '<table border="1">';
+        document.getElementById('carogame').innerHTML = arrayTable;
+        checkA();
+    }
+
+    function changeValueB() {
+        let positionX = parseInt(prompt("Nhap x: "));
+        let positionY = parseInt(prompt("Nhap y: "));
+
+        if (myArray[positionX][positionY] !== 'x') {
+            myArray[positionX][positionY] = 'o';
+        } else {
+            alert('Vi tri da ton tai');
+        }
+
+
+        let arrayTable = '<table border="1" cellpadding="5px">';
+        for (let i = 0; i < myArray.length; i++) {
+            arrayTable += '<tr>';
+            for (let j = 0; j < myArray[i].length; j++) {
+                arrayTable += '<td style="padding: 20px;">' + myArray[i][j] + '</td>';
+            }
+            arrayTable += '</tr>';
+
+        }
+        arrayTable += '<table border="1">';
+        document.getElementById('carogame').innerHTML = arrayTable;
+        checkB();
+    }
+
+    function checkA() {
+        for (let i = 0; i < myArray.length; i++) {
+            for (let j = 0; j < myArray[i].length; j++) {
+                if (myArray[i][j] === 'x' && myArray[i - 1][j] === 'x' && myArray[i - 2][j] === 'x') {
+                    alert("A win");
+                }
+                if (myArray[i][j] === 'x' && myArray[i][j + 1] === 'x' && myArray[i][j + 2] === 'x') {
+                    alert("A win")
+                }
+            }
+
+        }
+    }
+
+    function checkB() {
+        for (let i = 0; i < myArray.length; i++) {
+            for (let j = 0; j < myArray[i].length; j++) {
+                if (myArray[i][j] === 'o' && myArray[i - 1][j] === 'o' && myArray[i - 2][j] === 'o') {
+                    alert("B win");
+                }
+                if (myArray[i][j] === 'o' && myArray[i][j + 1] === 'o' && myArray[i][j + 2] === 'o') {
+                    alert("B win")
+                }
+            }
+
+        }
+    }
+
+    console.log(document.getElementById("aBox").value);
+</script>
+</body>
+
+</html>
