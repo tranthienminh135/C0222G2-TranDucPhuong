@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <title>JS</title>
     <style>
+        body {
+            box-sizing: border-box;
+        }
         .container {
             width: 400px;
-            margin: 0px auto;
-        }
-
-        .button {
-            width: 35%;
             margin: 0px auto;
         }
     </style>
@@ -18,119 +16,105 @@
 <body>
 <div class="container">
     <h2 style="text-align: center">Caro Game Simple</h2>
-    <p id="carogame"></p>
-    <div class="button">
-        <input type="button" value="Player A" onclick="changeValueA()">
-        <input type="button" value="Player B" onclick="changeValueB()">
-    </div>
-
+    <p id="caroTable"></p>
 </div>
 
 <script>
-    let width = 8;
-    let myArray = new Array(width);
+    let width = 10;
+    let widthCaroTable = width - 2;
 
-    for (i = 0; i < width; i++) {
+    let myArray = new Array(width);
+    for (let i = 0; i < width; i++) {
         myArray[i] = new Array(width);
     }
     for (let i = 0; i < myArray.length; i++) {
         for (let j = 0; j < myArray[i].length; j++) {
-            myArray[i][j] = ".";
+            myArray[i][j] = "";
         }
     }
+    displayCaroTable();
 
-    let arrayTable = '<table border="1" cellpadding="5px">';
-    for (let i = 0; i < myArray.length; i++) {
-        arrayTable += '<tr>';
-        for (let j = 0; j < myArray[i].length; j++) {
-            arrayTable += '<td style="padding: 20px;">' + myArray[i][j] + '<input type="hidden" id="aBox">' + '</td>';
-        }
-        arrayTable += '</tr>';
+    // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    }
-    arrayTable += '<table border="1">';
-    document.getElementById('carogame').innerHTML = arrayTable;
-
-    function changeValueA() {
-        let positionX = parseInt(prompt("Nhap x: "));
-        let positionY = parseInt(prompt("Nhap y: "));
-
-        if (myArray[positionX][positionY] !== 'o') {
-            myArray[positionX][positionY] = 'x';
-        } else {
-            alert('Vi tri da ton tai');
-        }
-
-        let arrayTable = '<table border="1" cellpadding="5px">';
-        for (let i = 0; i < myArray.length; i++) {
-
+    //In ban co Caro
+    function displayCaroTable() {
+        let arrayTable = '<table border="1">';
+        for (let i = 0; i < widthCaroTable; i++) {
             arrayTable += '<tr>';
-            for (let j = 0; j < myArray[i].length; j++) {
-
-                arrayTable += '<td style="padding: 20px;">' + myArray[i][j] + '</td>';
+            for (let j = 0; j < widthCaroTable; j++) {
+                arrayTable += '<td onclick="changeValue(' + i + ',' + j + ')" style="text-align: center; font-size: 20px; font-weight: bold; width: 50px; height: 50px;">' + myArray[i][j] + '</td>';
             }
             arrayTable += '</tr>';
-
         }
-        arrayTable += '<table border="1">';
-        document.getElementById('carogame').innerHTML = arrayTable;
-        checkA();
+        arrayTable += '</table>';
+        document.getElementById('caroTable').innerHTML = arrayTable;
     }
 
-    function changeValueB() {
-        let positionX = parseInt(prompt("Nhap x: "));
-        let positionY = parseInt(prompt("Nhap y: "));
+    //Danh x, o
+    let checkPlayer = true;
+    function changeValue(i, j) {
+        if (checkPlayer && !checkNotFound(i, j)) {
+            myArray[i][j] = "x";
+            checkPlayer = false;
+            if (checkPlayerWin()) {
+                alert("Player A win!");
+            }
+        } else if (!checkPlayer && !checkNotFound(i, j)) {
+            myArray[i][j] = "o";
+            checkPlayer = true;
+            if (checkPlayerWin()) {
+                alert("Player B win!");
+            }
+        }
 
-        if (myArray[positionX][positionY] !== 'x') {
-            myArray[positionX][positionY] = 'o';
+        displayCaroTable();
+    }
+
+    //Kiem tra xem vi tri hien tai da co ton tai gia tri chua
+    function checkNotFound(i, j) {
+        if (myArray[i][j] !== "") {
+            alert("Vi tri da ton tai!");
+            return true;
         } else {
-            alert('Vi tri da ton tai');
-        }
-
-
-        let arrayTable = '<table border="1" cellpadding="5px">';
-        for (let i = 0; i < myArray.length; i++) {
-            arrayTable += '<tr>';
-            for (let j = 0; j < myArray[i].length; j++) {
-                arrayTable += '<td style="padding: 20px;">' + myArray[i][j] + '</td>';
-            }
-            arrayTable += '</tr>';
-
-        }
-        arrayTable += '<table border="1">';
-        document.getElementById('carogame').innerHTML = arrayTable;
-        checkB();
-    }
-
-    function checkA() {
-        for (let i = 0; i < myArray.length; i++) {
-            for (let j = 0; j < myArray[i].length; j++) {
-                if (myArray[i][j] === 'x' && myArray[i - 1][j] === 'x' && myArray[i - 2][j] === 'x') {
-                    alert("A win");
-                }
-                if (myArray[i][j] === 'x' && myArray[i][j + 1] === 'x' && myArray[i][j + 2] === 'x') {
-                    alert("A win")
-                }
-            }
-
+            return false;
         }
     }
-
-    function checkB() {
+    //Kiem tra xem player nao win
+    function checkPlayerWin() {
         for (let i = 0; i < myArray.length; i++) {
             for (let j = 0; j < myArray[i].length; j++) {
-                if (myArray[i][j] === 'o' && myArray[i - 1][j] === 'o' && myArray[i - 2][j] === 'o') {
-                    alert("B win");
+                if (myArray[i][j] === "x") {
+                    if (myArray[i][j + 1] === "x" && myArray[i][j + 2] === "x") {
+                        return true;
+                    }
+                    if (myArray[i + 1][j] === "x" && myArray[i + 2][j] === "x") {
+                        return true;
+                    }
+                    if (myArray[i + 1][j + 1] === "x" && myArray[i + 2][j + 2] === "x") {
+                        return true;
+                    }
+                    if (myArray[i + 1][j - 1] === "x" && myArray[i + 2][j - 2] === "x") {
+                        return true;
+                    }
                 }
-                if (myArray[i][j] === 'o' && myArray[i][j + 1] === 'o' && myArray[i][j + 2] === 'o') {
-                    alert("B win")
+                if (myArray[i][j] === "o") {
+                    if (myArray[i][j + 1] === "o" && myArray[i][j + 2] === "o") {
+                        return true;
+                    }
+                    if (myArray[i + 1][j] === "o" && myArray[i + 2][j] === "o") {
+                        return true;
+                    }
+                    if (myArray[i + 1][j + 1] === "o" && myArray[i + 2][j + 2] === "o") {
+                        return true;
+                    }
+                    if (myArray[i + 1][j - 1] === "o" && myArray[i + 2][j - 2] === "o") {
+                        return true;
+                    }
                 }
             }
-
         }
     }
 
-    console.log(document.getElementById("aBox").value);
 </script>
 </body>
 

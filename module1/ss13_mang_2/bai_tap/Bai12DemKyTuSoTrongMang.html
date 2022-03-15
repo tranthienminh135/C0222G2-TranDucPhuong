@@ -8,11 +8,14 @@
 </head>
 <body>
 <script>
-    let myArray = ["c", "s", 3, "2", 6, "1", 53, "asd", 5];
+    let myArray = ["c", "s", "3", "2", "53", "as99d", "7v7v8"];
     let count = 0;
 
+
+    myArray = myArray.join("");
+
     for (let i = 0; i < myArray.length; i++) {
-        if ((typeof myArray[i]) == "number") {
+        if ( !isNaN(Number(myArray.charAt(i))) ) {
             count++;
         }
     }
