@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="findStar(prompt('Nhap ten ngoi sao muon tim'))">
+<script>
+    let starArray = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe ", "Regulus"];
+    let starArray2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major ", "Leo"];
+    
+    function findStar(star) {
+        let flag = true;
+
+        for (let i = 0; i < starArray.length ; i++) {
+            if (starArray[i] === star) {
+                flag = true;
+                break;
+            } else {
+                flag = false;
+            }
+        }
+
+        if (flag === true) {
+            for (let i = 0; i < starArray.length ; i++) {
+                if (starArray[i] === star) {
+                    document.write("Ten chom sao cua ngoi sao " + star + " la: " + starArray2[i]);
+                    break;
+                }
+            }
+        } else {
+            document.write("Khong con ngoi sao: " + star);
+        }
+    }
+</script>
+</body>
+</html>

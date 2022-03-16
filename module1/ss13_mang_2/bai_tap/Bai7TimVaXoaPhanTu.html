@@ -19,6 +19,8 @@
 
     let v = prompt("Nhap vao so muon tim: ");
 
+    console.log(myArray);
+
     for (let i = 0; i < myArray.length; i++) {
         if (myArray[i] == v) {
             flag = true;
@@ -30,8 +32,9 @@
     for (let i = 0; i < myArray.length; i++) {
         if (flag == true) {
             if (myArray[i] == v) {
-                myArray.splice(i,1);
+                myArray.splice(i, 1);
                 myArray.push(0);
+                i--;
             }
         } else {
 

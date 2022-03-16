@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function areaCircle(radius) {
+        return Math.PI * Math.pow(radius, 2);
+    }
+
+    function circumCircle(radius) {
+        return 2 * Math.PI * radius;
+    }
+
+    let radius = Number(prompt("Enter radius: "));
+    console.log("Area Circle: " + areaCircle(radius));
+    console.log("Circumference of a circle: " + circumCircle(radius));
+</script>
+</body>
+</html>

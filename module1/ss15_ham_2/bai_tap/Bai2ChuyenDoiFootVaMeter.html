@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+<h1>Move between feet and met</h1>
+</p>
+<p>
+    <label for="foot">Foot: </label>
+    <input type="text" id="foot" onchange="changeFootToMeter(this.value)" oninput="changeFootToMeter(this.value)">
+</p>
+<p>
+    <label for="meter">Meter: </label>
+    <input type="text" id="meter" onchange="changeMeterToFoot(this.value)" oninput="changeMeterToFoot(this.value)">
+</p>
+<script>
+    function changeFootToMeter(numberFoot) {
+        numberFoot = Number(numberFoot);
+
+        if (isNaN(numberFoot)) {
+            return document.getElementById("meter").value = "Vui lòng nhập vào giá trị số.";
+        } else {
+            return document.getElementById("meter").value = (numberFoot * 0.305);
+        }
+
+    }
+
+    function changeMeterToFoot(numberMeter) {
+
+        if (isNaN(numberMeter)) {
+            return document.getElementById("foot").value = "Vui lòng nhập vào giá trị số.";
+        } else {
+            return document.getElementById("foot").value = (numberMeter * 3.279);
+        }
+
+    }
+</script>
+</body>
+</html>

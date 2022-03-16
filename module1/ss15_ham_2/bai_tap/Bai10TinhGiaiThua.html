@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function factorialNumber(factorial) {
+        let length = factorial;
+        for (let i = 1; i < length; i++) {
+            factorial = factorial * i;
+        }
+        return factorial;
+    }
+
+    console.log(factorialNumber(Number(prompt("Enter number: "))));
+</script>
+</body>
+</html>

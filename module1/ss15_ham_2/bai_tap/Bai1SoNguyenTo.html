@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <label for="enterPrime">Enter Prime: </label>
+    <input type="text" id="enterPrime" onchange="isPrime(this.value)" oninput="isPrime(this.value)">
+</p>
+<p id="result">
+
+</p>
+<script>
+    function isPrime(number) {
+        let flag = true;
+        number = Number(number);
+
+        if (isNaN(number)) {
+            return document.getElementById("result").innerHTML = "Vui lòng nhập vào giá trị số.";
+        } else {
+            if (number < 2) {
+                flag = false;
+            } else if (number >= 2) {
+                if (number === 2) {
+                    flag = true;
+                } else if (number >= 3) {
+                    if (number === 3) {
+                        flag = true;
+                    } else if (number > 3) {
+                        if (number % 2 === 0) {
+                            flag = false;
+                        } else if (number % 3 === 0) {
+                            flag = false;
+                        } else {
+                            flag = true;
+                        }
+                    }
+                }
+            }
+        }
+        if (number === 0) {
+            return document.getElementById("result").innerHTML = "Hãy nhập giá trị.";
+        } else if (flag === false) {
+            return document.getElementById("result").innerHTML = "Số " + number + " không phải là số nguyên tố đâu!";
+        } else if (flag === true) {
+            return document.getElementById("result").innerHTML = "Số " + number + " là số nguyên tố!";
+        }
+    }
+</script>
+</body>
+</html>

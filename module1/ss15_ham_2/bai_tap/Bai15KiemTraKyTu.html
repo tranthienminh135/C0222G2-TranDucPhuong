@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkArray(myArray, char) {
+        let count = 0;
+        let flag = true;
+
+        for (let i = 0; i < myArray.length ; i++) {
+            if (char === myArray[i]) {
+                flag = true;
+                break;
+            }
+            flag = false;
+        }
+
+        if (flag === true) {
+            for (let i = 0; i < myArray.length ; i++) {
+                if (char === myArray[i]) {
+                    count++;
+                }
+            }
+            return count;
+        } else {
+            return -1;
+        }
+    }
+
+    let myArray = ["t", "a", "i", "n", "g", "a", "o", "d", "a"];
+
+    console.log("Result: " + checkArray(myArray, prompt("Nhap ky tu: ")));
+</script>
+</body>
+</html>

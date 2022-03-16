@@ -9,14 +9,15 @@
 <body>
 <script>
     let n = parseInt(prompt('Nhap so luong phan tu: '));
-    let myArray = Array(n);
-    let flag = true;
 
+    let myArray = Array(n);
 
     for (i = 0; i < n; i++) {
         myArray[i] = prompt("Nhap phan tu o vi tri thu  " + i + " : ");
     }
 
+
+    let flag = true;
     let v = parseInt(prompt("Nhap vao so muon tim: "));
 
     for (let i = 0; i < myArray.length; i++) {
