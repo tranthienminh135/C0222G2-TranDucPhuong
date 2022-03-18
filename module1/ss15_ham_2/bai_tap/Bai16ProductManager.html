@@ -140,11 +140,19 @@
     }
 
     function deleteProduct(index) {
-        myProduct.splice(index, 1);
-        document.getElementById("alertDeleteProduct").className = "alert alert-success";
-        document.getElementById("alertDeleteProduct").style.display = "block";
-        document.getElementById("alertDeleteProduct").innerHTML = "Delete product success!";
-        displayProduct(myProduct);
+        let choice = confirm("Do you want delele product: " + myProduct[index] + " ?");
+        console.log(choice);
+        if (choice === true) {
+            myProduct.splice(index, 1);
+            document.getElementById("alertDeleteProduct").className = "alert alert-success";
+            document.getElementById("alertDeleteProduct").style.display = "block";
+            document.getElementById("alertDeleteProduct").innerHTML = "Delete product success!";
+            displayProduct(myProduct);
+        } else {
+            document.getElementById("alertDeleteProduct").className = "alert alert-warning";
+            document.getElementById("alertDeleteProduct").style.display = "block";
+            document.getElementById("alertDeleteProduct").innerHTML = "Delete denied!";
+        }
     }
 
     function loadProductForEdit(index) {

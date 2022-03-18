@@ -34,18 +34,19 @@
             this.height = height;
         }
     }
-    let rectangle = new Rectangle(300, 200);
+    let width = parseInt(prompt("Enter Width: "));
+    let height = parseInt(prompt("Enter Height: "));
 
-    let width = Number(rectangle.getWidth());
-    let height = Number(rectangle.getHeight());
+    let rectangle = new Rectangle(width, height);
 
-    let area = rectangle.area(width, height);
-    let peri = rectangle.perimeter(width, height);
-    console.log("Area: " + area);
-    console.log("Perimeter: " + peri);
+    let area = rectangle.area(rectangle.getWidth(), rectangle.getHeight());
+    let peri = rectangle.perimeter(rectangle.getWidth(), rectangle.getHeight());
+
+    console.log("Area: " + area.toLocaleString());
+    console.log("Perimeter: " + peri.toLocaleString());
 
     let myCanvas = document.getElementById("myCanvas");
     let contex = myCanvas.getContext("2d");
     contex.fillStyle = "aqua";
-    contex.fillRect(0, 0, width, height);
+    contex.fillRect(0, 0, rectangle.getWidth(), rectangle.getHeight());
 </script>
