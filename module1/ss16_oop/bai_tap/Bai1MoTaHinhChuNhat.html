@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;">
+</body>
+</html>
+<script>
+    class Rectangle{
+        constructor(width, height) {
+            this.width = width;
+            this.height = height;
+        }
+
+        area(width, height) {
+            return width * height;
+        }
+        perimeter(width, height) {
+            return (width + height) * 2;
+        }
+        getWidth() {
+            return this.width;
+        }
+        setWidth(width) {
+            this.width = width;
+        }
+        getHeight() {
+            return this.height;
+        }
+        setHeight(height) {
+            this.height = height;
+        }
+    }
+    let rectangle = new Rectangle(300, 200);
+
+    let width = Number(rectangle.getWidth());
+    let height = Number(rectangle.getHeight());
+
+    let area = rectangle.area(width, height);
+    let peri = rectangle.perimeter(width, height);
+    console.log("Area: " + area);
+    console.log("Perimeter: " + peri);
+
+    let myCanvas = document.getElementById("myCanvas");
+    let contex = myCanvas.getContext("2d");
+    contex.fillStyle = "aqua";
+    contex.fillRect(0, 0, width, height);
+</script>

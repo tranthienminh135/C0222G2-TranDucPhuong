@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;">
+</body>
+</html>
+<script>
+    class Temperature {
+        constructor(celsius) {
+            this.celsius = celsius;
+        }
+
+        getCelsius() {
+            return this.celsius;
+        }
+        setCelsius(celsius) {
+            this.celsius = celsius;
+        }
+        celsiusToTahrenheit(celsius) {
+            return celsius * 9 / 5 + 32;
+        }
+        celsiusToKelvin(celsius) {
+            return celsius + 273.15;
+        }
+    }
+
+    let tem = new Temperature(25);
+
+    let c = tem.getCelsius();
+    console.log("Celsius: " + c);
+
+    let k = tem.celsiusToKelvin(c);
+    console.log("Kelvin: " + k);
+
+    let f = tem.celsiusToTahrenheit(c);
+    console.log("Tahrenheit: " + f);
+</script>

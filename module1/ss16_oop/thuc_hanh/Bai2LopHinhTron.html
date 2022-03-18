@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    let Circle = function (radius, color) {
+        this.radius = radius;
+        this.color = color;
+        this.area = function () {
+            return Math.PI * radius * 2;
+        }
+    }
+    let circle = new Circle(2, "red");
+    console.log("Mau sac: " + circle.color);
+    console.log("Ban kinh: " + circle.area());
+    console.log("Dien tich: " + circle.radius);
+</script>

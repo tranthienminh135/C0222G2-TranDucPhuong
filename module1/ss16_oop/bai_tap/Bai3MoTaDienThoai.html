@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<!--Container Nokia-->
+<div class="container">
+    <p>
+        <label for="">Nokia </label>
+        <button type="submit" onclick="power(nokia)" class="btn btn-success">Power</button>
+        <button type="submit" onclick="charge(nokia)" class="btn btn-success">Charge</button>
+    </p>
+    <div id="displayNokia" style="display: none">
+        <p>
+        <div id="batteryNokia"></div>
+        <button type="submit" onclick="checkBaterry(nokia)" class="btn btn-success" data-toggle="modal"
+                data-target="#myModalNokia" id="buttonMessage">Message
+        </button>
+        <button type="submit" onclick="displayMessageSent(nokia)" class="btn btn-success" data-toggle="modal"
+                data-target="#myModalMessageSentNokia">Message Sent
+        </button>
+        <button type="submit" onclick="displayMessageRecived(nokia)" class="btn btn-success" data-toggle="modal"
+                data-target="#myModalMessageRecivedNokia">Message Recived
+        </button>
+        </p>
+    </div>
+    <div class="alert alert-warning" id="alertDisplayNokia" style="display: none;"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalNokia" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Message</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea class="form-control" rows="5" id="messageNokia"></textarea>
+                    </div>
+                    <div class="alert alert-success" id="alertMessageNokia" style="display: none;"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="sendMessage(nokia)" id="buttonEditSuccess">
+                        Send
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Message Sent-->
+    <div class="modal fade" id="myModalMessageSentNokia" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Message</h2>
+                </div>
+                <div id="messageSentNokia"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Message Recived-->
+    <div class="modal fade" id="myModalMessageRecivedNokia" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Message</h2>
+                </div>
+                <div id="messageRecivedNokia"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Container Iphone-->
+<div class="container">
+    <p>
+        <label for="">Iphone </label>
+        <button type="submit" onclick="power(iphone)" class="btn btn-danger">Power</button>
+        <button type="submit" onclick="charge(iphone)" class="btn btn-danger">Charge</button>
+    </p>
+    <div id="displayIphone" style="display: none">
+        <p>
+        <div id="batteryIphone"></div>
+        <button type="submit" onclick="checkBaterry(iphone)" class="btn btn-danger" data-toggle="modal"
+                data-target="#myModalIphone">Message
+        </button>
+        <button type="submit" onclick="displayMessageSent(iphone)" class="btn btn-danger" data-toggle="modal"
+                data-target="#myModalMessageSentIphone">Message Sent
+        </button>
+        <button type="submit" onclick="displayMessageRecived(iphone)" class="btn btn-danger" data-toggle="modal"
+                data-target="#myModalMessageRecivedIphone">Message Recived
+        </button>
+        </p>
+    </div>
+    <div class="alert alert-warning" id="alertDisplayIphone" style="display: none;"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalIphone" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Message</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea class="form-control" rows="5" id="messageIphone"></textarea>
+                    </div>
+                    <div class="alert alert-success" id="alertMessageIphone" style="display: none;"></div>
+                    <div class="alert alert-warning" style="display: none" id="alertEditProduct"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="sendMessage(iphone)" id="buttonEditSuccess">
+                        Send
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Message Sent-->
+    <div class="modal fade" id="myModalMessageSentIphone" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Message</h2>
+                </div>
+                <div id="messageSentIphone"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Message Recived-->
+    <div class="modal fade" id="myModalMessageRecivedIphone" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Message</h2>
+                </div>
+                <div id="messageRecivedIphone"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    class Mobile {
+        constructor(baterry, message, messageSent, messageReceived, status, id) {
+            this.baterry = baterry;
+            this.message = message;
+            this.messageSent = messageSent;
+            this.messageReceived = messageReceived;
+            this.status = status;
+            this.id = id;
+        }
+
+        getBaterry() {
+            return this.baterry;
+        }
+
+        setBaterry(baterry) {
+            this.baterry = baterry;
+        }
+
+        getMessage() {
+            return this.message;
+        }
+
+        setMessage(message) {
+            this.message = message;
+        }
+
+        getMessageSent() {
+            return this.messageSent;
+        }
+
+        setMessageSent(messageSent) {
+            this.messageSent = messageSent;
+        }
+
+        getMessageReceived() {
+            return this.messageReceived;
+        }
+
+        setMessageReceived(messageReceived) {
+            this.messageReceived = messageReceived;
+        }
+
+        getStatus() {
+            return this.status;
+        }
+
+        setStatus(status) {
+            this.status = status;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+    }
+
+    let baterry = 2;
+    let message = "Show Message";
+    let messageSentNokia = ["Message Sent"];
+    let messageSentIphone = ["Message Sent"];
+    let messageReceivedNokia = ["Message Recived"];
+    let messageReceivedIphone = ["Message Recived"];
+    let status = false;
+    let idNokia = "Nokia";
+    let idIphone = "Iphone";
+
+    let nokia = new Mobile(baterry, message, messageSentNokia, messageReceivedNokia, status, idNokia);
+    let iphone = new Mobile(baterry, message, messageSentIphone, messageReceivedIphone, status, idIphone)
+
+    function charge(mobile) {
+        mobile.setBaterry(baterry);
+        displayMobile(mobile);
+        mobile.setStatus(false);
+        power(mobile);
+        if (mobile.getId() === "Nokia") {
+            document.getElementById("alertDisplayNokia").style.display = "none";
+        } else if (mobile.getId() === "Iphone") {
+            document.getElementById("alertDisplayIphone").style.display = "none";
+        }
+    }
+
+    function power(mobile) {
+        if (mobile.getBaterry() > 0) {
+            if (mobile.getStatus() === true) {
+                mobile.setStatus(false);
+            } else if (mobile.getStatus() === false) {
+                mobile.setStatus(true);
+                displayMobile(mobile);
+            }
+            if (mobile.getStatus() === true) {
+                if (mobile.getId() === "Nokia") {
+                    document.getElementById("displayNokia").style.display = "block";
+                } else if (mobile.getId() === "Iphone") {
+                    document.getElementById("displayIphone").style.display = "block";
+                }
+
+            } else {
+                if (mobile.getId() === "Nokia") {
+                    document.getElementById("displayNokia").style.display = "none";
+                } else if (mobile.getId() === "Iphone") {
+                    document.getElementById("displayIphone").style.display = "none";
+                }
+            }
+        } else {
+            if (mobile.getId() === "Nokia") {
+                document.getElementById("alertDisplayNokia").style.display = "block";
+                document.getElementById("alertDisplayNokia").innerHTML = "Not enough energy!";
+            } else if (mobile.getId() === "Iphone") {
+                document.getElementById("alertDisplayIphone").style.display = "block";
+                document.getElementById("alertDisplayIphone").innerHTML = "Not enough energy!";
+            }
+        }
+    }
+
+    function checkBaterry(mobile) {
+        mobile.setBaterry(mobile.getBaterry() - 1);
+        console.log(mobile.getBaterry());
+        if (mobile.getBaterry() <= 0) {
+            if (mobile.getId() === "Nokia") {
+                document.getElementById("displayNokia").style.display = "none";
+            } else if (mobile.getId() === "Iphone") {
+                document.getElementById("displayIphone").style.display = "none";
+            }
+            return false;
+        } else {
+            if (mobile.getId() === "Nokia") {
+                document.getElementById("displayNokia").style.display = "block";
+                displayMobile(nokia);
+            } else if (mobile.getId() === "Iphone") {
+                document.getElementById("displayIphone").style.display = "block";
+                displayMobile(iphone);
+            }
+            return true;
+        }
+    }
+
+    function displayMobile(mobile) {
+        if (mobile.getId() === "Nokia") {
+            if (mobile.getBaterry() > 0) {
+                document.getElementById("batteryNokia").innerHTML = "Baterry: " + mobile.getBaterry() + "%";
+            }
+        } else if (mobile.getId() === "Iphone") {
+            if (mobile.getBaterry() > 0) {
+                document.getElementById("batteryIphone").innerHTML = "Baterry: " + mobile.getBaterry() + "%";
+            }
+        }
+    }
+
+    function sendMessage(mobile) {
+        let message;
+        if (mobile.getId() === "Nokia") {
+            message = document.getElementById("messageNokia").value;
+        } else if (mobile.getId() === "Iphone") {
+            message = document.getElementById("messageIphone").value;
+        }
+        if (mobile.getId() === "Nokia") {
+            iphone.getMessageReceived().push(message);
+            nokia.getMessageSent().push(message);
+            document.getElementById("messageNokia").value = "";
+            document.getElementById("alertMessageNokia").style.display = "block";
+            document.getElementById("alertMessageNokia").innerHTML = "Send message success";
+        } else if (mobile.getId() === "Iphone") {
+            nokia.getMessageReceived().push(message);
+            iphone.getMessageSent().push(message);
+            document.getElementById("messageIphone").value = "";
+            document.getElementById("alertMessageIphone").style.display = "block";
+            document.getElementById("alertMessageIphone").innerHTML = "Send message success";
+        }
+    }
+
+    function displayMessageSent(mobile) {
+        let tableMessageSent
+        if (checkBaterry(mobile) === true) {
+
+            tableMessageSent = "<div class=\"container-sm\">";
+            tableMessageSent += "<h2>Basic Table</h2>"
+            tableMessageSent += '<table class="table">'
+            tableMessageSent += "<thead>"
+            tableMessageSent += "<tr>"
+            tableMessageSent += "<th>Device</th>"
+            tableMessageSent += "<th>Content</th>"
+            tableMessageSent += "</tr>"
+            tableMessageSent += "</thead>"
+            tableMessageSent += "<tbody>"
+            for (let i = 0; i < mobile.getMessageSent().length; i++) {
+                tableMessageSent += "<tr>"
+                tableMessageSent += "<td>" + mobile.getId() + "</td>"
+                tableMessageSent += "<td>" + mobile.getMessageSent()[i] + "</td>"
+                tableMessageSent += "</tr>"
+            }
+            tableMessageSent += "</tbody>"
+            tableMessageSent += "</table>"
+            tableMessageSent += "</div>"
+
+            if (mobile.getId() === "Nokia") {
+                document.getElementById("messageSentNokia").innerHTML = tableMessageSent;
+            } else if (mobile.getId() === "Iphone") {
+                document.getElementById("messageSentIphone").innerHTML = tableMessageSent;
+            }
+        }
+    }
+
+    function displayMessageRecived(mobile) {
+        let tableMessageRecived;
+        if (checkBaterry(mobile) === true) {
+
+            tableMessageRecived = "<div class=\"container-sm\">";
+            tableMessageRecived += "<h2>Basic Table</h2>"
+            tableMessageRecived += '<table class="table">'
+            tableMessageRecived += "<thead>"
+            tableMessageRecived += "<tr>"
+            tableMessageRecived += "<th>Content</th>"
+            tableMessageRecived += "</tr>"
+            tableMessageRecived += "</thead>"
+            tableMessageRecived += "<tbody>"
+            for (let i = 0; i < mobile.getMessageReceived().length; i++) {
+                tableMessageRecived += "<tr>"
+                tableMessageRecived += "<td>" + mobile.getMessageReceived()[i] + "</td>"
+                tableMessageRecived += "</tr>"
+            }
+            tableMessageRecived += "</tbody>"
+            tableMessageRecived += "</table>"
+            tableMessageRecived += "</div>"
+
+            if (mobile.getId() === "Nokia") {
+                document.getElementById("messageRecivedNokia").innerHTML = tableMessageRecived;
+            } else if (mobile.getId() === "Iphone") {
+                document.getElementById("messageRecivedIphone").innerHTML = tableMessageRecived;
+            }
+        }
+
+    }
+</script>
