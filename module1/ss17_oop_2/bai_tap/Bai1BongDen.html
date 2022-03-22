@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+    </style>
+</head>
+<body>
+<div class="container">
+    <p>
+        <button class="btn btn-success" type="submit" onclick="powerOn()">Turn On</button>
+        <button class="btn btn-danger" type="submit" onclick="powerOff()">Turn Off</button>
+        <button class="btn btn-warning" type="submit" onclick="charge()">Charge</button>
+        <span id="energy" class=""></span>
+    </p>
+    <img src="https://files.fm/thumb_show.php?i=2gpv69y6w" height="300" width="200" id="status" alt="lamp"/>
+    <div id="alert" class=""></div>
+</div>
+</body>
+</html>
+<script>
+    class Baterry {
+        constructor(baterry) {
+            this.baterry = baterry;
+        }
+
+        getBaterry() {
+            return this.baterry;
+        }
+
+        setBaterry(baterry) {
+            this.baterry = baterry;
+        }
+    }
+
+    class FlashLamp extends Baterry {
+        constructor(baterry) {
+            super(baterry);
+        }
+
+        getStatus() {
+            if (this.getEnergy() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        setStatus(status) {
+            this.status = status;
+        }
+
+        getEnergy() {
+            return this.getBaterry();
+        }
+
+        turnOn() {
+            this.status = true;
+        }
+
+        turnOff() {
+            this.status = false;
+        }
+
+
+    }
+
+    let baterry = 10;
+    let timeoutIdDecrease;
+    let timeoutIdIncrease;
+
+    let lamp = new FlashLamp(baterry);
+
+
+    function powerOn() {
+        if (lamp.getStatus() === true) {
+            document.getElementById("status").setAttribute("src", "https://files.fm/thumb_show.php?i=duzzb6j69");
+            document.getElementById("alert").className = "alert alert-success";
+            document.getElementById("alert").innerHTML = "Turn on";
+        } else {
+            document.getElementById("alert").className = "alert alert-warning";
+            document.getElementById("alert").innerHTML = "Not enough energy!";
+        }
+        if (lamp.getStatus() === true) {
+            timeoutIdDecrease = setInterval(decreaseEnergy, 1000);
+        }
+    }
+
+    function decreaseEnergy() {
+        if (lamp.getEnergy() > 0) {
+            lamp.setBaterry(lamp.getEnergy() - 1)
+            document.getElementById("energy").className = "alert alert-warning";
+            document.getElementById("energy").innerHTML = "Energy: " + lamp.getEnergy() + "%";
+        } else {
+            document.getElementById("status").setAttribute("src", "https://files.fm/thumb_show.php?i=2gpv69y6w");
+            document.getElementById("alert").className = "alert alert-danger";
+            document.getElementById("alert").innerHTML = "Turn off";
+            if (lamp.getStatus() === false) {
+                clearInterval(timeoutIdDecrease);
+            }
+        }
+    }
+
+    function powerOff() {
+        if (lamp.getEnergy() > 0) {
+            lamp.turnOff();
+            clearInterval(timeoutIdDecrease);
+            clearInterval(timeoutIdIncrease);
+            document.getElementById("energy").className = "";
+            document.getElementById("energy").innerHTML = "";
+            document.getElementById("status").setAttribute("src", "https://files.fm/thumb_show.php?i=2gpv69y6w");
+            document.getElementById("alert").className = "alert alert-danger";
+            document.getElementById("alert").innerHTML = "Turn off";
+        } else {
+            document.getElementById("alert").className = "alert alert-warning";
+            document.getElementById("alert").innerHTML = "Not enough energy!";
+        }
+    }
+
+    function charge() {
+        if (lamp.getEnergy() < baterry) {
+            timeoutIdIncrease = setInterval(increaseEnergy, 1000)
+        }
+    }
+
+    function increaseEnergy() {
+        if (lamp.getEnergy() < baterry) {
+            document.getElementById("alert").className = "";
+            document.getElementById("alert").innerHTML = "";
+            lamp.setBaterry(lamp.getEnergy() + 1)
+            document.getElementById("energy").className = "alert alert-success";
+            document.getElementById("energy").innerHTML = "Energy: " + lamp.getEnergy() + "%";
+        } else if (lamp.getEnergy() === baterry) {
+            console.log(lamp.getEnergy());
+            document.getElementById("alert").className = "alert alert-success";
+            document.getElementById("alert").innerHTML = "Fully Charged";
+            clearInterval(timeoutIdIncrease);
+        }
+    }
+</script>

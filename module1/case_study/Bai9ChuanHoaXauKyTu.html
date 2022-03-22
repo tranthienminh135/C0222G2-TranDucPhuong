@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+    </style>
+</head>
+<body>
+</body>
+</html>
+<script>
+    let str = "tRuong    TaN   HAI   sIeU    CAp   vIP     pro";
+
+    function convertString(str) {
+        let strNew = str.toLowerCase(str);
+        let a = new Array(strNew.length)
+        for (let i = 0; i < strNew.length; i++) {
+            a[i] = strNew.charAt(i);
+        }
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] === " " && a[i + 1] === " ") {
+                a.splice(i, 1);
+                a[i + 1] = a[i + 1].toUpperCase(a[i + 1]);
+                i--;
+            }
+            a[0] = a[0].toUpperCase(a[0]);
+        }
+        return a.join("");
+    }
+
+    function count(str) {
+        let array = Array();
+        array = str.split(" ");
+        let max = Number(array[0].length);
+        let maxStr = array[0];
+        for (let i = 1; i < array.length ; i++) {
+            if (Number(array[i].length) > max) {
+                maxStr = array[i];
+            }
+
+        }
+        return maxStr;
+    }
+
+    function main(str) {
+        return str + " => " + convertString(str) + "\n" + "Max: " + count(convertString(str));
+    }
+
+    console.log(main(str));
+</script>

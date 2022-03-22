@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+    </style>
+</head>
+<body onload="eventKey()">
+<div class="container-fluid mt-3">
+    <div class="row">
+
+        <div class="col-sm-2 p-3 bg-info text-black">
+            <div class="row">
+                <button type="submit" id="startGame" class="col-sm-6 btn btn-success" onclick="startGame()">Start
+                </button>
+                <button type="submit" id="stopGame" class="col-sm-6 btn btn-danger" onclick="stopGame()">Stop</button>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 p-3 bg-warning text-black" style="border: 1px solid black">
+
+                    <div id="catName" style="text-align: center; font-weight: bold; font-size: 40px"></div>
+                    <div id="catWeight" style="font-size: 15px"></div>
+                    <div id="catSpeed" style="font-size: 15px"></div>
+                </div>
+                <div class="col-sm-6 p-3 bg-warning text-black" style="border: 1px solid black">
+
+                    <div id="ratName" style="text-align: center; font-weight: bold; font-size: 40px"></div>
+                    <div id="ratWeight" style="font-size: 15px"></div>
+                    <div id="ratSpeed" style="font-size: 15px"></div>
+                    <div id="ratStatus" style="font-size: 15px"></div>
+                </div>
+            </div>
+        </div>
+
+        <!--Tom catch Jerry container-->
+        <div class="col-sm-10 p-3 bg-light text-white" style="border: 5px solid aqua; height: 910px">
+            <div class="container-fluid mt-3" style="display: none" id="containerGame">
+                <img src="https://files.fm/thumb_show.php?i=562msge2z" id="tom" height="auto" width="100"
+                     style="position: absolute; left: 20px; top: 20px;"/>
+
+                <img src="https://files.fm/thumb_show.php?i=afgbr54x6" id="jerry" height="auto" width="60"
+                     style="position: absolute; left: 700px; top: 400px;"/>
+                <div height="auto" width="100" style="position: absolute; left: 500px; top: 400px; display: none; color: black; font-weight: bold" id="jerryMessage"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    console.log(window.innerHeight)
+
+    class Rat {
+        constructor(name, weight, speed, status) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.status = status;
+        }
+
+        say(message) {
+            return message;
+        }
+
+        setWeight(weight) {
+            this.weight = weight;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setStatus(status) {
+            this.status = status;
+        }
+
+        getStatus() {
+            return this.status;
+        }
+
+        getSpeed() {
+            return this.speed;
+        }
+
+        setSpeed(speed) {
+            this.speed = speed;
+        }
+
+        getName() {
+            return this.name;
+        }
+    }
+
+    class Cat {
+        constructor(name, weight, speed, rat) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.rat = rat;
+        }
+
+        say(message) {
+            return message;
+        }
+
+        eat() {
+            if (this.rat.getStatus()) {
+                return this.weight += this.rat.getWeight();
+            }
+        }
+
+        getSpeed() {
+            return this.speed;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+    }
+
+    let jerry = new Rat("Jerry", 20, 100, true);
+    let tom = new Cat("Tom", 30, 10, jerry);
+    displayCat(tom);
+    displayRat(jerry);
+
+    let autoMoveJerry;
+
+    function startGame() {
+        document.getElementById("containerGame").style.display = "block";
+        autoMoveJerry = setInterval(autoMove, 500);
+    }
+
+    function stopGame() {
+        clearInterval(autoMoveJerry);
+    }
+
+    function displayCat(tom) {
+        document.getElementById("catName").innerHTML = tom.getName();
+        document.getElementById("catWeight").innerHTML = "Weight: " + tom.getWeight() + " Kg";
+        document.getElementById("catSpeed").innerHTML = "Speed: " + tom.getSpeed() + " Km/h";
+    }
+
+    function displayRat(jerry) {
+        document.getElementById("ratName").innerHTML = jerry.getName();
+        document.getElementById("ratWeight").innerHTML = "Weight: " + jerry.getWeight() + " Kg";
+        document.getElementById("ratSpeed").innerHTML = "Speed: " + jerry.getSpeed() + " Km/h";
+        if (jerry.getStatus()) {
+            document.getElementById("ratStatus").innerHTML = "Status: live";
+        } else {
+            document.getElementById("ratStatus").innerHTML = "Status: Death";
+        }
+
+    }
+
+
+    function upTom() {
+        let element = document.getElementById("tom");
+        element.style.top = parseInt(element.style.top) - tom.getSpeed() + "px";
+    }
+
+    function downTom() {
+        let element = document.getElementById("tom");
+        element.style.top = parseInt(element.style.top) + tom.getSpeed() + "px";
+    }
+
+    function leftTom() {
+        let element = document.getElementById("tom");
+        element.style.left = parseInt(element.style.left) - tom.getSpeed() + "px";
+    }
+
+    function rightTom() {
+        let element = document.getElementById("tom");
+        element.style.left = parseInt(element.style.left) + tom.getSpeed() + "px";
+    }
+
+    function moveTom(evt) {
+        check();
+        switch (evt.keyCode) {
+            case 87:
+                upTom();
+                break;
+            case 83:
+                downTom();
+                break;
+            case 65:
+                leftTom();
+                break;
+            case 68:
+                rightTom();
+                break;
+        }
+    }
+
+    function eventKey() {
+        window.addEventListener("keydown", moveTom);
+    }
+
+    let flagUp = true;
+    let flagDown = true;
+    let flagLeft = true;
+    let flagRight = true;
+
+    function upJerry() {
+        let element = document.getElementById("jerry");
+
+        if (flagUp) {
+            element.style.top = parseInt(element.style.top) - jerry.getSpeed() + "px";
+            document.getElementById("jerryMessage").innerHTML = "Chit Chit!";
+            document.getElementById("jerryMessage").style.display = "block";
+            document.getElementById("jerryMessage").style.top = element.style.top;
+        } else {
+            element.style.top = parseInt(element.style.top) + jerry.getSpeed() + "px";
+            document.getElementById("jerryMessage").style.display = "none";
+            document.getElementById("jerryMessage").style.top = element.style.top;
+        }
+        if (parseInt(element.style.top) <= 10) {
+            flagUp = false;
+        }
+        if (parseInt(element.style.top) >= window.innerHeight - 50) {
+            flagUp = true;
+        }
+    }
+
+    function downJerry() {
+        let element = document.getElementById("jerry");
+        if (flagDown) {
+            element.style.top = parseInt(element.style.top) + jerry.getSpeed() + "px";
+            document.getElementById("jerryMessage").style.display = "none";
+            document.getElementById("jerryMessage").style.top = element.style.top;
+        } else {
+            element.style.top = parseInt(element.style.top) - jerry.getSpeed() + "px";
+            document.getElementById("jerryMessage").style.display = "none";
+            document.getElementById("jerryMessage").style.top = element.style.top;
+        }
+        if (parseInt(element.style.top) <= 10) {
+            flagDown = true;
+        }
+        if (parseInt(element.style.top) >= window.innerHeight - 50) {
+            flagDown = false;
+        }
+    }
+
+    function leftJerry() {
+        let element = document.getElementById("jerry");
+        if (flagLeft === true) {
+            element.style.left = parseInt(element.style.left) - jerry.getSpeed() + "px";
+            document.getElementById("jerryMessage").style.display = "none";
+            document.getElementById("jerryMessage").style.left = element.style.left;
+        } else {
+            element.style.left = parseInt(element.style.left) + jerry.getSpeed() + "px";
+            document.getElementById("jerryMessage").style.display = "none";
+            document.getElementById("jerryMessage").style.left = element.style.left;
+        }
+        if (parseInt(element.style.left) >= window.innerWidth - 50) {
+            flagLeft = true;
+        }
+        if (parseInt(element.style.left) <= 10) {
+            flagLeft = false;
+        }
+    }
+
+    function rightJerry() {
+        let element = document.getElementById("jerry");
+        if (flagRight === true) {
+            element.style.left = parseInt(element.style.left) + jerry.getSpeed() + "px";
+            document.getElementById("jerryMessage").style.display = "none";
+            document.getElementById("jerryMessage").style.left = element.style.left;
+        } else {
+            element.style.left = parseInt(element.style.left) - jerry.getSpeed() + "px";
+            document.getElementById("jerryMessage").style.display = "none";
+            document.getElementById("jerryMessage").style.left = element.style.left;
+        }
+        if (parseInt(element.style.left) <= 10) {
+            flagRight = true;
+        }
+        if (parseInt(element.style.left) >= window.innerWidth - 50) {
+            flagRight = false;
+        }
+    }
+
+    function autoMove() {
+        let keyAuto = parseInt(Math.random() * 4 + 1);
+        moveJerry(keyAuto);
+    }
+
+    function moveJerry(keyAuto) {
+        switch (keyAuto) {
+            case 1:
+                upJerry();
+                break;
+            case 2:
+                downJerry();
+                break;
+            case 3:
+                leftJerry();
+                break;
+            case 4:
+                rightJerry();
+                break;
+        }
+    }
+
+    function check() {
+        let tomPositon = document.getElementById("tom");
+        let jerryPositon = document.getElementById("jerry");
+        let checkTop = parseInt(tomPositon.style.top) - parseInt(jerryPositon.style.top);
+        let checkLeft = parseInt(tomPositon.style.left) - parseInt(jerryPositon.style.left);
+        if (checkTop < 0) {
+            checkTop = checkTop * (-1);
+        }
+        if (checkLeft < 0) {
+            checkLeft = checkLeft * (-1);
+        }
+        if (checkTop < 50 && checkLeft < 50) {
+            if (jerry.getStatus()) {
+                tom.eat();
+                jerry.setStatus(false);
+                jerry.setWeight(0);
+                clearInterval(autoMoveJerry);
+                document.getElementById("jerry").setAttribute("src", "https://files.fm/thumb_show.php?i=6vw8j2xw2");
+                displayCat(tom);
+                displayRat(jerry);
+                alert("You Win!");
+            }
+
+        }
+    }
+</script>

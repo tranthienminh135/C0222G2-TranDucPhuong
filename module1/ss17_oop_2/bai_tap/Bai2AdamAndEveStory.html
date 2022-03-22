@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        .inputSay {
+            color: black;
+            width: 69%;
+            height: 32px;
+            border: none;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid mt-3">
+    <h1 style="text-align: center">CÂU CHUYỆN VỀ ADAM VÀ EVA</h1>
+    <div class="row">
+        <div class="col p-3 bg-light text-white"></div>
+        <div class="col p-3 bg-secondary text-white" style="border: 1px solid black">
+            <p>
+            <h1>TÁO</h1>
+            </p>
+            <p>
+            <div id="weightApple"></div>
+            </p>
+            <p>
+            <div id="alertApple"></div>
+            </p>
+        </div>
+        <div class="col p-3 bg-light text-white"></div>
+    </div>
+    <div class="row">
+        <div class="col p-3 bg-light text-white"></div>
+        <div class="col p-3 bg-secondary text-white" style="border: 1px solid black">
+            <p>
+            <div id="sayAdam" style="font-weight: bold;"></div>
+            </p>
+            <p>
+            <h1 id="nameAdam"></h1>
+            </p>
+            <p>
+            <div id="genderAdam"></div>
+            </p>
+            <p>
+            <div id="weightAdam"></div>
+            </p>
+            <p>
+                <button type="submit" class="btn btn-success" onclick="eatApple(adam)">Ăn táo</button>
+                <button type="submit" class="btn btn-warning" onclick="checkApple(adam)">Kiếm tra táo</button>
+            </p>
+            <p>
+                <input type="text" class="inputSay" id="sayAdamText">
+                <button type="submit" class="btn btn-danger" onclick="say(adam)">Nói chuyện</button>
+            </p>
+            <p>
+            <div id="alertAdam" ></div>
+            </p>
+        </div>
+        <div class="col p-3 bg-secondary text-white" style="border: 1px solid black">
+            <p>
+            <div id="sayEva" style="font-weight: bold;"></div>
+            </p>
+            <p>
+            <h1 id="nameEva"></h1>
+            </p>
+            <p>
+            <div id="genderEva"></div>
+            </p>
+            <p>
+            <div id="weightEva"></div>
+            </p>
+            <p>
+                <button type="submit" class="btn btn-success" onclick="eatApple(eva)">Ăn táo</button>
+                <button type="submit" class="btn btn-warning" onclick="checkApple(eva)">Kiếm tra táo</button>
+            </p>
+            <p>
+            <p>
+                <input type="text" class="inputSay" id="sayEvaText">
+                <button type="submit" class="btn btn-danger" onclick="say(eva)">Nói chuyện</button>
+            </p>
+            </p>
+            <p>
+            <div id="alertEva"></div>
+            </p>
+        </div>
+        <div class="col p-3 bg-light text-white"></div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    class Apple {
+        constructor(weight) {
+            this.weight = weight;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        decrease() {
+            if (this.getWeight() > 0) {
+                this.weight = this.weight - 1;
+                return this.isEmpty();
+            }
+        }
+
+        isEmpty() {
+            if (this.getWeight() <= 0) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
+
+    class Human {
+        constructor(name, gender, weight, apple) {
+            this.apple = apple;
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+
+        isMale() {
+            if (this.gender === "Nam") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        getGender() {
+            return this.gender;
+        }
+
+        checkApple() {
+            return this.apple.getWeight();
+        }
+
+        eat() {
+            if (this.apple.isEmpty()) {
+                this.apple.decrease();
+                this.weight = this.weight + 1;
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        say(str) {
+            return str;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(weight) {
+            this.weight = weight;
+        }
+    }
+
+    let apple = new Apple(10);
+
+    let weightAdam = 60;
+    let weightEva = 50;
+
+    let adam = new Human("Adam", "Nam", weightAdam, apple);
+    let eva = new Human("Eva", "Nữ", weightEva, apple);
+
+    displayApple(apple);
+    displayAdam(adam);
+    displayEva(eva);
+
+    function displayApple(apple) {
+        document.getElementById("weightApple").innerHTML = apple.getWeight() + "kg";
+    }
+
+    function displayAdam(adam) {
+        document.getElementById("nameAdam").innerHTML = adam.getName();
+        document.getElementById("genderAdam").innerHTML = "Giới tính: " + adam.getGender();
+        document.getElementById("weightAdam").innerHTML = adam.getWeight() + "kg";
+    }
+
+    function displayEva(eva) {
+        document.getElementById("nameEva").innerHTML = eva.getName();
+        document.getElementById("genderEva").innerHTML = "Giới tính: " + eva.getGender();
+        document.getElementById("weightEva").innerHTML = eva.getWeight() + "kg";
+    }
+
+    function eatApple(human) {
+        if (human.apple.isEmpty()) {
+            human.eat();
+            if (human.getName() === "Adam") {
+                displayAdam(human);
+                document.getElementById("alertAdam").innerHTML = "";
+            } else if (human.getName() === "Eva") {
+                displayEva(human);
+                document.getElementById("alertEva").innerHTML = "";
+            }
+            displayApple(apple);
+        } else {
+            document.getElementById("alertApple").innerHTML = "Táo đã được ăn hết! Bạn đã bị đăng xuất khỏi Vườn Địa Đàng";
+        }
+    }
+
+    function checkApple(human) {
+        if (human.getName() === "Adam") {
+            document.getElementById("alertAdam").innerHTML = "Số kg táo đã hấp thụ: " + (human.getWeight() - weightAdam) + "kg" + "<br>" + "Số táo còn lại: " + human.apple.getWeight() + "kg";
+        } else if (human.getName() === "Eva") {
+            document.getElementById("alertEva").innerHTML = "Số kg táo đã hấp thụ: " + (human.getWeight() - weightEva) + "kg" + "<br>" + "Số táo còn lại: " + human.apple.getWeight() + "kg";
+        }
+    }
+
+    function say(human) {
+        if (human.getName() === "Adam") {
+            document.getElementById("sayAdam").innerHTML = "Adam nói: " + human.say(document.getElementById("sayAdamText").value);
+            document.getElementById("sayAdamText").value = "";
+        } else if (human.getName() === "Eva") {
+            document.getElementById("sayEva").innerHTML = "Eva nói: " + human.say(document.getElementById("sayEvaText").value);
+            document.getElementById("sayEvaText").value = "";
+        }
+    }
+
+
+</script>

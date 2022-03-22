@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>XỔ SỐ MIỀN TRUNG</h1>
+    <div style="display: none;" id="muaVe">
+        <form action="#">
+            <label for="">Mua vé: </label>
+            <input type="number" min="1" max="99" id="muaVe1">
+            <input type="number" min="1" max="99" id="muaVe2">
+            <input type="number" min="1" max="99" id="muaVe3">
+            <input type="number" min="1" max="99" id="muaVe4">
+            <input type="number" min="1" max="99" id="muaVe5">
+            <input type="number" min="1" max="99" id="muaVe6">
+            <button type="submit" onclick="muaVe()" id="buttonMuaVe">Mua vé</button>
+        </form>
+    </div>
+    <div id="randomVeSo" style="display: none">
+        <label for="">Vé số:</label>
+        <input type="number" min="1" max="99" readonly id="veSo1">
+        <input type="number" min="1" max="99" readonly id="veSo2">
+        <input type="number" min="1" max="99" readonly id="veSo3">
+        <input type="number" min="1" max="99" readonly id="veSo4">
+        <input type="number" min="1" max="99" readonly id="veSo5">
+        <input type="number" min="1" max="99" readonly id="veSo6">
+    </div>
+
+    <div>
+        <label for="">Kết quả: </label>
+        <input type="number" min="1" max="99" readonly id="ketQua1">
+        <input type="number" min="1" max="99" readonly id="ketQua2">
+        <input type="number" min="1" max="99" readonly id="ketQua3">
+        <input type="number" min="1" max="99" readonly id="ketQua4">
+        <input type="number" min="1" max="99" readonly id="ketQua5">
+        <input type="number" min="1" max="99" readonly id="ketQua6">
+        <button type="submit" onclick="hienThiKetQua()" id="buttonQuaySo">Quay Số</button>
+    </div>
+    <div id="alertKetQua"></div>
+</div>
+</body>
+</html>
+<script>
+    class XoSo {
+        constructor() {
+            this.veSo = new Array(6);
+            this.ketQua = new Array(6);
+        }
+
+        setVeSo(veSo) {
+            this.veSo = veSo;
+        }
+
+        getVeSo() {
+            return this.veSo;
+        }
+
+        setKetQua(ketQua) {
+            this.ketQua = ketQua;
+        }
+
+        getKetQua() {
+            return this.ketQua;
+        }
+    }
+
+    let xoSo = new XoSo();
+    let choice = 0;
+        choice = parseInt(prompt("lựa chọn của bạn:  " + "\n" + "Nhập số 1 Vé số tự nhập vào" + "\n" + "Nhập số 2 Vé số hệ thống tự random" + "\n" + "Mặc định hệ thống sẽ tự random"))
+        switch (choice) {
+            case 1:
+                dienVe();
+                break;
+            case 2:
+                randomVeSo();
+                break;
+            default:
+                randomVeSo();
+                break;
+    }
+
+    function hienThiKetQua() {
+        let flag1 = true;
+        let flag2 = true;
+        let flag3 = true;
+        for (let i = 0; i < xoSo.getKetQua().length; i++) {
+            xoSo.getKetQua()[i] = Math.round(Math.random() * 98 + 1);
+        }
+        for (let i = xoSo.getKetQua().length - 1; i >= 0; i--) {
+            if (xoSo.getKetQua()[i] !== xoSo.getVeSo()[i]) {
+                flag1 = false;
+                break;
+            }
+        }
+        for (let i = xoSo.getKetQua().length - 1; i >= 1; i--) {
+            if (xoSo.getKetQua()[i] !== xoSo.getVeSo()[i]) {
+                flag2 = false;
+                break;
+            }
+        }
+        for (let i = xoSo.getKetQua().length - 1; i >= 2; i--) {
+            if (xoSo.getKetQua()[i] !== xoSo.getVeSo()[i]) {
+                flag3 = false;
+                break;
+            }
+        }
+        document.getElementById("ketQua1").value = xoSo.getKetQua()[0];
+        document.getElementById("ketQua2").value = xoSo.getKetQua()[1];
+        document.getElementById("ketQua3").value = xoSo.getKetQua()[2];
+        document.getElementById("ketQua4").value = xoSo.getKetQua()[3];
+        document.getElementById("ketQua5").value = xoSo.getKetQua()[4];
+        document.getElementById("ketQua6").value = xoSo.getKetQua()[5];
+
+        if (flag1 === true) {
+            document.getElementById("buttonMuaVe").setAttribute("disabled", true);
+            document.getElementById("buttonQuaySo").setAttribute("disabled", true);
+            return document.getElementById("alertKetQua").innerHTML = "Bạn trúng giải ĐẶC BIỆT! ";
+        } else if (flag2 === true) {
+            document.getElementById("buttonMuaVe").setAttribute("disabled", true);
+            document.getElementById("buttonQuaySo").setAttribute("disabled", true);
+            return document.getElementById("alertKetQua").innerHTML = "Bạn trúng giải NHẤT! ";
+        } else if (flag3 === true) {
+            document.getElementById("buttonMuaVe").setAttribute("disabled", true);
+            document.getElementById("buttonQuaySo").setAttribute("disabled", true);
+            return document.getElementById("alertKetQua").innerHTML = "Bạn trúng giải KHUYẾN KHÍCH! ";
+        } else {
+            document.getElementById("buttonMuaVe").setAttribute("disabled", true);
+            document.getElementById("buttonQuaySo").setAttribute("disabled", true);
+            return document.getElementById("alertKetQua").innerHTML = "Trúng cái nịt!";
+        }
+    }
+
+    function dienVe() {
+        document.getElementById("muaVe").style.display = 'block';
+    }
+
+    function muaVe() {
+        let a = document.getElementById("muaVe1").value;
+        let b = document.getElementById("muaVe2").value;
+        let c = document.getElementById("muaVe3").value;
+        let d = document.getElementById("muaVe4").value;
+        let e = document.getElementById("muaVe5").value;
+        let f = document.getElementById("muaVe6").value;
+
+        if ((a > 0 && a < 100) && (b > 0 && b < 100) && (c > 0 && c < 100) && (d > 0 && d < 100) && (e > 0 && e < 100) && (f > 0 && f < 100)) {
+            xoSo.getVeSo()[0] = a;
+            xoSo.getVeSo()[1] = b;
+            xoSo.getVeSo()[2] = c;
+            xoSo.getVeSo()[3] = d;
+            xoSo.getVeSo()[4] = e;
+            xoSo.getVeSo()[5] = f;
+            document.getElementById("muaVe1").setAttribute("readonly", true);
+            document.getElementById("muaVe2").setAttribute("readonly", true);
+            document.getElementById("muaVe3").setAttribute("readonly", true);
+            document.getElementById("muaVe4").setAttribute("readonly", true);
+            document.getElementById("muaVe5").setAttribute("readonly", true);
+            document.getElementById("muaVe6").setAttribute("readonly", true);
+            return document.getElementById("alertKetQua").innerHTML = "Mua vé thành công! Click quay số để xem kết quả";
+        } else {
+            alert("Vui lòng nhập số từ 1 đến 99!")
+        }
+    }
+
+    function randomVeSo() {
+        for (let i = 0; i < xoSo.getKetQua().length; i++) {
+            xoSo.getVeSo()[i] = Math.round(Math.random() * 98 + 1);
+        }
+
+        document.getElementById("randomVeSo").style.display = 'block';
+        document.getElementById("veSo1").value = xoSo.getVeSo()[0];
+        document.getElementById("veSo2").value = xoSo.getVeSo()[1];
+        document.getElementById("veSo3").value = xoSo.getVeSo()[2];
+        document.getElementById("veSo4").value = xoSo.getVeSo()[3];
+        document.getElementById("veSo5").value = xoSo.getVeSo()[4];
+        document.getElementById("veSo6").value = xoSo.getVeSo()[5];
+        return document.getElementById("alertKetQua").innerHTML = "Random vé thành công! Click quay số để xem kết quả";
+    }
+</script>
