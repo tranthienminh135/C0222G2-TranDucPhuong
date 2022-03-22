@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PRODUCT MANAGER</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- Container -->
+<div class="container mt-5">
+
+    <!-- Input add new product-->
+    <h3>Add new product</h3>
+    <div class="input-group mb-3 col-xs-3">
+        <button class="btn btn-success" type="button" onclick="" data-toggle="modal" data-target="#myModalAdd">Add new
+            product
+        </button>
+    </div>
+
+    <!-- Display product -->
+    <div class="container mt-5">
+
+        <!-- Product title -->
+        <h1>VEHICLES</h1>
+        <p>Manage product list</p>
+
+        <!-- Alert after the product is deleted -->
+        <div class="" id="alertDeleteProduct" style="display: none"></div>
+
+        <!-- Product list -->
+        <div id="displayProduct"></div>
+
+    </div>
+
+    <!-- Modal Add New Product -->
+    <div class="modal fade" id="myModalAdd" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Add New Product</h2>
+                </div>
+                <form action="#">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nameNewProduct">Product Name:</label>
+                            <input type="text" class="form-control" id="nameNewProduct">
+                        </div>
+                        <div class="form-group">
+                            <label for="priceNewProduct">Price:</label>
+                            <input type="number" class="form-control" id="priceNewProduct">
+                        </div>
+                        <div class="form-group">
+                            <label for="amountNewProduct">Amount:</label>
+                            <input type="number" class="form-control" id="amountNewProduct">
+                        </div>
+                        <div class="alert alert-warning" style="display: none" id="alertAddNewProduct"></div>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" onclick="addNewProduct()" id="addNewProduct">
+                        Success
+                    </button>
+                    <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Edit Product</h2>
+                </div>
+                <form action="#">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="idEditProduct" hidden>
+                        </div>
+                        <div class="form-group">
+                            <label for="nameEditProduct">Product Name:</label>
+                            <input type="text" class="form-control" id="nameEditProduct">
+                        </div>
+                        <div class="form-group">
+                            <label for="priceEditProduct">Price:</label>
+                            <input type="number" class="form-control" id="priceEditProduct">
+                        </div>
+                        <div class="form-group">
+                            <label for="amountEditProduct">Amount:</label>
+                            <input type="number" class="form-control" id="amountEditProduct">
+                        </div>
+                        <div class="alert alert-warning" style="display: none" id="alertEditProduct"></div>
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="editProduct()" id="buttonEditSuccess">
+                        Success
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    class Product {
+        constructor(name, price, amount) {
+            this.name = name;
+            this.price = price;
+            this.amount = amount;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+        getAmount() {
+            return this.amount;
+        }
+
+        setAmount(amount) {
+            this.amount = amount;
+        }
+    }
+
+    let car = new Product();
+    car.setName("Car");
+    car.setPrice(100);
+    car.setAmount(2);
+
+    let bike = new Product();
+    bike.setName("Bike");
+    bike.setPrice(200);
+    bike.setAmount(5);
+
+    let truck = new Product();
+    truck.setName("Boat");
+    truck.setPrice(600);
+    truck.setAmount(3);
+
+    let boat = new Product();
+    boat.setName("Motobike");
+    boat.setPrice(600);
+    boat.setAmount(6);
+
+    let plane = new Product();
+    plane.setName("Plane");
+    plane.setPrice(500);
+    plane.setAmount(6);
+
+    let myProduct = Array();
+    myProduct[0] = car;
+    myProduct[1] = bike;
+    myProduct[2] = truck;
+    myProduct[3] = boat;
+    myProduct[4] = plane;
+
+    displayProduct(myProduct);
+
+    function displayProduct(myProduct) {
+        let productTable = "<table class=\"table table-hover\">";
+        productTable += "<thead>";
+        productTable += "<tr>";
+        productTable += "<th>ID</th>";
+        productTable += "<th>Product Name</th>";
+        productTable += "<th>Price</th>";
+        productTable += "<th>Amount</th>";
+        productTable += "<th>Edit</th>";
+        productTable += "<th>Delete</th>";
+        productTable += "</tr>";
+        productTable += "</thead>";
+        productTable += "<tbody>";
+        for (let i = 0; i < myProduct.length; i++) {
+            productTable += "<tr>";
+            productTable += "<td>" + (i + 1) + "</td>";
+            productTable += "<td>" + myProduct[i].getName() + "</td>";
+            productTable += "<td>" + "$" + myProduct[i].getPrice() + "</td>";
+            productTable += "<td>" + myProduct[i].getAmount() + "</td>";
+            productTable += "<td><button type=\"button\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#myModal\" onclick=\"loadProductForEdit(" + i + ")\">Edit</button></td>";
+            productTable += "<td><button type=\"button\" id=\"delete\" class=\"btn btn-success\" onclick=\"deleteProduct(" + i + ")\">Delete</button></td>";
+            productTable += "</tr>";
+        }
+        productTable += "</tbody>";
+        productTable += "</table>";
+        return document.getElementById("displayProduct").innerHTML = productTable;
+    }
+
+    function addNewProduct() {
+        let productName = document.getElementById("nameNewProduct").value;
+        let productPrice = document.getElementById("priceNewProduct").value;
+        let productAmount = document.getElementById("amountNewProduct").value;
+
+        if (productName === "" || productPrice === "" || productAmount === "") {
+            document.getElementById("alertAddNewProduct").style.display = "block";
+            document.getElementById("alertAddNewProduct").className = "alert alert-warning";
+            document.getElementById("alertAddNewProduct").innerHTML = "Can not be empty!"
+        } else {
+            myProduct.unshift(new Product(productName, productPrice, productAmount));
+            document.getElementById("nameNewProduct").value = "";
+            document.getElementById("priceNewProduct").value = "";
+            document.getElementById("amountNewProduct").value = "";
+            document.getElementById("alertAddNewProduct").style.display = "block";
+            document.getElementById("alertAddNewProduct").className = "alert alert-success";
+            document.getElementById("alertAddNewProduct").innerHTML = "Add product success!"
+
+        }
+        displayProduct(myProduct);
+    }
+
+    function deleteProduct(index) {
+        let choice = confirm("Do you want delete " + myProduct[index].getName() + "?");
+        if (choice === true) {
+            myProduct.splice(index, 1);
+            document.getElementById("alertDeleteProduct").className = "alert alert-success";
+            document.getElementById("alertDeleteProduct").style.display = "block";
+            document.getElementById("alertDeleteProduct").innerHTML = "Delete product success!";
+            displayProduct(myProduct);
+        }
+    }
+
+    function loadProductForEdit(index) {
+        document.getElementById("idEditProduct").value = index;
+        document.getElementById("nameEditProduct").value = myProduct[index].getName();
+        document.getElementById("priceEditProduct").value = myProduct[index].getPrice();
+        document.getElementById("amountEditProduct").value = myProduct[index].getAmount();
+    }
+
+
+    function editProduct() {
+        let index = document.getElementById("idEditProduct").value;
+        let productName = document.getElementById("nameEditProduct").value;
+        let productPrice = document.getElementById("priceEditProduct").value;
+        let productAmount = document.getElementById("amountEditProduct").value;
+
+        if (productName === "" || productPrice === "" || productAmount === "") {
+            document.getElementById("alertEditProduct").className = "alert alert-warning";
+            document.getElementById("alertEditProduct").style.display = "block";
+            document.getElementById("alertEditProduct").innerHTML = "Cannot be empty!";
+        } else {
+            document.getElementById("buttonEditSuccess").setAttribute("data-dismiss", "modal");
+            myProduct[index].setName(productName);
+            myProduct[index].setPrice(productPrice);
+            myProduct[index].setAmount(productAmount);
+            displayProduct(myProduct);
+        }
+    }
+</script>
