@@ -19,10 +19,11 @@
 </body>
 </html>
 <script>
-    let str = "tRuong    TaN   HAI   sIeU    CAp   vIP     pro";
+    let str = " tRuong TaN   HAI   sIeU    CAp   vIP     pro   ";
 
     function convertString(str) {
         let strNew = str.toLowerCase(str);
+        strNew = strNew.trim();
         let a = new Array(strNew.length)
         for (let i = 0; i < strNew.length; i++) {
             a[i] = strNew.charAt(i);
@@ -30,8 +31,9 @@
         for (let i = 0; i < a.length; i++) {
             if (a[i] === " " && a[i + 1] === " ") {
                 a.splice(i, 1);
-                a[i + 1] = a[i + 1].toUpperCase(a[i + 1]);
                 i--;
+            } else if (a[i] === " ") {
+                a[i + 1] = a[i + 1].toUpperCase(a[i + 1]);
             }
             a[0] = a[0].toUpperCase(a[0]);
         }
