@@ -12,33 +12,77 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 <!-- Container -->
 <div class="container mt-5">
 
-    <!-- Input add new product-->
-    <h3>Add new product</h3>
-    <div class="input-group mb-3 col-xs-3">
-        <button class="btn btn-success" type="button" onclick="" data-toggle="modal" data-target="#myModalAdd">Add new
-            product
-        </button>
-    </div>
-
     <!-- Display product -->
     <div class="container mt-5">
 
-        <!-- Product title -->
-        <h1>VEHICLES</h1>
-        <p>Manage product list</p>
+        <div>
+            <!-- Product title -->
+            <h1>VEHICLES</h1>
+            <p>Manage product list</p>
+
+        </div>
 
         <!-- Alert after the product is deleted -->
         <div class="" id="alertDeleteProduct" style="display: none"></div>
 
+        <div class="row">
+
+            <div class="col">
+
+                <!--Search Product-->
+                <h3>Search product</h3>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Search by name" style="width: 50%"
+                           id="searchProduct">
+                    <div class="input-group-append">
+                        <button class="btn btn-success" type="submit" onclick="searchProduct()">Search</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+
+                <!-- Add new product-->
+                <h3>Add new product</h3>
+                <div class="input-group mb-3 col-xs-3">
+                    <button class="btn btn-success" type="button" onclick="" data-toggle="modal"
+                            data-target="#myModalAdd">Add new
+                        product
+                    </button>
+                </div>
+            </div>
+
+            <div class="col">
+
+                <!-- Cart -->
+                <h3>Cart</h3>
+                <div class="input-group mb-3 col-xs-3">
+                    <button style="font-size:16px" class="btn btn-success" data-toggle="modal"
+                            data-target="#myModalCart" onclick="displayCart()">Cart <i class="fa fa-shopping-cart"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Alert search product -->
+        <div class="" id="alertSearchProduct" style="display: none"></div>
+
+        <!-- Alert Cart product -->
+        <div class="" id="alertCart" style="display: none"></div>
+
         <!-- Product list -->
         <div id="displayProduct"></div>
 
+        <div id="pagination"></div>
     </div>
 
     <!-- Modal Add New Product -->
@@ -111,15 +155,46 @@
             </div>
         </div>
     </div>
+
+    <!-- Shopping Cart Modal -->
+    <div class="modal fade" id="myModalCart" role="dialog">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">My Cart</h2>
+                </div>
+                <div class="modal-body">
+                    <div id="displayCart"></div>
+                    <div class="alert alert-warning" style="display: none" id="alertCartProduct"></div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="buyProduct()" id="buttonBuy">
+                        Buy
+                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
 <script>
     class Product {
-        constructor(name, price, amount) {
-            this.name = name;
-            this.price = price;
-            this.amount = amount;
+        constructor() {
+            this.id = 0;
+            this.name = "";
+            this.price = 0;
+            this.amount = 0;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setId(id) {
+            this.id = id;
         }
 
         getName() {
@@ -147,38 +222,53 @@
         }
     }
 
-    let car = new Product();
-    car.setName("Car");
-    car.setPrice(100);
-    car.setAmount(2);
+    let product1 = new Product();
+    product1.setName("Car");
+    product1.setPrice(100);
+    product1.setAmount(10);
 
-    let bike = new Product();
-    bike.setName("Bike");
-    bike.setPrice(200);
-    bike.setAmount(5);
+    let product2 = new Product();
+    product2.setName("Bike");
+    product2.setPrice(200);
+    product2.setAmount(5);
 
-    let truck = new Product();
-    truck.setName("Boat");
-    truck.setPrice(600);
-    truck.setAmount(3);
+    let product3 = new Product();
+    product3.setName("Boat");
+    product3.setPrice(600);
+    product3.setAmount(3);
 
-    let boat = new Product();
-    boat.setName("Motobike");
-    boat.setPrice(600);
-    boat.setAmount(6);
+    let product4 = new Product();
+    product4.setName("Motobike");
+    product4.setPrice(600);
+    product4.setAmount(6);
 
-    let plane = new Product();
-    plane.setName("Plane");
-    plane.setPrice(500);
-    plane.setAmount(6);
+    let product5 = new Product();
+    product5.setName("Ship");
+    product5.setPrice(500);
+    product5.setAmount(6);
+
+    let product6 = new Product();
+    product6.setName("Tank");
+    product6.setPrice(1000);
+    product6.setAmount(8);
+
+    let product7 = new Product();
+    product7.setName("Truck");
+    product7.setPrice(4500);
+    product7.setAmount(10);
 
     let myProduct = Array();
-    myProduct[0] = car;
-    myProduct[1] = bike;
-    myProduct[2] = truck;
-    myProduct[3] = boat;
-    myProduct[4] = plane;
+    myProduct.push(product1);
+    myProduct.push(product2);
+    myProduct.push(product3);
+    myProduct.push(product4);
+    myProduct.push(product5);
+    myProduct.push(product6);
+    myProduct.push(product7);
 
+    for (let i = 0; i < myProduct.length; i++) {
+        myProduct[i].setId(i);
+    }
     displayProduct(myProduct);
 
     function displayProduct(myProduct) {
@@ -191,21 +281,24 @@
         productTable += "<th>Amount</th>";
         productTable += "<th>Edit</th>";
         productTable += "<th>Delete</th>";
+        productTable += "<th>Add to cart</th>";
         productTable += "</tr>";
         productTable += "</thead>";
         productTable += "<tbody>";
         for (let i = 0; i < myProduct.length; i++) {
             productTable += "<tr>";
-            productTable += "<td>" + (i + 1) + "</td>";
+            productTable += "<td>" + (myProduct[i].getId() + 1) + "</td>";
             productTable += "<td>" + myProduct[i].getName() + "</td>";
             productTable += "<td>" + "$" + myProduct[i].getPrice() + "</td>";
             productTable += "<td>" + myProduct[i].getAmount() + "</td>";
-            productTable += "<td><button type=\"button\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#myModal\" onclick=\"loadProductForEdit(" + i + ")\">Edit</button></td>";
-            productTable += "<td><button type=\"button\" id=\"delete\" class=\"btn btn-success\" onclick=\"deleteProduct(" + i + ")\">Delete</button></td>";
+            productTable += "<td><button type=\"button\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#myModal\" onclick=\"loadProductForEdit(" + myProduct[i].getId() + ")\">Edit</button></td>";
+            productTable += "<td><button type=\"button\" id=\"delete\" class=\"btn btn-success\" onclick=\"deleteProduct(" + myProduct[i].getId() + ")\">Delete</button></td>";
+            productTable += "<td><button type=\"button\" id=\"delete\" class=\"btn btn-success\" onclick=\"addToCart(" + myProduct[i].getId() + ")\">Add to cart</button></td>";
             productTable += "</tr>";
         }
         productTable += "</tbody>";
         productTable += "</table>";
+        displayPagination();
         return document.getElementById("displayProduct").innerHTML = productTable;
     }
 
@@ -214,12 +307,18 @@
         let productPrice = document.getElementById("priceNewProduct").value;
         let productAmount = document.getElementById("amountNewProduct").value;
 
+        let product = new Product();
+        product.setId(myProduct.length);
+        product.setName(productName);
+        product.setPrice(productPrice);
+        product.setAmount(productAmount);
+
         if (productName === "" || productPrice === "" || productAmount === "") {
             document.getElementById("alertAddNewProduct").style.display = "block";
             document.getElementById("alertAddNewProduct").className = "alert alert-warning";
             document.getElementById("alertAddNewProduct").innerHTML = "Can not be empty!"
         } else {
-            myProduct.unshift(new Product(productName, productPrice, productAmount));
+            myProduct.push(product);
             document.getElementById("nameNewProduct").value = "";
             document.getElementById("priceNewProduct").value = "";
             document.getElementById("amountNewProduct").value = "";
@@ -267,5 +366,176 @@
             myProduct[index].setAmount(productAmount);
             displayProduct(myProduct);
         }
+    }
+
+    function searchProduct() {
+        let flag = false;
+        searchValue = document.getElementById("searchProduct").value;
+        let searchProduct = Array();
+
+        if (searchValue != "") {
+            for (let i = 0; i < myProduct.length; i++) {
+                if (searchValue.toLowerCase() == myProduct[i].getName().toLowerCase()) {
+                    flag = true;
+                    break;
+                } else {
+                    flag = false
+                }
+            }
+            if (flag) {
+                for (let i = 0; i < myProduct.length; i++) {
+                    if (searchValue.toLowerCase() == myProduct[i].getName().toLowerCase()) {
+                        searchProduct.push(myProduct[i]);
+                    }
+                }
+                displayProduct(searchProduct);
+            } else {
+                document.getElementById("alertSearchProduct").className = "alert alert-warning";
+                document.getElementById("alertSearchProduct").style.display = "block";
+                document.getElementById("alertSearchProduct").innerHTML = "Product not found!";
+            }
+        } else {
+            displayProduct(myProduct);
+            document.getElementById("alertSearchProduct").className = "alert alert-warning";
+            document.getElementById("alertSearchProduct").style.display = "block";
+            document.getElementById("alertSearchProduct").innerHTML = "Enter the product you want to search!";
+        }
+        document.getElementById("searchProduct").value = "";
+    }
+
+
+    let managerProductInCart = Array();
+
+    function addToCart(index) {
+        if (myProduct[index].getAmount() > 0) {
+            document.getElementById("alertCart").style.display = "none";
+            let productInCart = new Product();
+            productInCart.setId(myProduct[index].getId());
+            productInCart.setName(myProduct[index].getName());
+            productInCart.setPrice(myProduct[index].getPrice());
+            productInCart.setAmount(1);
+            managerProductInCart.push(productInCart);
+            myProduct[index].setAmount(myProduct[index].getAmount() - 1);
+            displayProduct(myProduct);
+        } else {
+            document.getElementById("alertCart").className = "alert alert-warning";
+            document.getElementById("alertCart").style.display = "block";
+            document.getElementById("alertCart").innerHTML = "Amount is not enough!";
+        }
+
+
+    }
+
+    function displayCart() {
+        let total = 0;
+        if (managerProductInCart.length > 1) {
+            for (let i = 0; i < managerProductInCart.length; i++) {
+                for (let j = i + 1; j < managerProductInCart.length; j++) {
+                    if (managerProductInCart[i].getId() === managerProductInCart[j].getId()) {
+                        managerProductInCart.splice(j, 1);
+                        j--;
+                        managerProductInCart[i].setAmount(managerProductInCart[i].getAmount() + 1);
+                    }
+                }
+            }
+        }
+
+        for (let i = 0; i < managerProductInCart.length; i++) {
+            total += managerProductInCart[i].getPrice() * managerProductInCart[i].getAmount();
+        }
+
+        document.getElementById("alertCartProduct").style.display = "none";
+        let productCartTable = "<table class=\"table table-hover\" style=\"font-size: 18px\">";
+        productCartTable += "<thead>";
+        productCartTable += "<tr>";
+        productCartTable += "<th>ID</th>";
+        productCartTable += "<th>Product Name</th>";
+        productCartTable += "<th>Price</th>";
+        productCartTable += "<th>Amount</th>";
+        productCartTable += "<th>Action</th>";
+        productCartTable += "</tr>";
+        productCartTable += "</thead>";
+        productCartTable += "<tbody>";
+        for (let i = 0; i < managerProductInCart.length; i++) {
+            productCartTable += "<tr>";
+            productCartTable += "<td>" + (managerProductInCart[i].getId() + 1) + "</td>";
+            productCartTable += "<td>" + managerProductInCart[i].getName() + "</td>";
+            productCartTable += "<td>" + "$" + managerProductInCart[i].getPrice() + "</td>";
+            productCartTable += "<td> <button type=\"submit\" class=\"btn btn-default\" onclick=\"additionCart(" + i + ")\">+</button> " + managerProductInCart[i].getAmount() + " <button type=\"submit\" class=\"btn btn-default\" onclick=\"subtractionCart(" + i + ")\">-</button></td>";
+            productCartTable += "<td><button type=\"submit\" class=\"btn btn-danger\" onclick=\"deleteProductInCart(" + i + ")\">Delete</button></td>";
+            productCartTable += "</tr>";
+        }
+        productCartTable += "</tbody>";
+        productCartTable += "</table>";
+        productCartTable += "<h3>Total: <span id=\"totalProductInCart\">" + "$" + total.toLocaleString() + "</span> </h3>"
+        return document.getElementById("displayCart").innerHTML = productCartTable;
+
+    }
+
+    function additionCart(index) {
+        if (myProduct[managerProductInCart[index].getId()].getAmount() > 0) {
+            managerProductInCart[index].setAmount(managerProductInCart[index].getAmount() + 1);
+            myProduct[managerProductInCart[index].getId()].setAmount(myProduct[managerProductInCart[index].getId()].getAmount() - 1);
+            displayCart();
+            displayProduct(myProduct);
+        } else {
+            document.getElementById("alertCartProduct").style.display = "block";
+            document.getElementById("alertCartProduct").className = "alert alert-warning";
+            document.getElementById("alertCartProduct").innerHTML = "Maximum amount!"
+        }
+
+    }
+
+    function subtractionCart(index) {
+        if (managerProductInCart[index].getAmount() > 0) {
+            managerProductInCart[index].setAmount(managerProductInCart[index].getAmount() - 1);
+            myProduct[managerProductInCart[index].getId()].setAmount(myProduct[managerProductInCart[index].getId()].getAmount() + 1);
+            displayCart();
+            displayProduct(myProduct);
+        } else {
+            let choice = confirm("Do you want remove product " + managerProductInCart[index].getName() + " ?");
+            if (choice) {
+                managerProductInCart.splice(index, 1);
+                displayCart();
+                displayProduct(myProduct);
+            }
+        }
+    }
+
+    function deleteProductInCart(index) {
+        let choice = confirm("Do you want remove product " + managerProductInCart[index].getName() + " ?");
+        if (choice) {
+            myProduct[managerProductInCart[index].getId()].setAmount(myProduct[managerProductInCart[index].getId()].getAmount() + managerProductInCart[index].getAmount())
+            managerProductInCart.splice(index, 1);
+            displayCart();
+            displayProduct(myProduct);
+        }
+    }
+
+    function buyProduct() {
+        managerProductInCart = [];
+        displayCart();
+        displayProduct(myProduct);
+    }
+
+    function displayPagination() {
+        let count = myProduct.length / 3;
+        if (myProduct.length % 3 !== 0) {
+            count++;
+        }
+        count = parseInt(count);
+
+        let paginationTable = "<ul class=\"pagination\">";
+        paginationTable += "<li><a href=\"#\">Previous</a></li>";
+        for (let i = 0; i < count; i++) {
+            paginationTable += "<li><a href=\"#\" onclick=\"\">" + (i + 1) + "</a></li>";
+            paginationTable += " <input id=\"keyPagination\" type=\"text\" value=\"" + i + "\" hidden>";
+        }
+        paginationTable += "<li><a href=\"#\">Next</a></li>";
+        paginationTable += "</ul>";
+
+        document.getElementById("pagination").innerHTML = paginationTable;
+
+        return count;
     }
 </script>

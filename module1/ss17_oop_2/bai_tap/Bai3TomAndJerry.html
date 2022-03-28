@@ -140,8 +140,12 @@
     let autoMoveJerry;
 
     function startGame() {
-        document.getElementById("containerGame").style.display = "block";
-        autoMoveJerry = setInterval(autoMove, 500);
+        if (jerry.getStatus()) {
+            document.getElementById("containerGame").style.display = "block";
+            autoMoveJerry = setInterval(autoMove, 500);
+        } else {
+            alert("Jerry death!")
+        }
     }
 
     function stopGame() {

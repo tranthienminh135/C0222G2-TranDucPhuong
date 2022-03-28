@@ -20,11 +20,15 @@
 </html>
 <script>
     let num = prompt("Enter number");
+
     let arr = new Array(num.length);
     let str = "";
-    for (let i = 0; i < num.length; i++) {
+
+    for (let i = 0; i < arr.length; i++) {
         arr[i] = num.charAt(i);
     }
+
+    console.log(arr);
     for (let i = 0; i < arr.length; i++) {
         switch (Number(arr[i])) {
             case 0:

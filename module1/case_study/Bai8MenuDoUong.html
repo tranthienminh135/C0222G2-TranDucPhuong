@@ -22,40 +22,50 @@
     let n;
     let price = 0;
     let count = 0;
+    let str = "";
+    let sum = 0;
+
     while (n !== 7) {
-        n = Number(prompt("Menu đồ uống: \n 1. Cafe \n 2. Cam vắt \n 3.Nước ép cà rốt \n 4.Nước ép cà chua \n 5.Nước lọc \n 6.Nước dùa \n 7. Đồng ý và thoát menu \n Chọn đồ uống: "))
+        n = Number(prompt("Menu đồ uống: \n 1. Cafe \n 2. Cam vắt \n 3. Nước ép cà rốt \n 4. Nước ép cà chua \n 5. Nước lọc \n 6. Nước dùa \n 7. Đồng ý và thoát menu \n Chọn đồ uống: "))
         switch (n) {
             case 1:
                 price = 50000;
                 count = Number(prompt("Nhập số lượng: "))
-                console.log("Giá tiền của " + count + " ly cafe là: $" + (price * count).toLocaleString());
+                str += "Giá tiền của " + count + " ly cafe là: $" + (price * count).toLocaleString() + "\n";
+                sum += price * count;
                 break;
             case 2:
                 price = 60000;
                 count = Number(prompt("Nhập số lượng: "))
-                console.log("Giá tiền của " + count + " ly cam vắt là: $" + (price * count).toLocaleString());
+                str += "Giá tiền của " + count + " ly cam vắt là: $" + (price * count).toLocaleString() + "\n";
+                sum += price * count;
                 break;
             case 3:
                 price = 70000;
                 count = Number(prompt("Nhập số lượng: "))
-                console.log("Giá tiền của " + count + " ly nước ép cà rốt là: $" + (price * count).toLocaleString());
+                str += "Giá tiền của " + count + " ly nước ép cà rốt là: $" + (price * count).toLocaleString() + "\n";
+                sum += price * count;
                 break;
             case 4:
                 price = 80000;
                 count = Number(prompt("Nhập số lượng: "))
-                console.log("Giá tiền của " + count + " ly nước ép cà chua là: $" + (price * count).toLocaleString());
+                str += "Giá tiền của " + count + " ly nước ép cà chua là: $" + (price * count).toLocaleString() + "\n";
+                sum += price * count;
                 break;
             case 5:
                 price = 90000;
                 count = Number(prompt("Nhập số lượng: "))
-                console.log("Giá tiền của " + count + " ly nước lọc là: $" + (price * count).toLocaleString());
+                str += "Giá tiền của " + count + " ly nước lọc là: $" + (price * count).toLocaleString() + "\n";
+                sum += price * count;
                 break;
             case 6:
                 price = 100000;
                 count = Number(prompt("Nhập số lượng: "))
-                console.log("Giá tiền của " + count + " ly nước dừa là: $" + (price * count).toLocaleString());
+                str += "Giá tiền của " + count + " ly nước dừa là: $" + (price * count).toLocaleString() + "\n";
+                sum += price * count;
                 break;
-
         }
     }
+    console.log(str)
+    console.log("Tổng cộng: $" + sum.toLocaleString());
 </script>
