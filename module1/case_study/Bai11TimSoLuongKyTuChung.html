@@ -22,17 +22,19 @@
     let s1 = "aabc22c";
     let s2 = "adc2aa";
     let dem = 0;
-    for (let i = 0; i < s1.length; i++) {
-        for (let j = 0; j < s2.length; j++) {
-            if (s1[i] == s2[j]) {
-                dem++;
-                console.log(s2);
-                console.log(s2[j]);
-                console.log("chuoi:" + s2.replace(s2[j], ""));
-                s2 = s2.replace(s2[j], "");
-                break;
+
+    function commonCharacterCount(s1, s2) {
+        for (let i = 0; i < s1.length; i++) {
+            for (let j = 0; j < s2.length; j++) {
+                if (s1[i] === s2[j]) {
+                    dem++;
+                    s2 = s2.replace(s2[j], "");
+                    break;
+                }
             }
         }
+        return dem;
     }
-    console.log(dem);
+
+    console.log(commonCharacterCount(s1,s2))
 </script>

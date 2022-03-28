@@ -38,7 +38,7 @@
         return a.join("");
     }
 
-    function count(str) {
+    function findMax(str) {
         let array = Array();
         array = str.split(" ");
         let max = Number(array[0].length);
@@ -54,7 +54,7 @@
     }
 
     function main(str) {
-        return str + " => " + convertString(str) + "\n" + "Max: " + count(convertString(str));
+        return str + " => " + convertString(str) + "\n" + "Max: " + findMax(convertString(str));
     }
 
     console.log(main(str));

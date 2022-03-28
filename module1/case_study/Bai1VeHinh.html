@@ -37,12 +37,13 @@
         document.write("<br>");
         for (let j = 0; j <= i; j++) {
             if (i === 0 || i === width - 1 || j === 0 || j === i) {
-                document.write("*");
+                document.write(" * ");
             } else {
-                document.write("&nbsp");
+                document.write(" &nbsp ");
             }
         }
     }
+
     for (let i = 1; i < width; i++) {
         document.write("<br>");
         for (let j = 1; j <= width - i; j++) {

@@ -528,8 +528,7 @@
         let paginationTable = "<ul class=\"pagination\">";
         paginationTable += "<li><a href=\"#\">Previous</a></li>";
         for (let i = 0; i < count; i++) {
-            paginationTable += "<li><a href=\"#\" onclick=\"\">" + (i + 1) + "</a></li>";
-            paginationTable += " <input id=\"keyPagination\" type=\"text\" value=\"" + i + "\" hidden>";
+            paginationTable += "<li><a href=\"#\" onclick=\"loadPagination(" + i + ")\">" + (i + 1) + "</a></li>";
         }
         paginationTable += "<li><a href=\"#\">Next</a></li>";
         paginationTable += "</ul>";
@@ -537,5 +536,9 @@
         document.getElementById("pagination").innerHTML = paginationTable;
 
         return count;
+    }
+
+    function loadPagination(index) {
+
     }
 </script>

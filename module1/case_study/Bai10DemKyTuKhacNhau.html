@@ -20,30 +20,30 @@
 </html>
 <script>
     let str = "abacdaeg";
-
-    let arr = str.split("");
+    let flag = false;
 
     // Cach 1
-    // function differentSymbolsNaive(array) {
-    //     return (new Set(array)).size;
+    function differentSymbolsNaive(str) {
+        return (new Set(str)).size;
+    }
+    // Cach 2
+    // function differentSymbolsNaive(str) {
+    //     let array = str.split("");
+    //     let count = 0;
+    //     for (let i = 0; i < array.length; i++) {
+    //         for (let j = i + 1; j < array.length; j++) {
+    //             if (array[i] === array[j]) {
+    //                 flag = true;
+    //                 array.splice(i, 1);
+    //                 break;
+    //             }
+    //         }
+    //         if (flag) {
+    //             count++;
+    //         }
+    //     }
+    //     return count;
     // }
 
-    function differentSymbolsNaive(array) {
-        let count = 0;
-        for (let i = 0; i < array.length ; i++) {
-            for (let j = i+1; j < array.length ; j++) {
-                if (array[i] === array[j]) {
-                    array[i] = " ";
-                    break;
-                }
-            }
-        }
-        for (let i = 0; i < array.length ; i++) {
-            if (array[i] != " ") {
-                count++;
-            }
-        }
-        return count;
-    }
-    console.log(differentSymbolsNaive(arr));
+    console.log(differentSymbolsNaive(str));
 </script>
