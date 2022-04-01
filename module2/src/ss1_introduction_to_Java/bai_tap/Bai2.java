@@ -9,6 +9,9 @@ public class Bai2 {
         System.out.print("Enter number: ");
         String number = sc.nextLine();
 
+        int temp = Integer.parseInt(number);
+        number = temp + "";
+
         String[] arrNumber = number.split("");
 
         if (Integer.parseInt(number) < 10) {
