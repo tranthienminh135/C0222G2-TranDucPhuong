@@ -9,9 +9,9 @@ public class Bai1 {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Menu");
-        System.out.println("1. Draw the triangle");
-        System.out.println("2. Draw the square");
-        System.out.println("3. Draw the rectangle");
+        System.out.println("1. Draw the rectangle");
+        System.out.println("2. Draw the triangle botton-left");
+        System.out.println("3. Draw the triangle top-left");
         System.out.println("0. Exit");
 
 
@@ -42,7 +42,7 @@ public class Bai1 {
                     str = "";
                     break;
                 case 3:
-                    System.out.println("1. Draw the triangle top-left   ");
+                    System.out.println("1. Draw the triangle top-left");
                     for (int i = 5; i >= 1; i--) {
                         for (int j = 1; j <= i; j++) {
                             str += " * ";
