@@ -43,32 +43,25 @@
     console.log("Amount: " + count);
 
 
-    function isPrime(number) {
-        let flag = true;
-
-        if (number < 2) {
-            flag = false;
-        } else if (number >= 2) {
-            if (number === 2) {
-                flag = true;
-            } else if (number >= 3) {
-                if (number === 3) {
-                    flag = true;
-                } else if (number > 3) {
-                    if (number % 2 === 0) {
-                        flag = false;
-                    } else if (number % 3 === 0) {
-                        flag = false;
-                    } else {
-                        flag = true;
-                    }
-                }
+    function isPrime(n) {
+        let count = 0;
+        if (n < 2) {
+            return false;
+        } else if (n > 2) {
+            if (n % 2 === 0) {
+                return false;
             }
         }
-        if (flag) {
-            return true;
-        } else  {
+
+        for (let i = 3; i <= n; i += 2) {
+            if (n % i === 0) {
+                count++;
+            }
+        }
+        if (count > 2) {
             return false;
+        } else {
+            return true;
         }
     }
 

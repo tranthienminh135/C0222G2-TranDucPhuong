@@ -178,6 +178,7 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>
 <script>
@@ -257,6 +258,21 @@
     product7.setPrice(4500);
     product7.setAmount(10);
 
+    let product8 = new Product();
+    product8.setName("Cano");
+    product8.setPrice(8000);
+    product8.setAmount(5);
+
+    let product9 = new Product();
+    product9.setName("Car");
+    product9.setPrice(5000);
+    product9.setAmount(6);
+
+    let product10 = new Product();
+    product10.setName("Motobike");
+    product10.setPrice(400);
+    product10.setAmount(12);
+
     let myProduct = Array();
     myProduct.push(product1);
     myProduct.push(product2);
@@ -265,14 +281,28 @@
     myProduct.push(product5);
     myProduct.push(product6);
     myProduct.push(product7);
+    myProduct.push(product8);
+    myProduct.push(product9);
+    myProduct.push(product10);
 
     for (let i = 0; i < myProduct.length; i++) {
         myProduct[i].setId(i);
     }
     displayProduct(myProduct);
 
-    function displayProduct(myProduct) {
-        let productTable = "<table class=\"table table-hover\">";
+    function displayProduct(myProduct, index) {
+        let productTable;
+        if (index === undefined) {
+            index = 0;
+        }
+        productTable = "<input type=\"text\" hidden id=\"paginationIndex\" value=\"" + index + "\">"
+        index *= 3;
+        let countPage = index + 3;
+        if (countPage > myProduct.length) {
+            countPage = myProduct.length;
+        }
+
+        productTable += "<table class=\"table table-hover\">";
         productTable += "<thead>";
         productTable += "<tr>";
         productTable += "<th>ID</th>";
@@ -285,15 +315,15 @@
         productTable += "</tr>";
         productTable += "</thead>";
         productTable += "<tbody>";
-        for (let i = 0; i < myProduct.length; i++) {
+        for (let i = index; i < countPage; i++) {
             productTable += "<tr>";
             productTable += "<td>" + (myProduct[i].getId() + 1) + "</td>";
             productTable += "<td>" + myProduct[i].getName() + "</td>";
             productTable += "<td>" + "$" + myProduct[i].getPrice() + "</td>";
             productTable += "<td>" + myProduct[i].getAmount() + "</td>";
-            productTable += "<td><button type=\"button\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#myModal\" onclick=\"loadProductForEdit(" + myProduct[i].getId() + ")\">Edit</button></td>";
-            productTable += "<td><button type=\"button\" id=\"delete\" class=\"btn btn-success\" onclick=\"deleteProduct(" + myProduct[i].getId() + ")\">Delete</button></td>";
-            productTable += "<td><button type=\"button\" id=\"delete\" class=\"btn btn-success\" onclick=\"addToCart(" + myProduct[i].getId() + ")\">Add to cart</button></td>";
+            productTable += "<td><button type=\"button\" class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#myModal\" onclick=\"loadProductForEdit(" + i + ")\">Edit</button></td>";
+            productTable += "<td><button type=\"button\" id=\"delete\" class=\"btn btn-success\" onclick=\"deleteProduct(" + i + ")\">Delete</button></td>";
+            productTable += "<td><button type=\"button\" id=\"delete\" class=\"btn btn-success\" onclick=\"addToCart(" + i + ")\">Add to cart</button></td>";
             productTable += "</tr>";
         }
         productTable += "</tbody>";
@@ -303,6 +333,7 @@
     }
 
     function addNewProduct() {
+        let paginationIndex = document.getElementById("paginationIndex").value;
         let productName = document.getElementById("nameNewProduct").value;
         let productPrice = document.getElementById("priceNewProduct").value;
         let productAmount = document.getElementById("amountNewProduct").value;
@@ -327,17 +358,18 @@
             document.getElementById("alertAddNewProduct").innerHTML = "Add product success!"
 
         }
-        displayProduct(myProduct);
+        displayProduct(myProduct, paginationIndex);
     }
 
     function deleteProduct(index) {
+        let paginationIndex = document.getElementById("paginationIndex").value;
         let choice = confirm("Do you want delete " + myProduct[index].getName() + "?");
         if (choice === true) {
             myProduct.splice(index, 1);
             document.getElementById("alertDeleteProduct").className = "alert alert-success";
             document.getElementById("alertDeleteProduct").style.display = "block";
             document.getElementById("alertDeleteProduct").innerHTML = "Delete product success!";
-            displayProduct(myProduct);
+            displayProduct(myProduct, paginationIndex);
         }
     }
 
@@ -350,6 +382,7 @@
 
 
     function editProduct() {
+        let paginationIndex = document.getElementById("paginationIndex").value;
         let index = document.getElementById("idEditProduct").value;
         let productName = document.getElementById("nameEditProduct").value;
         let productPrice = document.getElementById("priceEditProduct").value;
@@ -364,7 +397,7 @@
             myProduct[index].setName(productName);
             myProduct[index].setPrice(productPrice);
             myProduct[index].setAmount(productAmount);
-            displayProduct(myProduct);
+            displayProduct(myProduct, paginationIndex);
         }
     }
 
@@ -407,6 +440,8 @@
     let managerProductInCart = Array();
 
     function addToCart(index) {
+        let paginationIndex = document.getElementById("paginationIndex").value;
+        console.log(index);
         if (myProduct[index].getAmount() > 0) {
             document.getElementById("alertCart").style.display = "none";
             let productInCart = new Product();
@@ -416,7 +451,7 @@
             productInCart.setAmount(1);
             managerProductInCart.push(productInCart);
             myProduct[index].setAmount(myProduct[index].getAmount() - 1);
-            displayProduct(myProduct);
+            displayProduct(myProduct, paginationIndex);
         } else {
             document.getElementById("alertCart").className = "alert alert-warning";
             document.getElementById("alertCart").style.display = "block";
@@ -473,11 +508,12 @@
     }
 
     function additionCart(index) {
+        let paginationIndex = document.getElementById("paginationIndex").value;
         if (myProduct[managerProductInCart[index].getId()].getAmount() > 0) {
             managerProductInCart[index].setAmount(managerProductInCart[index].getAmount() + 1);
             myProduct[managerProductInCart[index].getId()].setAmount(myProduct[managerProductInCart[index].getId()].getAmount() - 1);
             displayCart();
-            displayProduct(myProduct);
+            displayProduct(myProduct, paginationIndex);
         } else {
             document.getElementById("alertCartProduct").style.display = "block";
             document.getElementById("alertCartProduct").className = "alert alert-warning";
@@ -503,12 +539,13 @@
     }
 
     function deleteProductInCart(index) {
+        let paginationIndex = document.getElementById("paginationIndex").value;
         let choice = confirm("Do you want remove product " + managerProductInCart[index].getName() + " ?");
         if (choice) {
             myProduct[managerProductInCart[index].getId()].setAmount(myProduct[managerProductInCart[index].getId()].getAmount() + managerProductInCart[index].getAmount())
             managerProductInCart.splice(index, 1);
             displayCart();
-            displayProduct(myProduct);
+            displayProduct(myProduct, paginationIndex);
         }
     }
 
@@ -528,17 +565,13 @@
         let paginationTable = "<ul class=\"pagination\">";
         paginationTable += "<li><a href=\"#\">Previous</a></li>";
         for (let i = 0; i < count; i++) {
-            paginationTable += "<li><a href=\"#\" onclick=\"loadPagination(" + i + ")\">" + (i + 1) + "</a></li>";
+            paginationTable += "<li><a id=\"paginationTable\" href=\"#\" onclick=\"displayProduct(myProduct, " + i + ")\">" + (i + 1) + "</a></li>";
         }
-        paginationTable += "<li><a href=\"#\">Next</a></li>";
+        paginationTable += "<li><a href=\"#\" >Next</a></li>";
         paginationTable += "</ul>";
 
         document.getElementById("pagination").innerHTML = paginationTable;
 
         return count;
-    }
-
-    function loadPagination(index) {
-
     }
 </script>
