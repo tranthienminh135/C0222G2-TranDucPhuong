@@ -107,7 +107,7 @@ public class Bai2 {
         switch (number) {
             default:
                 switch (value1) {
-                    case "":
+                    case "0":
                         switch (value2) {
                             case "":
                             return letThanTen(number) + " hundress";

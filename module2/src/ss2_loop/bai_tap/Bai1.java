@@ -20,7 +20,7 @@ public class Bai1 {
             choice = input.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("Draw the rectangle");
+                    System.out.println("1. Draw the rectangle");
                     for (int i = 0; i < 5; i++) {
                         for (int j = 0; j < 5; j++) {
                             str += " * ";
@@ -31,7 +31,7 @@ public class Bai1 {
                     str = "";
                     break;
                 case 2:
-                    System.out.println("1. Draw the triangle botton-left");
+                    System.out.println("2. Draw the triangle botton-left");
                     for (int i = 0; i < 5; i++) {
                         for (int j = 0; j <= i; j++) {
                             str += " * ";
@@ -42,7 +42,7 @@ public class Bai1 {
                     str = "";
                     break;
                 case 3:
-                    System.out.println("1. Draw the triangle top-left");
+                    System.out.println("3. Draw the triangle top-left");
                     for (int i = 5; i >= 1; i--) {
                         for (int j = 1; j <= i; j++) {
                             str += " * ";
