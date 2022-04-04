@@ -4,28 +4,25 @@ import java.util.Scanner;
 
 public class Bai3PrimeNumbersLessThan100 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("nhập số lượng số nguyên tố: ");
-        int number = scanner.nextInt();
-        int count = 0;
-        int soNguyenTo = 0;
-        System.out.print("Dãy số nguyên tố: ");
-        while (count < number) {
+        int n = 0;
+        while (n < 100) {
             boolean flag = true;
-            if (soNguyenTo < 2) {
+            if (n < 2) {
                 flag = false;
             } else {
-                for (int i = 2; i < soNguyenTo - 1; i++) {
-                    if (soNguyenTo % i == 0) {
+                int j = 2;
+                while (j <= Math.sqrt(n)) {
+                    if (n % j == 0) {
                         flag = false;
+                        break;
                     }
+                    j++;
+                }
+                if (flag) {
+                    System.out.println(n);
                 }
             }
-            if (flag == true) {
-                System.out.println(soNguyenTo + ",");
-                count++;
-            }
-            soNguyenTo++;
+            n++;
         }
     }
 }
