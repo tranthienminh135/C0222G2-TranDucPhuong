@@ -31,27 +31,24 @@ public class SS1RemoveElementInArray {
                 count++;
             }
         }
-        System.out.println("count:" + count);
         for (int i = 0; i < arr.length; i++) {
             if (x == arr[i]) {
                 temp = i;
                 flag = true;
                 break;
             }
-
         }
         if (flag) {
             while (count > 0) {
-                System.out.println("Index of X: " + temp);
                 for (int i = temp; i < arr.length - 1; i++) {
                     arr[i] = arr[i + 1];
                 }
                 arr[arr.length - 1] = 0;
                 count--;
-                System.out.println("New array");
-                for (int a : arr) {
-                    System.out.println(a);
-                }
+            }
+            System.out.println("New array");
+            for (int a : arr) {
+                System.out.println(a);
             }
         } else {
             System.out.println("X not found!");
