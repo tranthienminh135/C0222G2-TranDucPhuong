@@ -40,8 +40,8 @@ public class SS1Rectangle {
 
     public String display() {
         return "Rectangle{" +
-                "width=" + width +
-                ", height=" + height +
+                "width= " + width +
+                ", height= " + height +
                 '}';
     }
 
