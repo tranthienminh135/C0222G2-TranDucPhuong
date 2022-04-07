@@ -31,9 +31,11 @@ public class SS3StopWatch {
     public void start() {
         this.startTime = System.currentTimeMillis();
     }
+
     public void end() {
         this.endTime = System.currentTimeMillis();
     }
+
     public long getElapsedTime() {
         return this.endTime - this.startTime;
     }
@@ -46,8 +48,8 @@ public class SS3StopWatch {
         System.out.println(start);
         for (int i = 0; i < 1000000000; i++) {
             a = 1 + 1;
-            a = 1 + 2;
-            a = 0;
+            a = 5 + i;
+            a = a + i;
         }
         st.setEndTime(System.currentTimeMillis());
         long end = st.getEndTime();
