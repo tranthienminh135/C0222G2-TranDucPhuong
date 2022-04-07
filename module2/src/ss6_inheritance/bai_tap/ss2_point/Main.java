@@ -1,4 +1,4 @@
-package ss6_inheritance.bai_tap.ss1_point;
+package ss6_inheritance.bai_tap.ss2_point;
 
 public class Main {
     public static void main(String[] args) {
