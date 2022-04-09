@@ -2,7 +2,7 @@ package ss6_inheritance.bai_tap.ss1_circle;
 
 public class Circle {
     private float radius;
-    private String color;
+    private String color = "red";
 
     public Circle() {
     }
@@ -39,8 +39,10 @@ public class Circle {
     @Override
     public String toString() {
         return "Circle{" +
-                "radius=" + radius +
-                ", color='" + color + '\'' +
+                "Radius=" + this.radius +
+                ", Color = " + this.color +
+                ", Area = " + this.area() +
+                ", Perimeter = " + this.perimeter() +
                 '}';
     }
 }

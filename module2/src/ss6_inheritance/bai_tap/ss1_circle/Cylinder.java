@@ -18,7 +18,15 @@ public class Cylinder extends Circle {
         this.height = height;
     }
 
-    public float volume() {
+    public float surroundingArea() {
+        return super.perimeter() * this.height;
+    }
+
+    public float totalArea() {
+        return this.surroundingArea() + 2 * super.area();
+    }
+
+    public float volumn() {
         return super.area() * this.height;
     }
 
@@ -26,7 +34,10 @@ public class Cylinder extends Circle {
     public String toString() {
         return super.toString() + "\n" +
                 "Cylinder{" +
-                "height=" + height +
+                "Height = " + height +
+                ", Surrounding Area = " + this.surroundingArea() +
+                ", Total Area = " + this.totalArea() +
+                ", Volumn = " + this.volumn() +
                 '}';
     }
 }
