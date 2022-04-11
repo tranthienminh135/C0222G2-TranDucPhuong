@@ -7,6 +7,10 @@ public class Circle {
     public Circle() {
     }
 
+    public Circle(float radius) {
+        this.radius = radius;
+    }
+
     public Circle(float radius, String color) {
         this.radius = radius;
         this.color = color;
