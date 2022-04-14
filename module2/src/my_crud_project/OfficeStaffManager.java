@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class OfficeStaffManager {
     OfficeStaff[] officeStaffs = new OfficeStaff[100];
+    {
+        OfficeStaff officeStaff = new OfficeStaff();
+    }
 
     public void add() {
         OfficeStaff officeStaff = new OfficeStaff();
@@ -23,7 +26,7 @@ public class OfficeStaffManager {
             if (officeStaffs[i] != null) {
                 System.out.println(officeStaffs[i].output());
             } else {
-                break;
+                continue;
             }
         }
     }
@@ -49,9 +52,11 @@ public class OfficeStaffManager {
         int id = Integer.parseInt((new Scanner(System.in).nextLine()));
 
         for (int i = 0; i < officeStaffs.length - 1; i++) {
-            if (officeStaffs[i] != null && officeStaffs[i].getId() == id) {
-                officeStaffs[i] = officeStaffs[i + 1];
-                officeStaffs[i + 1] = null;
+            if (officeStaffs[i] != null) {
+                if(officeStaffs[i].getId() == id) {
+                    officeStaffs[i] = null;
+                    return;
+                }
             }
         }
     }
