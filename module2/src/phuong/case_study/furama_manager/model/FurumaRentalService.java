@@ -1,10 +1,12 @@
 package phuong.case_study.furama_manager.model;
 
+import java.util.Scanner;
+
 public abstract class FurumaRentalService {
     private String serviceName;
     private double usableArea;
     private double rentalCosts;
-    private int maximumNumberOfPeople;
+    private int maximumNumberPeople;
     private String rentalType;
 
     public FurumaRentalService() {
@@ -17,12 +19,26 @@ public abstract class FurumaRentalService {
      * maximumNumberOfPeople: Số lượng người tối đa.
      * rentalType: Kiểu thuê.
      */
-    public FurumaRentalService(String serviceName, double usableArea, double rentalCosts, int maximumNumberOfPeople, String rentalType) {
+    public FurumaRentalService(String serviceName, double usableArea, double rentalCosts, int maximumNumberPeople, String rentalType) {
         this.serviceName = serviceName;
         this.usableArea = usableArea;
         this.rentalCosts = rentalCosts;
-        this.maximumNumberOfPeople = maximumNumberOfPeople;
+        this.maximumNumberPeople = maximumNumberPeople;
         this.rentalType = rentalType;
+    }
+
+    public void input() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter service name: ");
+        String serviceName = sc.nextLine();
+        System.out.print("Enter usable area: ");
+        double usableArea = Double.parseDouble(sc.nextLine());
+        System.out.print("Enter rental costs: ");
+        double rentalCosts = Double.parseDouble(sc.nextLine());
+        System.out.print("Enter maximum number of people: ");
+        int maximumNumberPeople = Integer.parseInt(sc.nextLine());
+        System.out.print("Enter rental type ");
+        String rentalType = sc.nextLine();
     }
 
     public String getServiceName() {
@@ -49,12 +65,12 @@ public abstract class FurumaRentalService {
         this.rentalCosts = rentalCosts;
     }
 
-    public int getMaximumNumberOfPeople() {
-        return maximumNumberOfPeople;
+    public int getMaximumNumberPeople() {
+        return maximumNumberPeople;
     }
 
-    public void setMaximumNumberOfPeople(int maximumNumberOfPeople) {
-        this.maximumNumberOfPeople = maximumNumberOfPeople;
+    public void setMaximumNumberPeople(int maximumNumberPeople) {
+        this.maximumNumberPeople = maximumNumberPeople;
     }
 
     public String getRentalType() {
@@ -67,12 +83,11 @@ public abstract class FurumaRentalService {
 
     @Override
     public String toString() {
-        return "FurumaService{" +
-                "serviceName='" + serviceName + '\'' +
-                ", usableArea=" + usableArea +
-                ", rentalCosts=" + rentalCosts +
-                ", maximumNumberOfPeople=" + maximumNumberOfPeople +
-                ", rentalType='" + rentalType + '\'' +
+        return ", serviceName = '" + serviceName + '\'' +
+                ", usableArea = " + usableArea +
+                ", rentalCosts = " + rentalCosts +
+                ", maximumNumberOfPeople = " + maximumNumberPeople +
+                ", rentalType = '" + rentalType + '\'' +
                 '}';
     }
 }

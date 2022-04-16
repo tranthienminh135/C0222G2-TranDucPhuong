@@ -1,30 +1,54 @@
 package phuong.case_study.furama_manager.model;
 
-public class House extends Villa {
+import java.util.Scanner;
+
+public class House extends FurumaRentalService {
+    private String roomStandard;
+    private int floorsNumber;
+
     public House() {
     }
 
-    public House(String roomStandard, int numberOfFloors) {
-        super(roomStandard, numberOfFloors);
+    public House(String roomStandard, int floorsNumber) {
+        this.roomStandard = roomStandard;
+        this.floorsNumber = floorsNumber;
     }
 
-    @Override
+    public House(String serviceName, double usableArea, double rentalCosts, int maximumNumberPeople, String rentalType, String roomStandard, int floorsNumber) {
+        super(serviceName, usableArea, rentalCosts, maximumNumberPeople, rentalType);
+        this.roomStandard = roomStandard;
+        this.floorsNumber = floorsNumber;
+    }
+
     public String getRoomStandard() {
-        return super.getRoomStandard();
+        return roomStandard;
     }
 
-    @Override
     public void setRoomStandard(String roomStandard) {
-        super.setRoomStandard(roomStandard);
+        this.roomStandard = roomStandard;
+    }
+
+    public int getFloorsNumber() {
+        return floorsNumber;
+    }
+
+    public void setFloorsNumber(int floorsNumber) {
+        this.floorsNumber = floorsNumber;
     }
 
     @Override
-    public int getNumberOfFloors() {
-        return super.getNumberOfFloors();
+    public void input() {
+        Scanner sc = new Scanner(System.in);
+        super.input();
+        
     }
 
     @Override
-    public void setNumberOfFloors(int numberOfFloors) {
-        super.setNumberOfFloors(numberOfFloors);
+    public String toString() {
+        return "House {" +
+                super.toString() +
+                ", roomStandard = '" + roomStandard + '\'' +
+                ", floorsNumber = " + floorsNumber +
+                '}';
     }
 }
