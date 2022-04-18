@@ -1,20 +1,19 @@
 package phuong.case_study.furama_manager.model.person;
 
-import java.sql.Date;
 
 public abstract class Person {
     private String id;
     private String name;
-    private Date date;
+    private String date;
     private String gender;
-    private int idCard;
-    private int phoneNumber;
+    private Long idCard;
+    private Long phoneNumber;
     private String mail;
 
     public Person() {
     }
 
-    public Person(String id, String name, Date date, String gender, int idCard, int phoneNumber, String mail) {
+    public Person(String id, String name, String date, String gender, Long idCard, Long phoneNumber, String mail) {
         this.id = id;
         this.name = name;
         this.date = date;
@@ -40,11 +39,11 @@ public abstract class Person {
         this.name = name;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -56,19 +55,19 @@ public abstract class Person {
         this.gender = gender;
     }
 
-    public int getIdCard() {
+    public Long getIdCard() {
         return idCard;
     }
 
-    public void setIdCard(int idCard) {
+    public void setIdCard(Long idCard) {
         this.idCard = idCard;
     }
 
-    public int getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -82,7 +81,7 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return ", id = '" + id + '\'' +
+        return " id = '" + id + '\'' +
                 ", name = '" + name + '\'' +
                 ", date = " + date +
                 ", gender = '" + gender + '\'' +

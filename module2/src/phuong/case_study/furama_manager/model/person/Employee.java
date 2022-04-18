@@ -5,18 +5,18 @@ import java.sql.Date;
 public class Employee extends Person{
     private String level;
     private String position;
-    private long salary;
+    private Double salary;
 
     public Employee() {
     }
 
-    public Employee(String level, String position, long salary) {
+    public Employee(String level, String position, Double salary) {
         this.level = level;
         this.position = position;
         this.salary = salary;
     }
 
-    public Employee(String id, String name, Date date, String gender, int idCard, int phoneNumber, String mail, String level, String position, long salary) {
+    public Employee(String id, String name, String date, String gender, Long idCard, Long phoneNumber, String mail, String level, String position, Double salary) {
         super(id, name, date, gender, idCard, phoneNumber, mail);
         this.level = level;
         this.position = position;
@@ -39,21 +39,21 @@ public class Employee extends Person{
         this.position = position;
     }
 
-    public long getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(long salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
     @Override
     public String toString() {
-        return "Customer {" +
+        return "Employee {" +
                 super.toString() +
                 ", level = '" + level + '\'' +
                 ", position = '" + position + '\'' +
                 ", salary = " + salary +
-                '}';
+                " }";
     }
 }
