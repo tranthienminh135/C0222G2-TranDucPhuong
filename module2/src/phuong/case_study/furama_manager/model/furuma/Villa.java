@@ -1,6 +1,8 @@
-package phuong.case_study.furama_manager.model;
+package phuong.case_study.furama_manager.model.furuma;
 
-public class Villa extends FurumaRentalService {
+import java.util.Scanner;
+
+public class Villa extends Furuma {
     private String roomStandard;
     private double swimmingPoolArea;
     private int floorsNumber;
@@ -53,6 +55,18 @@ public class Villa extends FurumaRentalService {
 
     public void setFloorsNumber(int floorsNumber) {
         this.floorsNumber = floorsNumber;
+    }
+
+    @Override
+    public void input() {
+        Scanner sc = new Scanner(System.in);
+        super.input();
+        System.out.print("Enter room standard: ");
+        this.roomStandard = sc.nextLine();
+        System.out.print("Ener swimming pool area: ");
+        this.swimmingPoolArea = Double.parseDouble(sc.nextLine());
+        System.out.print("Enter number of floors number: ");
+        this.floorsNumber = Integer.parseInt(sc.nextLine());
     }
 
     @Override

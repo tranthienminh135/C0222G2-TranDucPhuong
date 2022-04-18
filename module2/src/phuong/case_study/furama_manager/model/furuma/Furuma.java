@@ -1,15 +1,15 @@
-package phuong.case_study.furama_manager.model;
+package phuong.case_study.furama_manager.model.furuma;
 
 import java.util.Scanner;
 
-public abstract class FurumaRentalService {
+public abstract class Furuma {
     private String serviceName;
     private double usableArea;
     private double rentalCosts;
     private int maximumNumberPeople;
     private String rentalType;
 
-    public FurumaRentalService() {
+    public Furuma() {
     }
 
     /**
@@ -19,7 +19,7 @@ public abstract class FurumaRentalService {
      * maximumNumberOfPeople: Số lượng người tối đa.
      * rentalType: Kiểu thuê.
      */
-    public FurumaRentalService(String serviceName, double usableArea, double rentalCosts, int maximumNumberPeople, String rentalType) {
+    public Furuma(String serviceName, double usableArea, double rentalCosts, int maximumNumberPeople, String rentalType) {
         this.serviceName = serviceName;
         this.usableArea = usableArea;
         this.rentalCosts = rentalCosts;
@@ -30,15 +30,15 @@ public abstract class FurumaRentalService {
     public void input() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter service name: ");
-        String serviceName = sc.nextLine();
+        this.serviceName = sc.nextLine();
         System.out.print("Enter usable area: ");
-        double usableArea = Double.parseDouble(sc.nextLine());
+        this.usableArea = Double.parseDouble(sc.nextLine());
         System.out.print("Enter rental costs: ");
-        double rentalCosts = Double.parseDouble(sc.nextLine());
+        this.rentalCosts = Double.parseDouble(sc.nextLine());
         System.out.print("Enter maximum number of people: ");
-        int maximumNumberPeople = Integer.parseInt(sc.nextLine());
+        this.maximumNumberPeople = Integer.parseInt(sc.nextLine());
         System.out.print("Enter rental type ");
-        String rentalType = sc.nextLine();
+        this.rentalType = sc.nextLine();
     }
 
     public String getServiceName() {
