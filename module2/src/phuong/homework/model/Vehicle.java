@@ -81,8 +81,10 @@ public abstract class Vehicle {
             for (int i = 0; i < manufacturerList.size(); i++) {
                 System.out.println((i + 1) + ". " + manufacturerList.get(i).getName());
             }
+
             System.out.print("Your choice: ");
             choice = Integer.parseInt(sc.nextLine());
+
             if (choice > 0 && choice < manufacturerList.size()) {
                 return manufacturerList.get(choice - 1);
             } else {
