@@ -1,7 +1,5 @@
 package phuong.case_study.furama_manager.model.person;
 
-import java.sql.Date;
-
 public class Customer extends Person {
     private String customerRank;
     private String address;

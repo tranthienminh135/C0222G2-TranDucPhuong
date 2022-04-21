@@ -33,7 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         String id = sc.nextLine();
         System.out.print("Enter name: ");
         String name = sc.nextLine();
-        System.out.print("Enter date: ");
+        System.out.print("Enter day of birth: ");
         String date = sc.nextLine();
         System.out.print("Enter gender: ");
         String gender = sc.nextLine();
@@ -70,7 +70,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (checkIdExists(id)) {
             System.out.print("Enter name: ");
             String name = sc.nextLine();
-            System.out.print("Enter date: ");
+            System.out.print("Enter day of birth: ");
             String date = sc.nextLine();
             System.out.print("Enter gender: ");
             String gender = sc.nextLine();
@@ -90,7 +90,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 if (employee.getId().equals(id)) {
                     employee.setId(id);
                     employee.setName(name);
-                    employee.setDate(date);
+                    employee.setDayOfBirth(date);
                     employee.setGender(gender);
                     employee.setIdCard(idCard);
                     employee.setPhoneNumber(phoneNumber);

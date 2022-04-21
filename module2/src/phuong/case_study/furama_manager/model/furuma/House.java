@@ -1,8 +1,6 @@
 package phuong.case_study.furama_manager.model.furuma;
 
-import java.util.Scanner;
-
-public class House extends Furuma {
+public class House extends Facility {
     private String roomStandard;
     private int floorsNumber;
 
@@ -34,16 +32,6 @@ public class House extends Furuma {
 
     public void setFloorsNumber(int floorsNumber) {
         this.floorsNumber = floorsNumber;
-    }
-
-    @Override
-    public void input() {
-        Scanner sc = new Scanner(System.in);
-        super.input();
-        System.out.print("Enter room standard: ");
-        this.roomStandard = sc.nextLine();
-        System.out.print("Enter room standard: ");
-        this.floorsNumber = Integer.parseInt(sc.nextLine());
     }
 
     @Override

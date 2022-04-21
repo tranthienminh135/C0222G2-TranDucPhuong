@@ -2,10 +2,10 @@ package phuong.case_study.furama_manager.model.furuma;
 
 import java.util.Scanner;
 
-public class Villa extends Furuma {
+public class Villa extends Facility {
     private String roomStandard;
-    private double swimmingPoolArea;
-    private int floorsNumber;
+    private Double swimmingPoolArea;
+    private Integer floorsNumber;
 
     public Villa() {
     }
@@ -26,7 +26,7 @@ public class Villa extends Furuma {
         this.floorsNumber = floorsNumber;
     }
 
-    public Villa(String serviceName, double usableArea, double rentalCosts, int maximumNumberPeople, String rentalType, String roomStandard, double swimmingPoolArea, int floorsNumber) {
+    public Villa(String serviceName, double usableArea, double rentalCosts, int maximumNumberPeople, String rentalType, String roomStandard, Double swimmingPoolArea, Integer floorsNumber) {
         super(serviceName, usableArea, rentalCosts, maximumNumberPeople, rentalType);
         this.roomStandard = roomStandard;
         this.swimmingPoolArea = swimmingPoolArea;
@@ -41,32 +41,20 @@ public class Villa extends Furuma {
         this.roomStandard = roomStandard;
     }
 
-    public double getSwimmingPoolArea() {
+    public Double getSwimmingPoolArea() {
         return swimmingPoolArea;
     }
 
-    public void setSwimmingPoolArea(double swimmingPoolArea) {
+    public void setSwimmingPoolArea(Double swimmingPoolArea) {
         this.swimmingPoolArea = swimmingPoolArea;
     }
 
-    public int getFloorsNumber() {
+    public Integer getFloorsNumber() {
         return floorsNumber;
     }
 
-    public void setFloorsNumber(int floorsNumber) {
+    public void setFloorsNumber(Integer floorsNumber) {
         this.floorsNumber = floorsNumber;
-    }
-
-    @Override
-    public void input() {
-        Scanner sc = new Scanner(System.in);
-        super.input();
-        System.out.print("Enter room standard: ");
-        this.roomStandard = sc.nextLine();
-        System.out.print("Ener swimming pool area: ");
-        this.swimmingPoolArea = Double.parseDouble(sc.nextLine());
-        System.out.print("Enter number of floors number: ");
-        this.floorsNumber = Integer.parseInt(sc.nextLine());
     }
 
     @Override

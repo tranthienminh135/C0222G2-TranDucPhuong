@@ -1,7 +1,6 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
 import phuong.case_study.furama_manager.model.person.Customer;
-import phuong.case_study.furama_manager.model.person.Employee;
 import phuong.case_study.furama_manager.sevice.CustomerService;
 
 import java.util.LinkedList;
@@ -41,7 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
         String id = sc.nextLine();
         System.out.print("Enter name: ");
         String name = sc.nextLine();
-        System.out.print("Enter date: ");
+        System.out.print("Enter day of birth: ");
         String date = sc.nextLine();
         System.out.print("Enter gender: ");
         String gender = sc.nextLine();
@@ -77,7 +76,7 @@ public class CustomerServiceImpl implements CustomerService {
         if (checkIdExists(id)) {
             System.out.print("Enter name: ");
             String name = sc.nextLine();
-            System.out.print("Enter date: ");
+            System.out.print("Enter day of birth: ");
             String date = sc.nextLine();
             System.out.print("Enter gender: ");
             String gender = sc.nextLine();
@@ -91,11 +90,12 @@ public class CustomerServiceImpl implements CustomerService {
             String rank = sc.nextLine();
             System.out.print("Enter address: ");
             String address = sc.nextLine();
+
             for (Customer customer: customers) {
                 if (customer.getId().equals(id)) {
                     customer.setId(id);
                     customer.setName(name);
-                    customer.setDate(date);
+                    customer.setDayOfBirth(date);
                     customer.setGender(gender);
                     customer.setIdCard(idCard);
                     customer.setPhoneNumber(phoneNumber);

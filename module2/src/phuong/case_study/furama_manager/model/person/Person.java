@@ -4,7 +4,7 @@ package phuong.case_study.furama_manager.model.person;
 public abstract class Person {
     private String id;
     private String name;
-    private String date;
+    private String dayOfBirth;
     private String gender;
     private Long idCard;
     private Long phoneNumber;
@@ -16,7 +16,7 @@ public abstract class Person {
     public Person(String id, String name, String date, String gender, Long idCard, Long phoneNumber, String mail) {
         this.id = id;
         this.name = name;
-        this.date = date;
+        this.dayOfBirth = date;
         this.gender = gender;
         this.idCard = idCard;
         this.phoneNumber = phoneNumber;
@@ -39,12 +39,12 @@ public abstract class Person {
         this.name = name;
     }
 
-    public String getDate() {
-        return date;
+    public String getDayOfBirth() {
+        return dayOfBirth;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDayOfBirth(String dayOfBirth) {
+        this.dayOfBirth = dayOfBirth;
     }
 
     public String getGender() {
@@ -83,7 +83,7 @@ public abstract class Person {
     public String toString() {
         return " id = '" + id + '\'' +
                 ", name = '" + name + '\'' +
-                ", date = " + date +
+                ", date = " + dayOfBirth +
                 ", gender = '" + gender + '\'' +
                 ", idCard = " + idCard +
                 ", phoneNumber = " + phoneNumber +

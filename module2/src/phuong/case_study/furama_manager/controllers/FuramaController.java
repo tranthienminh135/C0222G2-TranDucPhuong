@@ -1,13 +1,19 @@
 package phuong.case_study.furama_manager.controllers;
 
+import phuong.case_study.furama_manager.sevice.CustomerService;
 import phuong.case_study.furama_manager.sevice.EmployeeService;
+import phuong.case_study.furama_manager.sevice.FacilityService;
+import phuong.case_study.furama_manager.sevice.impl.CustomerServiceImpl;
 import phuong.case_study.furama_manager.sevice.impl.EmployeeServiceImpl;
+import phuong.case_study.furama_manager.sevice.impl.FacilityServiceImpl;
 
 import java.util.Scanner;
 
 public class FuramaController {
     private static Scanner sc = new Scanner(System.in);
     private static EmployeeService employeeService = new EmployeeServiceImpl();
+    private static CustomerService customerService = new CustomerServiceImpl();
+    private static FacilityService facilityService = new FacilityServiceImpl();
     public void displayMainMenu() {
         boolean flag = true;
         do {
@@ -102,8 +108,42 @@ public class FuramaController {
             int choiceFacility = Integer.parseInt(sc.nextLine());
             switch (choiceFacility) {
                 case 1:
+                    facilityService.displayListFacility();
+                    break;
                 case 2:
+                    choiceFacilityService();
+                    break;
                 case 3:
+                    facilityService.displayMaintenance();
+                    break;
+                case 4:
+                    flag = false;
+                    break;
+            }
+
+        } while (flag);
+    }
+
+    private void choiceFacilityService() {
+        boolean flag = true;
+        do {
+            System.out.println("Facility service menu" + "\n" +
+                    "1. Add new House" + "\n" +
+                    "2. Add new Room" + "\n" +
+                    "3. Add new Villa" + "\n" +
+                    "4. Return main menu");
+            System.out.print("Your choice: ");
+            int choiceFacilityService = Integer.parseInt(sc.nextLine());
+            switch (choiceFacilityService) {
+                case 1:
+                    facilityService.addNewHouseService();
+                    break;
+                case 2:
+                    facilityService.addNewRoomService();
+                    break;
+                case 3:
+                    facilityService.addNewVillaService();
+                    break;
                 case 4:
                     flag = false;
                     break;
@@ -124,10 +164,19 @@ public class FuramaController {
             int choiceCustomer = Integer.parseInt(sc.nextLine());
             switch (choiceCustomer) {
                 case 1:
+                    customerService.display();
+                    break;
                 case 2:
+                    customerService.add();
+                    break;
                 case 3:
+                    customerService.edit();
+                    break;
                 case 4:
                     flag = false;
+                    break;
+                default:
+                    System.out.println("Choice again!");
                     break;
             }
         } while (flag);
@@ -155,6 +204,9 @@ public class FuramaController {
                     break;
                 case 4:
                     flag = false;
+                    break;
+                default:
+                    System.out.println("Choice again!");
                     break;
             }
         } while (flag);

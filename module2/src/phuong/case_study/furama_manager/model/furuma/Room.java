@@ -1,8 +1,6 @@
 package phuong.case_study.furama_manager.model.furuma;
 
-import java.util.Scanner;
-
-public class Room extends Furuma {
+public class Room extends Facility {
     private String freeService;
 
     public Room() {
@@ -23,13 +21,6 @@ public class Room extends Furuma {
 
     public void setFreeService(String freeService) {
         this.freeService = freeService;
-    }
-
-    @Override
-    public void input() {
-        Scanner sc = new Scanner(System.in);
-        super.input();
-        this.freeService = sc.nextLine();
     }
 
     @Override
