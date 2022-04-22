@@ -1,6 +1,6 @@
 package phuong.case_study.furama_manager.model.person;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Employee extends Person{
     private String level;
@@ -16,7 +16,7 @@ public class Employee extends Person{
         this.salary = salary;
     }
 
-    public Employee(String id, String name, String date, String gender, Long idCard, Long phoneNumber, String mail, String level, String position, Double salary) {
+    public Employee(String id, String name, Date date, String gender, Long idCard, Long phoneNumber, String mail, String level, String position, Double salary) {
         super(id, name, date, gender, idCard, phoneNumber, mail);
         this.level = level;
         this.position = position;

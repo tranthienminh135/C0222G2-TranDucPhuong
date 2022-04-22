@@ -1,10 +1,13 @@
 package phuong.case_study.furama_manager.model.person;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public abstract class Person {
     private String id;
     private String name;
-    private String dayOfBirth;
+    private Date dayOfBirth;
     private String gender;
     private Long idCard;
     private Long phoneNumber;
@@ -13,7 +16,7 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(String id, String name, String date, String gender, Long idCard, Long phoneNumber, String mail) {
+    public Person(String id, String name, Date date, String gender, Long idCard, Long phoneNumber, String mail) {
         this.id = id;
         this.name = name;
         this.dayOfBirth = date;
@@ -39,11 +42,11 @@ public abstract class Person {
         this.name = name;
     }
 
-    public String getDayOfBirth() {
+    public Date getDayOfBirth() {
         return dayOfBirth;
     }
 
-    public void setDayOfBirth(String dayOfBirth) {
+    public void setDayOfBirth(Date dayOfBirth) {
         this.dayOfBirth = dayOfBirth;
     }
 
@@ -81,9 +84,11 @@ public abstract class Person {
 
     @Override
     public String toString() {
+        final String PATTERN = "dd-MM-yyyy";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(PATTERN);
         return " id = '" + id + '\'' +
                 ", name = '" + name + '\'' +
-                ", date = " + dayOfBirth +
+                ", day of birth = " + dateFormat.format(dayOfBirth) +
                 ", gender = '" + gender + '\'' +
                 ", idCard = " + idCard +
                 ", phoneNumber = " + phoneNumber +

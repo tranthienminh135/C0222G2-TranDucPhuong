@@ -1,8 +1,9 @@
 package phuong.case_study.furama_manager.model.booking;
 
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class Booking {
+public class Booking implements Comparable<Booking> {
     private String idBooking;
     private Date dateStart;
     private Date dateEnd;
@@ -72,13 +73,32 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "idBooking='" + idBooking + '\'' +
-                ", dateStart=" + dateStart +
-                ", dateEnd=" + dateEnd +
-                ", customerID='" + customerID + '\'' +
-                ", serviceName='" + serviceName + '\'' +
-                ", serviceId='" + serviceId + '\'' +
+        final String PATTERN = "dd-MM-yyyy";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(PATTERN);
+        return "Booking {" +
+                "idBooking = '" + idBooking + '\'' +
+                ", dateStart = " + dateFormat.format(dateStart) +
+                ", dateEnd = " + dateFormat.format(dateEnd) +
+                ", customerID = '" + customerID + '\'' +
+                ", serviceName = '" + serviceName + '\'' +
+                ", serviceId = '" + serviceId + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Booking o) {
+        if (o.getDateStart().getTime() - this.getDateStart().getTime() > 0) {
+            return -1;
+        } else if (o.getDateStart().getTime() - this.getDateStart().getTime() < 0) {
+            return 1;
+        } else {
+            if (o.getDateEnd().getTime() - this.getDateEnd().getTime() > 0) {
+                return -1;
+            } else if (o.getDateEnd().getTime() - this.getDateEnd().getTime() < 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
     }
 }

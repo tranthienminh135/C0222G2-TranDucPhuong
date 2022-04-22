@@ -3,22 +3,39 @@ package phuong.case_study.furama_manager.sevice.impl;
 import phuong.case_study.furama_manager.model.person.Employee;
 import phuong.case_study.furama_manager.sevice.EmployeeService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
     private static Scanner sc = new Scanner(System.in);
     private static List<Employee> employees = new ArrayList<>();
+    private final static String PATTERN = "dd-MM-yyyy";
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat(PATTERN);
 
     static {
-        Employee employee1 = new Employee("1","Le Van Tai", "15-03-2022","Male",187422600L,
+
+        Date date1 = null;
+        Date date2 = null;
+        Date date3 = null;
+        try {
+            date1 = dateFormat.parse("15-03-2022");
+            date2 = dateFormat.parse("21-03-2022");
+            date3 = dateFormat.parse("16-03-2022");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        Employee employee1 = new Employee("1","Le Van Tai", date1,"Male",187422600L,
                 84533950234L,"levantai@gmail.com", "Dai Hoc", "Giam Doc", 100000d);
 
-        Employee employee2 = new Employee("2","Tran Van Hoan", "19-04-1990","Male",14564600L,
+        Employee employee2 = new Employee("2","Tran Van Hoan", date2,"Male",14564600L,
                 84533950234L,"tranvanhoan@gmail.com", "Cao Dang", "Le tan", 456600d);
 
-        Employee employee3 = new Employee("3","Tra Van Luan", "17-12-2012","Male",1456600L,
+        Employee employee3 = new Employee("3","Tra Van Luan", date3,"Male",1456600L,
                 84533950234L,"travanluan@gmail.com", "Trung Cap", "Giam sat", 456000d);
 
         employees.add(employee1);
@@ -34,7 +51,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.print("Enter name: ");
         String name = sc.nextLine();
         System.out.print("Enter day of birth: ");
-        String date = sc.nextLine();
+        Date date = null;
+        try {
+            date = dateFormat.parse(sc.nextLine());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         System.out.print("Enter gender: ");
         String gender = sc.nextLine();
         System.out.print("Enter idCard: ");
@@ -71,7 +93,12 @@ public class EmployeeServiceImpl implements EmployeeService {
             System.out.print("Enter name: ");
             String name = sc.nextLine();
             System.out.print("Enter day of birth: ");
-            String date = sc.nextLine();
+            Date date = null;
+            try {
+                date = dateFormat.parse(sc.nextLine());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             System.out.print("Enter gender: ");
             String gender = sc.nextLine();
             System.out.print("Enter idCard: ");

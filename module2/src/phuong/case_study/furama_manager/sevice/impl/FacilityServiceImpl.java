@@ -17,9 +17,9 @@ public class FacilityServiceImpl implements FacilityService {
     static {
         Facility house = new House("House", 100D, 100000D,
                 5, "Thue theo thang", "Phòng đơn", 1);
-        Facility room = new Room("Nha cao cap", 200D, 200000D,
+        Facility room = new Room("Room", 200D, 200000D,
                 5, "Thue theo nam", "free wifi");
-        Facility villa = new Villa("Nha cao cap", 200D, 300000D,
+        Facility villa = new Villa("Villa", 200D, 300000D,
                 5, "Thue theo nam", "Phòng đôi", 100D, 3);
         facilities.add(house);
         facilities.add(room);
@@ -50,6 +50,10 @@ public class FacilityServiceImpl implements FacilityService {
                 facilityMap.put(facility, 1);
             }
         }
+    }
+
+    public static void main(String[] args) {
+
     }
 
     @Override
@@ -143,7 +147,17 @@ public class FacilityServiceImpl implements FacilityService {
         }
     }
 
+    @Override
+    public void displayNumberUsedOfService() {
+        for (Map.Entry<Facility,Integer> entry: facilityMap.entrySet()) {
+            System.out.println("Service: " + entry.getKey().getServiceName());
+            System.out.println("Number of used: " + entry.getValue());
+        }
+    }
+
     public static List<Facility> getFacilities() {
         return facilities;
     }
+
+
 }

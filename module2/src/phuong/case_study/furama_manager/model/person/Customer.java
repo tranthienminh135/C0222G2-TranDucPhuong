@@ -1,5 +1,7 @@
 package phuong.case_study.furama_manager.model.person;
 
+import java.util.Date;
+
 public class Customer extends Person {
     private String customerRank;
     private String address;
@@ -12,7 +14,7 @@ public class Customer extends Person {
         this.address = address;
     }
 
-    public Customer(String id, String name, String date, String gender, Long idCard, Long phoneNumber, String mail, String customerRank, String address) {
+    public Customer(String id, String name, Date date, String gender, Long idCard, Long phoneNumber, String mail, String customerRank, String address) {
         super(id, name, date, gender, idCard, phoneNumber, mail);
         this.customerRank = customerRank;
         this.address = address;

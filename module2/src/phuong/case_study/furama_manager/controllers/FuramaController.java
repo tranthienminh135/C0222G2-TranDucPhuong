@@ -1,8 +1,10 @@
 package phuong.case_study.furama_manager.controllers;
 
+import phuong.case_study.furama_manager.sevice.BookingService;
 import phuong.case_study.furama_manager.sevice.CustomerService;
 import phuong.case_study.furama_manager.sevice.EmployeeService;
 import phuong.case_study.furama_manager.sevice.FacilityService;
+import phuong.case_study.furama_manager.sevice.impl.BookingServiceImpl;
 import phuong.case_study.furama_manager.sevice.impl.CustomerServiceImpl;
 import phuong.case_study.furama_manager.sevice.impl.EmployeeServiceImpl;
 import phuong.case_study.furama_manager.sevice.impl.FacilityServiceImpl;
@@ -14,6 +16,7 @@ public class FuramaController {
     private static EmployeeService employeeService = new EmployeeServiceImpl();
     private static CustomerService customerService = new CustomerServiceImpl();
     private static FacilityService facilityService = new FacilityServiceImpl();
+    private static BookingService bookingService = new BookingServiceImpl();
     public void displayMainMenu() {
         boolean flag = true;
         do {
@@ -76,7 +79,7 @@ public class FuramaController {
             System.out.println("Booking menu" + "\n" +
                     "1. Add new booking" + "\n" +
                     "2. Display list booking" + "\n" +
-                    "3. Create new constracts" + "\n" +
+                    "3. Create new contracts" + "\n" +
                     "4. Display list contracts" + "\n" +
                     "5. Edit contracts" + "\n" +
                     "6. Return main menu");
@@ -84,8 +87,13 @@ public class FuramaController {
             int choiceBooking = Integer.parseInt(sc.nextLine());
             switch (choiceBooking) {
                 case 1:
+                    bookingService.addNewBooking();
+                    break;
                 case 2:
+                    bookingService.displayListBooking();
+                    break;
                 case 3:
+
                 case 4:
                 case 5:
                 case 6:

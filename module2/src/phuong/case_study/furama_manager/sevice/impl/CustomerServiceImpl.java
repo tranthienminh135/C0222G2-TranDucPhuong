@@ -3,6 +3,9 @@ package phuong.case_study.furama_manager.sevice.impl;
 import phuong.case_study.furama_manager.model.person.Customer;
 import phuong.case_study.furama_manager.sevice.CustomerService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,21 +13,39 @@ import java.util.Scanner;
 public class CustomerServiceImpl implements CustomerService {
     private static Scanner sc = new Scanner(System.in);
     private static List<Customer> customers = new LinkedList<>();
+    private final static String PATTERN = "dd-MM-yyyy";
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat(PATTERN);
 
     static {
-        Customer customer1 = new Customer("1","Hau","19-9-999","Male",187546243L,
+
+        Date date1 = null;
+        Date date2 = null;
+        Date date3 = null;
+        Date date4 = null;
+        Date date5 = null;
+        try {
+            date1 = dateFormat.parse("15-03-2022");
+            date2 = dateFormat.parse("21-03-2022");
+            date3 = dateFormat.parse("16-03-2022");
+            date4 = dateFormat.parse("22-03-2022");
+            date5 = dateFormat.parse("17-03-2022");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        Customer customer1 = new Customer("1","Hau",date1,"Male",187546243L,
                 84321562345L,"hau123@gmail.com","Diamond","QN");
 
-        Customer customer2 = new Customer("2","Luan","12-2-222","Female",358462132L,
+        Customer customer2 = new Customer("2","Luan",date2,"Female",358462132L,
                 84213591357L,"luandn@gmail.com","Platinium","DN");
 
-        Customer customer3 = new Customer("3","Tai","18-8-1666","Male",652455131L,
+        Customer customer3 = new Customer("3","Tai",date3,"Male",652455131L,
                 84896535154L,"taichodien@gmail.com","Gold","TH");
 
-        Customer customer4 = new Customer("4","Tri","23-6-1234","Female",321562489L,
+        Customer customer4 = new Customer("4","Tri",date4,"Female",321562489L,
                 84687562134L,"trithitbo@gmail.com","Silver","QT");
 
-        Customer customer5 = new Customer("5","Hoan","16-6-677","Male",35448135L,
+        Customer customer5 = new Customer("5","Hoan",date5,"Male",35448135L,
                 84262358621L,"hoanngaoda@gmail.com","Member","GL");
 
         customers.add(customer1);
@@ -34,6 +55,10 @@ public class CustomerServiceImpl implements CustomerService {
         customers.add(customer5);
     }
 
+    public static List<Customer> getCustomers() {
+        return customers;
+    }
+
     @Override
     public void add() {
         System.out.print("Enter id: ");
@@ -41,7 +66,12 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.print("Enter name: ");
         String name = sc.nextLine();
         System.out.print("Enter day of birth: ");
-        String date = sc.nextLine();
+        Date date = null;
+        try {
+            date = dateFormat.parse(sc.nextLine());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         System.out.print("Enter gender: ");
         String gender = sc.nextLine();
         System.out.print("Enter idCard: ");
@@ -77,7 +107,12 @@ public class CustomerServiceImpl implements CustomerService {
             System.out.print("Enter name: ");
             String name = sc.nextLine();
             System.out.print("Enter day of birth: ");
-            String date = sc.nextLine();
+            Date date = null;
+            try {
+                date = dateFormat.parse(sc.nextLine());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
             System.out.print("Enter gender: ");
             String gender = sc.nextLine();
             System.out.print("Enter idCard: ");
