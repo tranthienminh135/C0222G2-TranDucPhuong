@@ -24,7 +24,7 @@ public class Main {
                 flag = false;
             } catch (IllegalTriangleException e) {
                 flag = true;
-                e.printStackTrace();
+                System.err.println("Exception: " + e.getMessage());
             }
         }
     }

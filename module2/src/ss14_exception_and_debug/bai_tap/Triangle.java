@@ -11,13 +11,13 @@ public class Triangle {
     public Triangle(int a, int b, int c) throws IllegalTriangleException {
 
         if (a <= 0 || b <= 0 || c <= 0) {
-            throw new IllegalTriangleException("a || b || c < 0");
-        } else if (a + b < c) {
-            throw new IllegalTriangleException("a + b < c");
-        } else if (a + c < b) {
-            throw new IllegalTriangleException("a + c < b");
-        } else if (b + c < a) {
-            throw new IllegalTriangleException("b + c < a");
+            throw new IllegalTriangleException("a || b || c <= 0");
+        } else if (a + b <= c) {
+            throw new IllegalTriangleException("a + b <= c");
+        } else if (a + c <= b) {
+            throw new IllegalTriangleException("a + c <= b");
+        } else if (b + c <= a) {
+            throw new IllegalTriangleException("b + c <= a");
         } else {
             this.a = a;
             this.b = b;
