@@ -1,16 +1,16 @@
-package phuong.case_study.furama_manager.model.contract;
+package phuong.case_study.furama_manager.model.booking;
 
 public class Contract {
     private String contractId;
     private String bookingId;
-    private long deposits;
-    private long totalMoney;
+    private Long deposits;
+    private Long totalMoney;
     private String customerId;
 
     public Contract() {
     }
 
-    public Contract(String contractId, String bookingId, long deposits, long totalMoney, String customerId) {
+    public Contract(String contractId, String bookingId, Long deposits, Long totalMoney, String customerId) {
         this.contractId = contractId;
         this.bookingId = bookingId;
         this.deposits = deposits;
@@ -34,19 +34,19 @@ public class Contract {
         this.bookingId = bookingId;
     }
 
-    public long getDeposits() {
+    public Long getDeposits() {
         return deposits;
     }
 
-    public void setDeposits(long deposits) {
+    public void setDeposits(Long deposits) {
         this.deposits = deposits;
     }
 
-    public long getTotalMoney() {
+    public Long getTotalMoney() {
         return totalMoney;
     }
 
-    public void setTotalMoney(long totalMoney) {
+    public void setTotalMoney(Long totalMoney) {
         this.totalMoney = totalMoney;
     }
 

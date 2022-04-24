@@ -1,13 +1,7 @@
 package phuong.case_study.furama_manager.controllers;
 
-import phuong.case_study.furama_manager.sevice.BookingService;
-import phuong.case_study.furama_manager.sevice.CustomerService;
-import phuong.case_study.furama_manager.sevice.EmployeeService;
-import phuong.case_study.furama_manager.sevice.FacilityService;
-import phuong.case_study.furama_manager.sevice.impl.BookingServiceImpl;
-import phuong.case_study.furama_manager.sevice.impl.CustomerServiceImpl;
-import phuong.case_study.furama_manager.sevice.impl.EmployeeServiceImpl;
-import phuong.case_study.furama_manager.sevice.impl.FacilityServiceImpl;
+import phuong.case_study.furama_manager.sevice.*;
+import phuong.case_study.furama_manager.sevice.impl.*;
 
 import java.util.Scanner;
 
@@ -17,6 +11,7 @@ public class FuramaController {
     private static CustomerService customerService = new CustomerServiceImpl();
     private static FacilityService facilityService = new FacilityServiceImpl();
     private static BookingService bookingService = new BookingServiceImpl();
+    private static ContactService contactService = new ContactServiceImpl();
     public void displayMainMenu() {
         boolean flag = true;
         do {
@@ -93,9 +88,14 @@ public class FuramaController {
                     bookingService.displayListBooking();
                     break;
                 case 3:
-
+                    contactService.createNewContract();
+                    break;
                 case 4:
+                    contactService.displayListContract();
+                    break;
                 case 5:
+                    contactService.editContract();
+                    break;
                 case 6:
                     flag = false;
                     break;

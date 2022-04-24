@@ -2,9 +2,10 @@ package phuong.case_study.furama_manager.model.booking;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class Booking implements Comparable<Booking> {
-    private String idBooking;
+    private String bookingId;
     private Date dateStart;
     private Date dateEnd;
     private String customerID;
@@ -14,8 +15,8 @@ public class Booking implements Comparable<Booking> {
     public Booking() {
     }
 
-    public Booking(String idBooking, Date dateStart, Date dateEnd, String customerID, String serviceName, String serviceId) {
-        this.idBooking = idBooking;
+    public Booking(String bookingId, Date dateStart, Date dateEnd, String customerID, String serviceName, String serviceId) {
+        this.bookingId = bookingId;
         this.dateStart = dateStart;
         this.dateEnd = dateEnd;
         this.customerID = customerID;
@@ -23,12 +24,12 @@ public class Booking implements Comparable<Booking> {
         this.serviceId = serviceId;
     }
 
-    public String getIdBooking() {
-        return idBooking;
+    public String getBookingId() {
+        return bookingId;
     }
 
-    public void setIdBooking(String idBooking) {
-        this.idBooking = idBooking;
+    public void setBookingId(String bookingId) {
+        this.bookingId = bookingId;
     }
 
     public Date getDateStart() {
@@ -76,7 +77,7 @@ public class Booking implements Comparable<Booking> {
         final String PATTERN = "dd-MM-yyyy";
         SimpleDateFormat dateFormat = new SimpleDateFormat(PATTERN);
         return "Booking {" +
-                "idBooking = '" + idBooking + '\'' +
+                "idBooking = '" + bookingId + '\'' +
                 ", dateStart = " + dateFormat.format(dateStart) +
                 ", dateEnd = " + dateFormat.format(dateEnd) +
                 ", customerID = '" + customerID + '\'' +

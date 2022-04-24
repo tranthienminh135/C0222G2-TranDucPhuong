@@ -51,9 +51,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.print("Enter name: ");
         String name = sc.nextLine();
         System.out.print("Enter day of birth: ");
-        Date date = null;
+        Date dateAdd = null;
         try {
-            date = dateFormat.parse(sc.nextLine());
+            dateAdd = dateFormat.parse(sc.nextLine());
+            System.out.println("Date add: " + dateAdd);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -72,7 +73,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.print("Enter salary: ");
         double salary = Double.parseDouble(sc.nextLine());
 
-        Employee employee = new Employee(id,name,date,gender,idCard,phoneNumber,mail,level,position,salary);
+        Employee employee = new Employee(id,name,dateAdd,gender,idCard,phoneNumber,mail,level,position,salary);
 
         employees.add(employee);
     }
@@ -93,9 +94,10 @@ public class EmployeeServiceImpl implements EmployeeService {
             System.out.print("Enter name: ");
             String name = sc.nextLine();
             System.out.print("Enter day of birth: ");
-            Date date = null;
+            Date dateEdit = null;
             try {
-                date = dateFormat.parse(sc.nextLine());
+                dateEdit = dateFormat.parse(sc.nextLine());
+                System.out.println("Date edit: " + dateEdit);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -117,7 +119,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 if (employee.getId().equals(id)) {
                     employee.setId(id);
                     employee.setName(name);
-                    employee.setDayOfBirth(date);
+                    employee.setDayOfBirth(dateEdit);
                     employee.setGender(gender);
                     employee.setIdCard(idCard);
                     employee.setPhoneNumber(phoneNumber);

@@ -1,7 +1,6 @@
-package phuong.case_study.furama_manager.model.furuma;
+package phuong.case_study.furama_manager.model.facility;
 
 import java.util.Objects;
-import java.util.Scanner;
 
 public abstract class Facility {
     private String serviceName;
@@ -73,12 +72,12 @@ public abstract class Facility {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Facility facility = (Facility) o;
-        return Objects.equals(serviceName, facility.serviceName);
+        return Double.compare(facility.usableArea, usableArea) == 0 && Double.compare(facility.rentalCosts, rentalCosts) == 0 && maximumPeople == facility.maximumPeople && Objects.equals(serviceName, facility.serviceName) && Objects.equals(rentalType, facility.rentalType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(serviceName);
+        return Objects.hash(serviceName, usableArea, rentalCosts, maximumPeople, rentalType);
     }
 
     @Override

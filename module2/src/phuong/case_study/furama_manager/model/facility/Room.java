@@ -1,4 +1,6 @@
-package phuong.case_study.furama_manager.model.furuma;
+package phuong.case_study.furama_manager.model.facility;
+
+import java.util.Objects;
 
 public class Room extends Facility {
     private String freeService;
@@ -21,6 +23,20 @@ public class Room extends Facility {
 
     public void setFreeService(String freeService) {
         this.freeService = freeService;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Room room = (Room) o;
+        return Objects.equals(freeService, room.freeService);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), freeService);
     }
 
     @Override

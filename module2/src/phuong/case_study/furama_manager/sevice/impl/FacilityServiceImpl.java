@@ -1,9 +1,9 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
-import phuong.case_study.furama_manager.model.furuma.Facility;
-import phuong.case_study.furama_manager.model.furuma.House;
-import phuong.case_study.furama_manager.model.furuma.Room;
-import phuong.case_study.furama_manager.model.furuma.Villa;
+import phuong.case_study.furama_manager.model.facility.Facility;
+import phuong.case_study.furama_manager.model.facility.House;
+import phuong.case_study.furama_manager.model.facility.Room;
+import phuong.case_study.furama_manager.model.facility.Villa;
 import phuong.case_study.furama_manager.sevice.FacilityService;
 
 import java.util.*;
@@ -52,10 +52,6 @@ public class FacilityServiceImpl implements FacilityService {
         }
     }
 
-    public static void main(String[] args) {
-
-    }
-
     @Override
     public void addNewHouseService() {
         System.out.print("Enter service name: ");
@@ -74,8 +70,8 @@ public class FacilityServiceImpl implements FacilityService {
         int floors = Integer.parseInt(sc.nextLine());
 
         Facility house = new House(name, area, rentalCosts, maximumrPeople, rentalType, roomStandard, floors);
-        facilities.add(house);
         this.add(house);
+
 
     }
 
@@ -95,8 +91,8 @@ public class FacilityServiceImpl implements FacilityService {
         String freeService = sc.nextLine();
 
         Facility room = new Room(name, area, rentalCosts, maximumrPeople, rentalType, freeService);
-        facilities.add(room);
         this.add(room);
+
     }
 
     @Override
@@ -117,12 +113,10 @@ public class FacilityServiceImpl implements FacilityService {
         double swimmingPoolArea = Double.parseDouble(sc.nextLine());
         System.out.print("Enter floors number: ");
         int floors = Integer.parseInt(sc.nextLine());
-
         Facility villa = new Villa(name, area, rentalCosts, maximumrPeople, rentalType, roomStandard, swimmingPoolArea, floors);
-        facilities.add(villa);
         this.add(villa);
-    }
 
+    }
 
     @Override
     public void maintenanceCheck(Facility facility) {
@@ -135,15 +129,21 @@ public class FacilityServiceImpl implements FacilityService {
 
     @Override
     public void displayMaintenance() {
-        for (Facility facility : maintenancefacilities) {
-            System.out.println(facility);
+        if (!maintenancefacilities.isEmpty()) {
+            for (Facility facility : maintenancefacilities) {
+                System.out.println(facility);
+            }
+        } else {
+            System.err.println("Maintenance facilities is empty!");
         }
+
     }
 
     @Override
     public void displayListFacility() {
-        for (Facility facility : facilities) {
-            System.out.println(facility);
+        for (Map.Entry<Facility,Integer> entry: facilityMap.entrySet()) {
+            System.out.println("Service: " + entry.getKey().getServiceName());
+            System.out.println("Number of uses: " + entry.getValue());
         }
     }
 

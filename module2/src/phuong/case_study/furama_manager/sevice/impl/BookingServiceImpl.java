@@ -1,7 +1,7 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
 import phuong.case_study.furama_manager.model.booking.Booking;
-import phuong.case_study.furama_manager.model.furuma.Facility;
+import phuong.case_study.furama_manager.model.facility.Facility;
 import phuong.case_study.furama_manager.model.person.Customer;
 import phuong.case_study.furama_manager.sevice.BookingService;
 import phuong.case_study.furama_manager.sevice.FacilityService;
@@ -36,9 +36,9 @@ public class BookingServiceImpl implements BookingService {
         }
 
 
-        Booking booking1 = new Booking("5", dateStart1, dateEnd1, "1", "Villa", "1");
-        Booking booking2 = new Booking("5", dateStart2, dateEnd2, "1", "Villa", "1");
-        Booking booking3 = new Booking("5", dateStart3, dateEnd3, "1", "Villa", "1");
+        Booking booking1 = new Booking("1", dateStart1, dateEnd1, "1", "Villa", "1");
+        Booking booking2 = new Booking("2", dateStart2, dateEnd2, "2", "House", "2");
+        Booking booking3 = new Booking("3", dateStart3, dateEnd3, "3", "Room", "3");
         bookingService.add(booking1);
         bookingService.add(booking2);
         bookingService.add(booking3);
@@ -88,6 +88,11 @@ public class BookingServiceImpl implements BookingService {
         }
     }
 
+    @Override
+    public void deleteBooking(Booking b) {
+        bookingService.remove(b);
+    }
+
     public Facility choiceService() {
         List<Facility> facilities = FacilityServiceImpl.getFacilities();
 
@@ -128,7 +133,6 @@ public class BookingServiceImpl implements BookingService {
 
     public static void main(String[] args) {
         BookingService bookingService = new BookingServiceImpl();
-        bookingService.addNewBooking();
 
         Set<Booking> bookingServices = BookingServiceImpl.getBookingService();
 
@@ -137,5 +141,21 @@ public class BookingServiceImpl implements BookingService {
         }
 
         facilityService.displayNumberUsedOfService();
+
+        Date dateStart3 = null;
+        Date dateEnd3 = null;
+        try {
+            dateStart3 = dateFormat.parse("18-03-2022");
+            dateEnd3 = dateFormat.parse("24-03-2022");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        Booking booking3 = new Booking("3", dateStart3, dateEnd3, "3", "Room", "3");
+        bookingService.deleteBooking(booking3);
+
+        for (Booking booking : bookingServices) {
+            System.out.println(booking);
+        }
     }
 }
