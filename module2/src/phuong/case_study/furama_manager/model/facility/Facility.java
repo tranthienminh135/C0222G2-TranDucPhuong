@@ -72,7 +72,7 @@ public abstract class Facility {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Facility facility = (Facility) o;
-        return Double.compare(facility.usableArea, usableArea) == 0 && Double.compare(facility.rentalCosts, rentalCosts) == 0 && maximumPeople == facility.maximumPeople && Objects.equals(serviceName, facility.serviceName) && Objects.equals(rentalType, facility.rentalType);
+        return Objects.equals(serviceName, facility.serviceName);
     }
 
     @Override

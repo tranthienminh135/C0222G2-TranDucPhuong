@@ -57,19 +57,6 @@ public class Villa extends Facility {
         this.floorsNumber = floorsNumber;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Villa villa = (Villa) o;
-        return Objects.equals(roomStandard, villa.roomStandard) && Objects.equals(swimmingPoolArea, villa.swimmingPoolArea) && Objects.equals(floorsNumber, villa.floorsNumber);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), roomStandard, swimmingPoolArea, floorsNumber);
-    }
 
     @Override
     public String toString() {

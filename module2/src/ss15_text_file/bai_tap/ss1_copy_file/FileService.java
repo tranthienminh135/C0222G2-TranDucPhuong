@@ -50,7 +50,7 @@ public class FileService {
     public static void main(String[] args) {
         System.out.print("Enter link of file source: ");
         String fileSourceName = sc.nextLine();
-        System.out.print("Enter link of file source: ");
+        System.out.print("Enter link of file target: ");
         String fileTargetName = sc.nextLine();
         String str = FileService.readFile(fileSourceName);
         FileService.writeFile(fileTargetName,str);

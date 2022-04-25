@@ -121,7 +121,7 @@ public class FacilityServiceImpl implements FacilityService {
     @Override
     public void maintenanceCheck(Facility facility) {
         if (facilityMap.get(facility) >= 5) {
-            System.out.println("Service is under maintenance!");
+            System.err.println("Service is under maintenance!");
             maintenancefacilities.add(facility);
             facilityMap.put(facility, 0);
         }
