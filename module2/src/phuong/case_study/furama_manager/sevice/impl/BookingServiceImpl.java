@@ -27,10 +27,10 @@ public class BookingServiceImpl implements BookingService {
         try {
             dateStart1 = dateFormat.parse("15-03-2022");
             dateEnd1 = dateFormat.parse("21-03-2022");
-            dateStart2 = dateFormat.parse("16-03-2022");
-            dateEnd2 = dateFormat.parse("22-03-2022");
-            dateStart3 = dateFormat.parse("17-03-2022");
-            dateEnd3 = dateFormat.parse("23-03-2022");
+            dateStart2 = dateFormat.parse("16-03-2023");
+            dateEnd2 = dateFormat.parse("22-03-2023");
+            dateStart3 = dateFormat.parse("17-03-2024");
+            dateEnd3 = dateFormat.parse("23-03-2025");
         } catch (ParseException e) {
             e.printStackTrace();
         }

@@ -1,7 +1,7 @@
 package ss16_binary_file_serialization.bai_tap.product_manager.service.impl;
 
 
-import ss16_binary_file_serialization.bai_tap.product_manager.common.FileService;
+import ss16_binary_file_serialization.bai_tap.product_manager.common.file_service.FileService;
 import ss16_binary_file_serialization.bai_tap.product_manager.model.Product;
 import ss16_binary_file_serialization.bai_tap.product_manager.service.ProductService;
 
