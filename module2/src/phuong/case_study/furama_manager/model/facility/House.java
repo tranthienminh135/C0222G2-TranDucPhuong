@@ -1,7 +1,5 @@
 package phuong.case_study.furama_manager.model.facility;
 
-import java.util.Objects;
-
 public class House extends Facility {
     private String roomStandard;
     private int floorsNumber;
