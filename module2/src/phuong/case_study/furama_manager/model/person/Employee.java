@@ -3,6 +3,7 @@ package phuong.case_study.furama_manager.model.person;
 import java.util.Date;
 
 public class Employee extends Person{
+    private final static String COMMA = ",";
     private String level;
     private String position;
     private Double salary;
@@ -45,6 +46,12 @@ public class Employee extends Person{
 
     public void setSalary(Double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String convertLine() {
+        String line = super.convertLine() + COMMA + this.level + COMMA + this.position + COMMA + this.salary;
+        return line;
     }
 
     @Override

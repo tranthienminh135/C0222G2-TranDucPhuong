@@ -5,6 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public abstract class Person {
+    private final static String COMMA = ",";
+    private final static String PATTERN = "dd-MM-yyyy";
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat(PATTERN);
     private String id;
     private String name;
     private Date dayOfBirth;
@@ -82,17 +85,19 @@ public abstract class Person {
         this.mail = mail;
     }
 
+    public String convertLine() {
+        String line = this.id + COMMA + this.name + COMMA + dateFormat.format(this.dayOfBirth) + COMMA + this.gender + COMMA + this.idCard + COMMA + this.phoneNumber + COMMA + this.mail;
+        return line;
+    }
+
     @Override
     public String toString() {
-        final String PATTERN = "dd-MM-yyyy";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(PATTERN);
         return " id = '" + id + '\'' +
                 ", name = '" + name + '\'' +
                 ", day of birth = " + dateFormat.format(dayOfBirth) +
                 ", gender = '" + gender + '\'' +
                 ", idCard = " + idCard +
                 ", phoneNumber = " + phoneNumber +
-                ", mail = '" + mail + '\'' +
-                '}';
+                ", mail = '" + mail + '\'';
     }
 }

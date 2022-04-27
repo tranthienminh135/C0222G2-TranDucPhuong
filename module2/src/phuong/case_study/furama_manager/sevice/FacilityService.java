@@ -15,7 +15,5 @@ public interface FacilityService extends IService<Facility> {
 
     void displayMaintenance();
 
-    void displayListFacility();
-
     void displayNumberUsedOfService();
 }

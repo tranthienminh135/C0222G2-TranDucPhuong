@@ -1,5 +1,6 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
+import phuong.case_study.furama_manager.comon.CheckEx;
 import phuong.case_study.furama_manager.model.booking.Booking;
 import phuong.case_study.furama_manager.model.facility.Facility;
 import phuong.case_study.furama_manager.model.person.Customer;
@@ -16,6 +17,7 @@ public class BookingServiceImpl implements BookingService {
     private static FacilityService facilityService = new FacilityServiceImpl();
     private final static String PATTERN = "dd-MM-yyyy";
     private static SimpleDateFormat dateFormat = new SimpleDateFormat(PATTERN);
+    private static List<Facility> facilities = FacilityServiceImpl.getFacilities();
 
     static {
         Date dateStart1 = null;
@@ -24,6 +26,10 @@ public class BookingServiceImpl implements BookingService {
         Date dateEnd2 = null;
         Date dateStart3 = null;
         Date dateEnd3 = null;
+        Date dateStart4 = null;
+        Date dateEnd4 = null;
+        Date dateStart5 = null;
+        Date dateEnd5 = null;
         try {
             dateStart1 = dateFormat.parse("15-03-2022");
             dateEnd1 = dateFormat.parse("21-03-2022");
@@ -31,17 +37,25 @@ public class BookingServiceImpl implements BookingService {
             dateEnd2 = dateFormat.parse("22-03-2023");
             dateStart3 = dateFormat.parse("17-03-2024");
             dateEnd3 = dateFormat.parse("23-03-2025");
+            dateStart4 = dateFormat.parse("18-03-2024");
+            dateEnd4 = dateFormat.parse("24-03-2025");
+            dateStart5 = dateFormat.parse("19-03-2024");
+            dateEnd5 = dateFormat.parse("25-03-2025");
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
 
         Booking booking1 = new Booking("1", dateStart1, dateEnd1, "1", "Villa", "1");
-        Booking booking2 = new Booking("2", dateStart2, dateEnd2, "2", "House", "2");
-        Booking booking3 = new Booking("3", dateStart3, dateEnd3, "3", "Room", "3");
+        Booking booking2 = new Booking("3", dateStart3, dateEnd3, "3", "Room", "3");
+        Booking booking3 = new Booking("2", dateStart2, dateEnd2, "2", "House", "2");
+        Booking booking5 = new Booking("5", dateStart5, dateEnd5, "3", "Villa", "1");
+        Booking booking4 = new Booking("4", dateStart4, dateEnd4, "2", "House", "2");
         bookingService.add(booking1);
-        bookingService.add(booking2);
         bookingService.add(booking3);
+        bookingService.add(booking2);
+        bookingService.add(booking5);
+        bookingService.add(booking4);
 
     }
 
@@ -55,31 +69,28 @@ public class BookingServiceImpl implements BookingService {
         String id = sc.nextLine();
         System.out.print("Enter date start (dd-MM-yyyy): ");
         Date dateStart = null;
-        try {
-            dateStart = dateFormat.parse(sc.nextLine());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        dateStart = CheckEx.checkExForDate(dateStart);
         System.out.print("Enter date end (dd-MM-yyyy): ");
         Date dateEnd = null;
-        try {
-            dateEnd = dateFormat.parse(sc.nextLine());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        dateEnd = CheckEx.checkExForDate(dateEnd);
         System.out.println("Choice customer id");
         String customerId = choiceListCustomer().getId();
 
-        System.out.println("Choice service");
-        String serviceName = choiceService().getServiceName();
+        System.out.print("Choice service id: ");
+        String serviceId = choiceService().getServiceId();
 
-        System.out.print("Enter service id: ");
-        String serviceId = sc.nextLine();
-
+        String serviceName = null;
+        for (Facility facility: facilities) {
+            if (facility.getServiceId().equals(serviceId)) {
+                serviceName = facility.getServiceName();
+            }
+        }
         Booking booking = new Booking(id, dateStart, dateEnd, customerId, serviceName, serviceId);
         bookingService.add(booking);
 
     }
+
+
 
     @Override
     public void displayListBooking() {
@@ -94,15 +105,15 @@ public class BookingServiceImpl implements BookingService {
     }
 
     public Facility choiceService() {
-        List<Facility> facilities = FacilityServiceImpl.getFacilities();
+
 
         do {
-            System.out.println("Facility list");
             for (int i = 0; i < facilities.size(); i++) {
-                System.out.println((i + 1) + ". " + "Service name: " + facilities.get(i).getServiceName());
+                System.out.println((i + 1) + ". " + "Service id: " + facilities.get(i).getServiceId() + " - " + facilities.get(i).getServiceName());
             }
             System.out.print("Your choice: ");
-            int choice = Integer.parseInt(sc.nextLine());
+            int choice = 0;
+            choice = CheckEx.checkExForParseInt(choice);
             if (choice > 0 && choice <= facilities.size()) {
                 facilityService.add(facilities.get(choice - 1));
                 return facilities.get(choice - 1);
@@ -121,7 +132,8 @@ public class BookingServiceImpl implements BookingService {
                 System.out.println((i + 1) + ". " + "ID: " + customers.get(i).getId() + " - " + "Name: " + customers.get(i).getName());
             }
             System.out.print("Your choice: ");
-            int choice = Integer.parseInt(sc.nextLine());
+            int choice = 0;
+            choice = CheckEx.checkExForParseInt(choice);
             if (choice > 0 && choice <= customers.size()) {
                 System.out.println(customers.size());
                 return customers.get(choice - 1);
@@ -129,33 +141,5 @@ public class BookingServiceImpl implements BookingService {
                 System.out.println("Choice again!");
             }
         } while (true);
-    }
-
-    public static void main(String[] args) {
-        BookingService bookingService = new BookingServiceImpl();
-
-        Set<Booking> bookingServices = BookingServiceImpl.getBookingService();
-
-        for (Booking booking : bookingServices) {
-            System.out.println(booking);
-        }
-
-        facilityService.displayNumberUsedOfService();
-
-        Date dateStart3 = null;
-        Date dateEnd3 = null;
-        try {
-            dateStart3 = dateFormat.parse("18-03-2022");
-            dateEnd3 = dateFormat.parse("24-03-2022");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        Booking booking3 = new Booking("3", dateStart3, dateEnd3, "3", "Room", "3");
-        bookingService.deleteBooking(booking3);
-
-        for (Booking booking : bookingServices) {
-            System.out.println(booking);
-        }
     }
 }

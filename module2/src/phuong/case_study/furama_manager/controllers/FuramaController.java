@@ -12,6 +12,7 @@ public class FuramaController {
     private static FacilityService facilityService = new FacilityServiceImpl();
     private static BookingService bookingService = new BookingServiceImpl();
     private static ContactService contactService = new ContactServiceImpl();
+    private static PromotionService promotionService = new PromotionServiceImpl();
     public void displayMainMenu() {
         boolean flag = true;
         do {
@@ -23,7 +24,8 @@ public class FuramaController {
                     "5. Promotion Management" + "\n" +
                     "6. Exit");
             System.out.print("Your choice: ");
-            int choice = Integer.parseInt(sc.nextLine());
+            int choice = 0;
+            choice = getChoice(choice);
             switch (choice) {
                 case 1:
                     choiceEmployee();
@@ -43,6 +45,9 @@ public class FuramaController {
                 case 6:
                     flag = false;
                     break;
+                default:
+                    System.err.println("Choice again!");
+                    break;
             }
 
         } while (flag);
@@ -56,12 +61,20 @@ public class FuramaController {
                     "2. Display list customers get voucher" + "\n" +
                     "3. Return main menu");
             System.out.print("Your choice: ");
-            int choicePromotion = Integer.parseInt(sc.nextLine());
+            int choicePromotion = 0;
+            choicePromotion = getChoice(choicePromotion);
             switch (choicePromotion) {
                 case 1:
+                    promotionService.displayListCustomersUseService();
+                    break;
                 case 2:
+                    promotionService.voucher();
+                    break;
                 case 3:
                     flag = false;
+                    break;
+                default:
+                    System.err.println("Choice again!");
                     break;
             }
 
@@ -79,7 +92,8 @@ public class FuramaController {
                     "5. Edit contracts" + "\n" +
                     "6. Return main menu");
             System.out.print("Your choice: ");
-            int choiceBooking = Integer.parseInt(sc.nextLine());
+            int choiceBooking = 0;
+            choiceBooking = getChoice(choiceBooking);
             switch (choiceBooking) {
                 case 1:
                     bookingService.addNewBooking();
@@ -99,6 +113,8 @@ public class FuramaController {
                 case 6:
                     flag = false;
                     break;
+                default:
+                    System.err.println("Choice again!");
             }
 
         } while (flag);
@@ -113,10 +129,11 @@ public class FuramaController {
                     "3. Display list facility maintenance" + "\n" +
                     "4. Return main menu");
             System.out.print("Your choice: ");
-            int choiceFacility = Integer.parseInt(sc.nextLine());
+            int choiceFacility = 0;
+            choiceFacility = getChoice(choiceFacility);
             switch (choiceFacility) {
                 case 1:
-                    facilityService.displayListFacility();
+                    facilityService.displayNumberUsedOfService();
                     break;
                 case 2:
                     choiceFacilityService();
@@ -126,6 +143,9 @@ public class FuramaController {
                     break;
                 case 4:
                     flag = false;
+                    break;
+                default:
+                    System.err.println("Choice again!");
                     break;
             }
 
@@ -141,7 +161,8 @@ public class FuramaController {
                     "3. Add new Villa" + "\n" +
                     "4. Return main menu");
             System.out.print("Your choice: ");
-            int choiceFacilityService = Integer.parseInt(sc.nextLine());
+            int choiceFacilityService = 0;
+            choiceFacilityService = getChoice(choiceFacilityService);
             switch (choiceFacilityService) {
                 case 1:
                     facilityService.addNewHouseService();
@@ -154,6 +175,9 @@ public class FuramaController {
                     break;
                 case 4:
                     flag = false;
+                    break;
+                default:
+                    System.err.println("Choice again!");
                     break;
             }
 
@@ -169,7 +193,8 @@ public class FuramaController {
                     "3. Edit customer" + "\n" +
                     "4. Return main menu");
             System.out.print("Your choice: ");
-            int choiceCustomer = Integer.parseInt(sc.nextLine());
+            int choiceCustomer = 0;
+            choiceCustomer = getChoice(choiceCustomer);
             switch (choiceCustomer) {
                 case 1:
                     customerService.display();
@@ -199,7 +224,8 @@ public class FuramaController {
                     "3. Edit employee" + "\n" +
                     "4. Return main menu");
             System.out.print("Your choice: ");
-            int choiceEmployee = Integer.parseInt(sc.nextLine());
+            int choiceEmployee = 0;
+            choiceEmployee = getChoice(choiceEmployee);
             switch (choiceEmployee) {
                 case 1:
                     employeeService.display();
@@ -218,5 +244,23 @@ public class FuramaController {
                     break;
             }
         } while (flag);
+    }
+
+    private int getChoice(int choice) {
+        boolean check = true;
+        while (check) {
+            try {
+                choice = Integer.parseInt(sc.nextLine());
+                check = false;
+            } catch (NumberFormatException e) {
+                System.err.println("Error: " + e.getMessage());
+                System.out.println();
+                System.out.print("Choice again! Your choice: ");
+                check = true;
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        return choice;
     }
 }

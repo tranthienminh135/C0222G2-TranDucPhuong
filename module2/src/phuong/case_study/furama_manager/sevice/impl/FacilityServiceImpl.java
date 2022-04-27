@@ -1,5 +1,6 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
+import phuong.case_study.furama_manager.comon.CheckEx;
 import phuong.case_study.furama_manager.model.facility.Facility;
 import phuong.case_study.furama_manager.model.facility.House;
 import phuong.case_study.furama_manager.model.facility.Room;
@@ -16,11 +17,11 @@ public class FacilityServiceImpl implements FacilityService {
 
     static {
         Facility house = new House("House", 100D, 100000D,
-                5, "Thue theo thang", "Phòng đơn", 1);
+                5, "Thue theo thang","1", "Phòng đơn", 1);
         Facility room = new Room("Room", 200D, 200000D,
-                5, "Thue theo nam", "free wifi");
+                5, "Thue theo nam","2", "free wifi");
         Facility villa = new Villa("Villa", 200D, 300000D,
-                5, "Thue theo nam", "Phòng đôi", 100D, 3);
+                5, "Thue theo nam","3", "Phòng đôi", 100D, 3);
         facilities.add(house);
         facilities.add(room);
         facilities.add(villa);
@@ -34,6 +35,7 @@ public class FacilityServiceImpl implements FacilityService {
     @Override
     public void add(Facility facility) {
         Set<Facility> facilityKey = facilityMap.keySet();
+
         if (facilityMap.isEmpty()) {
             facilityMap.put(facility, 1);
         } else {
@@ -57,19 +59,25 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.print("Enter service name: ");
         String name = sc.nextLine();
         System.out.print("Enter usable area: ");
-        double area = Double.parseDouble(sc.nextLine());
+        double area = 0;
+        area = CheckEx.checkExForParseDouble(area);
         System.out.print("Enter rental costs: ");
-        double rentalCosts = Double.parseDouble(sc.nextLine());
+        double rentalCosts = 0;
+        rentalCosts = CheckEx.checkExForParseDouble(rentalCosts);
         System.out.print("Enter maximum number of people: ");
-        int maximumrPeople = Integer.parseInt(sc.nextLine());
+        int maximumrPeople = 0;
+        maximumrPeople = CheckEx.checkExForParseInt(maximumrPeople);
         System.out.print("Enter rental type: ");
         String rentalType = sc.nextLine();
         System.out.print("Enter room standard: ");
         String roomStandard = sc.nextLine();
         System.out.print("Enter floors number: ");
-        int floors = Integer.parseInt(sc.nextLine());
+        int floors = 0;
+        floors = CheckEx.checkExForParseInt(floors);
+        System.out.print("Enter service id: ");
+        String serviceId = sc.nextLine();
 
-        Facility house = new House(name, area, rentalCosts, maximumrPeople, rentalType, roomStandard, floors);
+        Facility house = new House(name, area, rentalCosts, maximumrPeople, rentalType, serviceId, roomStandard, floors);
         this.add(house);
 
 
@@ -80,17 +88,22 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.print("Enter service name: ");
         String name = sc.nextLine();
         System.out.print("Enter usable area: ");
-        double area = Double.parseDouble(sc.nextLine());
+        double area = 0;
+        area = CheckEx.checkExForParseDouble(area);
         System.out.print("Enter rental costs: ");
-        double rentalCosts = Double.parseDouble(sc.nextLine());
+        double rentalCosts = 0;
+        rentalCosts = CheckEx.checkExForParseDouble(rentalCosts);
         System.out.print("Enter maximum number of people: ");
-        int maximumrPeople = Integer.parseInt(sc.nextLine());
+        int maximumrPeople = 0;
+        maximumrPeople = CheckEx.checkExForParseInt(maximumrPeople);
         System.out.print("Enter rental type: ");
         String rentalType = sc.nextLine();
         System.out.print("Enter free service: ");
         String freeService = sc.nextLine();
+        System.out.print("Enter service id: ");
+        String serviceId = sc.nextLine();
 
-        Facility room = new Room(name, area, rentalCosts, maximumrPeople, rentalType, freeService);
+        Facility room = new Room(name, area, rentalCosts, maximumrPeople, rentalType, serviceId, freeService);
         this.add(room);
 
     }
@@ -100,20 +113,28 @@ public class FacilityServiceImpl implements FacilityService {
         System.out.print("Enter service name: ");
         String name = sc.nextLine();
         System.out.print("Enter usable area: ");
-        double area = Double.parseDouble(sc.nextLine());
+        double area = 0;
+        area = CheckEx.checkExForParseDouble(area);
         System.out.print("Enter rental costs: ");
-        double rentalCosts = Double.parseDouble(sc.nextLine());
+        double rentalCosts = 0;
+        rentalCosts = CheckEx.checkExForParseDouble(rentalCosts);
         System.out.print("Enter maximum number of people: ");
-        int maximumrPeople = Integer.parseInt(sc.nextLine());
+        int maximumrPeople = 0;
+        maximumrPeople = CheckEx.checkExForParseInt(maximumrPeople);
         System.out.print("Enter rental type: ");
         String rentalType = sc.nextLine();
         System.out.print("Enter room standard: ");
         String roomStandard = sc.nextLine();
         System.out.print("Enter swimming pool area: ");
-        double swimmingPoolArea = Double.parseDouble(sc.nextLine());
+        double swimmingPoolArea = 0;
+        swimmingPoolArea = CheckEx.checkExForParseDouble(swimmingPoolArea);
         System.out.print("Enter floors number: ");
-        int floors = Integer.parseInt(sc.nextLine());
-        Facility villa = new Villa(name, area, rentalCosts, maximumrPeople, rentalType, roomStandard, swimmingPoolArea, floors);
+        int floors = 0;
+        floors = CheckEx.checkExForParseInt(floors);
+        System.out.print("Enter service id: ");
+        String serviceId = sc.nextLine();
+
+        Facility villa = new Villa(name, area, rentalCosts, maximumrPeople, rentalType, serviceId, roomStandard, swimmingPoolArea, floors);
         this.add(villa);
 
     }
@@ -140,16 +161,8 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     @Override
-    public void displayListFacility() {
-        for (Map.Entry<Facility,Integer> entry: facilityMap.entrySet()) {
-            System.out.println("Service: " + entry.getKey().getServiceName());
-            System.out.println("Number of uses: " + entry.getValue());
-        }
-    }
-
-    @Override
     public void displayNumberUsedOfService() {
-        for (Map.Entry<Facility,Integer> entry: facilityMap.entrySet()) {
+        for (Map.Entry<Facility, Integer> entry : facilityMap.entrySet()) {
             System.out.println("Service: " + entry.getKey().getServiceName());
             System.out.println("Number of used: " + entry.getValue());
         }

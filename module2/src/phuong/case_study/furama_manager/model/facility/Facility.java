@@ -8,8 +8,18 @@ public abstract class Facility {
     private double rentalCosts;
     private int maximumPeople;
     private String rentalType;
+    private String serviceId;
 
     public Facility() {
+    }
+
+    public Facility(String serviceName, double usableArea, double rentalCosts, int maximumPeople, String rentalType, String serviceId) {
+        this.serviceName = serviceName;
+        this.usableArea = usableArea;
+        this.rentalCosts = rentalCosts;
+        this.maximumPeople = maximumPeople;
+        this.rentalType = rentalType;
+        this.serviceId = serviceId;
     }
 
     /**
@@ -19,13 +29,7 @@ public abstract class Facility {
      * maximumNumberOfPeople: Số lượng người tối đa.
      * rentalType: Kiểu thuê.
      */
-    public Facility(String serviceName, double usableArea, double rentalCosts, int maximumNumberPeople, String rentalType) {
-        this.serviceName = serviceName;
-        this.usableArea = usableArea;
-        this.rentalCosts = rentalCosts;
-        this.maximumPeople = maximumNumberPeople;
-        this.rentalType = rentalType;
-    }
+
 
     public String getServiceName() {
         return serviceName;
@@ -67,6 +71,14 @@ public abstract class Facility {
         this.rentalType = rentalType;
     }
 
+    public String getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(String serviceId) {
+        this.serviceId = serviceId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -82,11 +94,13 @@ public abstract class Facility {
 
     @Override
     public String toString() {
-        return ", serviceName = '" + serviceName + '\'' +
-                ", usableArea = " + usableArea +
-                ", rentalCosts = " + rentalCosts +
-                ", maximumNumberOfPeople = " + maximumPeople +
-                ", rentalType = '" + rentalType + '\'' +
+        return "Facility{" +
+                "serviceName='" + serviceName + '\'' +
+                ", usableArea=" + usableArea +
+                ", rentalCosts=" + rentalCosts +
+                ", maximumPeople=" + maximumPeople +
+                ", rentalType='" + rentalType + '\'' +
+                ", serviceId='" + serviceId + '\'' +
                 '}';
     }
 }

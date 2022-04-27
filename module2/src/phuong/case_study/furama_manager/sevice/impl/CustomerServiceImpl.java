@@ -1,5 +1,6 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
+import phuong.case_study.furama_manager.comon.CheckEx;
 import phuong.case_study.furama_manager.model.person.Customer;
 import phuong.case_study.furama_manager.sevice.CustomerService;
 
@@ -67,17 +68,15 @@ public class CustomerServiceImpl implements CustomerService {
         String name = sc.nextLine();
         System.out.print("Enter day of birth: ");
         Date date = null;
-        try {
-            date = dateFormat.parse(sc.nextLine());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        date = CheckEx.checkExForDate(date);
         System.out.print("Enter gender: ");
         String gender = sc.nextLine();
         System.out.print("Enter idCard: ");
-        long idCard = Long.parseLong(sc.nextLine());
+        long idCard = 0;
+        idCard = CheckEx.checkExForParseLong(idCard);
         System.out.print("Enter phone number: ");
-        long phoneNumber = Long.parseLong(sc.nextLine());
+        long phoneNumber = 0;
+        phoneNumber = CheckEx.checkExForParseLong(phoneNumber);
         System.out.print("Enter mail: ");
         String mail = sc.nextLine();
         System.out.print("Enter rank: ");
@@ -108,17 +107,15 @@ public class CustomerServiceImpl implements CustomerService {
             String name = sc.nextLine();
             System.out.print("Enter day of birth: ");
             Date date = null;
-            try {
-                date = dateFormat.parse(sc.nextLine());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
+            date = CheckEx.checkExForDate(date);
             System.out.print("Enter gender: ");
             String gender = sc.nextLine();
             System.out.print("Enter idCard: ");
-            long idCard = Long.parseLong(sc.nextLine());
+            long idCard = 0;
+            idCard = CheckEx.checkExForParseLong(idCard);
             System.out.print("Enter phone number: ");
-            long phoneNumber = Long.parseLong(sc.nextLine());
+            long phoneNumber = 0;
+            phoneNumber = CheckEx.checkExForParseLong(phoneNumber);
             System.out.print("Enter mail: ");
             String mail = sc.nextLine();
             System.out.print("Enter rank: ");
@@ -141,7 +138,7 @@ public class CustomerServiceImpl implements CustomerService {
                 }
             }
         } else {
-            System.out.println("Id is NOT found!");
+            System.out.println(id + " is NOT found!");
         }
     }
 
