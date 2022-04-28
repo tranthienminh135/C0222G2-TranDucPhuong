@@ -1,8 +1,7 @@
 package phuong.case_study.furama_manager.model.facility;
 
-import java.util.Objects;
-
 public class Villa extends Facility {
+    private final static String COMMA = ",";
     private String roomStandard;
     private Double swimmingPoolArea;
     private Integer floorsNumber;
@@ -57,6 +56,10 @@ public class Villa extends Facility {
         this.floorsNumber = floorsNumber;
     }
 
+    @Override
+    public String convertLine() {
+        return super.convertLine() + COMMA + this.roomStandard + COMMA + this.swimmingPoolArea + COMMA + this.floorsNumber;
+    }
 
     @Override
     public String toString() {

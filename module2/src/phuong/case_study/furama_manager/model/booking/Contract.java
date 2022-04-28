@@ -1,6 +1,7 @@
 package phuong.case_study.furama_manager.model.booking;
 
 public class Contract {
+    private final static String COMMA = ",";
     private String contractId;
     private String bookingId;
     private Long deposits;
@@ -56,6 +57,11 @@ public class Contract {
 
     public void setCustomerId(String customerId) {
         this.customerId = customerId;
+    }
+
+    public String convertLine() {
+        String line = this.contractId + COMMA + this.bookingId + COMMA + this.deposits + COMMA + this.totalMoney + COMMA + this.customerId;
+        return line;
     }
 
     @Override

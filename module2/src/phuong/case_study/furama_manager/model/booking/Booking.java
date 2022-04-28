@@ -4,6 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Booking implements Comparable<Booking> {
+    private final static String COMMA = ",";
+    private final static String PATTERN = "dd-MM-yyyy";
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat(PATTERN);
     private String bookingId;
     private Date dateStart;
     private Date dateEnd;
@@ -71,10 +74,13 @@ public class Booking implements Comparable<Booking> {
         this.serviceId = serviceId;
     }
 
+    public String convertLine() {
+        String line = this.bookingId + COMMA + dateFormat.format(this.dateStart) + COMMA + dateFormat.format(this.dateEnd) + COMMA + this.customerID + COMMA + serviceName + COMMA + serviceId;
+        return line;
+    }
+
     @Override
     public String toString() {
-        final String PATTERN = "dd-MM-yyyy";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(PATTERN);
         return "Booking {" +
                 "idBooking = '" + bookingId + '\'' +
                 ", dateStart = " + dateFormat.format(dateStart) +

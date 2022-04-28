@@ -1,8 +1,9 @@
 package phuong.case_study.furama_manager.model.facility;
 
 public class House extends Facility {
+    private final static String COMMA = ",";
     private String roomStandard;
-    private int floorsNumber;
+    private Integer floorsNumber;
 
     public House() {
     }
@@ -34,7 +35,10 @@ public class House extends Facility {
         this.floorsNumber = floorsNumber;
     }
 
-
+    @Override
+    public String convertLine() {
+        return super.convertLine() + COMMA + this.roomStandard + COMMA + this.floorsNumber;
+    }
 
     @Override
     public String toString() {

@@ -3,6 +3,7 @@ package phuong.case_study.furama_manager.model.person;
 import java.util.Date;
 
 public class Customer extends Person {
+    private final static String COMMA = ",";
     private String customerRank;
     private String address;
 
@@ -34,6 +35,11 @@ public class Customer extends Person {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public String convertLine() {
+        return super.convertLine() + COMMA + this.customerRank + COMMA + this.address;
     }
 
     @Override

@@ -1,8 +1,8 @@
 package phuong.case_study.furama_manager.model.facility;
 
-import java.util.Objects;
 
 public class Room extends Facility {
+    private final static String COMMA = ",";
     private String freeService;
 
     public Room() {
@@ -23,6 +23,11 @@ public class Room extends Facility {
 
     public void setFreeService(String freeService) {
         this.freeService = freeService;
+    }
+
+    @Override
+    public String convertLine() {
+        return super.convertLine() + COMMA + this.freeService;
     }
 
     @Override

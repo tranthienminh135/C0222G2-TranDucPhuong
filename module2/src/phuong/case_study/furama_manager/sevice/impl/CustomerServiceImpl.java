@@ -1,6 +1,7 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
-import phuong.case_study.furama_manager.comon.CheckEx;
+import phuong.case_study.furama_manager.common.CheckEx;
+import phuong.case_study.furama_manager.common.FileService;
 import phuong.case_study.furama_manager.model.person.Customer;
 import phuong.case_study.furama_manager.sevice.CustomerService;
 
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
+    private final static String FILE_NAME = "src/phuong/case_study/furama_manager/common/data/customer.csv";
     private static Scanner sc = new Scanner(System.in);
     private static List<Customer> customers = new LinkedList<>();
     private final static String PATTERN = "dd-MM-yyyy";
@@ -54,21 +56,25 @@ public class CustomerServiceImpl implements CustomerService {
         customers.add(customer3);
         customers.add(customer4);
         customers.add(customer5);
+
+        FileService.writeCustomer(FILE_NAME,customers);
     }
 
     public static List<Customer> getCustomers() {
+        customers = FileService.readListCustomerFromFile(FILE_NAME);
         return customers;
     }
 
     @Override
     public void add() {
+        customers = FileService.readListCustomerFromFile(FILE_NAME);
         System.out.print("Enter id: ");
         String id = sc.nextLine();
         System.out.print("Enter name: ");
         String name = sc.nextLine();
         System.out.print("Enter day of birth: ");
         Date date = null;
-        date = CheckEx.checkExForDate(date);
+        date = CheckEx.checkExForDayOfBirth(date);
         System.out.print("Enter gender: ");
         String gender = sc.nextLine();
         System.out.print("Enter idCard: ");
@@ -87,10 +93,12 @@ public class CustomerServiceImpl implements CustomerService {
         Customer customer = new Customer(id,name,date,gender,idCard,phoneNumber,mail,rank,address);
 
         customers.add(customer);
+        FileService.writeCustomer(FILE_NAME,customers);
     }
 
     @Override
     public void display() {
+        customers = FileService.readListCustomerFromFile(FILE_NAME);
         for (Customer customer: customers) {
             System.out.println(customer);
         }
@@ -99,6 +107,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void edit() {
+        customers = FileService.readListCustomerFromFile(FILE_NAME);
         System.out.print("Enter id for edit: ");
         String id = sc.nextLine();
 
@@ -107,7 +116,7 @@ public class CustomerServiceImpl implements CustomerService {
             String name = sc.nextLine();
             System.out.print("Enter day of birth: ");
             Date date = null;
-            date = CheckEx.checkExForDate(date);
+            date = CheckEx.checkExForDayOfBirth(date);
             System.out.print("Enter gender: ");
             String gender = sc.nextLine();
             System.out.print("Enter idCard: ");
@@ -137,6 +146,7 @@ public class CustomerServiceImpl implements CustomerService {
                     break;
                 }
             }
+            FileService.writeCustomer(FILE_NAME,customers);
         } else {
             System.out.println(id + " is NOT found!");
         }
@@ -144,6 +154,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public boolean checkIdExists(String id) {
+        customers = FileService.readListCustomerFromFile(FILE_NAME);
         for (Customer customer: customers) {
             if (customer.getId().contains(id)) {
                 return true;

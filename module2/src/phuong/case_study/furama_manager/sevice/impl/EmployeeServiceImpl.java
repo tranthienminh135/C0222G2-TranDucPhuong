@@ -1,7 +1,7 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
-import phuong.case_study.furama_manager.comon.CheckEx;
-import phuong.case_study.furama_manager.comon.FileService;
+import phuong.case_study.furama_manager.common.CheckEx;
+import phuong.case_study.furama_manager.common.FileService;
 import phuong.case_study.furama_manager.model.person.Employee;
 import phuong.case_study.furama_manager.sevice.EmployeeService;
 
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
-    private final static String FILE_NAME = "src/phuong/case_study/furama_manager/comon/data/employee.csv";
+    private final static String FILE_NAME_EMPLOYEE = "src/phuong/case_study/furama_manager/common/data/employee.csv";
     private static Scanner sc = new Scanner(System.in);
     private static List<Employee> employees = new ArrayList<>();
     private final static String PATTERN = "dd-MM-yyyy";
@@ -44,20 +44,19 @@ public class EmployeeServiceImpl implements EmployeeService {
         employees.add(employee1);
         employees.add(employee2);
         employees.add(employee3);
-
-        FileService.writeEmployee(FILE_NAME, employees);
-
+        FileService.writeEmployee(FILE_NAME_EMPLOYEE, employees);
     }
 
     @Override
     public void add() {
+        employees = FileService.readListEmployeeFromFile(FILE_NAME_EMPLOYEE);
         System.out.print("Enter id: ");
         String id = sc.nextLine();
         System.out.print("Enter name: ");
         String name = sc.nextLine();
         System.out.print("Enter day of birth (dd-MM-yyyy): ");
         Date dateAdd = null;
-        dateAdd = CheckEx.checkExForDate(dateAdd);
+        dateAdd = CheckEx.checkExForDayOfBirth(dateAdd);
         System.out.print("Enter gender: ");
         String gender = sc.nextLine();
 
@@ -80,10 +79,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = new Employee(id, name, dateAdd, gender, idCard, phoneNumber, mail, level, position, salary);
 
         employees.add(employee);
+        FileService.writeEmployee(FILE_NAME_EMPLOYEE, employees);
     }
 
     @Override
     public void display() {
+        employees = FileService.readListEmployeeFromFile(FILE_NAME_EMPLOYEE);
         for (Employee employee : employees) {
             System.out.println(employee);
         }
@@ -91,6 +92,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void edit() {
+        employees = FileService.readListEmployeeFromFile(FILE_NAME_EMPLOYEE);
         System.out.print("Enter id for edit: ");
         String id = sc.nextLine();
 
@@ -99,7 +101,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             String name = sc.nextLine();
             System.out.print("Enter day of birth: ");
             Date dateEdit = null;
-            dateEdit = CheckEx.checkExForDate(dateEdit);
+            dateEdit = CheckEx.checkExForDayOfBirth(dateEdit);
             System.out.print("Enter gender: ");
             String gender = sc.nextLine();
             System.out.print("Enter idCard: ");
@@ -132,6 +134,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                     break;
                 }
             }
+            FileService.writeEmployee(FILE_NAME_EMPLOYEE, employees);
         } else {
             System.out.println(id + " is NOT found!");
         }
@@ -139,6 +142,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public boolean checkIdExists(String id) {
+        employees = FileService.readListEmployeeFromFile(FILE_NAME_EMPLOYEE);
         for (Employee e : employees) {
             if (e.getId().contains(id)) {
                 return true;

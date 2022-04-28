@@ -3,6 +3,7 @@ package phuong.case_study.furama_manager.model.facility;
 import java.util.Objects;
 
 public abstract class Facility {
+    private final static String COMMA = ",";
     private String serviceName;
     private double usableArea;
     private double rentalCosts;
@@ -90,6 +91,11 @@ public abstract class Facility {
     @Override
     public int hashCode() {
         return Objects.hash(serviceName, usableArea, rentalCosts, maximumPeople, rentalType);
+    }
+
+    public String convertLine() {
+        String line = this.serviceName + COMMA + this.usableArea + COMMA + this.rentalCosts + COMMA + this.maximumPeople + COMMA + this.rentalType + COMMA + this.serviceId;
+        return line;
     }
 
     @Override

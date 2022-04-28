@@ -1,5 +1,7 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
+import phuong.case_study.furama_manager.common.CheckEx;
+import phuong.case_study.furama_manager.common.FileService;
 import phuong.case_study.furama_manager.model.booking.Booking;
 import phuong.case_study.furama_manager.model.booking.Contract;
 import phuong.case_study.furama_manager.sevice.BookingService;
@@ -8,13 +10,14 @@ import phuong.case_study.furama_manager.sevice.ContactService;
 import java.util.*;
 
 public class ContactServiceImpl implements ContactService {
+    private final static String FILE_NAME_CONTRACT = "src/phuong/case_study/furama_manager/common/data/contract.csv";
     private static Scanner sc = new Scanner(System.in);
     private static Queue<Booking> bookingQueue = new PriorityQueue<>();
     private static List<Contract> contracts = new ArrayList<>();
     private static BookingService bookingService = new BookingServiceImpl();
 
     static {
-        Set<Booking> bookingSet = BookingServiceImpl.getBookingService();
+        Set<Booking> bookingSet = BookingServiceImpl.getBookings();
 
         for (Booking booking : bookingSet) {
             bookingQueue.offer(booking);
@@ -24,19 +27,23 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void createNewContract() {
+        contracts = FileService.readListContractFromFile(FILE_NAME_CONTRACT);
         if (!bookingQueue.isEmpty()) {
             System.out.print("Enter contract id: ");
             String contractId = sc.nextLine();
             String bookingId = bookingQueue.element().getBookingId();
             System.out.print("Enter deposit: ");
-            long deposit = Long.parseLong(sc.nextLine());
+            long deposit = 0;
+            deposit = CheckEx.checkExForParseLong(deposit);
             System.out.print("Enter total money: ");
-            long totalMoney = Long.parseLong(sc.nextLine());
+            long totalMoney = 0;
+            totalMoney = CheckEx.checkExForParseLong(totalMoney);
             String customerId = bookingQueue.element().getCustomerID();
             bookingService.deleteBooking(bookingQueue.element());
             bookingQueue.poll();
             Contract contract = new Contract(contractId, bookingId, deposit, totalMoney, customerId);
             contracts.add(contract);
+            FileService.writeContract(FILE_NAME_CONTRACT, contracts);
         } else {
             System.err.println("Booking list is empty!");
         }
@@ -46,13 +53,15 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void displayListContract() {
-        for (Contract contract: contracts) {
+        contracts = FileService.readListContractFromFile(FILE_NAME_CONTRACT);
+        for (Contract contract : contracts) {
             System.out.println(contract);
         }
     }
 
     @Override
     public void editContract() {
+        contracts = FileService.readListContractFromFile(FILE_NAME_CONTRACT);
         boolean flag = false;
         System.out.print("Choice contract id: ");
         String id = sc.nextLine();
@@ -72,41 +81,19 @@ public class ContactServiceImpl implements ContactService {
                 if (contracts.get(i).getContractId().equals(id)) {
                     contracts.get(i).setContractId(id);
                     System.out.print("Enter new deposits: ");
-                    contracts.get(i).setDeposits(Long.parseLong(sc.nextLine()));
+                    long deposit = 0;
+                    deposit = CheckEx.checkExForParseLong(deposit);
+                    contracts.get(i).setDeposits(deposit);
                     System.out.print("Enter new totalMoney: ");
-                    contracts.get(i).setTotalMoney(Long.parseLong(sc.nextLine()));
+                    long totalMoney = 0;
+                    totalMoney = CheckEx.checkExForParseLong(totalMoney);
+                    contracts.get(i).setTotalMoney(totalMoney);
                     break;
                 }
             }
+            FileService.writeContract(FILE_NAME_CONTRACT, contracts);
         } else {
             System.err.println("Contract id is not found!");
-        }
-    }
-
-    public static void main(String[] args) {
-        System.out.println("before");
-        for (Booking b : ContactServiceImpl.bookingQueue) {
-            System.out.println(b);
-        }
-        ContactService contactService = new ContactServiceImpl();
-        contactService.createNewContract();
-        contactService.createNewContract();
-
-        System.out.println("------------");
-        System.out.println("after");
-        for (Booking b : ContactServiceImpl.bookingQueue) {
-            System.out.println(b);
-        }
-        System.out.println("------------");
-
-        for (Contract c : ContactServiceImpl.contracts) {
-            System.out.println(c);
-        }
-
-        System.out.println("------------");
-
-        for (Booking b : BookingServiceImpl.getBookingService()) {
-            System.out.println(b);
         }
     }
 }

@@ -1,6 +1,6 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
-import phuong.case_study.furama_manager.comon.CheckEx;
+import phuong.case_study.furama_manager.common.CheckEx;
 import phuong.case_study.furama_manager.model.booking.Booking;
 import phuong.case_study.furama_manager.model.person.Customer;
 import phuong.case_study.furama_manager.sevice.BookingService;
@@ -17,7 +17,7 @@ public class PromotionServiceImpl implements PromotionService {
     private static Integer countOfVoucher20Percent = 0;
     private static Integer countOfVoucher50Percent = 0;
     private static BookingService bookingService = new BookingServiceImpl();
-    private static Set<Booking> bookingSet = BookingServiceImpl.getBookingService();
+    private static Set<Booking> bookingSet = BookingServiceImpl.getBookings();
     private static Integer totalOfVoucher = CustomerServiceImpl.getCustomers().size();
     private static List<Customer> customerList = CustomerServiceImpl.getCustomers();
 
@@ -27,7 +27,7 @@ public class PromotionServiceImpl implements PromotionService {
 
     @Override
     public void displayListCustomersUseService() {
-        Set<Booking> bookingList = BookingServiceImpl.getBookingService();
+        Set<Booking> bookingList = BookingServiceImpl.getBookings();
         boolean check = false;
 
         System.out.print("Enter year: ");

@@ -1,5 +1,6 @@
 package phuong.case_study.furama_manager.controllers;
 
+import phuong.case_study.furama_manager.common.CheckEx;
 import phuong.case_study.furama_manager.sevice.*;
 import phuong.case_study.furama_manager.sevice.impl.*;
 
@@ -25,7 +26,7 @@ public class FuramaController {
                     "6. Exit");
             System.out.print("Your choice: ");
             int choice = 0;
-            choice = getChoice(choice);
+            choice = CheckEx.checkExForChoice(choice);
             switch (choice) {
                 case 1:
                     choiceEmployee();
@@ -62,7 +63,7 @@ public class FuramaController {
                     "3. Return main menu");
             System.out.print("Your choice: ");
             int choicePromotion = 0;
-            choicePromotion = getChoice(choicePromotion);
+            choicePromotion = CheckEx.checkExForChoice(choicePromotion);
             switch (choicePromotion) {
                 case 1:
                     promotionService.displayListCustomersUseService();
@@ -93,7 +94,7 @@ public class FuramaController {
                     "6. Return main menu");
             System.out.print("Your choice: ");
             int choiceBooking = 0;
-            choiceBooking = getChoice(choiceBooking);
+            choiceBooking = CheckEx.checkExForChoice(choiceBooking);
             switch (choiceBooking) {
                 case 1:
                     bookingService.addNewBooking();
@@ -130,7 +131,7 @@ public class FuramaController {
                     "4. Return main menu");
             System.out.print("Your choice: ");
             int choiceFacility = 0;
-            choiceFacility = getChoice(choiceFacility);
+            choiceFacility = CheckEx.checkExForChoice(choiceFacility);
             switch (choiceFacility) {
                 case 1:
                     facilityService.displayNumberUsedOfService();
@@ -162,7 +163,7 @@ public class FuramaController {
                     "4. Return main menu");
             System.out.print("Your choice: ");
             int choiceFacilityService = 0;
-            choiceFacilityService = getChoice(choiceFacilityService);
+            choiceFacilityService = CheckEx.checkExForChoice(choiceFacilityService);
             switch (choiceFacilityService) {
                 case 1:
                     facilityService.addNewHouseService();
@@ -194,7 +195,7 @@ public class FuramaController {
                     "4. Return main menu");
             System.out.print("Your choice: ");
             int choiceCustomer = 0;
-            choiceCustomer = getChoice(choiceCustomer);
+            choiceCustomer = CheckEx.checkExForChoice(choiceCustomer);
             switch (choiceCustomer) {
                 case 1:
                     customerService.display();
@@ -225,7 +226,7 @@ public class FuramaController {
                     "4. Return main menu");
             System.out.print("Your choice: ");
             int choiceEmployee = 0;
-            choiceEmployee = getChoice(choiceEmployee);
+            choiceEmployee = CheckEx.checkExForChoice(choiceEmployee);
             switch (choiceEmployee) {
                 case 1:
                     employeeService.display();
@@ -244,23 +245,5 @@ public class FuramaController {
                     break;
             }
         } while (flag);
-    }
-
-    private int getChoice(int choice) {
-        boolean check = true;
-        while (check) {
-            try {
-                choice = Integer.parseInt(sc.nextLine());
-                check = false;
-            } catch (NumberFormatException e) {
-                System.err.println("Error: " + e.getMessage());
-                System.out.println();
-                System.out.print("Choice again! Your choice: ");
-                check = true;
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-            }
-        }
-        return choice;
     }
 }
