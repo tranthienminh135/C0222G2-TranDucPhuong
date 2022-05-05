@@ -1,6 +1,6 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
-import phuong.case_study.furama_manager.common.CheckEx;
+import phuong.case_study.furama_manager.common.CheckException;
 import phuong.case_study.furama_manager.common.FileService;
 import phuong.case_study.furama_manager.model.booking.Booking;
 import phuong.case_study.furama_manager.model.facility.Facility;
@@ -75,10 +75,10 @@ public class BookingServiceImpl implements BookingService {
         String id = sc.nextLine();
         System.out.print("Enter date start (dd-MM-yyyy): ");
         Date dateStart = null;
-        dateStart = CheckEx.checkExForDate(dateStart);
+        dateStart = CheckException.checkExForDate(dateStart);
         System.out.print("Enter date end (dd-MM-yyyy): ");
         Date dateEnd = null;
-        dateEnd = CheckEx.checkExForDate(dateEnd);
+        dateEnd = CheckException.checkExForDate(dateEnd);
         System.out.println("Choice customer id");
         String customerId = choiceListCustomer().getId();
 
@@ -118,7 +118,7 @@ public class BookingServiceImpl implements BookingService {
             }
             System.out.print("Your choice: ");
             int choice = 0;
-            choice = CheckEx.checkExForParseInt(choice);
+            choice = CheckException.checkExForParseInt(choice);
             if (choice > 0 && choice <= facilities.size()) {
                 facilityService.add(facilities.get(choice - 1));
                 return facilities.get(choice - 1);
@@ -138,7 +138,7 @@ public class BookingServiceImpl implements BookingService {
             }
             System.out.print("Your choice: ");
             int choice = 0;
-            choice = CheckEx.checkExForParseInt(choice);
+            choice = CheckException.checkExForParseInt(choice);
             if (choice > 0 && choice <= customers.size()) {
                 System.out.println(customers.size());
                 return customers.get(choice - 1);

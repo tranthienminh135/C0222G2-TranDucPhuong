@@ -1,6 +1,6 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
-import phuong.case_study.furama_manager.common.CheckEx;
+import phuong.case_study.furama_manager.common.CheckException;
 import phuong.case_study.furama_manager.common.FileService;
 import phuong.case_study.furama_manager.common.RegexService;
 import phuong.case_study.furama_manager.model.facility.Facility;
@@ -79,24 +79,24 @@ public class FacilityServiceImpl implements FacilityService {
         }
         System.out.print("Enter usable area: ");
         double area = 0;
-            area = CheckEx.checkExForParseDouble(area);
+            area = CheckException.checkExForParseDouble(area);
         while (!RegexService.checkArea(String.valueOf(area))) {
             System.out.print("Enter usable area: ");
-            area = CheckEx.checkExForParseDouble(area);
+            area = CheckException.checkExForParseDouble(area);
         }
         System.out.print("Enter rental costs: ");
         double rentalCosts = 0;
-        rentalCosts = CheckEx.checkExForParseDouble(rentalCosts);
+        rentalCosts = CheckException.checkExForParseDouble(rentalCosts);
         while (!RegexService.checkRentalCosts(String.valueOf(rentalCosts))) {
             System.out.print("Enter rental costs again: ");
-            rentalCosts = CheckEx.checkExForParseDouble(rentalCosts);
+            rentalCosts = CheckException.checkExForParseDouble(rentalCosts);
         }
         System.out.print("Enter maximum number of people: ");
         int maximumPeople = 0;
-        maximumPeople = CheckEx.checkExForParseInt(maximumPeople);
+        maximumPeople = CheckException.checkExForParseInt(maximumPeople);
         while (!RegexService.checkMaximumPeople(String.valueOf(maximumPeople))){
             System.out.print("Enter maximum number of people again: ");
-            maximumPeople = CheckEx.checkExForParseInt(maximumPeople);
+            maximumPeople = CheckException.checkExForParseInt(maximumPeople);
         }
         System.out.print("Enter rental type: ");
         String rentalType = sc.nextLine();
@@ -112,10 +112,10 @@ public class FacilityServiceImpl implements FacilityService {
         }
         System.out.print("Enter floors number: ");
         int floors = 0;
-        floors = CheckEx.checkExForParseInt(floors);
+        floors = CheckException.checkExForParseInt(floors);
         while (!RegexService.checkFloorsNumber(String.valueOf(floors))) {
             System.out.print("Enter floors number again: ");
-            floors = CheckEx.checkExForParseInt(floors);
+            floors = CheckException.checkExForParseInt(floors);
         }
         System.out.print("Enter service id: ");
         String serviceId = sc.nextLine();
@@ -141,24 +141,24 @@ public class FacilityServiceImpl implements FacilityService {
         }
         System.out.print("Enter usable area: ");
         double area = 0;
-        area = CheckEx.checkExForParseDouble(area);
+        area = CheckException.checkExForParseDouble(area);
         while (!RegexService.checkArea(String.valueOf(area))) {
             System.out.print("Enter usable area again: ");
-            area = CheckEx.checkExForParseDouble(area);
+            area = CheckException.checkExForParseDouble(area);
         }
         System.out.print("Enter rental costs: ");
         double rentalCosts = 0;
-        rentalCosts = CheckEx.checkExForParseDouble(rentalCosts);
+        rentalCosts = CheckException.checkExForParseDouble(rentalCosts);
         while (!RegexService.checkRentalCosts(String.valueOf(rentalCosts))) {
             System.out.print("Enter rental costs again: ");
-            rentalCosts = CheckEx.checkExForParseDouble(rentalCosts);
+            rentalCosts = CheckException.checkExForParseDouble(rentalCosts);
         }
         System.out.print("Enter maximum number of people: ");
         int maximumPeople = 0;
-        maximumPeople = CheckEx.checkExForParseInt(maximumPeople);
+        maximumPeople = CheckException.checkExForParseInt(maximumPeople);
         while (!RegexService.checkMaximumPeople(String.valueOf(maximumPeople))){
             System.out.print("Enter maximum number of people again: ");
-            maximumPeople = CheckEx.checkExForParseInt(maximumPeople);
+            maximumPeople = CheckException.checkExForParseInt(maximumPeople);
         }
         System.out.print("Enter rental type: ");
         String rentalType = sc.nextLine();
@@ -193,24 +193,24 @@ public class FacilityServiceImpl implements FacilityService {
         }
         System.out.print("Enter usable area: ");
         double area = 0;
-        area = CheckEx.checkExForParseDouble(area);
+        area = CheckException.checkExForParseDouble(area);
         while (!RegexService.checkArea(String.valueOf(area))) {
             System.out.print("Enter usable area again: ");
-            area = CheckEx.checkExForParseDouble(area);
+            area = CheckException.checkExForParseDouble(area);
         }
         System.out.print("Enter rental costs: ");
         double rentalCosts = 0;
-        rentalCosts = CheckEx.checkExForParseDouble(rentalCosts);
+        rentalCosts = CheckException.checkExForParseDouble(rentalCosts);
         while (!RegexService.checkRentalCosts(String.valueOf(rentalCosts))) {
             System.out.print("Enter rental costs again: ");
-            rentalCosts = CheckEx.checkExForParseDouble(rentalCosts);
+            rentalCosts = CheckException.checkExForParseDouble(rentalCosts);
         }
         System.out.print("Enter maximum number of people: ");
         int maximumPeople = 0;
-        maximumPeople = CheckEx.checkExForParseInt(maximumPeople);
+        maximumPeople = CheckException.checkExForParseInt(maximumPeople);
         while (!RegexService.checkMaximumPeople(String.valueOf(maximumPeople))){
             System.out.print("Enter maximum number of people again: ");
-            maximumPeople = CheckEx.checkExForParseInt(maximumPeople);
+            maximumPeople = CheckException.checkExForParseInt(maximumPeople);
         }
         System.out.print("Enter rental type: ");
         String rentalType = sc.nextLine();
@@ -226,17 +226,17 @@ public class FacilityServiceImpl implements FacilityService {
         }
         System.out.print("Enter swimming pool area: ");
         double swimmingPoolArea = 0;
-        swimmingPoolArea = CheckEx.checkExForParseDouble(swimmingPoolArea);
+        swimmingPoolArea = CheckException.checkExForParseDouble(swimmingPoolArea);
         while (!RegexService.checkArea(String.valueOf(swimmingPoolArea))) {
             System.out.print("Enter swimming pool area again: ");
-            swimmingPoolArea = CheckEx.checkExForParseDouble(swimmingPoolArea);
+            swimmingPoolArea = CheckException.checkExForParseDouble(swimmingPoolArea);
         }
         System.out.print("Enter floors number: ");
         int floors = 0;
-        floors = CheckEx.checkExForParseInt(floors);
+        floors = CheckException.checkExForParseInt(floors);
         while (!RegexService.checkFloorsNumber(String.valueOf(floors))) {
             System.out.print("Enter floors number again: ");
-            floors = CheckEx.checkExForParseInt(floors);
+            floors = CheckException.checkExForParseInt(floors);
         }
         System.out.print("Enter service id: ");
         String serviceId = sc.nextLine();

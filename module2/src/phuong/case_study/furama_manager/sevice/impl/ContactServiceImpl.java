@@ -1,6 +1,6 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
-import phuong.case_study.furama_manager.common.CheckEx;
+import phuong.case_study.furama_manager.common.CheckException;
 import phuong.case_study.furama_manager.common.FileService;
 import phuong.case_study.furama_manager.model.booking.Booking;
 import phuong.case_study.furama_manager.model.booking.Contract;
@@ -34,10 +34,10 @@ public class ContactServiceImpl implements ContactService {
             String bookingId = bookingQueue.element().getBookingId();
             System.out.print("Enter deposit: ");
             long deposit = 0;
-            deposit = CheckEx.checkExForParseLong(deposit);
+            deposit = CheckException.checkExForParseLong(deposit);
             System.out.print("Enter total money: ");
             long totalMoney = 0;
-            totalMoney = CheckEx.checkExForParseLong(totalMoney);
+            totalMoney = CheckException.checkExForParseLong(totalMoney);
             String customerId = bookingQueue.element().getCustomerID();
             bookingService.deleteBooking(bookingQueue.element());
             bookingQueue.poll();
@@ -47,8 +47,6 @@ public class ContactServiceImpl implements ContactService {
         } else {
             System.err.println("Booking list is empty!");
         }
-
-
     }
 
     @Override
@@ -74,6 +72,7 @@ public class ContactServiceImpl implements ContactService {
             }
         } else {
             System.err.println("List contract is empty!");
+            return;
         }
 
         if (flag) {
@@ -82,11 +81,11 @@ public class ContactServiceImpl implements ContactService {
                     contracts.get(i).setContractId(id);
                     System.out.print("Enter new deposits: ");
                     long deposit = 0;
-                    deposit = CheckEx.checkExForParseLong(deposit);
+                    deposit = CheckException.checkExForParseLong(deposit);
                     contracts.get(i).setDeposits(deposit);
                     System.out.print("Enter new totalMoney: ");
                     long totalMoney = 0;
-                    totalMoney = CheckEx.checkExForParseLong(totalMoney);
+                    totalMoney = CheckException.checkExForParseLong(totalMoney);
                     contracts.get(i).setTotalMoney(totalMoney);
                     break;
                 }

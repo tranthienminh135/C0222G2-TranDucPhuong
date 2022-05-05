@@ -90,12 +90,11 @@ public abstract class Facility {
 
     @Override
     public int hashCode() {
-        return Objects.hash(serviceName, usableArea, rentalCosts, maximumPeople, rentalType);
+        return Objects.hash(serviceName);
     }
 
     public String convertLine() {
-        String line = this.serviceName + COMMA + this.usableArea + COMMA + this.rentalCosts + COMMA + this.maximumPeople + COMMA + this.rentalType + COMMA + this.serviceId;
-        return line;
+        return this.serviceName + COMMA + this.usableArea + COMMA + this.rentalCosts + COMMA + this.maximumPeople + COMMA + this.rentalType + COMMA + this.serviceId;
     }
 
     @Override

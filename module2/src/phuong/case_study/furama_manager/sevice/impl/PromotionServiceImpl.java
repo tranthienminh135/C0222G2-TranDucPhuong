@@ -1,6 +1,6 @@
 package phuong.case_study.furama_manager.sevice.impl;
 
-import phuong.case_study.furama_manager.common.CheckEx;
+import phuong.case_study.furama_manager.common.CheckException;
 import phuong.case_study.furama_manager.model.booking.Booking;
 import phuong.case_study.furama_manager.model.person.Customer;
 import phuong.case_study.furama_manager.sevice.BookingService;
@@ -75,13 +75,13 @@ public class PromotionServiceImpl implements PromotionService {
     public void voucher() {
         System.out.print("Enter count of voucher (10%): ");
         int count10Percent = 0;
-        count10Percent = CheckEx.checkExForParseInt(count10Percent);
+        count10Percent = CheckException.checkExForParseInt(count10Percent);
         System.out.print("Enter count of voucher (20%): ");
         int count20Percent = 0;
-        count20Percent = CheckEx.checkExForParseInt(count20Percent);
+        count20Percent = CheckException.checkExForParseInt(count20Percent);
         System.out.print("Enter count of voucher (50%): ");
         int count50Percent = 0;
-        count50Percent = CheckEx.checkExForParseInt(count50Percent);
+        count50Percent = CheckException.checkExForParseInt(count50Percent);
 
         while ((count10Percent + count20Percent + count50Percent) > totalOfVoucher) {
             System.err.println("The total number of voucher cannot be greater than the total number of customers");
