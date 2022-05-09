@@ -179,7 +179,6 @@ public class FacilityServiceImpl implements FacilityService {
         rooms.add(room);
         FileService.writeRoom(FILE_NAME_ROOM,rooms);
         this.add(room);
-
     }
 
     @Override
