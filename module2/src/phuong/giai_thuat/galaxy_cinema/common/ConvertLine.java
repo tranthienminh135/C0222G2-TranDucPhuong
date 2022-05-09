@@ -1,7 +1,7 @@
 package phuong.giai_thuat.galaxy_cinema.common;
 
 import phuong.giai_thuat.galaxy_cinema.model.GalaxyCinema;
-import phuong.giai_thuat.service.impl.MovieServiceImpl;
+import phuong.giai_thuat.galaxy_cinema.service.impl.MovieServiceImpl;
 
 import java.text.SimpleDateFormat;
 import java.util.List;

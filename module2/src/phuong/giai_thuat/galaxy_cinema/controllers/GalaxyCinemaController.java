@@ -1,8 +1,8 @@
 package phuong.giai_thuat.galaxy_cinema.controllers;
 
 import phuong.giai_thuat.galaxy_cinema.common.CheckException;
-import phuong.giai_thuat.service.IMovieService;
-import phuong.giai_thuat.service.impl.MovieServiceImpl;
+import phuong.giai_thuat.galaxy_cinema.service.IMovieService;
+import phuong.giai_thuat.galaxy_cinema.service.impl.MovieServiceImpl;
 
 import java.util.Scanner;
 

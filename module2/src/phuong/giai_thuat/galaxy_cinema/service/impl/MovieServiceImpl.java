@@ -1,10 +1,10 @@
-package phuong.giai_thuat.service.impl;
+package phuong.giai_thuat.galaxy_cinema.service.impl;
 
 import phuong.giai_thuat.galaxy_cinema.common.CheckException;
 import phuong.giai_thuat.galaxy_cinema.common.CheckRegex;
 import phuong.giai_thuat.galaxy_cinema.common.FileService;
 import phuong.giai_thuat.galaxy_cinema.model.GalaxyCinema;
-import phuong.giai_thuat.service.IMovieService;
+import phuong.giai_thuat.galaxy_cinema.service.IMovieService;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
