@@ -35,6 +35,7 @@ public class MovieServiceImpl implements IMovieService {
             for (GalaxyCinema galaxyCinema : galaxyCinemas) {
                 System.out.println("Movie Name: " + galaxyCinema.getMovieName());
                 System.out.println("Movie id: " + galaxyCinema.getMovieId());
+                System.out.println("Movie day: " + formatDate.format(galaxyCinema.getMovieDay()));
                 System.out.println("Show Time: ");
                 for (int i = 0; i < galaxyCinema.getShowtime().size(); i++) {
                     if (i == galaxyCinema.getShowtime().size() - 1) {
