@@ -66,3 +66,23 @@ VALUES (1, 'CF', 5, 1),
 VALUES (1, 1, 8, 1),
        (1, 2, 10, 2),
        (2, 1, 12, 1);
+       
+select * from student
+where studentname like 'h%';
+
+select * from class
+where month(StartDate) = 12;
+
+select * from Subject
+where Credit between 3 and 5;
+
+SET SQL_SAFE_UPDATES = 0;
+update student
+set classid = 2
+where studentname = 'Hung';
+SET SQL_SAFE_UPDATES = 1;
+
+select student.StudentName, subject.SubName, mark.Mark from student
+join mark on student.studentid = mark.StudentId
+join subject on subject.SubId = mark.SubId
+order by mark.mark desc, subject.subname
