@@ -397,15 +397,15 @@ having count(hop_dong.ma_nhan_vien) <= 3;
 
 SET SQL_SAFE_UPDATES = 0;
 with ma_nhan_vien_can_xoa as (
-	select ma_nhan_vien from nhan_vien
-	where ma_nhan_vien
-	not in (select nhan_vien.ma_nhan_vien from nhan_vien
-			join trinh_do on trinh_do.ma_trinh_do = nhan_vien.ma_trinh_do
-			join bo_phan on bo_phan.ma_bo_phan = nhan_vien.ma_bo_phan
-			join hop_dong on hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
-			where hop_dong.ngay_lam_hop_dong between '2019-01-01' and '2021-12-31'
-			group by nhan_vien.ma_nhan_vien
-		)
+select ma_nhan_vien from nhan_vien
+where ma_nhan_vien
+not in (select nhan_vien.ma_nhan_vien from nhan_vien
+		join trinh_do on trinh_do.ma_trinh_do = nhan_vien.ma_trinh_do
+		join bo_phan on bo_phan.ma_bo_phan = nhan_vien.ma_bo_phan
+		join hop_dong on hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
+		where hop_dong.ngay_lam_hop_dong between '2019-01-01' and '2021-12-31'
+		group by nhan_vien.ma_nhan_vien
+	)
 )
 update nhan_vien
 set `status` = 1
@@ -461,8 +461,9 @@ where dich_vu_di_kem.ma_dich_vu_di_kem = (select ma_dich_vu_di_kem from so_luong
 
 -- task 20.	Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống, thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang), ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.
 
-
-
+select ma_khach_hang, ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi, "Khách Hàng" as `khach_hang` from khach_hang
+union
+select ma_nhan_vien, ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi, "Nhân Viên" as `nhan_vien` from nhan_vien;
 
 -- task 21.	Tạo khung nhìn có tên là v_nhan_vien để lấy được thông tin của tất cả các nhân viên có địa chỉ là “Hải Châu” và đã từng lập hợp đồng cho một hoặc nhiều khách hàng bất kì với ngày lập hợp đồng là “12/12/2019”.
 
