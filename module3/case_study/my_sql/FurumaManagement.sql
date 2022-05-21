@@ -242,8 +242,8 @@ where (ho_ten like 'H%' or ho_ten like 'T%' or ho_ten like 'K%' and length(ho_te
 
 -- task 3.	Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.
 
-select * from khach_hang
-where ((year(curdate()) - year(ngay_sinh) >= 18 and year(curdate()) - year(ngay_sinh) <=50) and dia_chi Like '%Đà Nẵng%' or dia_chi like '%Quảng Trị%') and (`status` = 0);
+select * from khach_hang kh
+where ((TIMESTAMPDIFF(year, kh.ngay_sinh, curdate())) >= 18 and (TIMESTAMPDIFF(year, kh.ngay_sinh, curdate())) <= 50 and dia_chi Like '%Đà Nẵng%' or dia_chi like '%Quảng Trị%') and (`status` = 0);
 
 -- task 4.	Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần. Kết quả hiển thị được sắp xếp tăng dần theo số lần đặt phòng của khách hàng. Chỉ đếm những khách hàng nào có Tên loại khách hàng là “Diamond”.
 
@@ -297,10 +297,9 @@ not in (select hop_dong.ma_khach_hang from dich_vu
         
 -- task 8.	Hiển thị thông tin ho_ten khách hàng có trong hệ thống, với yêu cầu ho_ten không trùng nhau. Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên.
 
--- cach 1: 
-
-select distinct ho_ten from khach_hang
-where (`status` = 0);
+-- cach 1:
+select distinct ho_ten from khach_hang kh1
+where exists (select kh1.ho_ten from khach_hang kh2 where kh1.ho_ten = kh2.ho_ten limit 1,1);
 
 -- cach 2: 
 select ho_ten from khach_hang
@@ -309,11 +308,11 @@ group by ho_ten
 having count(*) > 1;
 
 -- cach 3:
-select ho_ten from khach_hang
-where (`status` = 0)
-union
-select ho_ten from khach_hang
-where (`status` = 0);
+select kh1.ho_ten from khach_hang kh1
+join khach_hang kh2 on kh1.ma_khach_hang = kh2.ma_khach_hang
+where kh1.ho_ten = kh2.ho_ten
+group by ho_ten
+having count(*) > 1;
 
 -- task 9.	Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2021 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
 
@@ -521,18 +520,33 @@ call sp_them_moi_hop_dong ('2020-12-08','2020-12-08',100000,3,1,3);
 -- 25.	Tạo Trigger có tên tr_xoa_hop_dong khi xóa bản ghi trong bảng hop_dong thì hiển thị tổng số lượng bản ghi còn lại có trong bảng hop_dong ra giao diện console của database.
 -- Lưu ý: Đối với MySQL thì sử dụng SIGNAL hoặc ghi log thay cho việc ghi ở console.
 
+drop table if exists thong_tin;
+create table if not exists thong_tin(
+ma_hop_dong_bi_xoa int,
+so_luong_ban_ghi_con_lai int,
+ngay_update datetime
+);
+
 drop trigger if exists tr_xoa_hop_dong;
 delimiter //
 create trigger tr_xoa_hop_dong
 after update on hop_dong 
 for each row
 begin
+declare so_luong int;
+set @so_luong = (select count(*) from hop_dong where `status` = 0) ;
+insert into thong_tin()
+values (old.ma_hop_dong ,@so_luong, now());
 end //
 delimiter ;
 
+update hop_dong
+set `status` = 1
+where ma_hop_dong = 6;
+
 -- 26.	Tạo Trigger có tên tr_cap_nhat_hop_dong khi cập nhật ngày kết thúc hợp đồng, cần kiểm tra xem thời gian cập nhật có phù hợp hay không, 
 -- với quy tắc sau: Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày. Nếu dữ liệu hợp lệ thì cho phép cập nhật,
--- nếu dữ liệu không hợp lệ thì in ra thông báo “Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày” trên console của database.
+-- nếu dữ liệu không hợp lệ thì in ra thông báo “Ngày kết thú  c hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày” trên console của database.
 -- Lưu ý: Đối với MySQL thì sử dụng SIGNAL hoặc ghi log thay cho việc ghi ở console.
 
 
