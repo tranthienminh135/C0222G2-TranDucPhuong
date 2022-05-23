@@ -6,11 +6,18 @@ public class Demo {
         int count = 1;
         while (count <= 100) {
             if (isPrime(i)) {
-                System.out.println("Số thứ "+ count + ": " + i);
+                System.out.println("Số thứ " + count + ": " + i);
                 count++;
             }
             i++;
         }
+//        int i = 0;
+//        while (i<100) {
+//            if (isPrime(i)) {
+//                System.out.println(i);
+//            }
+//            i++;
+//        }
     }
 
     private static boolean isPrime(int number) {

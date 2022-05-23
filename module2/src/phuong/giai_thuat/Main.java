@@ -61,12 +61,11 @@ public class Main {
         System.out.print("Nhập mã đề thi: ");
         int maDT = Integer.parseInt((new Scanner(System.in).nextLine()));
         int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                sum += arr[i][j][maDT];
+        for (int[][] ints : arr) {
+            for (int[] anInt : ints) {
+                sum += anInt[maDT];
             }
-        }
-        System.out.println("Sum: " + sum);
+        }        System.out.println("Sum: " + sum);
     }
 
     private static void tinhDiemTheoSinhVien(int[][][] arr) {

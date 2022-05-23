@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    *:focus {
+        outline: none !important;
+        border: none !important;
+    }
+    .nav-bar {
+        width: 100%;
+        height: 60px;
+        background-color: rgb(28, 30, 33);
+    }
+    .nav-left {
+        width: 30%;
+        height: 100%;
+        float: left;
+        list-style-type: none;
+        line-height: 60px;
+    }
+    .nav-mid {
+        width: 40%;
+        height: 100%;
+        float: left;
+    }
+    .nav-right {
+        width: 30%;
+        height: 100%;
+        float: right;
+    }
+    .nav-logo img {
+        width: 45px;
+        margin-right: 20px;
+        float: left;
+        margin-top: 5px;
+    }
+    .nav-search-bar input{
+        padding: 10px;
+        border-radius: 30px;
+        background-color: #3a3b3c;
+        margin: 0;
+        color: white;
+        border: none !important;
+    }
+    .nav-mid .nav-icon {
+        width: 24%;
+    }
+    .nav-mid .nav-icon img {
+        width: 25px;
+    }
+    .nav-mid .nav-home {
+        margin: 0 auto;
+    }
+    .nav-mid li {
+        display: inline-table;
+        line-height: 75px;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="nav-bar">
+            <ul class="nav-left">
+                <li class="nav-logo">
+                    <a href="https://www.facebook.com/">
+                        <img src="img/logo-facebook.png" alt="logo-facebook">
+                    </a>
+                </li>
+                <li class="nav-search-bar">
+                    <input type="text" placeholder="Tìm kiếm trên Facebook">
+                </li>
+            </ul>
+            <ul class="nav-mid">
+                <li class="nav-home nav-icon">
+                    <a href="https://www.facebook.com/">
+                        <img src="icon/icon-home.png" alt="icon-home">
+                    </a>
+                </li>
+                <li class="nav-watch nav-icon">
+                    <a href="https://www.facebook.com/watch/">
+                        <img src="icon/icon-facebook-watch.png" alt="">
+                    </a>
+                </li>
+                <li class="nav-marketplace nav-icon">
+                    <a href="https://www.facebook.com/marketplace/">
+                        <img src="icon/icon-marketplace.png" alt="">
+                    </a>
+                </li>
+                <li class="nav-groups nav-icon">
+                    <a href="https://www.facebook.com/groups/">
+                        <img src="icon/icon-groups.png" alt="">
+                    </a>
+                </li>
+            </ul>
+            <div class="nav-right">asd</div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="content-left">
+            <div class="danh-muc"></div>
+            <div class="loi-tat"></div>
+            <div class="copy-right"></div>
+        </div>
+        <div class="content-mid">
+            <div class="tin"></div>
+            <div class="status"></div>
+            <div class="noi-dung"></div>
+        </div>
+        <div class="content-right">
+            <div class="loi-moi-ket-ban"></div>
+            <div class="danh-sach-ban-be"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

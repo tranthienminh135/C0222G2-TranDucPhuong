@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="54711d31-261e-4d43-9d07-379703061c0c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../module2/src/phuong/giai_thuat/Home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/phuong/web_page/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ss1_cascading_style_stylesheet/bai_tap/ss1_nhung_css/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ss1_cascading_style_stylesheet/bai_tap/ss1_nhung_css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ss1_cascading_style_stylesheet/bai_tap/ss2_dinh_dang_van_ban/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ss1_cascading_style_stylesheet/bai_tap/ss3_tao_trang_doc_truyen/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ss2_tao_layout/bai_tap/ss1_tao_layout_trang_web/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ss2_tao_layout/bai_tap/ss2_thiet_ke_giao_dien_facebook/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module2/out/production/module2/phuong/giai_thuat/Demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module2/out/production/module2/phuong/giai_thuat/Demo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module2/out/production/module2/phuong/giai_thuat/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../module2/out/production/module2/phuong/giai_thuat/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module2/src/phuong/giai_thuat/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module2/src/phuong/giai_thuat/Demo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module2/src/phuong/giai_thuat/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module2/src/phuong/giai_thuat/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="29Xs2ACbOS9y2GT8nUDF2G9WZKS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\CodeGym\Module\module3\css\src\ss1_cascading_style_stylesheet" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="54711d31-261e-4d43-9d07-379703061c0c" name="Changes" comment="" />
+      <created>1653270556323</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653270556323</updated>
+      <workItem from="1653270557899" duration="16627000" />
+      <workItem from="1653307987419" duration="94000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
