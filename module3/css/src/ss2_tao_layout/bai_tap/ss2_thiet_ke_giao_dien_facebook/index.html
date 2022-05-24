@@ -9,16 +9,21 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+        font-family: sans-serif;
     }
+
     *:focus {
         outline: none !important;
         border: none !important;
     }
+
     .nav-bar {
         width: 100%;
         height: 60px;
         background-color: rgb(28, 30, 33);
+        border-bottom: 1px solid #7c7c7c;
     }
+
     .nav-left {
         width: 30%;
         height: 100%;
@@ -26,23 +31,28 @@
         list-style-type: none;
         line-height: 60px;
     }
+
     .nav-mid {
         width: 40%;
         height: 100%;
         float: left;
     }
+
     .nav-right {
         width: 30%;
         height: 100%;
         float: right;
     }
+
     .nav-logo img {
         width: 45px;
         margin-right: 20px;
         float: left;
         margin-top: 5px;
     }
-    .nav-search-bar input{
+
+    .nav-search-bar input {
+        width: 40%;
         padding: 10px;
         border-radius: 30px;
         background-color: #3a3b3c;
@@ -50,18 +60,357 @@
         color: white;
         border: none !important;
     }
+
     .nav-mid .nav-icon {
-        width: 24%;
+        width: 20%;
+        padding-left: 10%;
     }
+
     .nav-mid .nav-icon img {
         width: 25px;
     }
-    .nav-mid .nav-home {
-        margin: 0 auto;
-    }
+
     .nav-mid li {
         display: inline-table;
         line-height: 75px;
+    }
+
+    .nav-right {
+        list-style-type: none;
+    }
+
+    .nav-right .nav-avatar {
+        margin-top: 8px;
+        width: 23%;
+        height: 80%;
+        border-radius: 30px;
+        padding: 5px;
+        float: left;
+        margin-left: 60px;
+    }
+
+    .nav-right .nav-avatar:hover {
+        background-color: #3a3b3c;
+    }
+
+    .nav-right .nav-avatar img {
+        width: 35px;
+        border-radius: 50%;
+        float: left;
+    }
+
+    .nav-right .nav-name {
+        color: #e0d7d7;
+        margin-left: 20px;
+        margin-top: 10px;
+        width: 50px;
+        height: 20px;
+        float: left;
+    }
+
+    .nav-right .nav-menu {
+        float: left;
+    }
+
+    .nav-right .nav-icon {
+        margin-left: 30px;
+    }
+
+    .nav-right .nav-menu img {
+        margin-left: 20px;
+        width: 27px;
+        margin-right: 30px;
+    }
+
+    .nav-right .nav-messenger {
+        float: left;
+    }
+
+    .nav-right .nav-messenger img {
+        width: 27px;
+        margin-right: 30px;
+    }
+
+    .nav-right .nav-notification {
+        float: left;
+    }
+
+    .nav-right .nav-notification img {
+        width: 27px;
+        margin-right: 30px;
+    }
+
+    .nav-right .nav-triangle {
+        float: left;
+    }
+
+    .nav-right .nav-triangle img {
+        margin-top: 10px;
+        width: 15px;
+        margin-right: 20px;
+    }
+
+    .nav-icon-right {
+        width: 66%;
+        height: 80%;
+        float: left;
+        margin-top: 15px;
+    }
+
+    .content-left {
+        width: 20%;
+        height: 1000px;
+        background-color: rgb(28, 30, 33);
+        color: white;
+        padding: 30px;
+        float: left;
+    }
+
+    .danh-muc {
+        list-style-type: none;
+    }
+
+    .danh-muc .content-avatar img {
+        width: 40px;
+        border-radius: 50px;
+    }
+
+    .danh-muc .content-icon {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .danh-muc .content-name {
+        display: inline-table;
+        width: 80px;
+        height: 50px;
+        position: absolute;
+        line-height: 50px;
+        margin-left: 20px;
+    }
+
+    .danh-muc img {
+        width: 40px;
+    }
+
+    .loi-tat {
+        list-style-type: none;
+    }
+
+    .loi-tat .loi-tat-title {
+        padding: 15px;
+        color: grey;
+        font-size: 18px;
+    }
+
+    .loi-tat img {
+        border-radius: 50px;
+        width: 45px;
+    }
+
+    .loi-tat .loi-tat-icon {
+        margin-top: 20px;
+    }
+
+    .loi-tat .loi-tat-name {
+        width: auto;
+        height: 50px;
+        position: absolute;
+        line-height: 50px;
+        margin-left: 20px;
+    }
+
+    .content .copy-right {
+        margin-top: 130px;
+        color: grey;
+        position: fixed;
+        font-size: 12px;
+    }
+
+    .content-mid {
+        width: 60%;
+        height: 1000px;
+        background-color: rgb(28, 30, 33);
+        color: white;
+        float: left;
+    }
+
+    .content-right {
+        width: 20%;
+        height: 1000px;
+        background-color: rgb(28, 30, 33);
+        color: white;
+        padding: 30px;
+        float: right;
+    }
+
+    .content-right .loi-moi-ket-ban {
+        list-style-type: none;
+    }
+
+    .content-right .loi-moi-ket-ban-box {
+        width: 100%;
+        height: 120px;
+        border: 2px solid #dad9d9;
+        margin-bottom: 20px;
+        padding: 25px;
+    }
+
+    .content-right .loi-moi-ket-ban-box img {
+        width: 70px;
+        border-radius: 50%;
+    }
+
+    .content-right .loi-moi-ket-ban-box .box-left {
+        float: left;
+    }
+
+    .content-right .loi-moi-ket-ban-box .box-right {
+        float: left;
+        margin-left: 20px;
+        line-height: 30px;
+        color: #dad8d8;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .loi-moi-ket-ban-box .box-right .button-dong-y, .button-tu-choi {
+        padding: 7px;
+        border-radius: 30px;
+    }
+
+    .loi-moi-ket-ban-box .box-right .button-dong-y {
+        background-color: #2374e1;
+        color: #d7d7d7;
+    }
+
+    .content-right .ban-be-title {
+        font-weight: bold;
+        font-size: 20px;
+        color: #b7b5b5;
+        margin-bottom: 20px;
+    }
+
+    .content-right .danh-sach-ban-be {
+        list-style-type: none;
+        margin-top: 20px;
+    }
+
+    .content-right .danh-sach-ban-be img {
+        border-radius: 50px;
+        width: 40px;
+    }
+
+    .content-right .ban-be-img {
+        margin-top: 20px;
+    }
+
+    .content-right .ban-be-name {
+        display: inline-table;
+        width: 80px;
+        height: 50px;
+        position: absolute;
+        line-height: 50px;
+        margin-left: 20px;
+        color: #e3e1e1;
+        font-size: 15px;
+    }
+    .content-mid .left {
+        width: 20%;
+        height: 1000px;
+        background-color: rgb(28, 30, 33);
+        float: left;
+    }
+    .content-mid .mid{
+        width: 60%;
+        float: left;
+        height: 1000px;
+    }
+    .content-mid .right {
+        width: 20%;
+        height: 1000px;
+        background-color: rgb(28, 30, 33);
+        float: left;
+    }
+    .content-mid .tin {
+        width: 100%;
+        height: auto;
+        background-color: red;
+        list-style-type: none;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .content-mid .tin img{
+        border-radius: 10%;
+    }
+    .content-mid .tin .tin-1 {
+        width: 20%;
+        height: 100%;
+        float: left;
+    }
+    .content-mid .tin .tin-1 img{
+        width: 100%;
+    }
+    .content-mid .tin .tin-2 {
+        width: 20%;
+        height: 100%;
+        float: left;
+    }
+    .content-mid .tin .tin-2 img{
+        width: 100%;
+    }
+    .content-mid .tin .tin-3 {
+        width: 20%;
+        height: 100%;
+        float: left;
+    }
+    .content-mid .tin .tin-3 img{
+        width: 100%;
+    }
+    .content-mid .tin .tin-4 {
+        width: 20%;
+        height: 100%;
+        float: left;
+    }
+    .content-mid .tin .tin-4 img{
+        width: 100%;
+    }
+    .content-mid .tin .tin-5 {
+        width: 20%;
+        height: 100%;
+        float: left;
+    }
+    .content-mid .tin .tin-5 img{
+        width: 100%;
+    }
+    .content-mid .status {
+        width: 100%;
+        height: 120px;
+        background-color: #1c1e21;
+        margin-top: 200px;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+    .status .input-status {
+        width: 100%;
+        height: 50%;
+        padding: 8px;
+    }
+    .input-status img {
+        width: 40px;
+        border-radius: 50%;
+        float: left;
+    }
+    .input-status input {
+        float: left;
+        margin-top: 3px;
+        margin-left: 10px;
+        padding: 10px;
+        width: 90%;
+        border-radius: 30px;
+        background-color: #3a3b3c;
+        color: white;
+        border: none !important;
     }
 </style>
 <body>
@@ -75,7 +424,9 @@
                     </a>
                 </li>
                 <li class="nav-search-bar">
-                    <input type="text" placeholder="Tìm kiếm trên Facebook">
+                    <label>
+                        <input type="text" placeholder="Tìm kiếm trên Facebook">
+                    </label>
                 </li>
             </ul>
             <ul class="nav-mid">
@@ -100,23 +451,176 @@
                     </a>
                 </li>
             </ul>
-            <div class="nav-right">asd</div>
+            <ul class="nav-right">
+                <li class="nav-avatar">
+                    <img src="img/avatar-facebook.png" alt="avatar-facebook">
+                    <div class="nav-name">Phuong</div>
+                </li>
+                <div class="nav-icon-right">
+                    <li class="nav-menu nav-icon">
+                        <img src="icon/icon-menu.png" alt="">
+                    </li>
+                    <li class="nav-messenger nav-icon">
+                        <img src="icon/icon-messenger.png" alt="">
+                    </li>
+                    <li class="nav-notification nav-icon">
+                        <img src="icon/icon-notification.png" alt="">
+                    </li>
+                    <li class="nav-triangle nav-icon">
+                        <img src="icon/icon-triangle-down.png" alt="">
+                    </li>
+                </div>
+            </ul>
         </div>
     </div>
     <div class="content">
         <div class="content-left">
-            <div class="danh-muc"></div>
-            <div class="loi-tat"></div>
-            <div class="copy-right"></div>
+            <ul class="danh-muc">
+                <li class="content-avatar content-icon">
+                    <img src="img/avatar-facebook.png" alt="avatar-facebook">
+                    <div class="content-name">Phuong</div>
+                </li>
+                <li class="content-friend content-icon">
+                    <a href="https://www.facebook.com/friends/">
+                        <img src="icon/icon-groups.png" alt="">
+                    </a>
+                    <span class="content-name">Bạn bè</span>
+                </li>
+                <li class="content-group content-icon">
+                    <a href="https://www.facebook.com/groups/">
+                        <img src="icon/icon-groups.png" alt="">
+                    </a>
+                    <span class="content-name">Nhóm</span>
+                </li>
+                <li class="content-marketplace content-icon">
+                    <a href="https://www.facebook.com/marketplace/">
+                        <img src="icon/icon-marketplace.png" alt="">
+                    </a>
+                    <span class="content-name">Marketplace</span>
+                </li>
+                <li class="content-watch content-icon">
+                    <a href="https://www.facebook.com/watch/">
+                        <img src="icon/icon-facebook-watch.png" alt="">
+                    </a>
+                    <span class="content-name">Watch</span>
+                </li>
+                <li class="content-triangle content-icon">
+                    <img src="icon/icon-triangle-down.png" alt="">
+                    <span class="content-name">Xem thêm</span>
+                </li>
+            </ul>
+            <hr>
+            <ul class="loi-tat">
+                <li class="loi-tat-title">Lối tắt của bạn</li>
+                <li class="loi-tat-codegym loi-tat-icon">
+                    <img src="img/logo-codegym.png" alt="logo-codegym">
+                    <span class="loi-tat-name">Codegym Đà Nẵng</span>
+                </li>
+                <li class="loi-tat-luv-beauty loi-tat-icon">
+                    <img src="img/luv-beauty.jpg" alt="">
+                    <span class="loi-tat-name">Luv Beauty</span>
+                </li>
+                <li class="loi-tat-ve-tv loi-tat-icon">
+                    <img src="img/ve-tv.png" alt="">
+                    <span class="loi-tat-name">Vietnam Esports TV</span>
+                </li>
+                <li class="loi-tat-meme loi-tat-icon">
+                    <img src="img/meme.jpg" alt="">
+                    <span class="loi-tat-name">Meme has stolen</span>
+                </li>
+            </ul>
+            <div class="copy-right">
+                <p class="copyright-text">Quyền riêng tư · Điều khoản · Quảng cáo · Phuong ©
+                    2022</p>
+            </div>
         </div>
         <div class="content-mid">
-            <div class="tin"></div>
-            <div class="status"></div>
-            <div class="noi-dung"></div>
+            <div class="left"></div>
+            <div class="mid">
+                <ul class="tin">
+                    <li class="tin-img tin-1" style="position: relative">
+                        <img src="img/tin-1.png" alt="tin">
+                    </li>
+                    <li class="tin-img tin-2">
+                        <img src="img/tin-2.jpg" alt="tin">
+                    </li>
+                    <li class="tin-img tin-3">
+                        <img src="img/tin-3.jpg" alt="tin">
+                    </li>
+                    <li class="tin-img tin-4">
+                        <img src="img/tin-4.png" alt="tin">
+                    </li>
+                    <li class="tin-img tin-5">
+                        <img src="img/tin-5.jpg" alt="tin">
+                    </li>
+                </ul>
+                <div class="status">
+                    <div class="input-status">
+                        <img src="img/avatar-facebook.png" alt="avatar">
+                        <input type="text" placeholder="Phuong ơi bạn đang nghĩ gì thế?">
+                    </div>
+                    <hr>
+                    <div class="status-keys">
+                        <div class="video-truc-tiep"></div>
+                        <div class="anh-video"></div>
+                        <div class="cam-xuc-hoat-dong"></div>
+                    </div>
+                </div>
+                <div class="noi-dung"></div>
+            </div>
+            <div class="right"></div>
+
         </div>
         <div class="content-right">
-            <div class="loi-moi-ket-ban"></div>
-            <div class="danh-sach-ban-be"></div>
+            <ul class="loi-moi-ket-ban">
+                <li class="ban-be-title">Lời mời kết bạn</li>
+                <li class="loi-moi-ket-ban-box">
+                    <div class="box-left">
+                        <img src="img/con-cho-tai.jpg" alt="con-cho">
+                    </div>
+                    <div class="box-right">
+                        <div class="loi-moi-ket-ban-name">Lê Thị Tài</div>
+                        <button class="button-dong-y" type="submit">Xác nhận</button>
+                        <button class="button-tu-choi" type="submit">Xóa</button>
+                    </div>
+                </li>
+            </ul>
+            <hr>
+            <ul class="danh-sach-ban-be">
+                <li class="ban-be-title">Người liên hệ</li>
+                <li class="ban-be-img">
+                    <img src="img/avatar-facebook.png" alt="avatar-facebook">
+                    <div class="ban-be-name">Phuong</div>
+                </li>
+                <li class="ban-be-img">
+                    <img src="img/avatar-facebook.png" alt="avatar-facebook">
+                    <div class="ban-be-name">Phuong</div>
+                </li>
+                <li class="ban-be-img">
+                    <img src="img/avatar-facebook.png" alt="avatar-facebook">
+                    <div class="ban-be-name">Phuong</div>
+                </li>
+                <li class="ban-be-img">
+                    <img src="img/avatar-facebook.png" alt="avatar-facebook">
+                    <div class="ban-be-name">Phuong</div>
+                </li>
+                <li class="ban-be-img">
+                    <img src="img/avatar-facebook.png" alt="avatar-facebook">
+                    <div class="ban-be-name">Phuong</div>
+                </li>
+                <li class="ban-be-img">
+                    <img src="img/avatar-facebook.png" alt="avatar-facebook">
+                    <div class="ban-be-name">Phuong</div>
+                </li>
+                <li class="ban-be-img">
+                    <img src="img/avatar-facebook.png" alt="avatar-facebook">
+                    <div class="ban-be-name">Phuong</div>
+                </li>
+                <li class="ban-be-img">
+                    <img src="img/avatar-facebook.png" alt="avatar-facebook">
+                    <div class="ban-be-name">Phuong</div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
