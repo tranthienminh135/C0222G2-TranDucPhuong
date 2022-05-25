@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Facebook</title>
+    <link rel="icon" href="img/logo-facebook.png" type="image/icon type">
 </head>
 <style>
     * {
@@ -233,6 +234,7 @@
         background-color: rgb(28, 30, 33);
         color: white;
         float: left;
+        overflow: auto;
     }
 
     .content-right {
@@ -315,23 +317,27 @@
         color: #e3e1e1;
         font-size: 15px;
     }
+
     .content-mid .left {
         width: 20%;
         height: 1000px;
         background-color: rgb(28, 30, 33);
         float: left;
     }
-    .content-mid .mid{
+
+    .content-mid .mid {
         width: 60%;
         float: left;
         height: 1000px;
     }
+
     .content-mid .right {
         width: 20%;
         height: 1000px;
         background-color: rgb(28, 30, 33);
         float: left;
     }
+
     .content-mid .tin {
         width: 100%;
         height: auto;
@@ -340,67 +346,83 @@
         margin-top: 20px;
         margin-bottom: 20px;
     }
-    .content-mid .tin img{
+
+    .content-mid .tin img {
         border-radius: 10%;
     }
+
     .content-mid .tin .tin-1 {
         width: 20%;
         height: 100%;
         float: left;
     }
-    .content-mid .tin .tin-1 img{
+
+    .content-mid .tin .tin-1 img {
         width: 100%;
     }
+
     .content-mid .tin .tin-2 {
         width: 20%;
         height: 100%;
         float: left;
     }
-    .content-mid .tin .tin-2 img{
+
+    .content-mid .tin .tin-2 img {
         width: 100%;
     }
+
     .content-mid .tin .tin-3 {
         width: 20%;
         height: 100%;
         float: left;
     }
-    .content-mid .tin .tin-3 img{
+
+    .content-mid .tin .tin-3 img {
         width: 100%;
     }
+
     .content-mid .tin .tin-4 {
         width: 20%;
         height: 100%;
         float: left;
     }
-    .content-mid .tin .tin-4 img{
+
+    .content-mid .tin .tin-4 img {
         width: 100%;
     }
+
     .content-mid .tin .tin-5 {
         width: 20%;
         height: 100%;
         float: left;
     }
-    .content-mid .tin .tin-5 img{
+
+    .content-mid .tin .tin-5 img {
         width: 100%;
     }
+
     .content-mid .status {
         width: 100%;
-        height: 120px;
-        background-color: #1c1e21;
+        height: 150px;
+        background-color: #232528;
         margin-top: 200px;
         border: 1px solid black;
         border-radius: 10px;
+        margin-bottom: 50px;
     }
+
     .status .input-status {
         width: 100%;
         height: 50%;
         padding: 8px;
     }
+
     .input-status img {
         width: 40px;
         border-radius: 50%;
         float: left;
     }
+
     .input-status input {
         float: left;
         margin-top: 3px;
@@ -412,28 +434,75 @@
         color: white;
         border: none !important;
     }
+
     .status .status-keys {
         width: 100%;
         height: 50%;
         padding: 15px;
     }
-    .status-keys .video-truc-tiep {
-        background-color: red;
+
+    .status-keys .key {
+        background-color: #3a3b3c;
         width: 30%;
         float: left;
         margin-left: 20px;
+        border-radius: 20px;
+        height: 50px;
     }
-    .status-keys .anh-video {
-        background-color: blue;
-        width: 30%;
+
+    .status-keys img {
+        width: 35px;
         float: left;
-        margin-left: 20px;
+        margin-top: 8px;
+        margin-left: 10px;
     }
-    .status-keys .cam-xuc-hoat-dong {
-        background-color: yellow;
-        width: 30%;
+
+    .status-keys .key-name {
         float: left;
+        line-height: 50px;
         margin-left: 20px;
+        font-size: 13px;
+    }
+
+    .content-mid .noi-dung {
+        margin-top: 50px;
+        width: 100%;
+        background-color: rgb(28, 30, 33);
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid black;
+    }
+
+    .content-mid .owner {
+        width: 100%;
+        height: 60px;
+    }
+
+    .content-mid .owner img {
+        width: 40px;
+        float: left;
+        border-radius: 50%;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .content-mid .owner .owner-name {
+        float: left;
+        line-height: 60px;
+        margin-left: 10px;
+    }
+
+    .content-mid .content-body .content-text {
+        padding: 15px;
+        color: #d7d5d5;
+    }
+
+    .cont {
+        margin-bottom: 30px;
+        background-color: #3a3b3c;
+    }
+    .cont img {
+        width: 100%;
     }
 </style>
 <body>
@@ -584,21 +653,114 @@
                     </div>
                     <hr>
                     <div class="status-keys">
-                        <div class="video-truc-tiep">
-                            <img src="icon/icon-video.png" alt="video" width="30px">
-                            <div>Video trực tiếp</div>
+                        <div class="video-truc-tiep key">
+                            <img src="icon/icon-video.png" alt="video">
+                            <div class="key-name">Video trực tiếp</div>
                         </div>
-                        <div class="anh-video">
-                            <img src="icon/icon-video.png" alt="video" width="30px">
-                            <div>Video trực tiếp</div>
+                        <div class="anh-video key">
+                            <img src="icon/icon-video.png" alt="video">
+                            <div class="key-name">Ảnh/Video</div>
                         </div>
-                        <div class="cam-xuc-hoat-dong">
-                            <img src="icon/icon-video.png" alt="video" width="30px">
-                            <div>Video trực tiếp</div>
+                        <div class="cam-xuc-hoat-dong key">
+                            <img src="icon/icon-video.png" alt="video">
+                            <div class="key-name">Cảm xúc/Hoạt động</div>
                         </div>
                     </div>
                 </div>
-                <div class="noi-dung"></div>
+                <hr>
+                <div class="noi-dung">
+                    <div class="content-1 cont">
+                        <div class="owner">
+                            <img src="img/avatar-facebook.png" alt="avt" width="40px">
+                            <div class="owner-name">Phuong</div>
+                        </div>
+                        <hr>
+                        <div class="content-body">
+                            <div class="content-text">Mặc đẹp mỗi ngày: Thanh niên ăn mặc như bầu đuồi cũng được lên báo</div>
+                            <div class="content-img">
+                                <img src="img/tai.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-2 cont">
+                        <div class="owner">
+                            <img src="img/avatar-facebook.png" alt="avt" width="40px">
+                            <div class="owner-name">Phuong</div>
+                        </div>
+                        <hr>
+                        <div class="content-body">
+                            <div class="content-text">Tàu chiến Úc đâm chết mẹ con cá voi xanh thuộc nhóm nguy cấp</div>
+                            <div class="content-img">
+                                <img src="img/tau-chien.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-3 cont">
+                        <div class="owner">
+                            <img src="img/avatar-facebook.png" alt="avt" width="40px">
+                            <div class="owner-name">Phuong</div>
+                        </div>
+                        <hr>
+                        <div class="content-body">
+                            <div class="content-text">Tài xế xe khách chở gỗ lậu tông vào xe CSGT phê ma túy đá</div>
+                            <div class="content-img">
+                                <img src="img/xe-khach.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-4 cont">
+                        <div class="owner">
+                            <img src="img/avatar-facebook.png" alt="avt" width="40px">
+                            <div class="owner-name">Phuong</div>
+                        </div>
+                        <hr>
+                        <div class="content-body">
+                            <div class="content-text">Bùi Tiến Dũng thổ lộ việc vợ có bầu với cựu HLV trưởng đội tuyển Việt Nam tại sân hàng Đẫy</div>
+                            <div class="content-img">
+                                <img src="img/bui-tien-dung.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-5 cont">
+                        <div class="owner">
+                            <img src="img/avatar-facebook.png" alt="avt" width="40px">
+                            <div class="owner-name">Phuong</div>
+                        </div>
+                        <hr>
+                        <div class="content-body">
+                            <div class="content-text">Lái xe container đè oto, 3 người tử vong ở Long Biên khai gì với CSGT</div>
+                            <div class="content-img">
+                                <img src="img/container.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-6 cont">
+                        <div class="owner">
+                            <img src="img/avatar-facebook.png" alt="avt" width="40px">
+                            <div class="owner-name">Phuong</div>
+                        </div>
+                        <hr>
+                        <div class="content-body">
+                            <div class="content-text">2 nông dân trồng xả để phòng rắn, bị rắn cắn tử vong tại vườn xả</div>
+                            <div class="content-img">
+                                <img src="img/vuon-xa.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-7 cont">
+                        <div class="owner">
+                            <img src="img/avatar-facebook.png" alt="avt" width="40px">
+                            <div class="owner-name">Phuong</div>
+                        </div>
+                        <hr>
+                        <div class="content-body">
+                            <div class="content-text">Chia sẽ bí quyết sống lâu, người đàn ông đột tử ngay trên sân khấu</div>
+                            <div class="content-img">
+                                <img src="img/nguoi-thuyet-trinh.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="right"></div>
 
