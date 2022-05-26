@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            box-sizing: border-box;
+        }
+        .nav {
+            background-color: #222;
+        }
+
+        .nav-item {
+            height: 50px;
+            line-height: 50px;
+            color: #949997;
+            text-align: center;
+        }
+
+        .content {
+            background-color: #ff0000;
+            height: auto;
+        }
+
+        .content .left {
+            height: 819px;
+            background-color: #f1f1f1;
+        }
+
+        .content .mid {
+            height: 819px;
+            background-color: #ffffff;
+        }
+
+        .content .right {
+            height: 819px;
+            background-color: #f1f1f1;
+        }
+
+        .footer {
+            background-color: #222;
+        }
+
+        .footer .footer-text {
+            height: 60px;
+            line-height: 50px;
+            text-align: center;
+            color: white;
+        }
+        .content .mid {
+            padding: 40px;
+        }
+        hr {
+            display: block;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            border-style: inset;
+            border-width: 1px;
+        }
+    </style>
+    <link rel="stylesheet" href="layout.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="container row">
+    <div class="header col-12">
+        <div class="nav col-12">
+            <div class="left col-6 col-sm-10 col-xs-10">
+                <div class="logo nav-item col-1 col-sm-2 col-xs-2">Logo</div>
+                <div class="home nav-item col-1 col-sm-2 col-xs-2">Home</div>
+                <div class="about nav-item col-1 col-sm-2 col-xs-2">About</div>
+                <div class="projects nav-item col-1 col-sm-2 col-xs-2">Projects</div>
+                <div class="contact nav-item col-1 col-sm-2 col-xs-2">Contact</div>
+            </div>
+            <div class="right col-6 col-sm-2 col-xs-2">
+                <div class="login nav-item col-1 col-sm-12" style="float: right">Login</div>
+            </div>
+        </div>
+    </div>
+    <div class="content col-12">
+        <div class="left col-2"></div>
+        <div class="mid col-8">
+            <div class="top row">
+                <div class="title row">
+                    <h1 class="title-content col-12">Welcome</h1>
+                </div>
+                <div class="paragraph row">
+                    <p class="paragraph-content col-12">
+                        Wikipedia là một bách khoa toàn thư tự do, là kết quả của sự cộng tác của chính những người đọc từ
+                        khắp nơi trên thế giới. Trang mạng này có tính chất wiki, có nghĩa là tất cả mọi người đều có thể
+                        sửa đổi ở bất cứ trang nào bằng cách bấm vào các liên kết “sửa đổi”, hoặc “Sửa đổi trang này”, có ở
+                        hầu hết các trang, ngoại trừ các cá nhân bị tước quyền sửa đổi và những trang bị khóa.
+
+                        Để biết thêm thông tin, giới báo chí có thể liên lạc với Quỹ Wikimedia.
+
+                        Wikipedia chính thức bắt đầu vào ngày 15 tháng 1 năm 2001 nhờ hai người sáng lập Jimmy Wales và
+                        Larry Sanger cùng với vài người cộng tác nhiệt thành và chỉ có phiên bản tiếng Anh. Chỉ hơn ba năm
+                        sau, vào tháng 3 năm 2004, đã có 6.000 người đóng góp tích cực cho 600.000 bài viết với 50 thứ
+                        tiếng. Cho đến hôm nay đã có gần 6.300.000 bài viết ở riêng phiên bản tiếng Anh, hơn 56.000.000 bài
+                        viết ở tất cả phiên bản ngôn ngữ. Mỗi ngày hàng trăm nghìn người ghé thăm từ khắp nơi để thực hiện
+                        hàng chục nghìn sửa đổi cũng như bắt đầu nhiều bài viết mới.
+                    </p>
+                </div>
+            </div>
+            <div class="hr row">
+                <hr class="col-12">
+            </div>
+            <div class="bottom row">
+                <div class="title row">
+                    <h1 class="title-content col-12">Test</h1>
+                </div>
+                <div class="paragraph col-12">
+                    <p class="paragraph-content col-12">Tran Duc Phuong</p>
+                </div>
+            </div>
+        </div>
+        <div class="right col-2"></div>
+    </div>
+    <div class="footer col-12">
+        <div class="footer-text">
+            Footer Text
+        </div>
+    </div>
+</div>
+</body>
+</html>
