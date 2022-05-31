@@ -25,7 +25,7 @@
         <td>${description}</td>
     </tr>
     <tr>
-        <th colspan="4"><a href="home"><button type="submit">Back to Home</button></a></th>
+        <th colspan="4"><a href="home"><button type="button">Back to Home</button></a></th>
     </tr>
 </table>
 </body>

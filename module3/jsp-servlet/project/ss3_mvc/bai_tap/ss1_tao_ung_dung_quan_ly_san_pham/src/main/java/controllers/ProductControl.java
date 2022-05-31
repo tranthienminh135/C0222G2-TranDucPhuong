@@ -1,8 +1,8 @@
 package controllers;
 
 import model.Product;
-import service.ProductService;
-import service.impl.ProductServiceImpl;
+import service.IProductService;
+import service.impl.IProductServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -13,11 +13,11 @@ import java.util.List;
 
 @WebServlet(name = "ProductControl", value = "/home")
 public class ProductControl extends HttpServlet {
-    private static ProductService productService = new ProductServiceImpl();
+    private static IProductService IProductService = new IProductServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> products = productService.getAllProduct();
+        List<Product> products = IProductService.getAllProduct();
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -28,7 +28,7 @@ public class ProductControl extends HttpServlet {
                 break;
             case "delete":
                 int id = Integer.parseInt(request.getParameter("id"));
-                productService.deleteProductById(id);
+                IProductService.deleteProductById(id);
                 response.sendRedirect("/home");
                 break;
             case "edit":
@@ -65,8 +65,7 @@ public class ProductControl extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product>
-                products = productService.getAllProduct();
+        List<Product> products = IProductService.getAllProduct();
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -77,7 +76,8 @@ public class ProductControl extends HttpServlet {
                 String nameCreate = request.getParameter("name");
                 double priceCreate = Double.parseDouble(request.getParameter("price"));
                 String descriptionCreate = request.getParameter("description");
-                productService.addNewProduct(idCreate, nameCreate, priceCreate, descriptionCreate);
+                Product product = new Product(idCreate, nameCreate, priceCreate, descriptionCreate);
+                IProductService.addNewProduct(product);
                 response.sendRedirect("/home");
                 break;
             case "edit":
@@ -85,17 +85,19 @@ public class ProductControl extends HttpServlet {
                 String nameEdit = request.getParameter("name");
                 double priceEdit = Double.parseDouble(request.getParameter("price"));
                 String descriptionEdit = request.getParameter("description");
-                productService.editProductById(id, nameEdit, priceEdit, descriptionEdit);
+                IProductService.editProductById(id, nameEdit, priceEdit, descriptionEdit);
                 response.sendRedirect("/home");
                 break;
             case "search":
+                List<Product> searchList = new ArrayList<>();
                 String searchValue = request.getParameter("searchValue");
-                for (Product product : products) {
-                    if (product.getName().contains(searchValue)) {
-                        request.setAttribute("listProduct", products);
-                        request.getRequestDispatcher("home.jsp").forward(request, response);
+                for (Product product1 : products) {
+                    if (product1.getName().contains(searchValue)) {
+                        searchList.add(product1);
                     }
                 }
+                request.setAttribute("listProduct", searchList);
+                request.getRequestDispatcher("home.jsp").forward(request, response);
                 break;
             default:
                 request.setAttribute("listProduct", products);

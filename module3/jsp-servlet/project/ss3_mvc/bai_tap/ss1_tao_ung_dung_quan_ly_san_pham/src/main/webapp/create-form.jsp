@@ -32,7 +32,7 @@
                 <td><input name="description" type="text"/></td>
             </tr>
             <tr>
-                <td></td>
+                <td><a href="home"><button type="button">Back to Home</button></a></td>
                 <td><button type="submit">Submit</button></td>
             </tr>
         </table>
