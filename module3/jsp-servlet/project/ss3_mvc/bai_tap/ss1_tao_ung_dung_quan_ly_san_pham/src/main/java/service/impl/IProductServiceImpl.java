@@ -5,7 +5,6 @@ import repository.IProductRepository;
 import repository.impl.ProductRepositoryImpl;
 import service.IProductService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class IProductServiceImpl implements IProductService {
