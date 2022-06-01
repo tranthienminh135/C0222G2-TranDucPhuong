@@ -121,9 +121,6 @@ public class UsersRerositoryImpl implements IUsersRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        for (Users users1 : users) {
-            System.out.println("User: " + users1);
-        }
         return users;
     }
 

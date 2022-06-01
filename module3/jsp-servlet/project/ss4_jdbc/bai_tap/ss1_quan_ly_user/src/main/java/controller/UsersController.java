@@ -50,6 +50,7 @@ public class UsersController extends HttpServlet {
     }
 
     private void sortByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         request.setAttribute("listUsers", usersService.sortByName());
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
