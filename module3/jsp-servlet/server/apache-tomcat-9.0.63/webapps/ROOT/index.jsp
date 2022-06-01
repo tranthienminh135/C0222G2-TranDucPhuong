@@ -3,7 +3,7 @@
   Created by IntelliJ IDEA.
   User: ADMIN
   Date: 5/31/2022
-  Time: 10:35 AM
+  Time: 9:14 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  <c:redirect url="customers">
+  <c:redirect url="home" >
 
   </c:redirect>
   </body>

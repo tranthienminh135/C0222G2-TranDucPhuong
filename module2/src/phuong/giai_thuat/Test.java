@@ -1,41 +1,31 @@
 package phuong.giai_thuat;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-        String a = "abcdbcef";
-        String b = "abcef";
+        Set<Integer> integerSet = new LinkedHashSet<>();
 
-        String[] strings = findChar(a);
+        integerSet.add(1);
+        integerSet.add(2);
+        integerSet.add(3);
+        integerSet.add(4);
+        integerSet.add(5);
 
-        for (int i = 0; i < strings.length; i++) {
-            System.out.print(strings[i]);
+        int i = 0;
+        for (Integer integer : integerSet) {
+            System.out.println(i + ": " + integer);
+            i++;
         }
-    }
-
-    public static String[] findChar(String arg1) {
-        String[] strings;
-        strings = arg1.split("");
-        String temp = "";
-        int count;
-        for (int i = 0; i < strings.length; i++) {
-            count = 0;
-            for (int j = i; j < strings.length; j++) {
-                if (strings[i].equals(strings[j])) {
-                    count++;
-                }
+        int temp = 0;
+        System.out.print("Your choice: ");
+        int choice = Integer.parseInt((new Scanner(System.in)).nextLine());
+        for (Integer integer : integerSet) {
+            if (temp == choice) {
+                System.out.println(integer);
+                break;
             }
-            if (count > 1) {
-                temp += strings[i];
-            }
+            temp++;
         }
-        if (!temp.equals("")) {
-            strings = temp.split("");
-        } else {
-            strings = new String[0];
-        }
-        return strings;
     }
 }
