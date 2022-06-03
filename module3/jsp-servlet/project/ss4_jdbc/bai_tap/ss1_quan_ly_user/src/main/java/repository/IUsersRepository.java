@@ -14,6 +14,4 @@ public interface IUsersRepository {
     void editUser(int id, String name, String country);
 
     List<Users> searchByCountry(String searchValue);
-
-    List<Users> sortByName();
 }

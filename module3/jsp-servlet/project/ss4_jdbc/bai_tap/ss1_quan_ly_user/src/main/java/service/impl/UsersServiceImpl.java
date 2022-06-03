@@ -1,5 +1,6 @@
 package service.impl;
 
+import controller.UsersController;
 import model.Users;
 import repository.IUsersRepository;
 import repository.impl.UsersRerositoryImpl;
@@ -33,10 +34,5 @@ public class UsersServiceImpl implements IUsersService {
     @Override
     public List<Users> searchByCountry(String searchValue) {
         return usersRepository.searchByCountry(searchValue);
-    }
-
-    @Override
-    public List<Users> sortByName() {
-        return usersRepository.sortByName();
     }
 }

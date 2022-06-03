@@ -10,8 +10,9 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap/normalize.css">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css" />
 </head>
 <body>
 <div class="container-fluid">
@@ -19,7 +20,8 @@
     <div class="row col-3">
         <form action="home?action=search" method="post">
             <div class="input-group">
-                <input name="searchValue" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <input name="searchValue" value="${txtSearch}" type="search" class="form-control rounded"
+                       placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
                 <button type="submit" class="btn btn-outline-success">search</button>
             </div>
         </form>
@@ -29,10 +31,7 @@
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Add new user
         </button>
-        <a href="home?action=sort" class="btn btn-success">
-            Sort by name
-        </a>
-        <table class="table table-light table-hover">
+        <table class="table table-light table-hover" id="tableUser">
             <thead>
             <tr>
                 <th>ID</th>
@@ -118,7 +117,6 @@
             </c:forEach>
             </tbody>
         </table>
-
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -149,6 +147,18 @@
     </div>
 </div>
 </body>
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap4.min.js"></script>
 <script src="bootstrap/bootstrap.bundle.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#tableUser').dataTable( {
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        } );
+    } );
+</script>
 </html>
 

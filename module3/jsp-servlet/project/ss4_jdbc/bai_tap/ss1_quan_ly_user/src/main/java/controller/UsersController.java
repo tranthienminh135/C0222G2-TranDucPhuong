@@ -8,7 +8,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "UserControl", value = "/home")
 public class UsersController extends HttpServlet {
@@ -27,9 +26,6 @@ public class UsersController extends HttpServlet {
             case "delete":
                 deleteUser(request, response);
                 break;
-            case "sort":
-                sortByName(request, response);
-                break;
             case "edit":
                 int id = Integer.parseInt(request.getParameter("idEdit"));
                 for (Users users : usersService.getAllUsers()) {
@@ -47,12 +43,6 @@ public class UsersController extends HttpServlet {
                 request.getRequestDispatcher("home.jsp").forward(request, response);
                 break;
         }
-    }
-
-    private void sortByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        request.setAttribute("listUsers", usersService.sortByName());
-        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -101,8 +91,11 @@ public class UsersController extends HttpServlet {
         usersService.saveUsers(users);
         response.sendRedirect("/home");
     }
+
     private void searchByCountry(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String searchValue = request.getParameter("searchValue");
+        request.setAttribute("txtSearch", searchValue);
         request.setAttribute("listUsers", usersService.searchByCountry(searchValue));
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
