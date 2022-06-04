@@ -3,38 +3,44 @@ create database if not exists `furama_manager`;
 use `furama_manager`;
 
 create table if not exists `position` (
-`position_id` int,
+`position_id` int auto_increment,
 `position_name` varchar(45),
+`status` bit(1) default 0,
 primary key (`position_id`)
 );
 
 create table if not exists `education_degree` (
 `education_degree_id` int,
 `education_degree_name` varchar(45),
+`status` bit(1) default 0,
 primary key (`education_degree_id`)
 );
 
 create table if not exists `division` (
-`division_id` int,
+`division_id` int auto_increment,
 `division_name` varchar(45),
+`status` bit(1) default 0,
 primary key (`division_id`)
 );
 
 create table if not exists `role` (
-`role_id` int,
+`role_id` int auto_increment,
 `role_name` varchar(255),
+`status` bit(1) default 0,
 primary key (`role_id`)
 );
 
 create table if not exists `user` (
 `username` varchar(255),
 `password` varchar(255),
+`status` bit(1) default 0,
 primary key (`username`)
 );
 
 create table if not exists `user_role` (
 `role_id` int,
 `username` varchar(255),
+`status` bit(1) default 0,
 foreign key (`role_id`) references `role`(`role_id`),
 foreign key (`username`) references `user`(`username`)
 );
@@ -45,6 +51,7 @@ create table if not exists `attach_service` (
 `attach_service_cost` double,
 `attach_service_unit` int,
 `attach_service_status` varchar(45),
+`status` bit(1) default 0,
 primary key	(`attach_service_id`)
 );
 
@@ -52,12 +59,14 @@ create table if not exists `rent_type` (
 `rent_type_id` int,
 `rent_type_name` varchar(45),
 `rent_type_cost` double,
+`status` bit(1) default 0,
 primary key (`rent_type_id`)
 );
 
 create table if not exists `service_type` (
 `service_type_id` int,
 `service_type_name` varchar(45),
+`status` bit(1) default 0,
 primary key (`service_type_id`)
 );
 
@@ -73,14 +82,16 @@ create table if not exists `service` (
 `description_other_convenience` varchar(45),
 `pool_area` double,
 `number_of_floors` int,
+`status` bit(1) default 0,
 primary key (`service_id`),
 foreign key (`rent_type_id`) references `rent_type`(`rent_type_id`),
 foreign key (`service_type_id`) references `service_type`(`service_type_id`)
 );
 
 create table if not exists `customer_type` (
-`customer_type_id` int,
+`customer_type_id` int auto_increment,
 `customer_type_name` varchar(45),
+`status` bit(1) default 0,
 primary key (`customer_type_id`)
 );
 
@@ -89,11 +100,12 @@ create table if not exists `customer` (
 `customer_type_id` int,
 `customer_name` varchar(45),
 `customer_birthday` varchar(45),
-`customer_gender` bit(1),
+`customer_gender` bit(2),
 `customer_id_card` varchar(45),
 `customer_phone` varchar(45),
 `customer_email` varchar(45),
 `customer_address` varchar(45),
+`status` bit(1) default 0,
 primary key (`customer_id`),
 foreign key (`customer_type_id`) references `customer_type`(`customer_type_id`)
 );
@@ -111,6 +123,7 @@ create table if not exists `employee` (
 `education_degree_id` int,
 `division_id` int,
 `username` varchar(45),
+`status` bit(1) default 0,
 primary key (`employee_id`),
 foreign key (`position_id`) references `position`(`position_id`),
 foreign key (`education_degree_id`) references `education_degree`(`education_degree_id`),
@@ -127,6 +140,7 @@ create table if not exists `contract` (
 `employee_id` int,
 `customer_id` int,
 `service_id` int,
+`status` bit(1) default 0,
 primary key (`contract_id`),
 foreign key (`employee_id`) references `employee`(`employee_id`),
 foreign key (`customer_id`) references `customer`(`customer_id`),
@@ -138,10 +152,26 @@ create table if not exists `contract_detail` (
 `contract_id` int,
 `attach_service_id` int,
 `quantity` int,
+`status` bit(1) default 0,
 primary key (`contract_detail_id`),
 foreign key (`contract_id`) references `contract`(`contract_id`),
 foreign key (`attach_service_id`) references `attach_service`(`attach_service_id`)
 );
 
+INSERT INTO `furama_manager`.`customer_type` (`customer_type_name`) 
+VALUES ('Iron'),
+('Bronze'),
+('Silver'),
+('Platinum'),
+('Diamond'),
+('Master'),
+('Grandmaster');
 
-
+INSERT INTO `furama_manager`.`customer` (`customer_type_id`, `customer_name`, `customer_birthday`, `customer_gender`, `customer_id_card`, `customer_phone`, `customer_email`, `customer_address`) 
+VALUES ( 1, 'Le Thị Hoàn', '16-09-2000', null, '123456', '01234565', 'hoan@gmail.com', 'GL'),
+( 2, 'Lê Thị Tài', '01-01-2001', 0, '4568786', '0135756456', 'taingu@gmail.com', 'TH'),
+( 3, 'Lê Thị Trí', '02-02-2002', 1, '786486', '0351254568', 'tri@gmail.com', 'QT'),
+( 4, 'Lê Thị Hậu', '03-03-2003', 2, '486486', '035452475', 'hau@gmail.com', 'TH'),
+( 5, 'Lê Thị Luận', '04-04-2004', 0, '78789', '03542481', 'luan@gmail.com', 'DN'),
+( 6, 'Lê Thị Bình', '05-05-2005', 2, '6868', '065874654', 'binh@gmail.com', 'DN'),
+( 7, 'Lê Thị Phúc', '06-06-2006', 1, '578537', '0654357', 'phuc@gmail.com', 'QB');
