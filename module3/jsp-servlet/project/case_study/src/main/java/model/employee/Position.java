@@ -12,6 +12,11 @@ public class Position {
         this.positionName = positionName;
     }
 
+    public Position(Integer positionId, String positionName) {
+        this.positionId = positionId;
+        this.positionName = positionName;
+    }
+
     public Position(Integer positionId, String positionName, Integer status) {
         this.positionId = positionId;
         this.positionName = positionName;

@@ -239,7 +239,8 @@ values (1,'admin'),
 (3,'nhanvien');
 
 INSERT INTO `employee` (`employee_name`, `employee_birthday`, `employee_id_card`, `employee_salary`, `employee_phone`, `employee_email`, `employee_address`, `position_id`, `education_degree_id`, `division_id`, `username`) 
-VALUES ('Lê Thị Tài', '1969-06-09', '123456', '100000', '0123456', 'taingu@gmail.com', 'Trung Quốc', '4', '4', '4', 'nhanvien');
+VALUES ('Lê Thị Tài', '1969-06-09', '123456', '100000', '0123456', 'taingu@gmail.com', 'Trung Quốc', '4', '4', '4', 'nhanvien'),
+('Lê Thị Hậu', '2003-03-03', '456456', '456456', '789456', 'hau@gmail.com', 'Lào', '1', '1', '1', 'quanly');
 
 
 

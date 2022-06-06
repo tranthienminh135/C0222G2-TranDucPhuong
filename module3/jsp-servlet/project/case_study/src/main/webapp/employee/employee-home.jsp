@@ -55,13 +55,13 @@
                     <a class="nav-link text-white active" href="../index.jsp">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="customer">Show Customer Is Active</a>
+                    <a class="nav-link text-white" href="employee">Show employee is active</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="customer?action=getAll">Show All Customer</a>
+                    <a class="nav-link text-white" href="employee?action=getAll">Show all employee</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="customer?action=create">Add new customer</a>
+                    <a class="nav-link text-white" href="employee?action=create">Add new employee</a>
                 </li>
             </ul>
             <form class="d-flex" method="get" action="customer">
@@ -106,16 +106,41 @@
                     <td class="table-warning">${i.employeePhone}</td>
                     <td class="table-warning">${i.employeeEmail}</td>
                     <td class="table-warning">${i.employeeAddress}</td>
-                    <td class="table-warning">${i.positionId}</td>
-                    <td class="table-warning">${i.educationDegreeId}</td>
-                    <td class="table-warning">${i.divisionId}</td>
+                    <c:forEach items="${listPosition}" var="o">
+                        <c:if test="${o.positionId == i.positionId}">
+                            <td class="table-warning">${o.positionName}</td>
+                        </c:if>
+                    </c:forEach>
+                    <c:forEach items="${listED}" var="o">
+                        <c:if test="${o.educationDegreeId == i.educationDegreeId}">
+                            <td class="table-warning">${o.educationDegreeName}</td>
+                        </c:if>
+                    </c:forEach>
+                    <c:forEach items="${listDivision}" var="o">
+                        <c:if test="${o.divisionId == i.divisionId}">
+                            <td class="table-warning">${o.divisionName}</td>
+                        </c:if>
+                    </c:forEach>
                     <td class="table-warning">${i.username}</td>
-                    <td class="table-warning">${i.status}</td>
-                    <td class="table-warning">
-                        <a href="#" class="text-danger text-decoration-none fw-bold hover-zoom" data-bs-toggle="modal" data-bs-target="#staticBackdrop${i.employeeId}">
-                            Delete
-                        </a>
-                    </td>
+                    <c:choose>
+                        <c:when test="${i.status == 0}">
+                            <td class="table-warning text-success">Active</td>
+                            <td class="table-warning">
+                                <a href="" class="text-danger text-decoration-none fw-bold hover-zoom" data-bs-toggle="modal" data-bs-target="#staticBackdrop${i.employeeId}">
+                                    Delete
+                                </a>
+                            </td>
+                        </c:when>
+                        <c:when test="${i.status == 1}">
+                            <td class="table-warning text-danger">Deleted</td>
+                            <td class="table-warning">
+                                <span class="text-secondary text-decoration-line-through fw-bold hover-zoom" >
+                                    Delete
+                                </span>
+                            </td>
+                        </c:when>
+                    </c:choose>
+
                     <!-- Modal -->
                     <div class="modal fade" id="staticBackdrop${i.employeeId}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -127,13 +152,13 @@
                                     <h5>Do you want delete <strong class="text-warning">${i.employeeName}</strong> ?</h5>
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="customer?action=delete&idDelete=${i.employeeId}" class="btn btn-pink text-white">Accept</a>
+                                    <a href="employee?action=delete&idDelete=${i.employeeId}" class="btn btn-pink text-white">Accept</a>
                                     <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal" style="background-color: grey !important;">Close</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <td class="table-warning"><a href="customer?action=edit&idEdit=${i.employeeId}" class="text-warning text-decoration-none fw-bold hover-zoom">Edit</a>
+                    <td class="table-warning"><a href="employee?action=edit&idEdit=${i.employeeId}" class="text-warning text-decoration-none fw-bold hover-zoom">Edit</a>
                 </tr>
             </c:forEach>
             </tbody>
