@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="../style/datatables/css/dataTables.bootstrap4.min.css"/>
     <style>
         .bg-pink {
-            background-color: hotpink;
+            background-color: deeppink !important;
         }
         .nav-item:hover {
-            border: 1px solid deeppink;
+            border: 3px solid deeppink;
         }
     </style>
 </head>
@@ -44,7 +44,7 @@
             </div>
         </div>
     </nav>
-<div class="container" style="margin-top: 20px">
+<div class="col-auto" style="margin: 0 auto;">
     <div class="bg-pink text-white" style="margin: 0 auto !important; padding: 20px;">
         <form method="post">
             <div class="form-outline mb-4">
@@ -101,6 +101,9 @@
         </form>
     </div>
 </div>
+    <footer class="container-fluid text-center bg-warning p-2 text-light">
+        <p class="text-light">Furama Resort - &copy; Copyright by Phuong 2022</p>
+    </footer>
 </body>
 <script src="../style/jquery/jquery-3.5.1.min.js"></script>
 <script src="../style/datatables/js/jquery.dataTables.min.js"></script>

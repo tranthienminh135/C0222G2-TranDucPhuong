@@ -31,7 +31,7 @@
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Add new user
         </button>
-        <table class="table table-light table-hover" id="tableUser">
+        <table id="tableStudent" class="table table-striped table-bordered" style="width:100%">
             <thead>
             <tr>
                 <th>ID</th>
@@ -153,7 +153,7 @@
 <script src="bootstrap/bootstrap.bundle.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#tableUser').dataTable( {
+        $('#tableStudent').dataTable( {
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5

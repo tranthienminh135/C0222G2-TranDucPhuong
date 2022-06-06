@@ -30,7 +30,10 @@
             background-color: deeppink !important;
         }
         .nav-item:hover {
-            border: 1px solid deeppink;
+            border: 3px solid deeppink;
+        }
+        .bg-pink {
+            background-color: deeppink !important;
         }
     </style>
 </head>
@@ -58,14 +61,15 @@
                     <a class="nav-link text-white" href="customer?action=create">Add new customer</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="text" placeholder="Search">
-                <button class="btn btn-primary" type="button">Search</button>
+            <form class="d-flex" method="get" action="customer">
+                <input type="text" value="search" name="action" hidden>
+                <input class="form-control me-2" type="text" placeholder="Search" name="customerSearchValue" value="${customerSearchValue}">
+                <button class="btn btn-primary" type="submit">Search</button>
             </form>
         </div>
     </div>
 </nav>
-<div class="container-fluid">
+<div class="container-fluid" style="padding: 50px">
     <h2>Customer Management</h2>
     <div class="table-scrollable col-12 border-dark">
         <table id="tableCustomer" class="table table-light table-hover table-warning">
@@ -81,18 +85,21 @@
                 <th class="table-warning">Email</th>
                 <th class="table-warning">Address</th>
                 <th class="table-warning">Status</th>
-                <th colspan="2" class="table-warning">Actions</th>
+                <th class="table-warning">Delete</th>
+                <th class="table-warning">Edit</th>
             </tr>
             </thead>
             <tbody>
             <c:forEach items="${listCustomer}" var="i">
                 <tr>
                     <td class="table-warning">${i.customerId}</td>
+
                     <c:forEach items="${listCustomerType}" var="o">
                         <c:if test="${i.customerTypeId == o.customerTypeId}">
                             <td class="table-warning">${o.customerTypeName}</td>
                         </c:if>
                     </c:forEach>
+
                     <td class="table-warning">${i.customerName}</td>
                     <td class="table-warning">${i.customerBirthday}</td>
                     <c:choose>
@@ -110,6 +117,7 @@
                     <td class="table-warning">${i.customerPhone}</td>
                     <td class="table-warning">${i.customerEmail}</td>
                     <td class="table-warning">${i.customerAddress}</td>
+
                     <c:if test="${i.status == 0}">
                         <td class="table-warning text-success">Active</td>
                         <td class="table-warning">
@@ -121,9 +129,9 @@
                     <c:if test="${i.status == 1}">
                         <td class="table-warning text-danger">Deleted</td>
                         <td class="table-warning">
-                            <a href="" class="text-secondary text-decoration-line-through fw-bold hover-zoom disabled">
+                            <span class="text-secondary text-decoration-line-through fw-bold hover-zoom disabled">
                                 Delete
-                            </a>
+                            </span>
                         </td>
                     </c:if>
 
@@ -144,7 +152,7 @@
                             </div>
                         </div>
                     </div>
-                    <td class="table-warning"><a href="#" class="text-warning text-decoration-none fw-bold hover-zoom">Edit</a>
+                    <td class="table-warning"><a href="customer?action=edit&idEdit=${i.customerId}" class="text-warning text-decoration-none fw-bold hover-zoom">Edit</a>
                     </td>
                 </tr>
             </c:forEach>
@@ -152,6 +160,9 @@
         </table>
     </div>
 </div>
+<footer class="container-fluid text-center bg-pink p-2 text-light">
+    <p class="text-light">Furama Resort - &copy; Copyright by Phuong 2022</p>
+</footer>
 </body>
 <script src="../style/jquery/jquery-3.5.1.min.js"></script>
 <script src="../style/datatables/js/jquery.dataTables.min.js"></script>
@@ -162,7 +173,7 @@
         $('#tableCustomer').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 3
+            "pageLength": 10
         });
     });
 </script>
