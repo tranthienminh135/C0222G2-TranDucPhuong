@@ -64,9 +64,9 @@
                     <a class="nav-link text-white" href="employee?action=create">Add new employee</a>
                 </li>
             </ul>
-            <form class="d-flex" method="get" action="customer">
+            <form class="d-flex" method="get" action="employee">
                 <input type="text" value="search" name="action" hidden>
-                <input class="form-control me-2" type="text" placeholder="Search" name="customerSearchValue" value="${customerSearchValue}">
+                <input class="form-control me-2" type="text" placeholder="Search" name="employeeSearchValue" value="${employeeSearchValue}">
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
         </div>

@@ -18,4 +18,10 @@ public interface IEmployeeService {
     void saveEmployee(Employee employee);
 
     List<User> getAllUser();
+
+    Employee getEmployeeForEdit(int idEdit);
+
+    void updateEmployee(Employee employee);
+
+    List<Employee> searchAllEmployeeByName(String searchValue);
 }
