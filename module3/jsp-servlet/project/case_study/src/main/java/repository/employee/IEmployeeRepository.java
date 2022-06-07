@@ -24,4 +24,6 @@ public interface IEmployeeRepository {
     void updateEmployee(Employee employee);
 
     List<Employee> searchAllEmployeeByName(String searchValue);
+
+    List<Employee> getAllEmployee();
 }

@@ -27,6 +27,7 @@ public class EmployeeController extends HttpServlet {
                 showFormCreate(request, response);
                 break;
             case "getAll":
+                showAllEmployee(request, response);
                 break;
             case "delete":
                 deleteEmployee(request, response);
@@ -35,17 +36,29 @@ public class EmployeeController extends HttpServlet {
                 showFormEdit(request, response);
                 break;
             case "search":
-                String searchValue = request.getParameter("employeeSearchValue");
-                request.setAttribute("listPosition", employeeService.getAllPosition());
-                request.setAttribute("listED", employeeService.getAllED());
-                request.setAttribute("listDivision", employeeService.getAllDivition());
-                request.setAttribute("listEmployee", employeeService.searchAllEmployeeByName(searchValue));
-                request.getRequestDispatcher("employee/employee-home.jsp").forward(request, response);
+                searchEmployeeByName(request, response);
                 break;
             default:
                 showListEmployee(request, response);
                 break;
         }
+    }
+
+    private void showAllEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("listPosition", employeeService.getAllPosition());
+        request.setAttribute("listED", employeeService.getAllED());
+        request.setAttribute("listDivision", employeeService.getAllDivition());
+        request.setAttribute("listEmployee", employeeService.getAllEmployee());
+        request.getRequestDispatcher("employee/employee-home.jsp").forward(request, response);
+    }
+
+    private void searchEmployeeByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String searchValue = request.getParameter("employeeSearchValue");
+        request.setAttribute("listPosition", employeeService.getAllPosition());
+        request.setAttribute("listED", employeeService.getAllED());
+        request.setAttribute("listDivision", employeeService.getAllDivition());
+        request.setAttribute("listEmployee", employeeService.searchAllEmployeeByName(searchValue));
+        request.getRequestDispatcher("employee/employee-home.jsp").forward(request, response);
     }
 
     private void showFormEdit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

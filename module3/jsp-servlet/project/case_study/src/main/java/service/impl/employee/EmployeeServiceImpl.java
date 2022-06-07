@@ -59,4 +59,9 @@ public class EmployeeServiceImpl implements IEmployeeService {
     public List<Employee> searchAllEmployeeByName(String searchValue) {
         return employeeRepository.searchAllEmployeeByName(searchValue);
     }
+
+    @Override
+    public List<Employee> getAllEmployee() {
+        return employeeRepository.getAllEmployee();
+    }
 }
