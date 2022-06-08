@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Map;
 
 @WebServlet(name = "Customer", value = "/customer")
 public class CustomerController extends HttpServlet {
@@ -37,10 +38,18 @@ public class CustomerController extends HttpServlet {
             case "search":
                 searchCustomerByName(request, response);
                 break;
+            case "showCustomerUsingService":
+                showListCustomerUsingService(request, response);
+                break;
             default:
                 showListCustomerIsActive(request, response);
                 break;
         }
+    }
+
+    private void showListCustomerUsingService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("listCustomerUsingService", customerService.getAllCustomerUsingServiceDTO());
+        request.getRequestDispatcher("customer/customer-using-service.jsp").forward(request, response);
     }
 
     private void searchCustomerByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -109,20 +118,64 @@ public class CustomerController extends HttpServlet {
         }
     }
 
-    private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void updateCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int idEdit = Integer.parseInt(request.getParameter("idEdit"));
-        int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
+        int customerTypeId = 0;
+        String errCustomerTypeId = null;
+        try {
+            customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
+        } catch (NumberFormatException e) {
+            errCustomerTypeId = "Ôi bạn ơi! đừng f12";
+        }
         String customerName = request.getParameter("customerName");
         String customerBirthday = request.getParameter("customerBirthday");
-        int customerGender = Integer.parseInt(request.getParameter("customerGender"));
+
+        int customerGender = 0;
+        String errCustomerGender = null;
+        try {
+            customerGender = Integer.parseInt(request.getParameter("customerGender"));
+        } catch (NumberFormatException e) {
+            errCustomerGender = "Ôi bạn ơi! đừng f12";
+        }
         String customerIdCard = request.getParameter("customerIdCard");
         String customerPhone = request.getParameter("customerPhone");
         String customerEmail = request.getParameter("customerEmail");
         String customerAddress = request.getParameter("customerAddress");
-        int status = Integer.parseInt(request.getParameter("status"));
-        Customer customer = new Customer(idEdit,customerTypeId,customerName,customerBirthday,customerGender,customerIdCard,customerPhone,customerEmail,customerAddress,status);
-        customerService.updateCustomer(customer);
-        response.sendRedirect("/customer");
+        int status = 0;
+        String errStatus = null;
+        try {
+            status = Integer.parseInt(request.getParameter("status"));
+        } catch (NumberFormatException e) {
+            errStatus = "Ôi bạn ơi! đừng f12";
+        }
+        Customer customer = new Customer(idEdit, customerTypeId, customerName, customerBirthday, customerGender, customerIdCard, customerPhone, customerEmail, customerAddress, status);
+        Map<String, String> errMap = customerService.updateCustomer(customer);
+        if (errCustomerTypeId != null) {
+            errMap.put("errCustomerTypeId", errCustomerTypeId);
+        }
+        if (errCustomerGender != null) {
+            errMap.put("errCustomerGender", errCustomerGender);
+        }
+        if (errStatus != null) {
+            errMap.put("errStatus", errStatus);
+        }
+        if (errMap.isEmpty()) {
+            response.sendRedirect("/customer");
+        } else {
+            request.setAttribute("errMap", errMap);
+            request.setAttribute("listCustomerType", customerService.getAllCustomerType());
+            request.setAttribute("customerTypeId", customerTypeId);
+            request.setAttribute("customerName", customerName);
+            request.setAttribute("customerBirthday", customerBirthday);
+            request.setAttribute("customerGender", customerGender);
+            request.setAttribute("customerIdCard", customerIdCard);
+            request.setAttribute("customerPhone", customerPhone);
+            request.setAttribute("customerEmail", customerEmail);
+            request.setAttribute("customerAddress", customerAddress);
+            request.setAttribute("status", status);
+            request.getRequestDispatcher("customer/customer-form-edit.jsp").forward(request,response);
+        }
+
     }
 
     private void createCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -130,7 +183,6 @@ public class CustomerController extends HttpServlet {
         String customerName = request.getParameter("customerName");
         String customerBirthday = request.getParameter("customerBirthday");
         int customerGender = Integer.parseInt(request.getParameter("customerGender"));
-
         String customerIdCard = request.getParameter("customerIdCard");
         String customerPhone = request.getParameter("customerPhone");
         String customerEmail = request.getParameter("customerEmail");

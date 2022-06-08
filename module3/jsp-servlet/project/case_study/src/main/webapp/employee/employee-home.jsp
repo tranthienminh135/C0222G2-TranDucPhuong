@@ -73,7 +73,7 @@
     </div>
 </nav>
 <div class="container-fluid" style="padding: 50px">
-    <h2>Customer Management</h2>
+    <h2>Employee Management</h2>
     <div class="table-scrollable col-12 border-dark">
         <table id="tableCustomer" class="table table-light table-hover table-warning">
             <thead>

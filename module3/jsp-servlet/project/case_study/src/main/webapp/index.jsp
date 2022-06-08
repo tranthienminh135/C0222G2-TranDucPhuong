@@ -54,7 +54,10 @@
           <a class="nav-link text-light" href="service">Service</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="">Contract</a>
+          <a class="nav-link text-light" href="contract">Contract</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="contract-detail">Contract Detail</a>
         </li>
       </ul>
       <form class="d-flex">

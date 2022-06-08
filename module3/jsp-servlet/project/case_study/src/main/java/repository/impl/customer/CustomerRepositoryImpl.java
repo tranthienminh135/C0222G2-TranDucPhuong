@@ -1,6 +1,7 @@
 package repository.impl.customer;
 
 import connection.DBConnect;
+import dto.CustomerUsingServiceDTO;
 import model.customer.Customer;
 import model.customer.CustomerType;
 import repository.customer.ICustomerRepository;
@@ -26,6 +27,10 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
             " SET `customer_type_id` = ?, `customer_name` = ?, `customer_birthday` = ?, `customer_gender` = ?, `customer_id_card` = ?, `customer_phone` = ?, `customer_email` = ?, `customer_address` = ?, `status` = ? " +
             " WHERE (`customer_id` = ?); ";
     private final String SELECT_CUSTOMER_BY_NAME = " select * from customer where customer_name like ? and status = 0; ";
+    private final String SELECT_ALL_CUSTOMER_USING_SERVICE = " select customer.customer_id, customer_name, customer_phone, attach_service.attach_service_name from customer " +
+            " join contract on contract.customer_id = customer.customer_id " +
+            " join contract_detail on contract_detail.contract_id = contract.contract_id " +
+            " join attach_service on attach_service.attach_service_id = contract_detail.attach_service_id; ";
 
     @Override
     public List<Customer> getAllCustomerIsActive() {
@@ -255,5 +260,27 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
             e.printStackTrace();
         }
         return customers;
+    }
+
+    @Override
+    public List<CustomerUsingServiceDTO> getAllCustomerUsingServiceDTO() {
+        List<CustomerUsingServiceDTO> customerUsingServiceDTOS = new ArrayList<>();
+        Connection connection = dbConnect.getConnection();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CUSTOMER_USING_SERVICE);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int customerId = resultSet.getInt("customer_id");
+                String customerName = resultSet.getString("customer_name");
+                String customerPhone = resultSet.getString("customer_phone");
+                String attachServiceName = resultSet.getString("attach_service_name");
+                CustomerUsingServiceDTO customerUsingServiceDTO = new CustomerUsingServiceDTO(customerId,customerName,customerPhone,attachServiceName);
+                customerUsingServiceDTOS.add(customerUsingServiceDTO);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customerUsingServiceDTOS;
     }
 }

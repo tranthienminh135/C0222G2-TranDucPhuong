@@ -46,7 +46,7 @@ foreign key (`username`) references `user`(`username`)
 );
 
 create table if not exists `attach_service` (
-`attach_service_id` int,
+`attach_service_id` int auto_increment,
 `attach_service_name` varchar(45),
 `attach_service_cost` double,
 `attach_service_unit` int,
@@ -132,7 +132,7 @@ foreign key (`username`) references `user`(`username`)
 );
 
 create table if not exists `contract` (
-`contract_id` int,
+`contract_id` int auto_increment,
 `contract_start_date` varchar(45),
 `contract_end_date` varchar(45),
 `contract_deposit` double,
@@ -148,7 +148,7 @@ foreign key (`service_id`) references `service`(`service_id`)
 );
 
 create table if not exists `contract_detail` (
-`contract_detail_id` int,
+`contract_detail_id` int auto_increment,
 `contract_id` int,
 `attach_service_id` int,
 `quantity` int,
@@ -242,8 +242,23 @@ INSERT INTO `employee` (`employee_name`, `employee_birthday`, `employee_id_card`
 VALUES ('Lê Thị Tài', '1969-06-09', '123456', '100000', '0123456', 'taingu@gmail.com', 'Trung Quốc', '4', '4', '4', 'nhanvien'),
 ('Lê Thị Hậu', '2003-03-03', '456456', '456456', '789456', 'hau@gmail.com', 'Lào', '1', '1', '1', 'quanly');
 
+INSERT INTO `contract` (`contract_start_date`, `contract_end_date`, `contract_deposit`, `contract_total_money`, `employee_id`, `customer_id`, `service_id`) 
+VALUES ('2022-05-06', '2022-06-07', '100', '1000', '1', '1', '1'),
+('2019-03-02', '2019-04-03', '200', '2000', '2', '3', '1'),
+('2015-02-08', '2015-03-08', '300', '3000', '1', '2', '3');
 
+INSERT INTO `attach_service` (`attach_service_name`, `attach_service_cost`, `attach_service_unit`, `attach_service_status`) 
+VALUES ('Em hot girl bón cơm bằng mồm', '100000', '10', 'Còn hàng'),
+('Bia ôm', '200000', '2', 'Còn hàng'),
+('Làm bia cho bội đội tập bắn', '100000', '5', 'Còn hàng'),
+('Thử thuốc trừ sâu', '50000', '6', 'Hết hàng');
 
+INSERT INTO `contract_detail` (`contract_id`, `attach_service_id`, `quantity`) 
+VALUES ('1', '2', '5'),
+('2', '3', '7'),
+('3', '1', '8'),
+('1', '3', '15'),
+('3', '1', '6');
 
 
 

@@ -1,5 +1,6 @@
 package repository.customer;
 
+import dto.CustomerUsingServiceDTO;
 import model.customer.Customer;
 import model.customer.CustomerType;
 
@@ -21,4 +22,6 @@ public interface ICustomerRepository {
     void updateCustomer(Customer customer);
 
     List<Customer> searchCustomerByName(String customerSearchValue);
+
+    List<CustomerUsingServiceDTO> getAllCustomerUsingServiceDTO();
 }

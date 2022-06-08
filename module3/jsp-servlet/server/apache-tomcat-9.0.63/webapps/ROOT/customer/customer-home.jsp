@@ -60,6 +60,9 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="customer?action=create">Add new customer</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="customer?action=showCustomerUsingService">Show list customers using service</a>
+                </li>
             </ul>
             <form class="d-flex" method="get" action="customer">
                 <input type="text" value="search" name="action" hidden>
@@ -71,6 +74,7 @@
 </nav>
 <div class="container-fluid" style="padding: 50px">
     <h2>Customer Management</h2>
+    <div class="text-black text-center bg-warning">${errMap.errIdAction}</div>
     <div class="table-scrollable col-12 border-dark">
         <table id="tableCustomer" class="table table-light table-hover table-warning">
             <thead>
