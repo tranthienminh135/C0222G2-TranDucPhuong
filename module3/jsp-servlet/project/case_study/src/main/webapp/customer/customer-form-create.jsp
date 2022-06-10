@@ -50,21 +50,24 @@
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example2">Customer Type</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example2" name="customerTypeId">
-                    <option selected disabled>Choice Customer Type</option>
+                    <option selected disabled value="0">Choice Customer Type</option>
                     <c:forEach items="${listCustomerType}" var="i">
                         <option value="${i.customerTypeId}">${i.customerTypeName}</option>
                     </c:forEach>
                 </select>
+                <div class="text-black text-center bg-warning">${errMap.errCustomerTypeId}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example1">Customer Name</label>
-                <input type="text" id="form1Example1" class="form-control" name="customerName"/>
+                <input type="text" id="form1Example1" class="form-control" name="customerName" value="${customerName}"/>
+                <div class="text-black text-center bg-warning">${errMap.errCustomerName}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example3">Customer Birthday</label>
-                <input type="date" id="form1Example3" class="form-control" name="customerBirthday"/>
+                <input type="date" id="form1Example3" class="form-control" name="customerBirthday" value="${customerBirthday}"/>
+                <div class="text-black text-center bg-warning">${errMap.errCustomerBirthday}</div>
             </div>
 
             <div class="form-outline mb-4">
@@ -75,26 +78,31 @@
                     <option value="0">Nữ</option>
                     <option value="2">Tài</option>
                 </select>
+                <div class="text-black text-center bg-warning">${errMap.errCustomerGender}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example5">Customer ID Card</label>
-                <input type="text" id="form1Example5" class="form-control" name="customerIdCard"/>
+                <input type="text" id="form1Example5" class="form-control" name="customerIdCard" value="${customerIdCard}"/>
+                <div class="text-black text-center bg-warning">${errMap.errCustomerIdCard}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example6">Customer Phone</label>
-                <input type="text" id="form1Example6" class="form-control" name="customerPhone"/>
+                <input type="text" id="form1Example6" class="form-control" name="customerPhone" value="${customerPhone}"/>
+                <div class="text-black text-center bg-warning">${errMap.errCustomerPhone}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example7">Customer Email</label>
-                <input type="text" id="form1Example7" class="form-control" name="customerEmail"/>
+                <input type="text" id="form1Example7" class="form-control" name="customerEmail" value="${customerEmail}"/>
+                <div class="text-black text-center bg-warning">${errMap.errCustomerEmail}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example8">Customer Address</label>
-                <input type="text" id="form1Example8" class="form-control" name="customerAddress"/>
+                <input type="text" id="form1Example8" class="form-control" name="customerAddress" value="${customerAddress}"/>
+                <div class="text-black text-center bg-warning">${errMap.errCustomerAddress}</div>
             </div>
 
             <button type="submit" class="btn btn-warning btn-block">Submit</button>

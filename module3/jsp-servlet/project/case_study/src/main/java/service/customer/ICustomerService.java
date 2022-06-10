@@ -12,7 +12,7 @@ public interface ICustomerService {
 
     List<CustomerType> getAllCustomerType();
 
-    void saveCustomer(Customer customer);
+    Map<String, String> saveCustomer(Customer customer);
 
     void deleteCustomer(int customerId);
 
@@ -22,7 +22,7 @@ public interface ICustomerService {
 
     Map<String, String> updateCustomer(Customer customer);
 
-    List<Customer> searchCustomerByName(String customerSearchValue);
+    List<Customer> searchCustomerByName(String customerNameSearchValue, String customerAddressSearchValue);
 
     List<CustomerUsingServiceDTO> getAllCustomerUsingServiceDTO();
 }

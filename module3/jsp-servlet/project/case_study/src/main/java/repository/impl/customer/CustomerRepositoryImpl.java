@@ -26,7 +26,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     private final String UPDATE_CUSTOMER = " UPDATE `customer` " +
             " SET `customer_type_id` = ?, `customer_name` = ?, `customer_birthday` = ?, `customer_gender` = ?, `customer_id_card` = ?, `customer_phone` = ?, `customer_email` = ?, `customer_address` = ?, `status` = ? " +
             " WHERE (`customer_id` = ?); ";
-    private final String SELECT_CUSTOMER_BY_NAME = " select * from customer where customer_name like ? and status = 0; ";
+    private final String SELECT_CUSTOMER_BY_NAME = " select * from customer where customer_name like ? and customer_address like ? and status = 0; ";
     private final String SELECT_ALL_CUSTOMER_USING_SERVICE = " select customer.customer_id, customer_name, customer_phone, attach_service.attach_service_name from customer " +
             " join contract on contract.customer_id = customer.customer_id " +
             " join contract_detail on contract_detail.contract_id = contract.contract_id " +
@@ -51,7 +51,8 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
                 String customerEmail = resultSet.getString("customer_email");
                 String customerAddress = resultSet.getString("customer_address");
                 int status = resultSet.getInt("status");
-                Customer customer = new Customer(customerId, customerTypeId, customerName, customerBirthday, customerGender, customerIdCard, customerPhone, customerEmail, customerAddress, status);
+                Customer customer = new Customer(customerId, customerTypeId, customerName, customerBirthday,
+                        customerGender, customerIdCard, customerPhone, customerEmail, customerAddress, status);
                 customers.add(customer);
             }
         } catch (SQLException e) {
@@ -157,7 +158,8 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
                 String customerEmail = resultSet.getString("customer_email");
                 String customerAddress = resultSet.getString("customer_address");
                 int status = resultSet.getInt("status");
-                Customer customer = new Customer(customerId, customerTypeId, customerName, customerBirthday, customerGender, customerIdCard, customerPhone, customerEmail, customerAddress, status);
+                Customer customer = new Customer(customerId, customerTypeId, customerName, customerBirthday,
+                        customerGender, customerIdCard, customerPhone, customerEmail, customerAddress, status);
                 customers.add(customer);
             }
         } catch (SQLException e) {
@@ -191,7 +193,8 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
                 String customerEmail = resultSet.getString("customer_email");
                 String customerAddress = resultSet.getString("customer_address");
                 int status = resultSet.getInt("status");
-                customer = new Customer(cId, customerTypeId, customerName, customerBirthday, customerGender, customerIdCard, customerPhone, customerEmail, customerAddress, status);
+                customer = new Customer(cId, customerTypeId, customerName, customerBirthday, customerGender,
+                        customerIdCard, customerPhone, customerEmail, customerAddress, status);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -234,13 +237,14 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     }
 
     @Override
-    public List<Customer> searchCustomerByName(String customerSearchValue) {
+    public List<Customer> searchCustomerByName(String customerNameSearchValue, String customerAddressSearchValue) {
         List<Customer> customers = new ArrayList<>();
         Connection connection = dbConnect.getConnection();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CUSTOMER_BY_NAME);
-            preparedStatement.setString(1, "%" + customerSearchValue + "%");
+            preparedStatement.setString(1, "%" + customerNameSearchValue + "%");
+            preparedStatement.setString(2, "%" + customerAddressSearchValue + "%");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 int customerId = resultSet.getInt("customer_id");

@@ -21,7 +21,7 @@ public interface ICustomerRepository {
 
     void updateCustomer(Customer customer);
 
-    List<Customer> searchCustomerByName(String customerSearchValue);
+    List<Customer> searchCustomerByName(String customerNameSearchValue, String customerAddressSearchValue);
 
     List<CustomerUsingServiceDTO> getAllCustomerUsingServiceDTO();
 }

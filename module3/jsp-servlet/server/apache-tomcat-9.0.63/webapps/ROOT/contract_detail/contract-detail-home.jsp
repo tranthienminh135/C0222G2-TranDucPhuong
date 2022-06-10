@@ -127,7 +127,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h5>
+                                    <h5 class="modal-title text-danger" id="staticBackdropLabel">Yamete!</h5>
                                 </div>
                                 <div class="modal-body">
                                     <h5>Do you want delete contract detail with id = <strong class="text-warning">${i.contractDetailId}</strong> ?

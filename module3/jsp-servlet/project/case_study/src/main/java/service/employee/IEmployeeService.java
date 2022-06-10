@@ -3,6 +3,7 @@ package service.employee;
 import model.employee.*;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IEmployeeService {
     List<Employee> getAllEmployeeIsActive();
@@ -15,13 +16,13 @@ public interface IEmployeeService {
 
     void deleteEmployee(int idDelete);
 
-    void saveEmployee(Employee employee);
+    Map<String,String> saveEmployee(Employee employee);
 
     List<User> getAllUser();
 
     Employee getEmployeeForEdit(int idEdit);
 
-    void updateEmployee(Employee employee);
+    Map<String, String> updateEmployee(Employee employee);
 
     List<Employee> searchAllEmployeeByName(String searchValue);
 

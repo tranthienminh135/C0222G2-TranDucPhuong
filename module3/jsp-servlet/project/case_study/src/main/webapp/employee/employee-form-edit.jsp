@@ -51,36 +51,43 @@
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example1">Employee Name</label>
                 <input type="text" id="form1Example1" class="form-control" name="employeeName" value="${employeeName}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeeName}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example3">Employee Birthday</label>
-                <input type="text" id="form1Example3" class="form-control" name="employeeBirthday" value="${employeeBirthday}"/>
+                <input type="date" id="form1Example3" class="form-control" name="employeeBirthday" value="${employeeBirthday}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeeBirthday}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example5">Employee ID Card</label>
                 <input type="text" id="form1Example5" class="form-control" name="employeeIdCard" value="${employeeIdCard}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeeIdCard}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example14">Employee Salary</label>
                 <input type="text" id="form1Example14" class="form-control" name="employeeSalary" value="${employeeSalary}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeeSalary}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example6">Employee Phone</label>
-                <input type="text" id="form1Example6" class="form-control" name="employeePhone" value="${employeePhone}"/>
+                <input type="number" id="form1Example6" class="form-control" name="employeePhone" value="${employeePhone}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeePhone}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example7">Employee Email</label>
-                <input type="text" id="form1Example7" class="form-control" name="employeeEmail" value="${employeeEmail}"/>
+                <input type="email" id="form1Example7" class="form-control" name="employeeEmail" value="${employeeEmail}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeeEmail}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example9">Employee Address</label>
                 <input type="text" id="form1Example9" class="form-control" name="employeeAddress" value="${employeeAddress}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeeAddress}</div>
             </div>
 
             <div class="form-outline mb-4">
@@ -97,6 +104,7 @@
                         </c:choose>
                     </c:forEach>
                 </select>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeePosition}</div>
             </div>
 
             <div class="form-outline mb-4">
@@ -113,6 +121,7 @@
                         </c:choose>
                     </c:forEach>
                 </select>
+                <div class="text-black text-center bg-warning">${errMap.errEducationDegreeId}</div>
             </div>
 
             <div class="form-outline mb-4">
@@ -129,6 +138,7 @@
                         </c:choose>
                     </c:forEach>
                 </select>
+                <div class="text-black text-center bg-warning">${errMap.errDivisionId}</div>
             </div>
 
             <div class="form-outline mb-4">
@@ -145,10 +155,11 @@
                         </c:choose>
                     </c:forEach>
                 </select>
+                <div class="text-black text-center bg-warning">${errMap.errUserName}</div>
             </div>
 
             <div class="form-outline mb-4">
-                <label class="form-label" for="form1Example16">Employee Username</label>
+                <label class="form-label" for="form1Example16">Status</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example16" name="status">
                         <c:choose>
                             <c:when test="${status == 0}">
@@ -161,6 +172,8 @@
                             </c:otherwise>
                         </c:choose>
                 </select>
+                <div class="text-black text-center bg-warning">${errMap.errStatus}</div>
+
             </div>
 
             <button type="submit" class="btn btn-warning btn-block">Submit</button>

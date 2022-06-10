@@ -66,7 +66,8 @@
             </ul>
             <form class="d-flex" method="get" action="customer">
                 <input type="text" value="search" name="action" hidden>
-                <input class="form-control me-2" type="text" placeholder="Search" name="customerSearchValue" value="${customerSearchValue}">
+                <input class="form-control me-2" type="text" placeholder="Name" name="customerNameSearchValue" value="${customerNameSearchValue}">
+                <input class="form-control me-2" type="text" placeholder="Address" name="customerAddressSearchValue" value="${customerAddressSearchValue}">
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
         </div>
@@ -144,7 +145,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h5>
+                                    <h5 class="modal-title text-danger" id="staticBackdropLabel">Yamete!</h5>
                                 </div>
                                 <div class="modal-body">
                                     <h5>Do you want delete <strong class="text-warning">${i.customerName}</strong> ?</h5>

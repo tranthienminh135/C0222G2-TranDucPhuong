@@ -36,7 +36,7 @@ public class CustomerController extends HttpServlet {
                 showEditForm(request, response);
                 break;
             case "search":
-                searchCustomerByName(request, response);
+                searchCustomerByNameAndAddress(request, response);
                 break;
             case "showCustomerUsingService":
                 showListCustomerUsingService(request, response);
@@ -52,11 +52,13 @@ public class CustomerController extends HttpServlet {
         request.getRequestDispatcher("customer/customer-using-service.jsp").forward(request, response);
     }
 
-    private void searchCustomerByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String customerSearchValue = request.getParameter("customerSearchValue");
+    private void searchCustomerByNameAndAddress(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String customerNameSearchValue = request.getParameter("customerNameSearchValue");
+        String customerAddressSearchValue = request.getParameter("customerAddressSearchValue");
         request.setAttribute("listCustomerType", customerService.getAllCustomerType());
-        request.setAttribute("listCustomer", customerService.searchCustomerByName(customerSearchValue));
-        request.setAttribute("customerSearchValue", customerSearchValue);
+        request.setAttribute("listCustomer", customerService.searchCustomerByName(customerNameSearchValue, customerAddressSearchValue));
+        request.setAttribute("customerNameSearchValue", customerNameSearchValue);
+        request.setAttribute("customerAddressSearchValue", customerAddressSearchValue);
         request.getRequestDispatcher("customer/customer-home.jsp").forward(request, response);
     }
 
@@ -148,6 +150,7 @@ public class CustomerController extends HttpServlet {
         } catch (NumberFormatException e) {
             errStatus = "Ôi bạn ơi! đừng f12";
         }
+
         Customer customer = new Customer(idEdit, customerTypeId, customerName, customerBirthday, customerGender, customerIdCard, customerPhone, customerEmail, customerAddress, status);
         Map<String, String> errMap = customerService.updateCustomer(customer);
         if (errCustomerTypeId != null) {
@@ -173,22 +176,66 @@ public class CustomerController extends HttpServlet {
             request.setAttribute("customerEmail", customerEmail);
             request.setAttribute("customerAddress", customerAddress);
             request.setAttribute("status", status);
-            request.getRequestDispatcher("customer/customer-form-edit.jsp").forward(request,response);
+            request.getRequestDispatcher("customer/customer-form-edit.jsp").forward(request, response);
         }
-
     }
 
-    private void createCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
+    private void createCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        int customerTypeId = 0;
+        String errCustomerTypeId = null;
+        try {
+            String temp = request.getParameter("customerTypeId");
+            if (temp == null) {
+                errCustomerTypeId = "Chọn đi bạn đừng sợ!";
+            } else {
+                customerTypeId = Integer.parseInt(request.getParameter("customerTypeId"));
+            }
+        } catch (NumberFormatException e) {
+            errCustomerTypeId = "Ôi bạn ơi! đừng f12";
+        }
         String customerName = request.getParameter("customerName");
         String customerBirthday = request.getParameter("customerBirthday");
-        int customerGender = Integer.parseInt(request.getParameter("customerGender"));
+
+        int customerGender = 0;
+        String errCustomerGender = null;
+        try {
+            String temp = request.getParameter("customerGender");
+            if (temp == null) {
+                errCustomerGender = "Chọn đi bạn đừng sợ!";
+            } else {
+                customerGender = Integer.parseInt(request.getParameter("customerGender"));
+            }
+        } catch (NumberFormatException e) {
+            errCustomerGender = "Ôi bạn ơi! đừng f12";
+        }
         String customerIdCard = request.getParameter("customerIdCard");
         String customerPhone = request.getParameter("customerPhone");
         String customerEmail = request.getParameter("customerEmail");
         String customerAddress = request.getParameter("customerAddress");
+
         Customer customer = new Customer(customerTypeId, customerName, customerBirthday, customerGender, customerIdCard, customerPhone, customerEmail, customerAddress);
-        customerService.saveCustomer(customer);
-        response.sendRedirect("/customer");
+
+        Map<String, String> errMap = customerService.saveCustomer(customer);
+        if (errCustomerTypeId != null) {
+            errMap.put("errCustomerTypeId", errCustomerTypeId);
+        }
+        if (errCustomerGender != null) {
+            errMap.put("errCustomerGender", errCustomerGender);
+        }
+        if (errMap.isEmpty()) {
+            response.sendRedirect("/customer");
+        } else {
+            request.setAttribute("errMap", errMap);
+            request.setAttribute("listCustomerType", customerService.getAllCustomerType());
+            request.setAttribute("customerTypeId", customerTypeId);
+            request.setAttribute("customerName", customerName);
+            request.setAttribute("customerBirthday", customerBirthday);
+            request.setAttribute("customerGender", customerGender);
+            request.setAttribute("customerIdCard", customerIdCard);
+            request.setAttribute("customerPhone", customerPhone);
+            request.setAttribute("customerEmail", customerEmail);
+            request.setAttribute("customerAddress", customerAddress);
+            request.getRequestDispatcher("customer/customer-form-create.jsp").forward(request, response);
+        }
     }
 }

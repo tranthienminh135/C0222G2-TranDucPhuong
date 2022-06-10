@@ -50,37 +50,44 @@
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example1">Employee Name</label>
-                <input type="text" id="form1Example1" class="form-control" name="employeeName"/>
+                <input type="text" id="form1Example1" class="form-control" name="employeeName" value="${employeeName}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeeName}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example3">Employee Birthday</label>
-                <input type="text" id="form1Example3" class="form-control" name="employeeBirthday"/>
+                <input type="date" id="form1Example3" class="form-control" name="employeeBirthday" value="${employeeBirthday}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeeBirthday}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example5">Employee ID Card</label>
-                <input type="text" id="form1Example5" class="form-control" name="employeeIdCard"/>
+                <input type="text" id="form1Example5" class="form-control" name="employeeIdCard" value="${employeeIdCard}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeeIdCard}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example14">Employee Salary</label>
-                <input type="text" id="form1Example14" class="form-control" name="employeeSalary"/>
+                <input type="text" id="form1Example14" class="form-control" name="employeeSalary" value="${employeeSalary}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeeSalary}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example6">Employee Phone</label>
-                <input type="text" id="form1Example6" class="form-control" name="employeePhone"/>
+                <input type="text" id="form1Example6" class="form-control" name="employeePhone" value="${employeePhone}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeePhone}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example7">Employee Email</label>
-                <input type="text" id="form1Example7" class="form-control" name="employeeEmail"/>
+                <input type="text" id="form1Example7" class="form-control" name="employeeEmail" value="${employeeEmail}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeeEmail}</div>
             </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example9">Employee Address</label>
-                <input type="text" id="form1Example9" class="form-control" name="employeeAddress"/>
+                <input type="text" id="form1Example9" class="form-control" name="employeeAddress" value="${employeeAddress}"/>
+                <div class="text-black text-center bg-warning">${errMap.errEmployeeAddress}</div>
             </div>
 
             <div class="form-outline mb-4">
@@ -88,9 +95,17 @@
                 <select class="form-select" aria-label="Default select example" id="form1Example10" name="positionId">
                     <option selected disabled>Choice Employee Position</option>
                     <c:forEach items="${listPosition}" var="i">
-                        <option value="${i.positionId}">${i.positionName}</option>
+                        <c:choose>
+                            <c:when test="${i.positionId == positionId1}">
+                                <option value="${i.positionId}" selected>${i.positionName}</option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="${i.positionId}" >${i.positionName}</option>
+                            </c:otherwise>
+                        </c:choose>
                     </c:forEach>
                 </select>
+                <div class="text-black text-center bg-warning">${errMap.errPositionId}</div>
             </div>
 
             <div class="form-outline mb-4">
@@ -98,19 +113,35 @@
                 <select class="form-select" aria-label="Default select example" id="form1Example11" name="educationDegreeId">
                     <option selected disabled>Choice Employee Education Degree</option>
                     <c:forEach items="${listED}" var="i">
-                        <option value="${i.educationDegreeId}">${i.educationDegreeName}</option>
+                        <c:choose>
+                            <c:when test="${i.educationDegreeId == educationDegreeId1}">
+                                <option value="${i.educationDegreeId}" selected>${i.educationDegreeName}</option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="${i.educationDegreeId}" >${i.educationDegreeName}</option>
+                            </c:otherwise>
+                        </c:choose>
                     </c:forEach>
                 </select>
+                <div class="text-black text-center bg-warning">${errMap.errEducationDegreeId}</div>
             </div>
-
             <div class="form-outline mb-4">
                 <label class="form-label" for="form1Example12">Employee Division</label>
                 <select class="form-select" aria-label="Default select example" id="form1Example12" name="divisionId">
                     <option selected disabled>Choice Employee Division</option>
                     <c:forEach items="${listDivision}" var="i">
-                        <option value="${i.divisionId}">${i.divisionName}</option>
+                        <c:choose>
+                            <c:when test="${i.divisionId == divisionId1}">
+                                <option value="${i.divisionId}" selected>${i.divisionName}</option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="${i.divisionId}" >${i.divisionName}</option>
+                            </c:otherwise>
+                        </c:choose>
                     </c:forEach>
                 </select>
+                <div class="text-black text-center bg-warning">${errMap.errDivisionId}</div>
+
             </div>
 
             <div class="form-outline mb-4">
@@ -118,9 +149,17 @@
                 <select class="form-select" aria-label="Default select example" id="form1Example15" name="username">
                     <option selected disabled>Choice Employee Username</option>
                     <c:forEach items="${listUser}" var="i">
-                        <option value="${i.username}">${i.username}</option>
+                        <c:choose>
+                            <c:when test="${i.username == username1}">
+                                <option value="${i.username}" selected>${i.username}</option>
+                            </c:when>
+                            <c:otherwise>
+                                <option value="${i.username}" >${i.username}</option>
+                            </c:otherwise>
+                        </c:choose>
                     </c:forEach>
                 </select>
+                <div class="text-black text-center bg-warning">${errMap.errUserName}</div>
             </div>
 
             <button type="submit" class="btn btn-warning btn-block">Submit</button>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -18,6 +19,7 @@
         table {
             font-size: 14px !important;
         }
+
         .table-scrollable {
             overflow: auto;
         }
@@ -29,12 +31,15 @@
         button {
             background-color: deeppink !important;
         }
+
         .btn-pink {
             background-color: deeppink !important;
         }
+
         .nav-item:hover {
             border: 3px solid deeppink;
         }
+
         .bg-pink {
             background-color: deeppink !important;
         }
@@ -66,7 +71,8 @@
             </ul>
             <form class="d-flex" method="get" action="employee">
                 <input type="text" value="search" name="action" hidden>
-                <input class="form-control me-2" type="text" placeholder="Search" name="employeeSearchValue" value="${employeeSearchValue}">
+                <input class="form-control me-2" type="text" placeholder="Search" name="employeeSearchValue"
+                       value="${employeeSearchValue}">
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
         </div>
@@ -82,7 +88,7 @@
                 <th class="table-warning">Name</th>
                 <th class="table-warning">Birthday</th>
                 <th class="table-warning">Id Card</th>
-                <th class="table-warning">Salary</th>
+                <th class="table-warning">Salary (USD)</th>
                 <th class="table-warning">Phone</th>
                 <th class="table-warning">Email</th>
                 <th class="table-warning">Address</th>
@@ -102,7 +108,7 @@
                     <td class="table-warning">${i.employeeName}</td>
                     <td class="table-warning">${i.employeeBirthday}</td>
                     <td class="table-warning">${i.employeeIdCard}</td>
-                    <td class="table-warning">${i.employeeSalary}</td>
+                    <td class="table-warning"><fmt:formatNumber currencyCode="currency" value="${i.employeeSalary}"/></td>
                     <td class="table-warning">${i.employeePhone}</td>
                     <td class="table-warning">${i.employeeEmail}</td>
                     <td class="table-warning">${i.employeeAddress}</td>
@@ -126,7 +132,8 @@
                         <c:when test="${i.status == 0}">
                             <td class="table-warning text-success">Active</td>
                             <td class="table-warning">
-                                <a href="" class="text-danger text-decoration-none fw-bold hover-zoom" data-bs-toggle="modal" data-bs-target="#staticBackdrop${i.employeeId}">
+                                <a href="" class="text-danger text-decoration-none fw-bold hover-zoom"
+                                   data-bs-toggle="modal" data-bs-target="#staticBackdrop${i.employeeId}">
                                     Delete
                                 </a>
                             </td>
@@ -134,7 +141,7 @@
                         <c:when test="${i.status == 1}">
                             <td class="table-warning text-danger">Deleted</td>
                             <td class="table-warning">
-                                <span class="text-secondary text-decoration-line-through fw-bold hover-zoom" >
+                                <span class="text-secondary text-decoration-line-through fw-bold hover-zoom">
                                     Delete
                                 </span>
                             </td>
@@ -142,23 +149,30 @@
                     </c:choose>
 
                     <!-- Modal -->
-                    <div class="modal fade" id="staticBackdrop${i.employeeId}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="staticBackdrop${i.employeeId}" data-bs-backdrop="static"
+                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h5>
+                                    <h5 class="modal-title text-danger" id="staticBackdropLabel">Yamete!</h5>
                                 </div>
                                 <div class="modal-body">
-                                    <h5>Do you want delete <strong class="text-warning">${i.employeeName}</strong> ?</h5>
+                                    <h5>Do you want delete <strong class="text-warning">${i.employeeName}</strong> ?
+                                    </h5>
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="employee?action=delete&idDelete=${i.employeeId}" class="btn btn-pink text-white">Accept</a>
-                                    <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal" style="background-color: grey !important;">Close</button>
+                                    <a href="employee?action=delete&idDelete=${i.employeeId}"
+                                       class="btn btn-pink text-white">Accept</a>
+                                    <button type="button" class="btn btn-secondary text-white" data-bs-dismiss="modal"
+                                            style="background-color: grey !important;">Close
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <td class="table-warning"><a href="employee?action=edit&idEdit=${i.employeeId}" class="text-warning text-decoration-none fw-bold hover-zoom">Edit</a>
+                    <td class="table-warning"><a href="employee?action=edit&idEdit=${i.employeeId}"
+                                                 class="text-warning text-decoration-none fw-bold hover-zoom">Edit</a>
                 </tr>
             </c:forEach>
             </tbody>
