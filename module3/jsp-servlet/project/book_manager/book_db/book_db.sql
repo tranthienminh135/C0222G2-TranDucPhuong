@@ -1,6 +1,6 @@
-drop database if exists `exam_module_3`;
-create database if not exists `exam_module_3`;
-use `exam_module_3`;
+drop database if exists `abc`;
+create database if not exists `abc`;
+use `abc`;
 
 create table `author` (
 `author_id` int auto_increment,

@@ -12,7 +12,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  <c:redirect url="servlet">
+  <c:redirect url="home">
 
   </c:redirect>
   </body>
