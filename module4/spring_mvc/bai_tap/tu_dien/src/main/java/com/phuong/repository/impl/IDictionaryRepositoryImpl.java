@@ -17,7 +17,7 @@ public class IDictionaryRepositoryImpl implements IDictionaryRepository {
         dictionaryMap.put("Cat", "Con mèo");
         dictionaryMap.put("Chick", "Con gà con");
         dictionaryMap.put("Turkey", "Gà Tây");
-        dictionaryMap.put("Duck", "Vịt");
+        dictionaryMap.put("Duck", "Con vịt");
         dictionaryMap.put("Parrot", "Con vẹt");
         dictionaryMap.put("Fox", "Con cáo");
         dictionaryMap.put("Lion", "Con sư tử");

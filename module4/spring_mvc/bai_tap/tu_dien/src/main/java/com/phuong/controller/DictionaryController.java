@@ -25,12 +25,11 @@ public class DictionaryController {
     ) {
         String value = dictionaryService.translation(english);
         if (value == null) {
-            model.addAttribute("alert", "Thông báo: Nhập chữ khác đi chữ này từ điển chưa có!");
-            model.addAttribute("english", english);
+            model.addAttribute("alert", "Nhập chữ khác đi chữ này từ điển chưa có!");
         } else {
             model.addAttribute("vietnamese", value);
-            model.addAttribute("english", english);
         }
+        model.addAttribute("english", english);
         return "translation";
     }
 }
