@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8102b90d-64a7-4d78-8f7c-521f22e196e3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/mail_managerment/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/mail_managerment/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/mail_managerment/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/mail_managerment/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/mail_managerment/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/mail_managerment/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/mail_managerment/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/mail_managerment/src/main/java/com/phuong/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/mail_managerment/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/mail_managerment/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../bai_tap/mail_managerment/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/src/main/java/com/phuong/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/src/main/java/com/phuong/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/src/main/java/com/phuong/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/src/main/webapp/WEB-INF/views/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/src/main/webapp/WEB-INF/views/info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../form_and_data_binding/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/src/main/java/com/phuong/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/src/main/java/com/phuong/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/src/main/java/com/phuong/model/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/src/main/java/com/phuong/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/src/main/java/com/phuong/model/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/src/main/webapp/WEB-INF/views/error.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/src/main/webapp/WEB-INF/views/user.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../login/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/phuong/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/controller/CalculatorController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/service/ICalculatorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/service/impl/CalculatorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/calculator.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring_controller/bai_tap/caculater/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring_controller/bai_tap/caculater/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring_controller/bai_tap/caculater/src/main/webapp/WEB-INF/views/calculator.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring_controller/bai_tap/caculater/src/main/webapp/WEB-INF/views/calculator.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring_controller/bai_tap/sandwich-managerment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring_controller/bai_tap/sandwich-managerment/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="2AgccvF3Ip9P4ty2T50cHBmk6de" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\CodeGym\Module\module4\data_binding_form\thuc_hanh\upload_file\src\main\java\com" />
+      <recent name="G:\CodeGym\Module\module4\data_binding_form\thuc_hanh\upload_file\src\main\webapp" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8102b90d-64a7-4d78-8f7c-521f22e196e3" name="Changes" comment="" />
+      <created>1655434753188</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655434753188</updated>
+      <workItem from="1655434755048" duration="1456000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

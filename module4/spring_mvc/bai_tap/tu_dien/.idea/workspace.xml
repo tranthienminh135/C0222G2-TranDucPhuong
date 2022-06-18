@@ -5,85 +5,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd750676-c2c6-478e-a560-d3676ef3ba12" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../../module3/css/src/case_study_template/text.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/src/main/java/com/phuong/config/CharsetFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/src/main/java/com/phuong/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/src/main/java/com/phuong/repository/ILoginRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/src/main/java/com/phuong/repository/impl/LoginRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/src/main/java/com/phuong/service/ILoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/src/main/java/com/phuong/service/impl/LoginServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/src/main/webapp/WEB-INF/views/welcome.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/validation_email/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/controller/DictionaryController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/repository/IDictionaryRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/repository/impl/IDictionaryRepositoryImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/service/IDictionaryService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/service/impl/DictionaryService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/translation.jsp" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/mail_managerment/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/mail_managerment/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/mail_managerment/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/mail_managerment/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/mail_managerment/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/mail_managerment/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/mail_managerment/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/mail_managerment/src/main/java/com/phuong/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/mail_managerment/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/mail_managerment/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/mail_managerment/src/main/webapp/WEB-INF/views/mail.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/mail_managerment/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/src/main/java/com/phuong/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/src/main/java/com/phuong/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/src/main/java/com/phuong/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/src/main/webapp/WEB-INF/views/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/src/main/webapp/WEB-INF/views/info.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/form_and_data_binding/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/src/main/java/com/phuong/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/src/main/java/com/phuong/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/src/main/java/com/phuong/model/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/src/main/java/com/phuong/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/src/main/java/com/phuong/model/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/src/main/webapp/WEB-INF/views/error.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/src/main/webapp/WEB-INF/views/user.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/login/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/upload_file/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/upload_file/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/upload_file/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/upload_file/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/upload_file/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/upload_file/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/upload_file/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/upload_file/src/main/java/com/phuong/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/upload_file/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/upload_file/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/thuc_hanh/upload_file/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/controller/CalculatorController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/service/ICalculatorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/service/impl/CalculatorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/calculator.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/phuong/controller/DictionaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/phuong/controller/DictionaryController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/phuong/service/impl/DictionaryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/phuong/service/impl/DictionaryService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/tu_dien-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/tu_dien-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/phuong/controller/DictionaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/phuong/controller/DictionaryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/phuong/repository/impl/IDictionaryRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/phuong/repository/impl/IDictionaryRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/7.1/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/7.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/7.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/build/classes/java/main/config/CharsetFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/build/classes/java/main/controller/GreetingController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/build/libs/test-1.0-SNAPSHOT.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/build/tmp/war/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/src/main/java/config/CharsetFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/src/main/java/controller/GreetingController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../test/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring_controller/bai_tap/caculater/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring_controller/bai_tap/caculater/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring_controller/bai_tap/caculater/src/main/webapp/WEB-INF/views/calculator.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring_controller/bai_tap/caculater/src/main/webapp/WEB-INF/views/calculator.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring_controller/bai_tap/sandwich-managerment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring_controller/bai_tap/sandwich-managerment/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +110,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../module3/css/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -236,6 +221,7 @@
       <workItem from="1655282152714" duration="4597000" />
       <workItem from="1655299696301" duration="5206000" />
       <workItem from="1655344432608" duration="1703000" />
+      <workItem from="1655447750448" duration="22000" />
     </task>
     <servers />
   </component>

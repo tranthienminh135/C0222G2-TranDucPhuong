@@ -14,7 +14,8 @@
 <h1>Caculator</h1>
 <form action="/calculator" method="post">
     <input type="text" name="firstNumber">
-    <input type="text" name="secondNumber"> <br>
+    <input type="text" name="secondNumber">
+    <br>
     <hr>
     <input type="submit" name="operator" value="+">
     <input type="submit" name="operator" value="-">
