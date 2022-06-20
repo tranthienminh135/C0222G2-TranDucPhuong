@@ -175,13 +175,13 @@
 <script src="../style/datatables/js/jquery.dataTables.min.js"></script>
 <script src="../style/datatables/js/dataTables.bootstrap4.min.js"></script>
 <script src="../style/bootstrap/bootstrap.bundle.min.js"></script>
-<%--<script>--%>
-<%--    $(document).ready(function () {--%>
-<%--        $('#myTable').dataTable({--%>
-<%--            "dom": 'lrtip',--%>
-<%--            "lengthChange": false,--%>
-<%--            "pageLength": 5--%>
-<%--        });--%>
-<%--    });--%>
-<%--</script>--%>
+<script>
+    $(document).ready(function () {
+        $('#myTable').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 5
+        });
+    });
+</script>
 </html>

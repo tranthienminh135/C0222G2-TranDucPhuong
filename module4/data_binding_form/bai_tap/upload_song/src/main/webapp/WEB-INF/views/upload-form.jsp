@@ -93,7 +93,7 @@
         <tr>
             <td class="title">Link: </td>
             <td>
-                <iframe width="300" height="auto" src="${u0ploadSongResult.link}" title="The Song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="300" height="auto" src="${uploadSongResult.link}" title="The Song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </td>
         </tr>
     </table>
