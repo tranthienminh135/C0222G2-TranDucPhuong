@@ -24,12 +24,12 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Product findById(String id) {
+    public Product findById(int id) {
         return productRepository.findById(id);
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(int id) {
         productRepository.delete(id);
     }
 

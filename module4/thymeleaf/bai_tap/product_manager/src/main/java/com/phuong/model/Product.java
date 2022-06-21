@@ -1,15 +1,12 @@
 package com.phuong.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private Integer id;
     private String name;
     private Double price;
     private String description;
@@ -18,7 +15,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(String id, String name, Double price, String description, String manufacturer) {
+    public Product(Integer id, String name, Double price, String description, String manufacturer) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -26,11 +23,11 @@ public class Product {
         this.manufacturer = manufacturer;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -64,16 +61,5 @@ public class Product {
 
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                ", manufacturer='" + manufacturer + '\'' +
-                '}';
     }
 }

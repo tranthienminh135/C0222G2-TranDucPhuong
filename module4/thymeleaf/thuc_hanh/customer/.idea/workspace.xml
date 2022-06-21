@@ -5,19 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66d9487d-d8f0-40b5-966b-6f8019a57f4e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/config/CharsetFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/configuration/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/configuration/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/service/ICustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/service/impl/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/controller/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/repository/IProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/repository/IProductRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/repository/impl/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/repository/impl/ProductRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/service/IProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/service/IProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/service/impl/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/service/impl/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/repository/impl/MusicRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/repository/impl/MusicRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +72,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -196,6 +192,7 @@
       <workItem from="1655729968230" duration="20000" />
       <workItem from="1655731356836" duration="731000" />
       <workItem from="1655793100134" duration="449000" />
+      <workItem from="1655817259666" duration="31000" />
     </task>
     <servers />
   </component>

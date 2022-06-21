@@ -9,9 +9,9 @@ public interface IProductService {
 
     void save(Product product);
 
-    Product findById(String id);
+    Product findById(int id);
 
-    void delete(String id);
+    void delete(int id);
 
     void edit(Product product);
 

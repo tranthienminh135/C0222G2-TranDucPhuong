@@ -46,9 +46,15 @@ public class MusicRepository implements IMusicRepository {
     public Music findById(int id) {
         return BaseRepository.entityManager.find(Music.class, id);
     }
-
     @Override
     public void update(Music music) {
-        BaseRepository.entityManager.merge(music);
+        EntityTransaction entityTransaction = BaseRepository.entityManager.getTransaction();
+        entityTransaction.begin();
+        try {
+            BaseRepository.entityManager.merge(music);
+            entityTransaction.commit();
+        } catch (Exception e) {
+            entityTransaction.rollback();
+        }
     }
 }
