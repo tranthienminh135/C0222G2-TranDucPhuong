@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns: lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{common-html :: bootstrapCss}"></th:block>
+</head>
+<body>
+<div class="container">
+    <form action="/music/create" method="post" th:object="${music}">
+        <div class="mb-3 mt-3">
+            <label for="songName" class="form-label">Song Name:</label>
+            <input type="text" class="form-control" id="songName" placeholder="Enter song name" name="songName" th:field="*{songName}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="singer" class="form-label">Singer:</label>
+            <input type="text" class="form-control" id="singer" placeholder="Enter singer" name="singer" th:field="*{singer}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="category" class="form-label">Song category:</label>
+            <input type="text" class="form-control" id="category" placeholder="Enter category" name="category" th:field="*{category}">
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="songPath" class="form-label">Song Path:</label>
+            <input type="text" class="form-control" id="songPath" placeholder="Enter song path" name="songPath" th:field="*{songPath}">
+        </div>
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+        <a href="/music/" class="btn btn-outline-secondary">Back home</a>
+    </form>
+</div>
+</div>
+<th:block th:replace="~{common-html :: boostrapScript}"></th:block>
+</body>
+</html>

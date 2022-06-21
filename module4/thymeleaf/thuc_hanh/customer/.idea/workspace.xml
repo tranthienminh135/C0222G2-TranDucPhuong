@@ -5,41 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66d9487d-d8f0-40b5-966b-6f8019a57f4e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/.idea/webContexts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/css/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/css/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/project/exam_module_3/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/project/exam_module_3/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/project/exam_module_3/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/project/exam_module_3/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/project/exam_module_3/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/project/exam_module_3/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/project/exam_module_3/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/project/exam_module_3/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/project/exam_module_3/src/main/webapp/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/project/exam_module_3/src/main/webapp/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/project/ss4_jdbc/bai_tap/ss1_quan_ly_user/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/project/ss4_jdbc/bai_tap/ss1_quan_ly_user/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/applicationContext.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/controller/MedicalDeclarationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/model/MedicalDeclaration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-aop-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-beans-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-context-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-core-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-expression-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-jcl-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-web-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-webmvc-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/home.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/build/classes/java/main/com/phuong/controller/UploadSongController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/build/classes/java/main/com/phuong/controller/UploadSongController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/build/libs/upload_song-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/build/libs/upload_song-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/src/main/webapp/WEB-INF/views/upload-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../data_binding_form/bai_tap/upload_song/src/main/webapp/WEB-INF/views/upload-form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../spring_mvc/bai_tap/tu_dien/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring_mvc/bai_tap/tu_dien/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/config/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/configuration/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/configuration/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../csdl_and_orm/bai_tap/music_player_app/src/main/java/com/phuong/service/impl/CustomerService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,6 +195,7 @@
       <workItem from="1655727453390" duration="17000" />
       <workItem from="1655729968230" duration="20000" />
       <workItem from="1655731356836" duration="731000" />
+      <workItem from="1655793100134" duration="449000" />
     </task>
     <servers />
   </component>
