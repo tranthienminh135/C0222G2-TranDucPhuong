@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns: lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -12,46 +12,74 @@
         <div class="mask">
             <div class="d-flex justify-content-center align-items-center h-100">
                 <div class="text-success">
-                    <h1 class="mb-3">Product Management</h1>
-                    <a class="btn btn-outline-success btn-lg" th:href="@{/product/create}" role="button">Create Product</a>
+                    <h1 class="mb-3">Music Management</h1>
+                    <a th:href="@{/music/create}" class="btn btn-outline-success btn-lg" role="button">Create Music</a>
                 </div>
             </div>
         </div>
     </div>
 </header>
-<div class="text-success">
-    <form class="d-flex" action="/product/search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-</div>
 <div class="container mt-3">
     <table class="table table-hover">
         <thead>
         <tr>
             <th>CN</th>
             <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
+            <th>Song Name</th>
+            <th>Singer</th>
+            <th>Category</th>
+            <th>Song Path</th>
             <th>Edit</th>
             <th>Delete</th>
-            <th>Detail</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="item, loop : ${products}">
+        <tr th:each="item, loop : ${musicList}">
             <td th:text="${loop.count}"></td>
             <td th:text="${item.id}"></td>
-            <td th:text="${item.name}"></td>
-            <td th:text="${item.price}"></td>
+            <td th:text="${item.songName}"></td>
+            <td th:text="${item.singer}"></td>
+            <td th:text="${item.category}"></td>
             <td>
-                <a href="" th:href="@{/product/edit/{id}(id=${item.id})}" class="btn btn-warning">Edit</a>
+                <iframe th:src="${item.songPath}"
+                        th:title="${item.songName}" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
             </td>
             <td>
-                <a href="" th:href="@{/product/delete/{id}(id=${item.id})}" class="btn btn-danger">Delete</a>
+                <a href="" th:href="@{/music/edit/{id}(id=${item.id})}" class="btn btn-outline-warning">Edit</a>
             </td>
             <td>
-                <a href="" th:href="@{/product/detail/{id}(id=${item.id})}" class="btn btn-success">Show Detail</a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                        th:data-bs-target="'#staticBackdrop' + ${item.id}">
+                    Delete
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static"
+                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-danger" id="staticBackdropLabel">Warning!</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Do you want delete music <span th:text="${item.songName}" class="text-warning"></span>
+                                with id = <span th:text="${item.id}" class="text-warning"></span> ?
+                            </div>
+                            <div class="modal-footer">
+                                <a href="" th:href="@{/music/delete/{id}(id=${item.id})}"
+                                   class="btn btn-outline-success">Delete</a>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </td>
         </tr>
         </tbody>
