@@ -1,11 +1,13 @@
 package com.phuong.service;
 
 import com.phuong.model.Blog;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface IBlogService {
-    List<Blog> getAllBlog();
+    Page<Blog> getAllBlog(String searchValue, Pageable pageable);
 
     void deleteBlog(int id);
 

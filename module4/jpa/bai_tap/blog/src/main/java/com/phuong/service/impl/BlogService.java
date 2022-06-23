@@ -4,6 +4,8 @@ import com.phuong.model.Blog;
 import com.phuong.repository.IBlogRepository;
 import com.phuong.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +15,8 @@ public class BlogService implements IBlogService {
     @Autowired
     private IBlogRepository blogRepository;
     @Override
-    public List<Blog> getAllBlog() {
-        return this.blogRepository.getAllBlog();
+    public Page<Blog> getAllBlog(String searchValue ,Pageable pageable) {
+        return this.blogRepository.getAllBlog("%" + searchValue + "%" ,pageable);
     }
 
     @Override

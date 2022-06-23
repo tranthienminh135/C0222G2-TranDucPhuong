@@ -25,6 +25,10 @@
             <td th:text="${blog.description}"></td>
         </tr>
         <tr>
+            <th>Category</th>
+            <td th:text="${blog.category.categoryName}"></td>
+        </tr>
+        <tr>
             <td colspan="2">
                 <a href="/blog/home" class="btn btn-outline-secondary">Back home</a>
             </td>
