@@ -1,30 +1,29 @@
 package phuong.giai_thuat;
 
+import java.util.*;
+
 public class Test {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 3, 4, 1, 2, 6};
-        System.out.println(solution(arr));
+        String str = "abdcefa";
+        System.out.println(solution(str));
     }
 
-    public static boolean solution(int[] arr) {
-
-        if (arr.length < 3) {
-            return false;
-        } else {
-            int firstSum = 0;
-            for (int i = 1; i < arr.length; i++) {
-                firstSum += arr[i - 1];
-                int secondSum = 0;
-                for (int j = i + 1; j < arr.length; j++) {
-                    secondSum += arr[j];
-                }
-                if (firstSum == secondSum) {
-                    return true;
+    public static char[] solution(String str) {
+        Set<Character> characters = new HashSet<>();
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = i + 1; j < str.length(); j++) {
+                if (str.charAt(i) == str.charAt(j)) {
+                    characters.add(str.charAt(i));
                 }
             }
-
+        }
+        char[] temp = new char[characters.size()];
+        int i = 0;
+        for (Character character: characters) {
+            temp[i] = character;
+            i++;
         }
 
-        return false;
+        return temp;
     }
 }
