@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns: lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{common-html :: bootstrapCss}"></th:block>
+</head>
+<body>
+<div class="container">
+    <form action="/music/edit" method="post" th:object="${music}">
+        <div class="mb-3 mt-3">
+            <input type="hidden" class="form-control" id="id" placeholder="id" th:field="*{id}">
+        </div>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('id')}">
+            <div th:errors="*{id}"></div>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" th:field="*{name}">
+        </div>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}">
+            <div th:errors="*{name}"></div>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="singer" class="form-label">Singer:</label>
+            <input type="text" class="form-control" id="singer" placeholder="Enter singer" th:field="*{singer}">
+        </div>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('singer')}">
+            <div th:errors="*{singer}"></div>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="genre" class="form-label">Genre:</label>
+            <input type="text" class="form-control" id="genre" placeholder="Enter genre" th:field="*{genre}">
+        </div>
+        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('genre')}">
+            <div th:errors="*{genre}"></div>
+        </div>
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+        <a href="/music/home" class="btn btn-outline-secondary">Back home</a>
+    </form>
+</div>
+</div>
+<th:block th:replace="~{common-html :: boostrapScript}"></th:block>
+</body>
+</html>

@@ -4,65 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e758489f-cb8d-43bf-82fa-fee1309a2327" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../jpa/bai_tap/blog/src/main/java/com/phuong/controller/BlogController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/bai_tap/blog/src/main/java/com/phuong/model/Blog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/bai_tap/blog/src/main/java/com/phuong/repository/IBlogRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/bai_tap/blog/src/main/java/com/phuong/service/IBlogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/bai_tap/blog/src/main/java/com/phuong/service/impl/BlogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/bai_tap/blog/src/main/resources/templates/common-html.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/bai_tap/blog/src/main/resources/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/java/com/phuong/config/CharsetFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/java/com/phuong/configuration/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/java/com/phuong/configuration/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/java/com/phuong/controller/CustomerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/java/com/phuong/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/java/com/phuong/repository/BaseRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/java/com/phuong/repository/ICustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/java/com/phuong/repository/IGeneralRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/java/com/phuong/repository/impl/CustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/java/com/phuong/service/ICustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/java/com/phuong/service/IGeneralService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/java/com/phuong/service/impl/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/resources/hibernate.conf.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/webapp/WEB-INF/views/common-html.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/webapp/WEB-INF/views/customer/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/webapp/WEB-INF/views/customer/delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/webapp/WEB-INF/views/customer/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/src/main/webapp/WEB-INF/views/customer/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module2/out/production/module2/phuong/giai_thuat/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/out/production/module2/phuong/giai_thuat/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module2/src/phuong/giai_thuat/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/src/phuong/giai_thuat/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/controller/ProductController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/model/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/repository/IProductRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/repository/impl/ProductRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/service/IProductService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/service/impl/ProductService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/hibernate.conf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/hibernate.conf.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/delete.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module3/jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/phuong/repository/impl/MusicRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/phuong/repository/impl/MusicRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/music_player_app-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/music_player_app-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-    </list>
+    <list default="true" id="e758489f-cb8d-43bf-82fa-fee1309a2327" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -253,6 +195,7 @@
       <workItem from="1655906964157" duration="58000" />
       <workItem from="1655907098291" duration="1376000" />
       <workItem from="1655909048288" duration="74000" />
+      <workItem from="1656148016844" duration="33000" />
     </task>
     <servers />
   </component>
