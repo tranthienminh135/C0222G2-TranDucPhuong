@@ -2,7 +2,6 @@ package com.phuong.model;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import javax.validation.constraints.*;
 

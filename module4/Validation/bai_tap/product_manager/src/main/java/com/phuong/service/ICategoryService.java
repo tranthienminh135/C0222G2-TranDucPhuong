@@ -1,4 +1,4 @@
-package com.phuong.service.impl;
+package com.phuong.service;
 
 import com.phuong.model.Category;
 

@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e758489f-cb8d-43bf-82fa-fee1309a2327" name="Changes" comment="" />
+    <list default="true" id="e758489f-cb8d-43bf-82fa-fee1309a2327" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/java/com/phuong/controller/BookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/java/com/phuong/model/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/java/com/phuong/model/DetailBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/java/com/phuong/repository/IBookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/java/com/phuong/service/IBookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/java/com/phuong/service/impl/BookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/resources/templates/error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../AOP/thuc_hanh/aspect/src/main/java/com/phuong/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../AOP/thuc_hanh/aspect/src/main/java/com/phuong/controller/showInformation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../AOP/thuc_hanh/aspect/src/main/java/com/phuong/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../AOP/thuc_hanh/aspect/src/main/java/com/phuong/service/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../AOP/thuc_hanh/aspect/src/main/java/com/phuong/service/impl/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module2/out/production/module2/phuong/giai_thuat/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/out/production/module2/phuong/giai_thuat/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module2/src/phuong/giai_thuat/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/src/phuong/giai_thuat/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module2/src/phuong/homework/controller/VehicleControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/src/phuong/homework/controller/VehicleControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module2/src/phuong/homework/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/src/phuong/homework/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/model/ProductDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/IProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/impl/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/impl/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/impl/ICategoryService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/impl/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/impl/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Validation/thuc_hanh/register_form/src/main/java/com/phuong/model/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Validation/thuc_hanh/register_form/src/main/java/com/phuong/model/UserDto.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +104,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../data_binding_form/bai_tap/medical_declaration" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -196,6 +221,7 @@
       <workItem from="1655907098291" duration="1376000" />
       <workItem from="1655909048288" duration="74000" />
       <workItem from="1656148016844" duration="33000" />
+      <workItem from="1656405146938" duration="18000" />
     </task>
     <servers />
   </component>

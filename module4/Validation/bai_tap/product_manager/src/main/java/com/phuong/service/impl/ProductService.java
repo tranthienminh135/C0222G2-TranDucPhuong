@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService implements IProductService {
 
@@ -17,6 +19,11 @@ public class ProductService implements IProductService {
     @Override
     public Page<Product> findAll(Pageable pageable, String searchValue) {
         return this.productRepository.findByKeyword(pageable, "%" + searchValue + "%");
+    }
+
+    @Override
+    public List<Product> findAll() {
+        return this.productRepository.findAll();
     }
 
     @Override

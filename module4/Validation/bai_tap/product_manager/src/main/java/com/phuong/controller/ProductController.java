@@ -2,9 +2,9 @@ package com.phuong.controller;
 
 import com.phuong.model.Category;
 import com.phuong.model.Product;
-import com.phuong.model.ProductDto;
+import com.phuong.dto.ProductDto;
 import com.phuong.service.IProductService;
-import com.phuong.service.impl.ICategoryService;
+import com.phuong.service.ICategoryService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,21 +29,22 @@ public class ProductController {
     private ICategoryService categoryService;
 
     @GetMapping("/home")
-    public String goHome(Model model, @PageableDefault(value = 3) Pageable pageable, @RequestParam Optional<String> searchParam){
+    public String goHome(Model model, @PageableDefault(value = 3) Pageable pageable, @RequestParam Optional<String> searchParam) {
         String searchValue = searchParam.orElse("");
         Page<Product> products = productService.findAll(pageable, searchValue);
         model.addAttribute("products", products);
         model.addAttribute("searchValue", searchValue);
         return "home";
     }
+
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable Integer id){
+    public String delete(@PathVariable Integer id) {
         this.productService.remove(id);
         return "redirect:/product/home";
     }
 
     @GetMapping("/create")
-    public String goCreate(Model model){
+    public String goCreate(Model model) {
         model.addAttribute("productDto", new ProductDto());
         List<Category> categories = this.categoryService.findAll();
         model.addAttribute("categories", categories);
@@ -51,7 +52,13 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public String create(@Valid @ModelAttribute("productDto") ProductDto productDto, BindingResult bindingResult, Model model){
+    public String create(@Valid @ModelAttribute("productDto") ProductDto productDto, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            List<Category> categories = this.categoryService.findAll();
+            model.addAttribute("categories", categories);
+            return "create";
+        }
+        new ProductDto().validate(productDto, bindingResult);
         if (bindingResult.hasErrors()) {
             List<Category> categories = this.categoryService.findAll();
             model.addAttribute("categories", categories);
@@ -64,7 +71,7 @@ public class ProductController {
     }
 
     @GetMapping("/edit/{id}")
-    public String goEdit(Model model, @PathVariable Integer id){
+    public String goEdit(Model model, @PathVariable Integer id) {
         Product product = this.productService.getById(id);
         ProductDto productDto = new ProductDto();
         BeanUtils.copyProperties(product, productDto);
@@ -75,7 +82,7 @@ public class ProductController {
     }
 
     @PostMapping("/edit")
-    public String edit(@Valid @ModelAttribute ProductDto productDto, BindingResult bindingResult, Model model){
+    public String edit(@Valid @ModelAttribute ProductDto productDto, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             List<Category> categories = this.categoryService.findAll();
             model.addAttribute("categories", categories);

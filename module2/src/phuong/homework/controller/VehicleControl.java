@@ -5,7 +5,7 @@ import phuong.homework.service.VehicleServiceImpl;
 import java.util.Scanner;
 
 public class VehicleControl {
-    public void diplayManager() {
+    public void displayManager() {
         Scanner sc = new Scanner(System.in);
 
         VehicleServiceImpl vehicleService = new VehicleServiceImpl();

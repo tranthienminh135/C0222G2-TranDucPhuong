@@ -1,8 +1,13 @@
-package com.phuong.model;
+package com.phuong.dto;
+
+import com.phuong.annotation.Author;
+import com.phuong.model.Category;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.validation.constraints.*;
 
-public class ProductDto {
+public class ProductDto implements Validator {
     @PositiveOrZero
     private Integer id;
 
@@ -10,6 +15,7 @@ public class ProductDto {
     @NotEmpty
     @NotBlank
     @Size(min = 3, max = 50)
+    @Author
     private String name;
 
     @NotNull
@@ -59,5 +65,18 @@ public class ProductDto {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        ProductDto productDto = (ProductDto) target;
+        if (productDto.getPrice() < 1000) {
+            errors.rejectValue("price", "priceErr");
+        }
     }
 }
