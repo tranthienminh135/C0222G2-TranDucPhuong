@@ -4,6 +4,7 @@ import com.phuong.model.Book;
 import com.phuong.model.DetailBook;
 import com.phuong.service.IBookService;
 import com.phuong.service.IDetailBookService;
+import com.phuong.service.ITrafficService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,10 +24,15 @@ public class BookController {
     @Autowired
     private IDetailBookService detailBookService;
 
+    @Autowired
+    private ITrafficService trafficService;
+
     @GetMapping("")
     public String goHome(Model model){
         List<Book> bookList = this.bookService.findAll();
         model.addAttribute("books", bookList);
+        int view = this.trafficService.getById();
+        model.addAttribute("view", view);
         return "home";
     }
 
