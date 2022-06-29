@@ -32,7 +32,7 @@ public class BookService implements IBookService {
     @Override
     public void borrowBook(Integer id) {
         Book book = this.bookRepository.getById(id);
-        if (!checkBookExists(book, this.detailBookRepository.findAll())){
+        if (this.detailBookRepository.existsById(id)){
             for (int i = 0; i < book.getQuantity(); i++) {
                 List<DetailBook> detailBooks = this.detailBookRepository.findAll();
                 DetailBook detailBook = new DetailBook();
@@ -47,15 +47,6 @@ public class BookService implements IBookService {
     @Override
     public void setQuantity(Integer id) {
         this.bookRepository.setQuantity(this.detailBookRepository.getById(id).getBook().getId());
-    }
-
-    private boolean checkBookExists(Book book, List<DetailBook> detailBooks) {
-        for (DetailBook detailBook: detailBooks) {
-            if (detailBook.getBook().equals(book)){
-                return true;
-            }
-        }
-        return false;
     }
 
     private int getRandomNumber(List<DetailBook> detailBooks) {
