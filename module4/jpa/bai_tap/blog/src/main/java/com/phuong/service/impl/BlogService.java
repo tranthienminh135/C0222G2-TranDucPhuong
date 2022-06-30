@@ -33,4 +33,14 @@ public class BlogService implements IBlogService {
     public Blog getBlog(int id) {
         return this.blogRepository.getBlog(id);
     }
+
+    @Override
+    public List<Blog> findAll() {
+        return this.blogRepository.findAll();
+    }
+
+    @Override
+    public Blog findById(int id) {
+        return this.blogRepository.findById(id).orElse(null);
+    }
 }

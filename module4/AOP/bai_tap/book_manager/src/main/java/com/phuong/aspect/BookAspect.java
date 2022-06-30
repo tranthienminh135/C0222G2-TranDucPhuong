@@ -20,9 +20,10 @@ public class BookAspect {
         System.out.println("The " + name + " method just worked");
     }
 
-    @After(" execution(public * com.phuong.controller.BookController.*(..)) ")
+    @After(" execution(public * com.phuong.controller.BookController.goHome(..)), && args(showDetail(..)) ")
     public void increaseTraffic(JoinPoint joinPoint) {
         trafficService.increase();
     }
+
 
 }
