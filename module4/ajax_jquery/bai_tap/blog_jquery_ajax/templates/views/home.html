@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+                <div class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                           id="searchValue">
+                    <button class="btn btn-outline-success" type="submit" id="btnSearch">Search</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Description</td>
+            <td>Category</td>
+            <td>Delete</td>
+            <td>Edit</td>
+        </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+    <button class="btn btn-outline-success" id="loadMore">Load more</button>
+</div>
+
+<script src="../static/bootstrap.bundle.js"></script>
+<script src="../static/jquery.min.js"></script>
+<script>
+    let totalPageTemp = 0;
+    function getPageBlog(pageNumber, size, searchValue) {
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET", //GET, DELETE, PUT...
+            url: "http://localhost:8080/rest/page-blog?page=" + pageNumber + "&size=" + size + "&searchValue=" + searchValue,
+            success: function (pageBlog) {
+                totalPageTemp = pageBlog.totalElements;
+                let blogTable = "";
+                for (let i = 0; i < pageBlog.content.length; i++) {
+                    blogTable += `<tr>
+            <td>${pageBlog.content[i].id}</td>
+            <td>${pageBlog.content[i].title}</td>
+            <td>${pageBlog.content[i].description}</td>
+            <td>${pageBlog.content[i].category.categoryName}</td>
+            <td>
+                <a href="" class="btn btn-outline-danger">Delete</a>
+            </td>
+            <td>
+                <a href="" class="btn btn-outline-warning">Edit</a>
+            </td>
+            </tr>`;
+                }
+                $('#tableBody').html(blogTable);
+            },
+            error: function (resultError) {
+                console.log(resultError);
+            }
+        });
+    }
+
+    let i = 5;
+    getPageBlog(0, 5, "")
+    $("#btnSearch").click(function () {
+        let searchValue = $("#searchValue").val();
+        getPageBlog(0, 5,searchValue);
+        i=5;
+    })
+    $("#loadMore").click(function () {
+        let searchValue = $("#searchValue").val();
+        if (i < totalPageTemp) {
+            i+=5;
+            getPageBlog(0, i,searchValue);
+        }
+    })
+
+</script>
+</body>
+</html>
