@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/smartphones")
+@CrossOrigin
 public class SmartphoneController {
     @Autowired
     private ISmartphoneService smartphoneService;
@@ -34,6 +35,7 @@ public class SmartphoneController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Smartphone> deleteSmartphone(@PathVariable Integer id) {
+        System.out.println(id);
         Optional<Smartphone> smartphoneOptional = smartphoneService.findById(id);
         if (!smartphoneOptional.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

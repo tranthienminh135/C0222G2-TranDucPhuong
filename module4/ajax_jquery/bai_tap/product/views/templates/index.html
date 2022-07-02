@@ -10,58 +10,236 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                            Create Product
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Create Product</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <form action="" class="form-control">
+
+                                        <div class="modal-body">
+                                            <label for="model" class="form-label">Model</label>
+                                            <input type="text" class="form-control" id="model">
+                                            <label for="price" class="form-label">Price</label>
+                                            <input type="text" class="form-control" id="price">
+                                            <label for="producer" class="form-label">Producer</label>
+                                            <input type="text" class="form-control" id="producer">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-primary" id="btnCreate">Save
+                                                changes
+                                            </button>
+                                            <button type="button" class="btn btn-outline-secondary"
+                                                    data-bs-dismiss="modal">Close
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>
 
-<table>
-    <thead>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    </tbody>
-</table>
+    <table class="table table-info">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Model</td>
+            <td>Price</td>
+            <td>Producer</td>
+            <td>Delete</td>
+            <td>Edit</td>
+        </tr>
+        </thead>
+        <tbody id="smartphoneTableBody">
+        </tbody>
+    </table>
 </div>
 
 <script src="../styles/jquery.min.js"></script>
 <script>
-    $.ajax({
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        type: "POST", //GET, DELETE, PUT...
-        url: "/getPosts/",
-        success: function(resultSuccess){
-            console.log(resultSuccess);
-        },
-        error: function(resultError) {
+    function showListSmartphone() {
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET", //GET, DELETE, PUT...
+            url: "http://localhost:8080/smartphones/",
+            success: function (listSmartphone) {
+                let smartphoneTable = "";
+                for (let i = 0; i < listSmartphone.length; i++) {
+                    smartphoneTable += `<tr>
+        <td>${listSmartphone[i].id}</td>
+        <td>${listSmartphone[i].model}</td>
+        <td>${listSmartphone[i].price}</td>
+        <td>${listSmartphone[i].producer}</td>
+        <td>
+        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCreate${listSmartphone[i].id}">
+          Delete
+        </button>
 
-        }
-    });
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCreate${listSmartphone[i].id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-warning" id="exampleModalLabel">FBI Warning!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Do you want to delete smartphone ${listSmartphone[i].model} with id = ${listSmartphone[i].id}
+              </div>
+              <div class="modal-footer">
+                <a href="${listSmartphone[i].id}" class="btn btn-outline-success" id="btnDelete" data-bs-dismiss="modal">Success</a>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </td>
+        <td>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalEdit${listSmartphone[i].id}">
+          Edit
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalEdit${listSmartphone[i].id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+                <div class="modal-body">
+                    <input type="hidden" class="form-control" id="idEdit" value="${listSmartphone[i].id}">
+                    <label for="model" class="form-label">Model</label>
+                    <input type="text" class="form-control" id="modelEdit" value="${listSmartphone[i].model}">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="text" class="form-control" id="priceEdit" value="${listSmartphone[i].price}">
+                    <label for="producer" class="form-label">Producer</label>
+                    <input type="text" class="form-control" id="producerEdit" value="${listSmartphone[i].producer}">
+                </div>
+                <div class="modal-footer">
+                    <a href="${listSmartphone[i].id}" class="btn btn-outline-success" id="btnEdit" data-bs-dismiss="modal">Success</a>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+          </div>
+        </div>
+        </td>
+         </tr>`;
+                }
+                $("#smartphoneTableBody").html(smartphoneTable);
+            },
+            error: function (resultError) {
+                console.log(resultError)
+            }
+        });
+    }
+
+        showListSmartphone();
+        $("#btnCreate").click(function () {
+            let modelSP = $("#model").val();
+            let priceSP = $("#price").val();
+            let producerSp = $("#producer").val();
+
+            let smartphone = {
+                model: modelSP,
+                price: priceSP,
+                producer: producerSp
+            }
+
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "POST", //GET, DELETE, PUT...
+                url: "http://localhost:8080/smartphones/",
+                data: JSON.stringify(smartphone),
+                success: function (resultSuccess) {
+                    showListSmartphone();
+                },
+                error: function (resultError) {
+                    console.log(resultError)
+                }
+            });
+        })
+
+        $(document).ready(function () {
+            $("#smartphoneTableBody").on('click', '#btnDelete', function (event) {
+                let idDelete = $(this).attr("href");
+                $.ajax({
+                    type: "DELETE",
+                    //tên API
+                    url: "http://localhost:8080/smartphones/" + idDelete,
+                    //xử lý khi thành công
+                    success: function (data) {
+                        $(this).parent().parent().remove();
+                        showListSmartphone();
+                    }
+                });
+                event.preventDefault();
+            })
+        });
+        $(document).ready(function () {
+            $("#smartphoneTableBody").on('click', '#btnEdit', function (event) {
+                let idEdit = $(this).attr("href");
+                event.preventDefault();
+                let modelE = $("#exampleModalEdit" + idEdit + " #modelEdit").val();
+                let priceE = $("#exampleModalEdit" + idEdit + " #priceEdit").val();
+                let producerE = $("#exampleModalEdit" + idEdit + " #producerEdit").val();
+
+                let smartphone = {
+                    id: idEdit,
+                    model: modelE,
+                    price: priceE,
+                    producer: producerE
+                }
+                $.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    type: "POST", //GET, DELETE, PUT...
+                    url: "http://localhost:8080/smartphones/",
+                    data: JSON.stringify(smartphone),
+                    success: function (resultSuccess) {
+                        showListSmartphone();
+                    },
+                    error: function (resultError) {
+                        console.log(resultError)
+                    }
+                });
+            })
+
+        })
+
 </script>
 </body>
 </html>

@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="924222c9-16a6-4842-bb89-7adfbb5bcbd6" name="Changes" comment="" />
+    <list default="true" id="924222c9-16a6-4842-bb89-7adfbb5bcbd6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../module2/src/phuong/demo/BanA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module2/src/phuong/demo/BanB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module2/src/phuong/demo/DanhSachHocSinh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module2/src/phuong/demo/HocSinh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module2/src/phuong/demo/bana.text" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module2/src/phuong/demo/banb.text" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../module2/src/phuong/giai_thuat/Exam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module2/out/production/module2/phuong/giai_thuat/Demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module2/out/production/module2/phuong/giai_thuat/Demo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module2/out/production/module2/phuong/giai_thuat/GiaiThuat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module2/src/phuong/giai_thuat/GiaiThuat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/AOP/bai_tap/book_manager/src/main/java/com/phuong/service/ITrafficService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/AOP/bai_tap/book_manager/src/main/java/com/phuong/service/ITrafficService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/ajax_jquery/bai_tap/product/phone_management/src/main/java/com/phuong/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/ajax_jquery/bai_tap/product/phone_management/src/main/java/com/phuong/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/ajax_jquery/bai_tap/product/phone_management/src/main/java/com/phuong/controller/SmartphoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/ajax_jquery/bai_tap/product/phone_management/src/main/java/com/phuong/controller/SmartphoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../module4/ajax_jquery/bai_tap/product/views/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../module4/ajax_jquery/bai_tap/product/views/templates/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +45,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -38,6 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1653644934843</updated>
       <workItem from="1653644936499" duration="769000" />
+      <workItem from="1656757749653" duration="112000" />
     </task>
     <servers />
   </component>
