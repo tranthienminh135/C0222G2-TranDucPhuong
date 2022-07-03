@@ -4,6 +4,8 @@ import com.phuong.model.Smartphone;
 import com.phuong.repository.ISmartphoneRepository;
 import com.phuong.service.ISmartphoneService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -31,5 +33,10 @@ public class SmartPhoneService implements ISmartphoneService {
     @Override
     public void remove(Integer id) {
         smartPhoneRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Smartphone> getAllSmartphone(String searchParam, Pageable pageable) {
+        return this.smartPhoneRepository.getAllSmartphone("%" + searchParam + "%", pageable);
     }
 }

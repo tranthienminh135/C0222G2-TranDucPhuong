@@ -10,7 +10,7 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Home</a>
+            <a class="navbar-brand" id="btnHome" href="#">Home</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -59,6 +59,10 @@
                         </div>
                     </li>
                 </ul>
+                <div class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchVal">
+                    <button class="btn btn-outline-success" type="submit" id="btnSearch">Search</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -77,33 +81,38 @@
         <tbody id="smartphoneTableBody">
         </tbody>
     </table>
+    <ul class="pagination" id="paginationTableBody">
+    </ul>
 </div>
 
 <script src="../styles/jquery.min.js"></script>
 <script>
-    function showListSmartphone() {
+    let totalPageTemp = 0;
+    let curPage = 0;
+    function showListSmartphone(pageNumber, searchParam) {
         $.ajax({
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             type: "GET", //GET, DELETE, PUT...
-            url: "http://localhost:8080/smartphones/",
-            success: function (listSmartphone) {
+            url: "http://localhost:8080/smartphones/home?page=" + pageNumber + "&searchValue=" + searchParam,
+            success: function (pageSmartphone) {
+                totalPageTemp = pageSmartphone.totalPages;
                 let smartphoneTable = "";
-                for (let i = 0; i < listSmartphone.length; i++) {
+                for (let i = 0; i < pageSmartphone.content.length; i++) {
                     smartphoneTable += `<tr>
-        <td>${listSmartphone[i].id}</td>
-        <td>${listSmartphone[i].model}</td>
-        <td>${listSmartphone[i].price}</td>
-        <td>${listSmartphone[i].producer}</td>
+        <td>${pageSmartphone.content[i].id}</td>
+        <td>${pageSmartphone.content[i].model}</td>
+        <td>${pageSmartphone.content[i].price}</td>
+        <td>${pageSmartphone.content[i].producer}</td>
         <td>
-        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCreate${listSmartphone[i].id}">
+        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCreate${pageSmartphone.content[i].id}">
           Delete
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalCreate${listSmartphone[i].id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModalCreate${pageSmartphone.content[i].id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -111,10 +120,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                Do you want to delete smartphone ${listSmartphone[i].model} with id = ${listSmartphone[i].id}
+                Do you want to delete smartphone ${pageSmartphone.content[i].model} with id = ${pageSmartphone.content[i].id}
               </div>
               <div class="modal-footer">
-                <a href="${listSmartphone[i].id}" class="btn btn-outline-success" id="btnDelete" data-bs-dismiss="modal">Success</a>
+                <a href="${pageSmartphone.content[i].id}" class="btn btn-outline-success" id="btnDelete" data-bs-dismiss="modal">Success</a>
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
               </div>
             </div>
@@ -123,12 +132,12 @@
         </td>
         <td>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalEdit${listSmartphone[i].id}">
+        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalEdit${pageSmartphone.content[i].id}">
           Edit
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalEdit${listSmartphone[i].id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModalEdit${pageSmartphone.content[i].id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -136,16 +145,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
                 <div class="modal-body">
-                    <input type="hidden" class="form-control" id="idEdit" value="${listSmartphone[i].id}">
+                    <input type="hidden" class="form-control" id="idEdit" value="${pageSmartphone.content[i].id}">
                     <label for="model" class="form-label">Model</label>
-                    <input type="text" class="form-control" id="modelEdit" value="${listSmartphone[i].model}">
+                    <input type="text" class="form-control" id="modelEdit" value="${pageSmartphone.content[i].model}">
                     <label for="price" class="form-label">Price</label>
-                    <input type="text" class="form-control" id="priceEdit" value="${listSmartphone[i].price}">
+                    <input type="text" class="form-control" id="priceEdit" value="${pageSmartphone.content[i].price}">
                     <label for="producer" class="form-label">Producer</label>
-                    <input type="text" class="form-control" id="producerEdit" value="${listSmartphone[i].producer}">
+                    <input type="text" class="form-control" id="producerEdit" value="${pageSmartphone.content[i].producer}">
                 </div>
                 <div class="modal-footer">
-                    <a href="${listSmartphone[i].id}" class="btn btn-outline-success" id="btnEdit" data-bs-dismiss="modal">Success</a>
+                    <a href="${pageSmartphone.content[i].id}" class="btn btn-outline-success" id="btnEdit" data-bs-dismiss="modal">Success</a>
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -154,6 +163,35 @@
         </td>
          </tr>`;
                 }
+                let paginationTable = "";
+                switch (Number(pageNumber)) {
+                    case 0:
+                        paginationTable += `<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>`;
+                        break;
+                    default:
+                        paginationTable += `<li class="page-item "><a class="page-link" href="` + pageNumber + `" id="aPrevious">Previous</a></li>`;
+                        break;
+                }
+                for (let i = 0; i < pageSmartphone.totalPages; i++) {
+                    switch (Number(i)){
+                        case Number(pageNumber):
+                            curPage = i;
+                            paginationTable += `<li class="page-item active"><a class="page-link" id="aItem" href="`+ i +`">`+ (i + 1) +`</a></li>`;
+                            break;
+                            default:
+                            paginationTable += `<li class="page-item"><a class="page-link" id="aItem" href="`+ i +`">`+ (i + 1) +`</a></li>`;
+                            break;
+                    }
+                }
+                switch (Number(pageNumber)) {
+                    case pageSmartphone.totalPages = (Number(pageSmartphone.totalPages) <= 0) ? 0 : Number((pageSmartphone.totalPages - 1)):
+                        paginationTable += `<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>`;
+                        break;
+                    default:
+                        paginationTable += `<li class="page-item "><a class="page-link" href="`+ pageNumber +`" id="aNext">Next</a></li>`;
+                        break;
+                }
+                $("#paginationTableBody").html(paginationTable);
                 $("#smartphoneTableBody").html(smartphoneTable);
             },
             error: function (resultError) {
@@ -162,8 +200,10 @@
         });
     }
 
-        showListSmartphone();
+        showListSmartphone(0, "");
+
         $("#btnCreate").click(function () {
+            let searchValue = $("#searchVal").val();
             let modelSP = $("#model").val();
             let priceSP = $("#price").val();
             let producerSp = $("#producer").val();
@@ -183,7 +223,10 @@
                 url: "http://localhost:8080/smartphones/",
                 data: JSON.stringify(smartphone),
                 success: function (resultSuccess) {
-                    showListSmartphone();
+                    $("#model").val("");
+                    $("#price").val("");
+                    $("#producer").val("");
+                    showListSmartphone((totalPageTemp-1), searchValue);
                 },
                 error: function (resultError) {
                     console.log(resultError)
@@ -193,6 +236,7 @@
 
         $(document).ready(function () {
             $("#smartphoneTableBody").on('click', '#btnDelete', function (event) {
+                let searchValue = $("#searchVal").val();
                 let idDelete = $(this).attr("href");
                 $.ajax({
                     type: "DELETE",
@@ -201,7 +245,7 @@
                     //xử lý khi thành công
                     success: function (data) {
                         $(this).parent().parent().remove();
-                        showListSmartphone();
+                        showListSmartphone(curPage, searchValue);
                     }
                 });
                 event.preventDefault();
@@ -209,6 +253,7 @@
         });
         $(document).ready(function () {
             $("#smartphoneTableBody").on('click', '#btnEdit', function (event) {
+                let searchValue = $("#searchVal").val();
                 let idEdit = $(this).attr("href");
                 event.preventDefault();
                 let modelE = $("#exampleModalEdit" + idEdit + " #modelEdit").val();
@@ -230,7 +275,7 @@
                     url: "http://localhost:8080/smartphones/",
                     data: JSON.stringify(smartphone),
                     success: function (resultSuccess) {
-                        showListSmartphone();
+                        showListSmartphone(curPage, searchValue);
                     },
                     error: function (resultError) {
                         console.log(resultError)
@@ -238,6 +283,41 @@
                 });
             })
 
+        })
+        $(document).ready(function () {
+            $("#paginationTableBody").on('click', '#aNext', function (event) {
+                let numberPage = $(this).attr("href");
+                let searchValue = $("#searchVal").val();
+                numberPage++;
+                event.preventDefault();
+                showListSmartphone(numberPage, searchValue);
+            })
+        })
+        $(document).ready(function () {
+            $("#paginationTableBody").on('click', '#aPrevious', function (event) {
+                let numberPage = $(this).attr("href");
+                let searchValue = $("#searchVal").val();
+                numberPage--;
+                event.preventDefault();
+                showListSmartphone(numberPage, searchValue);
+            })
+        })
+        $(document).ready(function () {
+            $("#paginationTableBody").on('click', '#aItem', function (event) {
+                let numberPage = $(this).attr("href");
+                let searchValue = $("#searchVal").val();
+                event.preventDefault();
+                showListSmartphone(numberPage, searchValue);
+            })
+        })
+        $("#btnSearch").click(function () {
+            let searchValue = $("#searchVal").val();
+            showListSmartphone(0, searchValue);
+        })
+        $("#btnHome").click(function (event) {
+            showListSmartphone(0, "");
+            $("#searchVal").val("");
+            event.preventDefault();
         })
 
 </script>
