@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="common-html :: myCss"></head>
+<body id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="/home">Furama Resort</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#employee">Employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Customer</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Other
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#facility">Facility</a></li>
+                        <li><a class="dropdown-item" href="#">Contact</a></li>
+                        <li><a class="dropdown-item" href="#">Booking</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item disabled" href="#">&copy; Copyright by Phuong 2022</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Contact-->
+<section class="page-section" id="facility">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Create Facility!</h2>
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Choice Facility
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item aFacility" href="House">House</a></li>
+                        <li><a class="dropdown-item aFacility" href="Room">Room</a></li>
+                        <li><a class="dropdown-item aFacility" href="Villa">Villa</a></li>
+                    </ul>
+                </div>
+                <hr class="divider"/>
+                <p class="text-muted mb-5">Ready to start your next project with us? Send us a messages and we will get
+                    back to you as soon as possible!</p>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <div class="text-danger" id="tableInputName"></div>
+                <form id="contactForm" method="post" action="/facility/create">
+                    <!-- name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name..."/>
+                        <label for="name">Facility name</label>
+                    </div>
+                    <!-- area input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="area" type="text" placeholder="Enter your area..."/>
+                        <label for="area">Area</label>
+                    </div>
+                    <!-- cost input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="cost" type="text" placeholder="Enter your cost..."/>
+                        <label for="cost">Cost</label>
+                    </div>
+                    <!-- maxPeople input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="maxPeople" type="text" placeholder="Enter your max people..."/>
+                        <label for="maxPeople">Max people</label>
+                    </div>
+                    <!-- rentType input-->
+                    <div class="form-floating mb-3">
+                        <select class="form-select" aria-label="Default select example"  style="padding-top: 0.625rem !important;">
+                            <option selected disabled>Rent Type</option>
+                            <option value="1">Hour</option>
+                            <option value="2">Day</option>
+                            <option value="3">Month</option>
+                            <option value="4">Year</option>
+                        </select>
+                    </div>
+                    <div id="tableInputHouse">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="standardRoom" type="text" placeholder="Enter your standard room..."/>
+                            <label for="standardRoom">Standard Room</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="descriptionOtherConvenience" type="text"
+                                   placeholder="Enter your description other convenience..."/>
+                            <label for="descriptionOtherConvenience">Description Other Convenience</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="numberOfFloors" type="text"
+                                   placeholder="Enter your number of floors..."/>
+                            <label for="numberOfFloors">Number Of Floors</label>
+                        </div>
+                    </div>
+                    <div id="tableInputRoom">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="facilityFree" type="text" placeholder="Enter your facility free..."/>
+                            <label for="facilityFree">Facility Free</label>
+                        </div>
+                    </div>
+                    <div id="tableInputVilla">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="poolArea" type="text"
+                                   placeholder="Enter your pool area..."/>
+                            <label for="poolArea">Pool Area</label>
+                        </div>
+                    </div>
+                    <input type="hidden" id="inputFacilityHidden" name="facilityHidden">
+                    <!-- Submit Button-->
+                    <div class="d-grid">
+                        <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+<div th:replace="common-html :: footer"></div>
+<div th:replace="common-html :: myJs"></div>
+<script th:src="@{/js/jquery-custom.js}"></script>
+</body>
+</html>

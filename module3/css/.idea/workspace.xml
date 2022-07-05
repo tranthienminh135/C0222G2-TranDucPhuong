@@ -5,41 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54711d31-261e-4d43-9d07-379703061c0c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../module4/test/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module4/test/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module4/test/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module4/test/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module4/test/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module4/test/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/java/com/phuong/controller/FuramaController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/java/com/phuong/model/facility/Facility.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/java/com/phuong/model/facility/FacilityType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/java/com/phuong/model/facility/RentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/icon/bootstrap-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/bg-masthead.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/portfolio/fullsize/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/portfolio/fullsize/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/portfolio/fullsize/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/portfolio/fullsize/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/portfolio/fullsize/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/portfolio/fullsize/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/portfolio/thumbnails/1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/portfolio/thumbnails/2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/portfolio/thumbnails/3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/portfolio/thumbnails/4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/portfolio/thumbnails/5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/assets/img/portfolio/thumbnails/6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/js/bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/js/jquery-custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/static/js/scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/templates/common-html.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/templates/facility/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/templates/facility/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/templates/homePage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/project/exam_module_3/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../jsp-servlet/project/exam_module_3/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/project/exam_module_3/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../jsp-servlet/project/exam_module_3/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/project/exam_module_3/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../jsp-servlet/project/exam_module_3/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/project/exam_module_3/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../jsp-servlet/project/exam_module_3/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/applicationContext.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/config/CharsetFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/controller/MedicalDeclarationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/classes/com/phuong/model/MedicalDeclaration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-aop-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-beans-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-context-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-core-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-expression-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-jcl-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-web-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/lib/spring-webmvc-5.3.18.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/views/home.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../jsp-servlet/server/apache-tomcat-9.0.63/webapps/ROOT/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/build/libs/upload_song-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/build/libs/upload_song-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/src/main/webapp/WEB-INF/views/upload-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/upload_song/src/main/webapp/WEB-INF/views/upload-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/case_study_template/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/case_study_template/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/src/main/java/com/phuong/PhoneManagementApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/src/main/java/com/phuong/PhoneManagementApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/src/main/resources/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/src/test/java/com/phuong/PhoneManagementApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/product/phone_management/src/test/java/com/phuong/PhoneManagementApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/spring_security/thuc_hanh/demo_spring_security/src/main/java/com/phuong/model/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/spring_security/thuc_hanh/demo_spring_security/src/main/java/com/phuong/model/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/spring_security/thuc_hanh/demo_spring_security/src/main/java/com/phuong/service/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/spring_security/thuc_hanh/demo_spring_security/src/main/java/com/phuong/service/UserDetailsServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +81,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../module4/case_study" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
@@ -100,6 +106,8 @@
       <workItem from="1654238180325" duration="1050000" />
       <workItem from="1655620161522" duration="705000" />
       <workItem from="1655623967240" duration="144000" />
+      <workItem from="1656995820454" duration="627000" />
+      <workItem from="1657020542789" duration="57000" />
     </task>
     <servers />
   </component>

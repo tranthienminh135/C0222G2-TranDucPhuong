@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common-html :: myCss"></head>
+<body id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container-fluid px-4 px-lg-5">
+        <a class="navbar-brand" th:href="@{/home}">Furama Resort</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="">Employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Customer</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Other
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#facility">Facility</a></li>
+                        <li><a class="dropdown-item" href="#">Contact</a></li>
+                        <li><a class="dropdown-item" href="#">Booking</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item disabled" href="#">&copy; Copyright by Phuong 2022</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<!-- Contact-->
+<section class="page-section" id="facility">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-8 col-xl-6 text-center">
+            <h2 class="mt-0">Facility manager!</h2>
+            <a href="/facility/create" class="btn btn-outline-primary">Create</a>
+            <hr class="divider"/>
+            <p class="text-muted mb-5">Ready to start your next project with us? Send us a messages and we will get
+                back to you as soon as possible!</p>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <table class="table table-hover">
+            <thead>
+            <tr style="background-color: #f4623a" class="text-light">
+                <th>ID</th>
+                <th>Tên Dịch Vụ</th>
+                <th>Diện tích sử dụng</th>
+                <th>Chi phí thuê</th>
+                <th>Số lượng người tối đa</th>
+                <th>Kiểu thuê</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>House</td>
+                <td>5000</td>
+                <td>1000000</td>
+                <td>50</td>
+                <td>Thuê theo năm</td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                        Delete
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title fw-bold text-danger" id="staticBackdropLabel">FBI
+                                        Warning!</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Do you want to delete?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary">Submit</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <button class="btn btn-outline-warning">Edit</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="container-fluid mt-3">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+<div th:replace="common-html :: footer"></div>
+<div th:replace="common-html :: myJs"></div>
+</body>
+</html>
