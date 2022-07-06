@@ -46,5 +46,4 @@ $("#tableInputRoom").hide();
 $("#tableInputVilla").hide();
 $("#tableInputName").hide();
 let value = $("#inputFacilityHidden").val();
-console.log(value === "")
 showMoreInput(value);
