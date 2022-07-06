@@ -5,6 +5,9 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container px-4 px-lg-5">
+        <a href="/furama">
+            <img th:src="@{/assets/icon/vinpearl.png}" alt="" width="50px" class="navbar-brand">
+        </a>
         <a class="navbar-brand" href="/home">Furama Resort</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,7 +107,7 @@
                                 th:field="*{facilityType}">
                             <option value="">Choose facility type</option>
                             <option th:each="item, loop : ${facilityTypeList}" th:text="${item.name}"
-                                    th:value="${item.id}"></option>
+                                    th:value="${item.id}" th:id="${item.name}"></option>
                         </select>
                     </div>
 

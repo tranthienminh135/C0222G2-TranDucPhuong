@@ -4,7 +4,6 @@ function showMoreInput(value) {
         if (value !== "") {
             choice = value;
         }
-        console.log(choice)
         event.preventDefault();
         switch (choice) {
             case "House":
@@ -14,14 +13,20 @@ function showMoreInput(value) {
                 $("#tableInputName").show();
                 $("#tableInputName").text(choice);
                 $("#inputFacilityHidden").val(choice)
+                document.getElementById("House").setAttribute("selected","true");
+                document.getElementById("Room").removeAttribute("selected");
+                document.getElementById("Villa").removeAttribute("selected");
                 break
             case "Room":
                 $("#tableInputHouse").hide();
                 $("#tableInput" + choice).show();
-                $("#tableInputVilla").show();
+                $("#tableInputVilla").hide();
                 $("#tableInputName").show();
                 $("#tableInputName").text(choice);
                 $("#inputFacilityHidden").val(choice)
+                document.getElementById("Room").setAttribute("selected","true");
+                document.getElementById("House").removeAttribute("selected");
+                document.getElementById("Villa").removeAttribute("selected");
                 break
             case "Villa":
                 $("#tableInputHouse").show();
@@ -30,6 +35,9 @@ function showMoreInput(value) {
                 $("#tableInputName").show();
                 $("#tableInputName").text(choice);
                 $("#inputFacilityHidden").val(choice)
+                document.getElementById("Villa").setAttribute("selected","true");
+                document.getElementById("Room").removeAttribute("selected");
+                document.getElementById("House").removeAttribute("selected");
                 break
             default:
                 $("#tableInputHouse").hide();

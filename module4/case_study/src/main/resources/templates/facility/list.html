@@ -2,148 +2,154 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="common-html :: myCss"></head>
 <body id="page-top">
-<!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
-    <div class="container-fluid px-4 px-lg-5">
-        <a class="navbar-brand" th:href="@{/home}">Furama Resort</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="">Employee</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Customer</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Other
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#facility">Facility</a></li>
-                        <li><a class="dropdown-item" href="#">Contact</a></li>
-                        <li><a class="dropdown-item" href="#">Booking</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item disabled" href="#">&copy; Copyright by Phuong 2022</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <form class="d-flex" action="/facility">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                       name="searchValue" th:value="${searchParam}">
-                <button class="btn btn-outline-primary" type="submit">Search</button>
-            </form>
+<div class="container">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+        <div class="container-fluid px-4 px-lg-5">
+            <a href="/furama">
+                <img th:src="@{/assets/icon/vinpearl.png}" alt="" width="50px" class="navbar-brand">
+            </a>
+            <a class="navbar-brand" th:href="@{/home}">Furama Resort</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/employee">Employee</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/customer">Customer</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Other
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#facility">Facility</a></li>
+                            <li><a class="dropdown-item" href="#">Contact</a></li>
+                            <li><a class="dropdown-item" href="#">Booking</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item disabled" href="#">&copy; Copyright by Phuong 2022</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" action="/facility">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                           name="searchValue" th:value="${searchParam}">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+            </div>
         </div>
-    </div>
-</nav>
-<!-- Contact-->
-<section class="page-section" id="facility">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-        <div class="col-lg-8 col-xl-6 text-center">
-            <h2 class="mt-0">Facility manager!</h2>
-            <a href="/facility/create" class="btn btn-outline-primary">Create</a>
-            <hr class="divider"/>
-            <p class="text-muted mb-5">Ready to start your next project with us? Send us a messages and we will get
-                back to you as soon as possible!</p>
+    </nav>
+</div>
+<div class="container">
+    <!-- Contact-->
+    <section class="page-section" id="facility">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Facility management!</h2>
+                <a href="/facility/create" class="btn btn-outline-primary">Create new Facility</a>
+                <hr class="divider"/>
+                <p class="text-muted mb-5">Ready to start your next project with us? Send us a messages and we will get
+                    back to you as soon as possible!</p>
+            </div>
         </div>
-    </div>
-    <div class="container mt-3">
-        <table class="table table-hover">
-            <thead>
-            <tr style="background-color: #f4623a" class="text-light">
-                <th>ID</th>
-                <th>Name</th>
-                <th>Area</th>
-                <th>Cost</th>
-                <th>Max People</th>
-                <th>Rent Type</th>
-                <th>Facility Type</th>
-                <th>Delete</th>
-                <th>Edit</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="item, loop : ${facilityPage}">
-                <td th:text="${item.id}"></td>
-                <td th:text="${item.name}"></td>
-                <td th:text="${item.area}"></td>
-                <td th:text="${item.cost}"></td>
-                <td th:text="${item.maxPeople}"></td>
-                <td th:text="${item.rentType.name}"></td>
-                <td th:text="${item.facilityType.name}"></td>
-                <td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                            th:data-bs-target="'#staticBackdrop' + ${item.id}">
-                        Delete
-                    </button>
+        <div class="container mt-3" style="overflow: auto">
+            <table class="table table-hover text-center">
+                <thead>
+                <tr style="background-color: #f4623a" class="text-light">
+                    <th>CN</th>
+                    <th>Name</th>
+                    <th>Area</th>
+                    <th>Cost</th>
+                    <th>Max People</th>
+                    <th>Rent Type</th>
+                    <th>Facility Type</th>
+                    <th colspan="2">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item, loop : ${facilityPage}">
+                    <td th:text="${loop.count}"></td>
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.area}"></td>
+                    <td th:text="${item.cost}"></td>
+                    <td th:text="${item.maxPeople}"></td>
+                    <td th:text="${item.rentType.name}"></td>
+                    <td th:text="${item.facilityType.name}"></td>
+                    <td>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                th:data-bs-target="'#staticBackdrop' + ${item.id}">
+                            Delete
+                        </button>
 
-                    <!-- Modal -->
-                    <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static"
-                         data-bs-keyboard="false"
-                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title fw-bold text-danger" id="staticBackdropLabel">FBI
-                                        Warning!</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Do you want to delete facility <span th:text="${item.name}"></span> with id = <span
-                                        th:text="${item.id}"></span> ?
-                                </div>
-                                <div class="modal-footer">
-                                    <a th:href="@{/facility/delete/{idDelete}(idDelete = ${item.id})}" type="button"
-                                       class="btn btn-outline-primary">Submit</a>
-                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                        Close
-                                    </button>
+                        <!-- Modal -->
+                        <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static"
+                             data-bs-keyboard="false"
+                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title fw-bold text-danger" id="staticBackdropLabel">FBI
+                                            Warning!</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to delete facility <span th:text="${item.name}"></span> with id = <span
+                                            th:text="${item.id}"></span> ?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a th:href="@{/facility/delete/{idDelete}(idDelete = ${item.id})}" type="button"
+                                           class="btn btn-outline-primary">Submit</a>
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                            Close
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </td>
-                <td>
-                    <a th:href="@{/facility/edit/{idEdit}(idEdit = ${item.id})}"
-                       class="btn btn-outline-warning">Edit</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <div class="container-fluid mt-3">
-            <ul class="pagination" th:if="${facilityPage.totalPages > 0}">
-                <li class="page-item" th:if="${facilityPage.hasPrevious()}">
-                    <a class="page-link" th:href="@{/facility(page=${facilityPage.number - 1}, searchValue = ${searchParam})}">Previous</a>
-                </li>
+                    </td>
+                    <td>
+                        <a th:href="@{/facility/edit/{idEdit}(idEdit = ${item.id})}"
+                           class="btn btn-outline-warning">Edit</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="container-fluid mt-3">
+                <ul class="pagination float-end" th:if="${facilityPage.totalPages > 0}">
+                    <li class="page-item" th:if="${facilityPage.hasPrevious()}">
+                        <a class="page-link" th:href="@{/facility(page=${facilityPage.number - 1}, searchValue = ${searchParam})}">Previous</a>
+                    </li>
 
-                <div th:each="item, loop : ${#numbers.sequence(1, facilityPage.totalPages )}">
-                    <div th:if="${(facilityPage.number + 1) == item}">
-                        <li class="page-item active">
-                            <a class="page-link" href="#" th:text="${item}" th:href="@{/facility(page=(${item}-1), searchParam=${searchParam})}"></a>
-                        </li>
+                    <div th:each="item, loop : ${#numbers.sequence(1, facilityPage.totalPages )}">
+                        <div th:if="${(facilityPage.number + 1) == item}">
+                            <li class="page-item active">
+                                <a class="page-link" href="#" th:text="${item}" th:href="@{/facility(page=(${item}-1), searchParam=${searchParam})}"></a>
+                            </li>
+                        </div>
+                        <div th:unless="${((facilityPage.number + 1) == item)}">
+                            <li class="page-item">
+                                <a class="page-link" href="#" th:text="${item}" th:href="@{/facility(page=(${item}-1), searchParam=${searchParam} )}"></a>
+                            </li>
+                        </div>
                     </div>
-                    <div th:unless="${((facilityPage.number + 1) == item)}">
-                        <li class="page-item">
-                            <a class="page-link" href="#" th:text="${item}" th:href="@{/facility(page=(${item}-1), searchParam=${searchParam} )}"></a>
-                        </li>
-                    </div>
-                </div>
 
-                <li class="page-item" th:if="${facilityPage.hasNext()}">
-                    <a class="page-link" th:href="@{/facility(page=${facilityPage.number + 1}, searchValue = ${searchParam})}">Next</a>
-                </li>
-            </ul>
+                    <li class="page-item" th:if="${facilityPage.hasNext()}">
+                        <a class="page-link" th:href="@{/facility(page=${facilityPage.number + 1}, searchValue = ${searchParam})}">Next</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</div>
 <!-- Footer-->
 <div th:replace="common-html :: footer"></div>
 <div th:replace="common-html :: myJs"></div>
