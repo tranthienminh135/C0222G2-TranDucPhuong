@@ -60,7 +60,7 @@
                 <!-- Modal -->
                 <div class="modal fade" id="staticBackdropCreate" data-bs-backdrop="static" data-bs-keyboard="false"
                      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="staticBackdropLabelCreate">Create Contract</h5>
@@ -73,7 +73,7 @@
                                     <form id="contactFormEdit" method="post" action="/employee/create">
                                         <!-- startDate input-->
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="startDate" type="text"
+                                            <input class="form-control" id="startDate" type="date"
                                                    placeholder="Enter your start date..."/>
                                             <label for="startDate">Start Date</label>
                                         </div>
@@ -111,24 +111,42 @@
 
                                         <div class="form-floating mb-3">
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-primary" id="target">
-                                                Launch static backdrop modal
+                                            <button type="button" class="btn btn-outline-primary" id="target">
+                                                +
                                             </button>
 
                                             <!-- Modal -->
-                                            <div class="modal fade" id="staticBackdropAttachFacility" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal fade" id="staticBackdropAttachFacility"
+                                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="staticBackdropLabelAttachFacility">Modal title</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <div class="modal-content border-primary mt-5">
+                                                        <div class="modal-header bg-primary text-white">
+                                                            <h5 class="modal-title"
+                                                                id="staticBackdropLabelAttachFacility">List of
+                                                                attach facility</h5>
+                                                            <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            ...
+                                                            <table class="table table-hover text-center">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>Free wifi</td>
+                                                                    <td>
+                                                                        <a href="" class="btn btn-outline-primary">+</a>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Understood</button>
+                                                            <button type="button" class="btn btn-outline-primary">Save
+                                                            </button>
+                                                            <button type="button" class="btn btn-outline-secondary"
+                                                                    data-bs-dismiss="modal">Close
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -228,9 +246,8 @@
 <div th:replace="common-html :: myJs"></div>
 <script>
     //trigger next modal
-    $("#target").on( "click", function() {
-        // $('#staticBackdropAttachFacility').modal('show');
-        $('#staticBackdropCreate').modal('hide');
+    $("#target").on("click", function () {
+        $('#staticBackdropAttachFacility').modal('show');
     });
 </script>
 </body>
