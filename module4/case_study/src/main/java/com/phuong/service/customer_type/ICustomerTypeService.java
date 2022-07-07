@@ -1,4 +1,4 @@
-package com.phuong.service.customer;
+package com.phuong.service.customer_type;
 
 import com.phuong.model.customer.CustomerType;
 

@@ -1,7 +1,8 @@
 package com.phuong.model.employee;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.io.Serializable;
+import java.sql.Date;
 
 @Entity
 public class Employee {

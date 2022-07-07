@@ -1,7 +1,7 @@
 package com.phuong.model.customer;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 public class Customer {
@@ -9,20 +9,20 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name;
+    private String address;
 
     private Date birthday;
 
-    private Boolean gender;
+    private String email;
+
+    private Integer gender;
 
     private String idCard;
 
+    private String name;
+
     private String phoneNumber;
-
-    private String email;
-
-    private String address;
-
+    
     @ManyToOne
     @JoinColumn(name = "customer_type_id", referencedColumnName = "id")
     private CustomerType customerType;
@@ -30,25 +30,34 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(Integer id, String name, Date birthday, Boolean gender,
-                    String idCard, String phoneNumber, String email, String address, CustomerType customerType) {
+    public Customer(Integer id, String address, Date birthday,
+                    String email, Integer gender, String idCard, String name,
+                    String phoneNumber, CustomerType customerType) {
         this.id = id;
-        this.name = name;
+        this.address = address;
         this.birthday = birthday;
+        this.email = email;
         this.gender = gender;
         this.idCard = idCard;
+        this.name = name;
         this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.address = address;
         this.customerType = customerType;
     }
 
-    public String getName() {
-        return name;
+    public Integer getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Date getBirthday() {
@@ -59,11 +68,19 @@ public class Customer {
         this.birthday = birthday;
     }
 
-    public Boolean getGender() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(Boolean gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
     }
 
@@ -75,6 +92,14 @@ public class Customer {
         this.idCard = idCard;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -83,35 +108,11 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public CustomerType getCustomerType() {
         return customerType;
     }
 
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 }

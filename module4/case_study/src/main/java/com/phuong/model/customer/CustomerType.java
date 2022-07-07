@@ -23,12 +23,12 @@ public class CustomerType {
         this.customers = customers;
     }
 
-    public List<Customer> getCustomers() {
-        return customers;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCustomers(List<Customer> customers) {
-        this.customers = customers;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -39,11 +39,11 @@ public class CustomerType {
         this.name = name;
     }
 
-    public Integer getId() {
-        return id;
+    public List<Customer> getCustomers() {
+        return customers;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
     }
 }

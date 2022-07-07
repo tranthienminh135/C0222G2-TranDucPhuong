@@ -54,7 +54,7 @@
         <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
             <div class="col-lg-6">
                 <div class="text-danger" id="tableInputName"></div>
-                <form id="contactForm" method="post" action="/facility/create" th:object="${customer}">
+                <form id="contactForm" method="post" action="/customer/create" th:object="${customer}">
                     <!-- name input-->
                     <div class="form-floating mb-3">
                         <input class="form-control" id="name" type="text" placeholder="Enter your name..."
@@ -63,7 +63,7 @@
                     </div>
                     <!-- birthday input-->
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="birthday" type="text" placeholder="Enter your birthday..."
+                        <input class="form-control" id="birthday" type="date" placeholder="Enter your birthday..."
                                th:field="*{birthday}"/>
                         <label for="birthday">Birthday</label>
                     </div>
@@ -75,7 +75,7 @@
                             <option value="">Choice Gender</option>
                             <option value="1">Male</option>
                             <option value="0">FeMale</option>
-                            <option value="">Other</option>
+                            <option value="2">Other</option>
                         </select>
                     </div>
                     <!-- idCard input-->
@@ -86,7 +86,7 @@
                     </div>
                     <!-- phoneNumber input-->
                     <div class="form-floating mb-3">
-                        <input class="form-control" id="phoneNumber" type="text" placeholder="Enter your phone number..."
+                        <input class="form-control" id="phoneNumber" type="number" placeholder="Enter your phone number..."
                                th:field="*{phoneNumber}"/>
                         <label for="phoneNumber">Phone Number</label>
                     </div>
