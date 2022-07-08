@@ -27,8 +27,9 @@ public class EmployeeRestController {
     }
 
     @PostMapping("/employee/create")
-    public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee) {
-        return new ResponseEntity<>(this.employeeService.save(employee), HttpStatus.CREATED);
+    public ResponseEntity<Void> saveEmployee(@RequestBody Employee employee) {
+        this.employeeService.save(employee);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/employee/delete/{idDelete}")

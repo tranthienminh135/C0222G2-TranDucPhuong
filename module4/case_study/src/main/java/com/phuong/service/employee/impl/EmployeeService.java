@@ -1,6 +1,7 @@
 package com.phuong.service.employee.impl;
 
 import com.phuong.model.employee.Employee;
+import com.phuong.model.employee.User;
 import com.phuong.repository.employee.IEmployeeRepository;
 import com.phuong.service.employee.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,8 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public Employee save(Employee employee) {
-        return this.employeeRepository.save(employee);
+    public void save(Employee employee) {
+        this.employeeRepository.saveEmployee(employee);
     }
 
     @Override

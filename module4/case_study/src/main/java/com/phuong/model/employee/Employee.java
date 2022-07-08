@@ -1,7 +1,6 @@
 package com.phuong.model.employee;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
@@ -31,14 +30,19 @@ public class Employee {
     private Position position;
 
     @ManyToOne
-    @JoinColumn(name = "division", referencedColumnName = "id")
+    @JoinColumn(name = "division_id", referencedColumnName = "id")
     private Division division;
+
+    @ManyToOne
+    @JoinColumn(name = "username", referencedColumnName = "username")
+    private User user;
 
     public Employee() {
     }
 
-    public Employee(Integer id, String name, Date birthday, String idCard, String phoneNumber,
-                    String email, Double salary, EducationDegree educationDegree, Position position, Division division) {
+    public Employee(Integer id, String name, Date birthday, String idCard,
+                    String phoneNumber, String email, Double salary,
+                    EducationDegree educationDegree, Position position, Division division, User user) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
@@ -49,6 +53,15 @@ public class Employee {
         this.educationDegree = educationDegree;
         this.position = position;
         this.division = division;
+        this.user = user;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -123,11 +136,11 @@ public class Employee {
         this.division = division;
     }
 
-    public Integer getId() {
-        return id;
+    public User getUser() {
+        return user;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
