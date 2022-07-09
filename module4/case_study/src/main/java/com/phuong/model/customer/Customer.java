@@ -1,7 +1,11 @@
 package com.phuong.model.customer;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.phuong.model.contract.Contract;
+
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -27,12 +31,15 @@ public class Customer {
     @JoinColumn(name = "customer_type_id", referencedColumnName = "id")
     private CustomerType customerType;
 
+    @OneToMany(mappedBy = "customer")
+    @JsonBackReference
+    private List<Contract> contractList;
+
     public Customer() {
     }
 
-    public Customer(Integer id, String address, Date birthday,
-                    String email, Integer gender, String idCard, String name,
-                    String phoneNumber, CustomerType customerType) {
+    public Customer(Integer id, String address, Date birthday, String email, Integer gender, String idCard,
+                    String name, String phoneNumber, CustomerType customerType, List<Contract> contractList) {
         this.id = id;
         this.address = address;
         this.birthday = birthday;
@@ -42,6 +49,7 @@ public class Customer {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.customerType = customerType;
+        this.contractList = contractList;
     }
 
     public Integer getId() {
@@ -114,5 +122,13 @@ public class Customer {
 
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
+    }
+
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
     }
 }

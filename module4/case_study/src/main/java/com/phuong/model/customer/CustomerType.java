@@ -1,5 +1,7 @@
 package com.phuong.model.customer;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,6 +14,7 @@ public class CustomerType {
     private String name;
 
     @OneToMany(mappedBy = "customerType")
+    @JsonBackReference
     private List<Customer> customers;
 
     public CustomerType() {

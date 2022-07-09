@@ -74,45 +74,7 @@
                                             <button type="button" class="btn btn-outline-primary" id="target">
                                                 +
                                             </button>
-
-                                            <!-- Modal -->
-                                            <div class="modal fade" id="staticBackdropAttachFacility"
-                                                 data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content border-primary mt-5">
-                                                        <div class="modal-header bg-primary text-white">
-                                                            <h5 class="modal-title"
-                                                                id="staticBackdropLabelAttachFacility">List of
-                                                                attach facility</h5>
-                                                            <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <table class="table table-hover text-center">
-                                                                <tbody>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Free wifi</td>
-                                                                    <td>
-                                                                        <a href="" class="btn btn-outline-primary">+</a>
-                                                                    </td>
-                                                                </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-outline-primary">Save
-                                                            </button>
-                                                            <button type="button" class="btn btn-outline-secondary"
-                                                                    data-bs-dismiss="modal">Close
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
-
                                     </form>
                                 </div>
                             </div>
@@ -124,6 +86,43 @@
                         </div>
                     </div>
                 </div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdropAttachFacility"
+                     data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content border-primary mt-5">
+                            <div class="modal-header bg-primary text-white">
+                                <h5 class="modal-title"
+                                    id="staticBackdropLabelAttachFacility">List of
+                                    attach facility</h5>
+                                <button type="button" class="btn-close btnCloseModalAttachFacility"
+                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-hover text-center">
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Free wifi</td>
+                                        <td>
+                                            <a href="" class="btn btn-outline-primary">+</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-primary">Save
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary btnCloseModalAttachFacility"
+                                        data-bs-dismiss="modal">Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <hr class="divider"/>
                 <p class="text-muted mb-5">Ready to start your next project with us? Send us a messages and we will get
                     back to you as soon as possible!</p>
@@ -150,24 +149,96 @@
                     <th colspan="2">Attach Facility</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>CN</td>
-                    <td>Facility Name</td>
-                    <td>Customer Name</td>
-                    <td>Start Date</td>
-                    <td>End Date</td>
-                    <td>Deposit</td>
-                    <td>Total Money</td>
+                <tbody id="contractTableBody">
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+<!-- Footer-->
+<div th:replace="common-html :: footer"></div>
+<div th:replace="common-html :: myJs"></div>
+<script>
+    //trigger next modal
+    $("#target").on("click", function () {
+        $('#staticBackdropCreate').modal('hide');
+        $('#staticBackdropAttachFacility').modal('show');
+    });
+    $(".btnCloseModalAttachFacility").on("click", function () {
+        $('#staticBackdropAttachFacility').modal('hide');
+        $('#staticBackdropCreate').modal('show');
+    })
+</script>
+
+<script>
+    let attachFacilityList = [];
+    let contractDetailList = [];
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET", //GET, DELETE, PUT...
+            url: "http://localhost:8080/rest/attach-facility",
+            success: function(resultAttachFacilityList){
+                
+                attachFacilityList = resultAttachFacilityList;
+            },
+            error: function(resultError) {
+                console.log('Co loi xay ra');
+            }
+        });
+
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET", //GET, DELETE, PUT...
+            url: "http://localhost:8080/rest/contract-detail",
+            success: function(resultContractDetailList){
+                contractDetailList = resultContractDetailList;
+            },
+            error: function(resultError) {
+                console.log('Co loi xay ra');
+            }
+        });
+    console.log(attachFacilityList)
+
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: "GET", //GET, DELETE, PUT...
+        url: "http://localhost:8080/rest/contract",
+        success: function (contractPage) {
+            let contractTableHTML = "";
+            for (let i = 0; i < contractPage.content.length; i++) {
+                // console.log(contractPage.content[i].contractDetailList)
+                let totalMoney = 0;
+                for (let j = 0; j < contractPage.content[i].contractDetailList.length; j++) {
+                    // console.log(contractPage.content[i].contractDetailList[j])
+                    totalMoney += contractPage.content[i].contractDetailList[j].quantity * contractPage.content[i].contractDetailList[j].attachFacility.cost;
+                    // console.log(totalMoney)
+                }
+                contractTableHTML += `<tr>
+                    <td>${i}</td>
+                    <td>${contractPage.content[i].facility.name}</td>
+                    <td>${contractPage.content[i].customer.name}</td>
+                    <td>${contractPage.content[i].startDate}</td>
+                    <td>${contractPage.content[i].endDate}</td>
+                    <td>${contractPage.content[i].deposit}</td>
+                    <td>${totalMoney}</td>
                     <td>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop">
+                                data-bs-target="#staticBackdrop${contractPage.content[i].id}">
                             +
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                        <div class="modal fade" id="staticBackdrop${contractPage.content[i].id}" data-bs-backdrop="static"
                              data-bs-keyboard="false"
                              tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -180,15 +251,26 @@
                                     </div>
                                     <div class="modal-body">
                                         <table class="table table-hover text-center">
-                                            <tbody>
+                                        <thead>
                                             <tr>
-                                                <td>1</td>
-                                                <td>Free wifi</td>
+                                                <th>Id</th>
+                                                <th>Name</th>
+                                                <th>Quantity</th>
+                                            </tr>
+                                        </thead>
+                                            <tbody>`
+                for (let j = 0; j < contractPage.content[i].contractDetailList.length; j++) {
+                contractTableHTML += `<tr>
+                                                <td>${contractPage.content[i].contractDetailList[j].id}</td>
+                                                <td>${contractPage.content[i].contractDetailList[j].attachFacility.name}</td>
                                                 <td>
                                                     <a href="" class="btn btn-outline-primary">+</a>
+                                                    <span class="px-3">${contractPage.content[i].contractDetailList[j].quantity}</span>
+                                                    <a href="" class="btn btn-outline-primary">-</a>
                                                 </td>
-                                            </tr>
-                                            </tbody>
+                                            </tr>`
+                }
+                contractTableHTML += `</tbody>
                                         </table>
                                     </div>
                                     <div class="modal-footer">
@@ -201,21 +283,15 @@
                         <a href=""
                            class="btn btn-outline-primary">List of attach facility</a>
                     </td>
-                </tr>
-                </tbody>
-            </table>
-
-        </div>
-    </section>
-</div>
-<!-- Footer-->
-<div th:replace="common-html :: footer"></div>
-<div th:replace="common-html :: myJs"></div>
-<script>
-    //trigger next modal
-    $("#target").on("click", function () {
-        $('#staticBackdropAttachFacility').modal('show');
-    });
+                </tr>`;
+            }
+            $("#contractTableBody").html(contractTableHTML);
+        },
+            error: function (resultError) {
+                console.log('Co loi xay ra');
+            }
+        })
+            ;
 </script>
 </body>
 </html>

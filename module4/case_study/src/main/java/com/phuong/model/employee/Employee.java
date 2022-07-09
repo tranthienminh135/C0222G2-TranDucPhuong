@@ -1,7 +1,11 @@
 package com.phuong.model.employee;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.phuong.model.contract.Contract;
+
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 public class Employee {
@@ -18,6 +22,8 @@ public class Employee {
     private String phoneNumber;
 
     private String email;
+
+    private String address;
 
     private Double salary;
 
@@ -37,23 +43,29 @@ public class Employee {
     @JoinColumn(name = "username", referencedColumnName = "username")
     private User user;
 
+    @OneToMany(mappedBy = "employee")
+    @JsonBackReference
+    private List<Contract> contractList;
+
     public Employee() {
     }
 
-    public Employee(Integer id, String name, Date birthday, String idCard,
-                    String phoneNumber, String email, Double salary,
-                    EducationDegree educationDegree, Position position, Division division, User user) {
+    public Employee(Integer id, String name, Date birthday, String idCard, String phoneNumber, String email,
+                    String address, Double salary, EducationDegree educationDegree, Position position,
+                    Division division, User user, List<Contract> contractList) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
         this.idCard = idCard;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.address = address;
         this.salary = salary;
         this.educationDegree = educationDegree;
         this.position = position;
         this.division = division;
         this.user = user;
+        this.contractList = contractList;
     }
 
     public Integer getId() {
@@ -104,6 +116,14 @@ public class Employee {
         this.email = email;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public Double getSalary() {
         return salary;
     }
@@ -142,5 +162,13 @@ public class Employee {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
     }
 }
