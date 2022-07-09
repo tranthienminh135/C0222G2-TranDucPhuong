@@ -171,58 +171,49 @@
 </script>
 
 <script>
-    let attachFacilityList = [];
-    let contractDetailList = [];
-        $.ajax({
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            type: "GET", //GET, DELETE, PUT...
-            url: "http://localhost:8080/rest/attach-facility",
-            success: function(resultAttachFacilityList){
-                
-                attachFacilityList = resultAttachFacilityList;
-            },
-            error: function(resultError) {
-                console.log('Co loi xay ra');
-            }
-        });
-
-        $.ajax({
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            type: "GET", //GET, DELETE, PUT...
-            url: "http://localhost:8080/rest/contract-detail",
-            success: function(resultContractDetailList){
-                contractDetailList = resultContractDetailList;
-            },
-            error: function(resultError) {
-                console.log('Co loi xay ra');
-            }
-        });
-    console.log(attachFacilityList)
-
     $.ajax({
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         type: "GET", //GET, DELETE, PUT...
-        url: "http://localhost:8080/rest/contract",
-        success: function (contractPage) {
-            let contractTableHTML = "";
-            for (let i = 0; i < contractPage.content.length; i++) {
-                // console.log(contractPage.content[i].contractDetailList)
-                let totalMoney = 0;
-                for (let j = 0; j < contractPage.content[i].contractDetailList.length; j++) {
-                    // console.log(contractPage.content[i].contractDetailList[j])
-                    totalMoney += contractPage.content[i].contractDetailList[j].quantity * contractPage.content[i].contractDetailList[j].attachFacility.cost;
-                    // console.log(totalMoney)
-                }
-                contractTableHTML += `<tr>
+        url: "http://localhost:8080/rest/attach-facility",
+        success: attachFacilityList
+    });
+
+    // $.ajax({
+    //     headers: {
+    //         'Accept': 'application/json',
+    //         'Content-Type': 'application/json'
+    //     },
+    //     type: "GET", //GET, DELETE, PUT...
+    //     url: "http://localhost:8080/rest/contract-detail",
+    //     success: function (resultContractDetailList) {
+    //         contractDetailList = resultContractDetailList;
+    //     },
+    //     error: function (resultError) {
+    //         console.log('Co loi xay ra');
+    //     }
+    // });
+    function attachFacilityList(attachFacilityList) {
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET", //GET, DELETE, PUT...
+            url: "http://localhost:8080/rest/contract",
+            success: function (contractPage) {
+                let contractTableHTML = "";
+                for (let i = 0; i < contractPage.content.length; i++) {
+                    // console.log(contractPage.content[i].contractDetailList)
+                    let totalMoney = 0;
+                    for (let j = 0; j < contractPage.content[i].contractDetailList.length; j++) {
+                        // console.log(contractPage.content[i].contractDetailList[j])
+                        totalMoney += contractPage.content[i].contractDetailList[j].quantity * contractPage.content[i].contractDetailList[j].attachFacility.cost;
+                        // console.log(totalMoney)
+                    }
+                    contractTableHTML += `<tr>
                     <td>${i}</td>
                     <td>${contractPage.content[i].facility.name}</td>
                     <td>${contractPage.content[i].customer.name}</td>
@@ -232,66 +223,67 @@
                     <td>${totalMoney}</td>
                     <td>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop${contractPage.content[i].id}">
-                            +
-                        </button>
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop${contractPage.content[i].id}">
+                +
+                </button>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="staticBackdrop${contractPage.content[i].id}" data-bs-backdrop="static"
-                             data-bs-keyboard="false"
-                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title fw-bold text-danger" id="staticBackdropLabel">List of
-                                            attach facility</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <table class="table table-hover text-center">
-                                        <thead>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Name</th>
-                                                <th>Quantity</th>
-                                            </tr>
-                                        </thead>
-                                            <tbody>`
-                for (let j = 0; j < contractPage.content[i].contractDetailList.length; j++) {
-                contractTableHTML += `<tr>
-                                                <td>${contractPage.content[i].contractDetailList[j].id}</td>
-                                                <td>${contractPage.content[i].contractDetailList[j].attachFacility.name}</td>
-                                                <td>
-                                                    <a href="" class="btn btn-outline-primary">+</a>
-                                                    <span class="px-3">${contractPage.content[i].contractDetailList[j].quantity}</span>
-                                                    <a href="" class="btn btn-outline-primary">-</a>
-                                                </td>
-                                            </tr>`
+                    <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop${contractPage.content[i].id}" data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title fw-bold text-danger" id="staticBackdropLabel">List of
+                attach facility</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <table class="table table-hover text-center">
+                <tbody>
+                <tr>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" aria-label="Default select example"
+                                style="padding-top: 0.625rem !important;" id="selectAttachFacility">`
+                    for (let k = 0; k < attachFacilityList.length; k++) {
+                        contractTableHTML += `<option value="${attachFacilityList[k].id}">${attachFacilityList[k].name}</option>`
+                    }
+                    contractTableHTML += `</select>
+                    <div class="form-floating mt-3" id="inputAttachFacility">
+                    <input class="form-control" id="quantityAdd" type="text"" />
+                    <label for="quantityAdd">Quantity</label>
+                    </div>
+                    </div>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" id="btnAddMoreAttachFacility">Save</button>
+                    <button type="button" class="btn btn-outline-secondary"
+                    data-bs-dismiss="modal">Close
+                    </button>
+                </div>
+                </div>
+                </div>
+                </div>
+                </td>
+                <td>
+                <a href="" class="btn btn-outline-primary">List of attach facility</a>
+                </td>
+                </tr>`
+                    ;
                 }
-                contractTableHTML += `</tbody>
-                                        </table>
-                                    </div>
-                                    <div class="modal-footer">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <a href=""
-                           class="btn btn-outline-primary">List of attach facility</a>
-                    </td>
-                </tr>`;
-            }
-            $("#contractTableBody").html(contractTableHTML);
-        },
+                $("#contractTableBody").html(contractTableHTML);
+            },
             error: function (resultError) {
                 console.log('Co loi xay ra');
             }
-        })
-            ;
+        });
+    }
+
 </script>
 </body>
 </html>

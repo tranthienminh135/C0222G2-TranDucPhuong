@@ -46,7 +46,6 @@ public class ContractRestController {
         return new ResponseEntity<>(contractPage, HttpStatus.OK);
     }
 
-
     @GetMapping("/contract-detail")
     public ResponseEntity<List<ContractDetail>> getAllContractDetail() {
         List<ContractDetail> contractDetailPage = this.contractDetailService.findAll();
