@@ -6,7 +6,7 @@
 <div th:replace="common-html :: nav"></div>
 <div class="container">
     <!-- Contact-->
-    <section class="page-section" id="facility">
+    <section class="page-section">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-8 col-xl-6 text-center">
                 <h2 class="mt-0">Contract management!</h2>
@@ -55,19 +55,24 @@
                                         </div>
                                         <div class="form-floating mb-3">
                                             <select class="form-select" aria-label="Default select example"
-                                                    style="padding-top: 0.625rem !important;">
-                                                <option value="">Choice Customer</option>
-                                                <option value="">Trung cap</option>
+                                                    style="padding-top: 0.625rem !important;" id="customer">
+                                                <option th:each="item, loop : ${customerList}" th:value="${item.id}" th:text="${item.name}"></option>
                                             </select>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <select class="form-select" aria-label="Default select example"
-                                                    style="padding-top: 0.625rem !important;">
-                                                <option value="">Choice Facility</option>
-                                                <option value="">Trung cap</option>
+                                                    style="padding-top: 0.625rem !important;" id="employee">
+                                                <option th:each="item, loop : ${employeeList}" th:value="${item.id}" th:text="${item.name}"></option>
                                             </select>
                                         </div>
-
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" aria-label="Default select example"
+                                                    style="padding-top: 0.625rem !important;" id="facility">
+                                                <option th:each="item, loop : ${facilityList}" th:value="${item.id}" th:text="${item.name}"></option>
+                                            </select>
+                                        </div>
+                                        <input type="hidden" id="idAttachFacilityCreate">
+                                        <input type="hidden" id="quantityAttachFacilityCreate">
                                         <div class="form-floating mb-3">
                                             <div class="text-center m-2">Attach Facility</div>
                                             <!-- Button trigger modal -->
@@ -79,7 +84,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-primary">Save</button>
+                                <button type="button" class="btn btn-outline-primary" id="btnSaveContract">Save</button>
                                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
                                 </button>
                             </div>
@@ -103,17 +108,23 @@
                                 <table class="table table-hover text-center">
                                     <tbody>
                                     <tr>
-                                        <td>1</td>
-                                        <td>Free wifi</td>
-                                        <td>
-                                            <a href="" class="btn btn-outline-primary">+</a>
-                                        </td>
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" aria-label="Default select example"
+                                                    style="padding-top: 0.625rem !important;" id="selectAttachFacilityCreate">
+                                                <option th:each="item, loop : ${attachFacilityList}"
+                                                        th:value="${item.id}" th:text="${item.name}"></option>
+                                            </select>
+                                            <div class="form-floating mt-3" id="inputAttachFacilityCreate">
+                                                <input class="form-control" id="quantityCreate" type="text" />
+                                                <label for="quantityCreate">Quantity</label>
+                                            </div>
+                                        </div>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-primary">Save
+                                <button type="button" class="btn btn-outline-primary" id="btnSaveAttachFacility">Save
                                 </button>
                                 <button type="button" class="btn btn-outline-secondary btnCloseModalAttachFacility"
                                         data-bs-dismiss="modal">Close
@@ -171,31 +182,7 @@
 </script>
 
 <script>
-    $.ajax({
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        type: "GET", //GET, DELETE, PUT...
-        url: "http://localhost:8080/rest/attach-facility",
-        success: attachFacilityList
-    });
-
-    // $.ajax({
-    //     headers: {
-    //         'Accept': 'application/json',
-    //         'Content-Type': 'application/json'
-    //     },
-    //     type: "GET", //GET, DELETE, PUT...
-    //     url: "http://localhost:8080/rest/contract-detail",
-    //     success: function (resultContractDetailList) {
-    //         contractDetailList = resultContractDetailList;
-    //     },
-    //     error: function (resultError) {
-    //         console.log('Co loi xay ra');
-    //     }
-    // });
-    function attachFacilityList(attachFacilityList) {
+    function getAllContract() {
         $.ajax({
             headers: {
                 'Accept': 'application/json',
@@ -203,7 +190,9 @@
             },
             type: "GET", //GET, DELETE, PUT...
             url: "http://localhost:8080/rest/contract",
-            success: function (contractPage) {
+            success: function (result) {
+                contractPage = result.contractPageDto;
+                attachFacilityList = result.attachFacilityListDto;
                 let contractTableHTML = "";
                 for (let i = 0; i < contractPage.content.length; i++) {
                     // console.log(contractPage.content[i].contractDetailList)
@@ -246,14 +235,14 @@
                 <tr>
                     <div class="form-floating mb-3">
                         <select class="form-select" aria-label="Default select example"
-                                style="padding-top: 0.625rem !important;" id="selectAttachFacility">`
+                                style="padding-top: 0.625rem !important;" id="selectAttachFacility${contractPage.content[i].id}">`
                     for (let k = 0; k < attachFacilityList.length; k++) {
                         contractTableHTML += `<option value="${attachFacilityList[k].id}">${attachFacilityList[k].name}</option>`
                     }
                     contractTableHTML += `</select>
                     <div class="form-floating mt-3" id="inputAttachFacility">
-                    <input class="form-control" id="quantityAdd" type="text"" />
-                    <label for="quantityAdd">Quantity</label>
+                    <input class="form-control" id="quantityAdd${contractPage.content[i].id}" type="text" />
+                    <label for="quantityAdd${contractPage.content[i].id}">Quantity</label>
                     </div>
                     </div>
                     </tr>
@@ -261,7 +250,7 @@
                 </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-primary" id="btnAddMoreAttachFacility">Save</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="getId(${contractPage.content[i].id})">Save</button>
                     <button type="button" class="btn btn-outline-secondary"
                     data-bs-dismiss="modal">Close
                     </button>
@@ -271,7 +260,41 @@
                 </div>
                 </td>
                 <td>
-                <a href="" class="btn btn-outline-primary">List of attach facility</a>
+                            <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropAFL${contractPage.content[i].id}">
+                        List Attach Facility
+                        </button>
+
+                            <!-- Modal -->
+                        <div class="modal fade" id="staticBackdropAFL${contractPage.content[i].id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <table class="table table-hover">
+                        <thead>
+                        <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        </tr>
+                        </thead>`
+                    for (let j = 0; j < contractPage.content[i].contractDetailList.length; j++) {
+                    contractTableHTML += `<tr>
+                        <td>${contractPage.content[i].contractDetailList[j].attachFacility.name}</td>
+                        <td>${contractPage.content[i].contractDetailList[j].quantity}</td>
+                        </tr>`
+                    }
+                    contractTableHTML += `</table>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
                 </td>
                 </tr>`
                     ;
@@ -283,7 +306,131 @@
             }
         });
     }
+        getAllContract()
 
+        function getId(id) {
+            let idAF = $("#selectAttachFacility" + id).val();
+            let quantityAF = $("#quantityAdd" + id).val();
+
+            let contractDetailDto = {
+                contract: {
+                    id: id
+                },
+                attachFacility: {
+                    id: idAF
+                },
+                quantity: quantityAF
+            }
+
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: "POST", //GET, DELETE, PUT...
+                url: "http://localhost:8080/rest/alter-attach-facility",
+                data: JSON.stringify(contractDetailDto),
+                success: function (resultSuccess) {
+                    $('#staticBackdrop' + id).modal('hide');
+                    getAllContract()
+                },
+                error: function (resultError) {
+                    console.log('Co loi xay ra');
+                }
+            });
+        }
+
+
+</script>
+<script>
+    $("#selectAttachFacilityCreate").on("change", function () {
+        $("#quantityCreate").val("");
+    })
+    $("#btnSaveAttachFacility").click(function (event) {
+        let idAF = $("#selectAttachFacilityCreate").val();
+        let quantity = $("#quantityCreate").val();
+        $("#idAttachFacilityCreate").val(idAF)
+        $("#quantityAttachFacilityCreate").val(quantity)
+        $('#staticBackdropCreate').modal('show');
+        $('#staticBackdropAttachFacility').modal('hide');
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET", //GET, DELETE, PUT...
+            url: "http://localhost:8080/rest/attach-facility/" + idAF,
+            success: function(data){
+                let total = Number(data.cost) * Number(quantity);
+                $("#totalMoney").val(total);
+            },
+            error: function(resultError) {
+                console.log('Co loi xay ra');
+            }
+        });
+    })
+    $("#btnSaveContract").click(function (event) {
+        let cStartDate = $("#startDate").val();
+        let cEndDate = $("#endDate").val();
+        let cDeposit = $("#deposit").val();
+        let cTotalMoney = $("#totalMoney");
+        let cCustomer = $("#customer").val();
+        let cEmployee = $("#employee").val();
+        let cFacility = $("#facility").val();
+        let cIdAF = $("#idAttachFacilityCreate").val();
+        let cQuantity = $("#quantityAttachFacilityCreate").val();
+        let contractObj = {
+            startDate: cStartDate,
+            endDate: cEndDate,
+            deposit: cDeposit,
+            facility: {
+                id: cFacility
+            },
+            customer: {
+                id: cCustomer
+            },
+            employee: {
+                id: cEmployee
+            }
+        }
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST", //GET, DELETE, PUT...
+            url: "http://localhost:8080/rest/create",
+            data: JSON.stringify(contractObj),
+            success: function(contract){
+                let contractDetailObj = {
+                    quantity: cQuantity,
+                    attachFacility: {
+                        id: cIdAF
+                    },
+                    contract: contract
+                }
+                $.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    type: "POST", //GET, DELETE, PUT...
+                    url: "http://localhost:8080/rest/create-contract-detail",
+                    data: JSON.stringify(contractDetailObj),
+                    success: function(resultSuccess){
+                        getAllContract();
+                        $('#staticBackdropCreate').modal('hide');
+                    },
+                    error: function(resultError) {
+                        console.log('Co loi xay ra');
+                    }
+                });
+            },
+            error: function(resultError) {
+                console.log('Co loi xay ra');
+            }
+        });
+    })
 </script>
 </body>
 </html>
