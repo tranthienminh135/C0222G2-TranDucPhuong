@@ -131,4 +131,20 @@ public class Customer {
     public void setContractList(List<Contract> contractList) {
         this.contractList = contractList;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", address='" + address + '\'' +
+                ", birthday=" + birthday +
+                ", email='" + email + '\'' +
+                ", gender=" + gender +
+                ", idCard='" + idCard + '\'' +
+                ", name='" + name + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", customerType=" + customerType +
+                ", contractList=" + contractList +
+                '}';
+    }
 }

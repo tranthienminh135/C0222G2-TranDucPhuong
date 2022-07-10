@@ -16,4 +16,6 @@ public interface ICustomerService {
     Customer getById(String idEdit);
 
     List<Customer> findAll();
+
+    Page<Customer> findCustomerUsingFacility(Pageable pageable);
 }

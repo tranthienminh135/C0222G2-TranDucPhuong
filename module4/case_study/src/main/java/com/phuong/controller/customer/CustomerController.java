@@ -1,5 +1,7 @@
 package com.phuong.controller.customer;
 
+import com.phuong.model.contract.Contract;
+import com.phuong.model.contract.ContractDetail;
 import com.phuong.model.customer.Customer;
 import com.phuong.model.customer.CustomerType;
 import com.phuong.service.customer.ICustomerService;
@@ -70,6 +72,21 @@ public class CustomerController {
     public String deleteCustomer(@PathVariable String idEdit) {
         this.customerService.delete(idEdit);
         return "redirect:/customer";
+    }
+
+    @GetMapping("/customer/customer-using-facility")
+    public String goCustomerUsingFacility(@PageableDefault(5) Pageable pageable , Model model) {
+        Page<Customer> customers = this.customerService.findCustomerUsingFacility(pageable);
+
+        for (Customer customer: customers) {
+            for (Contract contract: customer.getContractList()) {
+                for (ContractDetail contractDetail: contract.getContractDetailList()) {
+                    System.out.println(contractDetail.getAttachFacility().getName());
+                }
+            }
+        }
+        model.addAttribute("customers", customers);
+        return "customer/using-facility/list";
     }
 
 }

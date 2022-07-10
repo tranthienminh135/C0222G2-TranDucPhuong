@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common-html :: myCss"></head>
+<body id="page-top">
+<div th:replace="common-html :: nav"></div>
+<div class="container">
+    <!-- Contact-->
+    <section class="page-section" id="facility">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Customer management!</h2>
+                <a href="/customer/create" class="btn btn-outline-primary">Create new Customer</a>
+                <hr class="divider"/>
+                <p class="text-muted mb-5">Ready to start your next project with us? Send us a messages and we will get
+                    back to you as soon as possible!</p>
+            </div>
+        </div>
+        <div class="container mt-3">
+            <div class="pagination float-end mb-2">
+                <form class="d-flex" action="/customer">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                           name="searchValue" th:value="${searchParam}">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+            </div>
+            <table class="table table-hover text-center">
+                <thead>
+                <tr style="background-color: #f4623a" class="text-light">
+                    <th>CN</th>
+                    <th>Name</th>
+                    <th>Birthday</th>
+                    <th>Gender</th>
+                    <th>Id Card</th>
+                    <th>Customer Type</th>
+                    <th colspan="2">Action</th>
+                    <th>List Attach Facility</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item, loop : ${customers}">
+                    <td th:text="${loop.count + customers.size * customers.number}"></td>
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.birthday}"></td>
+                    <div th:switch="${item.gender}">
+                        <td th:case="0">FeMale</td>
+                        <td th:case="1">Male</td>
+                        <td th:case="2">Other</td>
+                    </div>
+                    <td th:text="${item.idCard}"></td>
+                    <td th:text="${item.customerType.name}"></td>
+                    <td>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                th:data-bs-target="'#staticBackdrop' + ${item.id}">
+                            Delete
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static"
+                             data-bs-keyboard="false"
+                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title fw-bold text-danger" id="staticBackdropLabel">FBI
+                                            Warning!</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to delete customer <span th:text="${item.name}"></span> with id =
+                                        <span th:text="${item.id}"></span>?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a th:href="@{/customer/delete/{idDelete}(idDelete=${item.id})}" type="button"
+                                           class="btn btn-outline-primary">Submit</a>
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a th:href="@{/customer/edit/{idEdit}(idEdit=${item.id})}"
+                           class="btn btn-outline-warning">Edit</a>
+                    </td>
+                    <td>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" th:data-bs-target="'#staticBackdropAF' + ${item.id}">
+                            Launch static backdrop modal
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" th:id="staticBackdropAF + ${item.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabelAF">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <td>Id</td>
+                                                <td>Name</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <div th:each="contract, loopContract : ${item.contractList}">
+                                                <div th:each="contractDetail, loopContractDetail : ${contract.contractDetailList}">
+                                                    <tr>
+                                                        <td th:text="${contractDetail.attachFacility.id}"></td>
+                                                        <td th:text="${contractDetail.attachFacility.name}"></td>
+                                                    </tr>
+                                                </div>
+                                            </div>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Understood</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="container mt-3">
+                <ul class="pagination float-end" th:if="${customers.totalPages > 0}">
+                    <li class="page-item" th:if="${customers.hasPrevious()}">
+                        <a class="page-link" th:href="@{/customer(page=${customers.number - 1}, searchValue = ${searchParam})}">Previous</a>
+                    </li>
+                    <div th:each="item, loop : ${#numbers.sequence(1, customers.totalPages )}">
+                        <div th:if="${customers.number + 1 == item}">
+                            <li class="page-item active"><a class="page-link" th:href="@{/customer(page=${item - 1}, searchValue = ${searchParam})}" th:text="${item}"></a></li>
+                        </div>
+                        <div th:unless="${customers.number + 1 == item}">
+                            <li class="page-item"><a class="page-link" th:href="@{/customer(page=${item - 1}, searchValue = ${searchParam})}" th:text="${item}"></a></li>
+                        </div>
+                    </div>
+                    <li class="page-item" th:if="${customers.hasNext()}">
+                        <a class="page-link" th:href="@{/customer(page=${customers.number + 1}, searchValue = ${searchParam})}">Next</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Footer-->
+<div th:replace="common-html :: footer"></div>
+<div th:replace="common-html :: myJs"></div>
+</body>
+</html>
