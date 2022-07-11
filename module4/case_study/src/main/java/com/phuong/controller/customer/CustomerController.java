@@ -1,22 +1,24 @@
 package com.phuong.controller.customer;
 
-import com.phuong.model.contract.Contract;
-import com.phuong.model.contract.ContractDetail;
 import com.phuong.model.customer.Customer;
+import com.phuong.model.customer.CustomerDto;
 import com.phuong.model.customer.CustomerType;
 import com.phuong.service.customer.ICustomerService;
 import com.phuong.service.customer_type.ICustomerTypeService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,12 +46,17 @@ public class CustomerController {
 
     @GetMapping("/customer/create")
     public String goCreateCustomer(Model model) {
-        model.addAttribute("customer", new Customer());
+        model.addAttribute("customerDto", new CustomerDto());
         return "customer/create";
     }
 
     @PostMapping("/customer/create")
-    public String saveCustomer(@ModelAttribute("customer") Customer customer){
+    public String saveCustomer(@Valid @ModelAttribute("customerDto") CustomerDto customerDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "customer/create";
+        }
+        Customer customer = new Customer();
+        BeanUtils.copyProperties(customerDto, customer);
         this.customerService.save(customer);
         return "redirect:/customer";
     }
@@ -57,14 +64,21 @@ public class CustomerController {
     @GetMapping("/customer/edit/{idEdit}")
     public String goEditCustomer(Model model, @PathVariable String idEdit) {
         Customer customer = this.customerService.getById(idEdit);
-        model.addAttribute("customer", customer);
+        CustomerDto customerDto = new CustomerDto();
+        BeanUtils.copyProperties(customer, customerDto);
+        model.addAttribute("customerDto", customerDto);
         return "customer/edit";
     }
 
     @PostMapping("/customer/edit")
-    public String saveChanges(Model model, @ModelAttribute("customer") Customer customer) {
+    public String saveChanges(@Valid @ModelAttribute("customerDto") CustomerDto customerDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "customer/edit";
+        }
+        Customer customer = new Customer();
+        BeanUtils.copyProperties(customerDto, customer);
+
         this.customerService.save(customer);
-        model.addAttribute("customer", customer);
         return "redirect:/customer";
     }
 
@@ -72,21 +86,6 @@ public class CustomerController {
     public String deleteCustomer(@PathVariable String idEdit) {
         this.customerService.delete(idEdit);
         return "redirect:/customer";
-    }
-
-    @GetMapping("/customer/customer-using-facility")
-    public String goCustomerUsingFacility(@PageableDefault(5) Pageable pageable , Model model) {
-        Page<Customer> customers = this.customerService.findCustomerUsingFacility(pageable);
-
-        for (Customer customer: customers) {
-            for (Contract contract: customer.getContractList()) {
-                for (ContractDetail contractDetail: contract.getContractDetailList()) {
-                    System.out.println(contractDetail.getAttachFacility().getName());
-                }
-            }
-        }
-        model.addAttribute("customers", customers);
-        return "customer/using-facility/list";
     }
 
 }

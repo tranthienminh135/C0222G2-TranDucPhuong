@@ -2,9 +2,11 @@ package com.phuong.controller.contract;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.phuong.model.contract.*;
+import com.phuong.model.facility.Facility;
 import com.phuong.service.attach_facility.IAttachFacilityService;
 import com.phuong.service.contract.IContractService;
 import com.phuong.service.contract_detail.IContractDetailService;
+import com.phuong.service.facility.IFacilityService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -33,11 +35,13 @@ public class ContractRestController {
     @Autowired
     private IAttachFacilityService attachFacilityService;
 
+    @Autowired
+    private IFacilityService facilityService;
+
     @GetMapping("/contract")
-    public ResponseEntity<ContractPageAndAttachFacilityListDto> getAllContract(@PageableDefault(20) Pageable pageable,
+    public ResponseEntity<ContractPageAndAttachFacilityListDto> getAllContract(@PageableDefault(5) Pageable pageable,
                                                                                Optional<String> startDateValue, Optional<String> endDateValue) {
         String startDate = startDateValue.orElse("1000-01-01");
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String endDate = endDateValue.orElse("3000-01-01");
         Page<Contract> contractPage = this.contractService.getAllContract(pageable, startDate, endDate);
         List<AttachFacility> attachFacilityList = this.attachFacilityService.findAll();
@@ -58,14 +62,21 @@ public class ContractRestController {
         List<AttachFacility> attachFacilityList = this.attachFacilityService.findAll();
         return new ResponseEntity<>(attachFacilityList, HttpStatus.OK);
     }
+
     @GetMapping("/attach-facility/{id}")
     public ResponseEntity<AttachFacility> findAttachFacilityById(@PathVariable String id) {
         AttachFacility attachFacility = this.attachFacilityService.findById(id);
         return new ResponseEntity<>(attachFacility, HttpStatus.OK);
     }
 
+    @GetMapping("/facility/{id}")
+    public ResponseEntity<Facility> findFacilityById(@PathVariable Optional<Integer> id) {
+        Facility facility = this.facilityService.findById(id.orElse(0));
+        return new ResponseEntity<>(facility, HttpStatus.OK);
+    }
+
     @PostMapping("/alter-attach-facility")
-    public ResponseEntity<Void> alterAttachFacility (@RequestBody ContractDetailDto contractDetailDto) {
+    public ResponseEntity<Void> alterAttachFacility(@RequestBody ContractDetailDto contractDetailDto) {
         Contract contract = this.contractService.findByAttachFacilityIdAndContractId(contractDetailDto.getContract().getId(),
                 contractDetailDto.getAttachFacility().getId());
         if (contract == null) {

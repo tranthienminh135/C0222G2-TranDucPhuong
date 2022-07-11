@@ -19,12 +19,12 @@ public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
             " left join contract_detail d on c2.id = d.contract_id " +
             " left join attach_facility af on af.id = cd.attach_facility_id " +
             " group by c.id, f.id ", nativeQuery = true,
-            countQuery = " select c.* from customer c " +
-                    " left join contract c2 on c.id = c2.customer_id " +
-                    " left join contract_detail cd on c2.id = cd.contract_id " +
-                    " left join facility f on c2.facility_id = f.id " +
-                    " left join contract_detail d on c2.id = d.contract_id " +
-                    " left join attach_facility af on af.id = cd.attach_facility_id " +
-                    " group by c.id, f.id ")
+            countQuery = " select count(*) ( select c.* from customer c  + " +
+                    "                     left join contract c2 on c.id = c2.customer_id  + " +
+                    "                     left join contract_detail cd on c2.id = cd.contract_id  + " +
+                    "                     left join facility f on c2.facility_id = f.id + " +
+                    "                     left join contract_detail d on c2.id = d.contract_id + " +
+                    "                     left join attach_facility af on af.id = cd.attach_facility_id + " +
+                    "                     group by c.id, f.id ) ")
     Page<Customer> findCustomerUsingFacility(Pageable pageable);
 }

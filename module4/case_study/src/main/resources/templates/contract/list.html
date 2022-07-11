@@ -56,19 +56,25 @@
                                         <div class="form-floating mb-3">
                                             <select class="form-select" aria-label="Default select example"
                                                     style="padding-top: 0.625rem !important;" id="customer">
-                                                <option th:each="item, loop : ${customerList}" th:value="${item.id}" th:text="${item.name}"></option>
+                                                <option selected disabled>Choice customer</option>
+                                                <option th:each="item, loop : ${customerList}" th:value="${item.id}"
+                                                        th:text="${item.name}"></option>
                                             </select>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <select class="form-select" aria-label="Default select example"
                                                     style="padding-top: 0.625rem !important;" id="employee">
-                                                <option th:each="item, loop : ${employeeList}" th:value="${item.id}" th:text="${item.name}"></option>
+                                                <option selected disabled>Choice employee</option>
+                                                <option th:each="item, loop : ${employeeList}" th:value="${item.id}"
+                                                        th:text="${item.name}"></option>
                                             </select>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <select class="form-select" aria-label="Default select example"
                                                     style="padding-top: 0.625rem !important;" id="facility">
-                                                <option th:each="item, loop : ${facilityList}" th:value="${item.id}" th:text="${item.name}"></option>
+                                                <option selected disabled>Choice facility</option>
+                                                <option th:each="item, loop : ${facilityList}" th:value="${item.id}"
+                                                        th:text="${item.name}"></option>
                                             </select>
                                         </div>
                                         <input type="hidden" id="idAttachFacilityCreate">
@@ -110,12 +116,13 @@
                                     <tr>
                                         <div class="form-floating mb-3">
                                             <select class="form-select" aria-label="Default select example"
-                                                    style="padding-top: 0.625rem !important;" id="selectAttachFacilityCreate">
+                                                    style="padding-top: 0.625rem !important;"
+                                                    id="selectAttachFacilityCreate">
                                                 <option th:each="item, loop : ${attachFacilityList}"
                                                         th:value="${item.id}" th:text="${item.name}"></option>
                                             </select>
                                             <div class="form-floating mt-3" id="inputAttachFacilityCreate">
-                                                <input class="form-control" id="quantityCreate" type="text" />
+                                                <input class="form-control" id="quantityCreate" type="text"/>
                                                 <label for="quantityCreate">Quantity</label>
                                             </div>
                                         </div>
@@ -139,14 +146,18 @@
                     back to you as soon as possible!</p>
             </div>
         </div>
-        <div class="container mt-3">
-            <div class="pagination float-end mb-2">
-                <form class="d-flex" action="/customer">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                           name="searchValue">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
-                </form>
-            </div>
+        <div class="d-flex w-75 float-end mb-2">
+            <div class="w-25">Start Date</div>
+            <div class="w-25">End Date</div>
+        </div>
+        <div class="d-flex w-75 float-end mb-2">
+            <input class="form-control me-2 w-25" type="date" id="startDateSearch" placeholder="Search"
+                   aria-label="Search">
+            <input class="form-control me-2 w-25" type="date" id="endDateSearch" placeholder="Search"
+                   aria-label="Search">
+            <button class="btn btn-outline-primary" id="btnSearch" type="button">Search</button>
+        </div>
+        <div class="container mt-3 overflow-auto">
             <table class="table table-hover text-center">
                 <thead>
                 <tr style="background-color: #f4623a" class="text-light">
@@ -163,6 +174,9 @@
                 <tbody id="contractTableBody">
                 </tbody>
             </table>
+            <ul class="pagination float-end" id="paginationTable">
+
+            </ul>
         </div>
     </section>
 </div>
@@ -182,34 +196,42 @@
 </script>
 
 <script>
-    function getAllContract() {
+    // Format currency
+    let formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: 0
+    });
+    //Get all contract
+    function getAllContract(pageNumber, startDate, endDate) {
         $.ajax({
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             type: "GET", //GET, DELETE, PUT...
-            url: "http://localhost:8080/rest/contract",
+            url: "http://localhost:8080/rest/contract?page=" + pageNumber + "&startDateValue=" + startDate + "&endDateValue=" + endDate,
             success: function (result) {
                 contractPage = result.contractPageDto;
                 attachFacilityList = result.attachFacilityListDto;
                 let contractTableHTML = "";
                 for (let i = 0; i < contractPage.content.length; i++) {
-                    // console.log(contractPage.content[i].contractDetailList)
                     let totalMoney = 0;
+                    totalMoney += contractPage.content[i].facility.cost;
                     for (let j = 0; j < contractPage.content[i].contractDetailList.length; j++) {
-                        // console.log(contractPage.content[i].contractDetailList[j])
                         totalMoney += contractPage.content[i].contractDetailList[j].quantity * contractPage.content[i].contractDetailList[j].attachFacility.cost;
-                        // console.log(totalMoney)
                     }
+                    let totalMoneyFormat = formatter.format(totalMoney)
                     contractTableHTML += `<tr>
-                    <td>${i}</td>
+                    <td>${(i + contractPage.size * contractPage.number) + 1}</td>
                     <td>${contractPage.content[i].facility.name}</td>
                     <td>${contractPage.content[i].customer.name}</td>
                     <td>${contractPage.content[i].startDate}</td>
                     <td>${contractPage.content[i].endDate}</td>
                     <td>${contractPage.content[i].deposit}</td>
-                    <td>${totalMoney}</td>
+                    <td>`
+                    contractTableHTML +=  totalMoneyFormat
+                    contractTableHTML += `</td>
                     <td>
                         <!-- Button trigger modal -->
                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
@@ -270,7 +292,7 @@
                         <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">List Attach Facility</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -282,7 +304,7 @@
                         </tr>
                         </thead>`
                     for (let j = 0; j < contractPage.content[i].contractDetailList.length; j++) {
-                    contractTableHTML += `<tr>
+                        contractTableHTML += `<tr>
                         <td>${contractPage.content[i].contractDetailList[j].attachFacility.name}</td>
                         <td>${contractPage.content[i].contractDetailList[j].quantity}</td>
                         </tr>`
@@ -299,6 +321,34 @@
                 </tr>`
                     ;
                 }
+                let paginationHTML = "";
+                switch (Number(pageNumber)) {
+                    case 0:
+                        paginationHTML += `<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>`;
+                        break;
+                    default:
+                        paginationHTML += `<li class="page-item "><a class="page-link" href="` + pageNumber + `" id="aPrevious">Previous</a></li>`;
+                        break;
+                }
+                for (let i = 0; i < contractPage.totalPages; i++) {
+                    switch (Number(i)){
+                        case Number(pageNumber):
+                            paginationHTML += `<li class="page-item active"><a class="page-link" id="aItem" href="`+ i +`">`+ (i + 1) +`</a></li>`;
+                            break;
+                        default:
+                            paginationHTML += `<li class="page-item"><a class="page-link" id="aItem" href="`+ i +`">`+ (i + 1) +`</a></li>`;
+                            break;
+                    }
+                }
+                switch (Number(pageNumber)) {
+                    case contractPage.totalPages = (Number(contractPage.totalPages) <= 0) ? 0 : Number((contractPage.totalPages - 1)):
+                        paginationHTML += `<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>`;
+                        break;
+                    default:
+                        paginationHTML += `<li class="page-item "><a class="page-link" href="`+ pageNumber +`" id="aNext">Next</a></li>`;
+                        break;
+                }
+                $("#paginationTable").html(paginationHTML);
                 $("#contractTableBody").html(contractTableHTML);
             },
             error: function (resultError) {
@@ -306,15 +356,39 @@
             }
         });
     }
-        getAllContract()
+        $(document).ready(function () {
+            $("#paginationTable").on('click', '#aNext', function (event) {
+                let numberPage = $(this).attr("href");
+                numberPage++;
+                event.preventDefault();
+                getAllContract(numberPage, "1000-01-01", "3000-01-01")
+            })
+        })
+        $(document).ready(function () {
+            $("#paginationTable").on('click', '#aPrevious', function (event) {
+                let numberPage = $(this).attr("href");
+                numberPage--;
+                event.preventDefault();
+                getAllContract(numberPage, "1000-01-01", "3000-01-01")
+            })
+        })
+        $(document).ready(function () {
+            $("#paginationTable").on('click', '#aItem', function (event) {
+                let numberPage = $(this).attr("href");
+                event.preventDefault();
+                getAllContract(numberPage, "1000-01-01", "3000-01-01")
+            })
+        })
 
-        function getId(id) {
-            let idAF = $("#selectAttachFacility" + id).val();
-            let quantityAF = $("#quantityAdd" + id).val();
+        getAllContract(0, "1000-01-01", "3000-01-01")
+
+        function getId(contractId) {
+            let idAF = $("#selectAttachFacility" + contractId).val();
+            let quantityAF = $("#quantityAdd" + contractId).val();
 
             let contractDetailDto = {
                 contract: {
-                    id: id
+                    id: contractId
                 },
                 attachFacility: {
                     id: idAF
@@ -331,8 +405,8 @@
                 url: "http://localhost:8080/rest/alter-attach-facility",
                 data: JSON.stringify(contractDetailDto),
                 success: function (resultSuccess) {
-                    $('#staticBackdrop' + id).modal('hide');
-                    getAllContract()
+                    $('#staticBackdrop' + contractId).modal('hide');
+                    getAllContract(0, "1000-01-01", "3000-01-01")
                 },
                 error: function (resultError) {
                     console.log('Co loi xay ra');
@@ -340,9 +414,36 @@
             });
         }
 
-
 </script>
 <script>
+
+    let total = 0
+    let idFacility = $("#facility").val();
+    // Get facility
+    function getFacility(idF) {
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "GET", //GET, DELETE, PUT...
+            url: "http://localhost:8080/rest/facility/" + idF,
+            success: function (data) {
+                total = data.cost;
+                $("#totalMoney").val(formatter.format(total));
+            },
+            error: function (resultError) {
+                console.log('Co loi xay ra');
+            }
+        });
+    }
+
+    getFacility(idFacility)
+
+    $("#facility").on("change", function (event) {
+        idFacility = $("#facility").val();
+        getFacility(idFacility)
+    })
     $("#selectAttachFacilityCreate").on("change", function () {
         $("#quantityCreate").val("");
     })
@@ -360,11 +461,12 @@
             },
             type: "GET", //GET, DELETE, PUT...
             url: "http://localhost:8080/rest/attach-facility/" + idAF,
-            success: function(data){
-                let total = Number(data.cost) * Number(quantity);
-                $("#totalMoney").val(total);
+            success: function (data) {
+                total += Number(data.cost) * Number(quantity);
+                $("#totalMoney").val(formatter.format(total));
+                $("#quantityCreate").val("");
             },
-            error: function(resultError) {
+            error: function (resultError) {
                 console.log('Co loi xay ra');
             }
         });
@@ -373,7 +475,6 @@
         let cStartDate = $("#startDate").val();
         let cEndDate = $("#endDate").val();
         let cDeposit = $("#deposit").val();
-        let cTotalMoney = $("#totalMoney");
         let cCustomer = $("#customer").val();
         let cEmployee = $("#employee").val();
         let cFacility = $("#facility").val();
@@ -401,7 +502,7 @@
             type: "POST", //GET, DELETE, PUT...
             url: "http://localhost:8080/rest/create",
             data: JSON.stringify(contractObj),
-            success: function(contract){
+            success: function (contract) {
                 let contractDetailObj = {
                     quantity: cQuantity,
                     attachFacility: {
@@ -417,19 +518,28 @@
                     type: "POST", //GET, DELETE, PUT...
                     url: "http://localhost:8080/rest/create-contract-detail",
                     data: JSON.stringify(contractDetailObj),
-                    success: function(resultSuccess){
-                        getAllContract();
+                    success: function (resultSuccess) {
+
                         $('#staticBackdropCreate').modal('hide');
+                        $("#startDate").val("");
+                        $("#endDate").val("");
+                        $("#deposit").val("");
+                        getAllContract(0, "1000-01-01", "3000-01-01")
                     },
-                    error: function(resultError) {
+                    error: function (resultError) {
                         console.log('Co loi xay ra');
                     }
                 });
             },
-            error: function(resultError) {
+            error: function (resultError) {
                 console.log('Co loi xay ra');
             }
         });
+    })
+    $("#btnSearch").click(function (event) {
+        let cStartDate = $("#startDateSearch").val();
+        let cEndDate = $("#endDateSearch").val();
+        getAllContract(0, cStartDate, cEndDate)
     })
 </script>
 </body>

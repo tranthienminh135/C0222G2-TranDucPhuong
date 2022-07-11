@@ -1,6 +1,7 @@
 package com.phuong.service.customer;
 
 import com.phuong.model.customer.Customer;
+import com.phuong.model.customer.CustomerAndAttachFacilityDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -18,4 +19,6 @@ public interface ICustomerService {
     List<Customer> findAll();
 
     Page<Customer> findCustomerUsingFacility(Pageable pageable);
+
+    Page<CustomerAndAttachFacilityDto> getCustomerAndAF(Pageable pageable);
 }

@@ -39,24 +39,24 @@
                 <tbody>
                 <tr th:each="item, loop : ${customers}">
                     <td th:text="${loop.count + customers.size * customers.number}"></td>
-                    <td th:text="${item.name}"></td>
-                    <td th:text="${item.birthday}"></td>
-                    <div th:switch="${item.gender}">
+                    <td th:text="${item.customer.name}"></td>
+                    <td th:text="${item.customer.birthday}"></td>
+                    <div th:switch="${item.customer.gender}">
                         <td th:case="0">FeMale</td>
                         <td th:case="1">Male</td>
                         <td th:case="2">Other</td>
                     </div>
-                    <td th:text="${item.idCard}"></td>
-                    <td th:text="${item.customerType.name}"></td>
+                    <td th:text="${item.customer.idCard}"></td>
+                    <td th:text="${item.customer.customerType.name}"></td>
                     <td>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                                th:data-bs-target="'#staticBackdrop' + ${item.id}">
+                                th:data-bs-target="'#staticBackdrop' + ${item.customer.id}">
                             Delete
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" th:id="staticBackdrop + ${item.id}" data-bs-backdrop="static"
+                        <div class="modal fade" th:id="staticBackdrop + ${item.customer.id}" data-bs-backdrop="static"
                              data-bs-keyboard="false"
                              tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
@@ -68,11 +68,11 @@
                                                 aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Do you want to delete customer <span th:text="${item.name}"></span> with id =
-                                        <span th:text="${item.id}"></span>?
+                                        Do you want to delete customer <span th:text="${item.customer.name}"></span> with id =
+                                        <span th:text="${item.customer.id}"></span>?
                                     </div>
                                     <div class="modal-footer">
-                                        <a th:href="@{/customer/delete/{idDelete}(idDelete=${item.id})}" type="button"
+                                        <a th:href="@{/customer/delete/{idDelete}(idDelete=${item.customer.id})}" type="button"
                                            class="btn btn-outline-primary">Submit</a>
                                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                             Close
@@ -83,17 +83,17 @@
                         </div>
                     </td>
                     <td>
-                        <a th:href="@{/customer/edit/{idEdit}(idEdit=${item.id})}"
+                        <a th:href="@{/customer/edit/{idEdit}(idEdit=${item.customer.id})}"
                            class="btn btn-outline-warning">Edit</a>
                     </td>
                     <td>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" th:data-bs-target="'#staticBackdropAF' + ${item.id}">
-                            Launch static backdrop modal
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" th:data-bs-target="'#staticBackdropAF' + ${item.customer.id}">
+                            List Attach Facility
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" th:id="staticBackdropAF + ${item.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal fade" th:id="staticBackdropAF + ${item.customer.id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -109,21 +109,15 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <div th:each="contract, loopContract : ${item.contractList}">
-                                                <div th:each="contractDetail, loopContractDetail : ${contract.contractDetailList}">
-                                                    <tr>
-                                                        <td th:text="${contractDetail.attachFacility.id}"></td>
-                                                        <td th:text="${contractDetail.attachFacility.name}"></td>
+                                                    <tr th:each="item, loop : ${item.attachFacilityList}">
+                                                        <td th:text="${loop.count}"></td>
+                                                        <td th:text="${item.name}"></td>
                                                     </tr>
-                                                </div>
-                                            </div>
-
                                             </tbody>
                                         </table>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Understood</button>
                                     </div>
                                 </div>
                             </div>

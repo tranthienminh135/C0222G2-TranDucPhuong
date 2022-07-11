@@ -54,19 +54,25 @@
         <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
             <div class="col-lg-6">
                 <div class="text-danger" id="tableInputName"></div>
-                <form id="contactForm" method="post" action="/customer/edit" th:object="${customer}">
+                <form id="contactForm" method="post" action="/customer/edit" th:object="${customerDto}">
                     <input type="hidden" th:field="*{id}">
                     <!-- name input-->
                     <div class="form-floating mb-3">
                         <input class="form-control" id="name" type="text" placeholder="Enter your name..."
                                th:field="*{name}"/>
                         <label for="name">Custer name</label>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}">
+                            <div th:errors="*{name}"></div>
+                        </div>
                     </div>
                     <!-- birthday input-->
                     <div class="form-floating mb-3">
                         <input class="form-control" id="birthday" type="date" placeholder="Enter your birthday..."
                                th:field="*{birthday}"/>
                         <label for="birthday">Birthday</label>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('birthday')}">
+                            <div th:errors="*{birthday}"></div>
+                        </div>
                     </div>
                     <!-- gender input-->
                     <div class="form-floating mb-3">
@@ -77,12 +83,18 @@
                             <option value="0">FeMale</option>
                             <option value="2">Other</option>
                         </select>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('gender')}">
+                            <div th:errors="*{gender}"></div>
+                        </div>
                     </div>
                     <!-- idCard input-->
                     <div class="form-floating mb-3">
                         <input class="form-control" id="idCard" type="text" placeholder="Enter your id card..."
                                th:field="*{idCard}"/>
                         <label for="idCard">Id Card</label>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('idCard')}">
+                            <div th:errors="*{idCard}"></div>
+                        </div>
                     </div>
                     <!-- phoneNumber input-->
                     <div class="form-floating mb-3">
@@ -90,18 +102,27 @@
                                placeholder="Enter your phone number..."
                                th:field="*{phoneNumber}"/>
                         <label for="phoneNumber">Phone Number</label>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('phoneNumber')}">
+                            <div th:errors="*{phoneNumber}"></div>
+                        </div>
                     </div>
                     <!-- email input-->
                     <div class="form-floating mb-3">
                         <input class="form-control" id="email" type="email" placeholder="Enter your email..."
                                th:field="*{email}"/>
                         <label for="email">Email</label>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}">
+                            <div th:errors="*{email}"></div>
+                        </div>
                     </div>
                     <!-- address input-->
                     <div class="form-floating mb-3">
                         <input class="form-control" id="address" type="text" placeholder="Enter your address..."
                                th:field="*{address}"/>
                         <label for="address">Address</label>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('address')}">
+                            <div th:errors="*{address}"></div>
+                        </div>
                     </div>
                     <!-- facilityType input-->
                     <div class="form-floating mb-3">
@@ -112,6 +133,9 @@
                             <option value="" th:each="item, loop : ${customerTypeList}" th:value="${item.id}"
                                     th:text="${item.name}"></option>
                         </select>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('customerType')}">
+                            <div th:errors="*{customerType}"></div>
+                        </div>
                     </div>
 
                     <!-- Submit Button-->

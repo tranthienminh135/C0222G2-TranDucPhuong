@@ -45,6 +45,7 @@ public class ContractController {
     public List<AttachFacility> getAllAttachFacility() {
         return this.attachFacilityService.findAll();
     }
+
     @ModelAttribute("employeeList")
     public List<Employee> getAllEmployee () {
         return this.employeeService.findAll();
