@@ -36,6 +36,7 @@
                                                    placeholder="Enter your name..."/>
                                             <label for="name">Employee name</label>
                                         </div>
+                                        <div id="errorName"></div>
                                         <!-- birthday input-->
                                         <div class="form-floating mb-3">
                                             <input class="form-control" id="birthday" type="date"
@@ -326,7 +327,7 @@
                 $("#paginationTable").html(pagination);
             },
             error: function (resultError) {
-                console.log('Co loi xay ra');
+                console.log(resultError)
             }
         });
     }
@@ -367,7 +368,7 @@
                 type: "POST", //GET, DELETE, PUT...
                 url: "http://localhost:8080/rest/employee/create",
                 data: JSON.stringify(employeeObj),
-                success: function (studentPage) {
+                success: function (employeePage) {
                     $("#name").val("");
                     $("#birthday").val("");
                     $("#idCard").val("");
@@ -378,7 +379,13 @@
                     getPageEmployee(0, "");
                 },
                 error: function (resultError) {
-                    console.log('Co loi xay ra');
+                    if (resultError.responseJSON.errors !== undefined) {
+                        for (let i = 0; i < resultError.responseJSON.errors.length; i++) {
+                            if (resultError.responseJSON.errors[i].field === "name") {
+                                $("#errorName").html(`<div class="alert alert-danger" role="alert">` + resultError.responseJSON.errors[i].defaultMessage + `</div>`);
+                            }
+                        }
+                    }
                 }
             });
         })

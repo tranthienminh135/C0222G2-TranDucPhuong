@@ -7,6 +7,7 @@ import com.phuong.service.customer.ICustomerService;
 import com.phuong.service.customer_type.ICustomerTypeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -23,6 +24,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@Scope
 public class CustomerController {
     @Autowired
     private ICustomerTypeService customerTypeService;
@@ -51,7 +53,7 @@ public class CustomerController {
     }
 
     @PostMapping("/customer/create")
-    public String saveCustomer(@Valid @ModelAttribute("customerDto") CustomerDto customerDto, BindingResult bindingResult) {
+    public String saveCustomer(@Valid @ModelAttribute() CustomerDto customerDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "customer/create";
         }

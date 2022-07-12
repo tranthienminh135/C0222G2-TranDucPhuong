@@ -3,8 +3,7 @@ package com.phuong.model.customer;
 import com.phuong.model.contract.Contract;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.sql.Date;
 import java.util.List;
@@ -12,9 +11,9 @@ import java.util.List;
 public class CustomerDto {
     private Integer id;
 
+    @NotBlank
     private String address;
 
-    @NotNull(message = "Birthday invalid")
     private Date birthday;
 
     @Email
@@ -25,7 +24,7 @@ public class CustomerDto {
     @Pattern(regexp = "^[1-9][0-9]{8}$", message = "Id card invalid")
     private String idCard;
 
-    @Pattern(regexp = "^([A-Za-z]+)$", message = "Name invalid")
+    @Pattern(regexp = "^([A-Z][a-z]+\\s[A-Z][a-z]+)$", message = "Name invalid")
     private String name;
 
     @Pattern(regexp = "^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$", message = "Phone number invalid")

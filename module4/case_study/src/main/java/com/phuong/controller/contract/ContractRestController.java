@@ -39,7 +39,7 @@ public class ContractRestController {
     private IFacilityService facilityService;
 
     @GetMapping("/contract")
-    public ResponseEntity<ContractPageAndAttachFacilityListDto> getAllContract(@PageableDefault(5) Pageable pageable,
+    public ResponseEntity<ContractPageAndAttachFacilityListDto> getAllContract(@PageableDefault(10) Pageable pageable,
                                                                                Optional<String> startDateValue, Optional<String> endDateValue) {
         String startDate = startDateValue.orElse("1000-01-01");
         String endDate = endDateValue.orElse("3000-01-01");

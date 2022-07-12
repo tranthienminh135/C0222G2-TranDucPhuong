@@ -219,7 +219,8 @@
                     let totalMoney = 0;
                     totalMoney += contractPage.content[i].facility.cost;
                     for (let j = 0; j < contractPage.content[i].contractDetailList.length; j++) {
-                        totalMoney += contractPage.content[i].contractDetailList[j].quantity * contractPage.content[i].contractDetailList[j].attachFacility.cost;
+                        totalMoney += contractPage.content[i].contractDetailList[j].quantity *
+                            contractPage.content[i].contractDetailList[j].attachFacility.cost;
                     }
                     let totalMoneyFormat = formatter.format(totalMoney)
                     contractTableHTML += `<tr>
@@ -419,6 +420,7 @@
 
     let total = 0
     let idFacility = $("#facility").val();
+
     // Get facility
     function getFacility(idF) {
         $.ajax({
@@ -444,6 +446,7 @@
         idFacility = $("#facility").val();
         getFacility(idFacility)
     })
+
     $("#selectAttachFacilityCreate").on("change", function () {
         $("#quantityCreate").val("");
     })
@@ -524,6 +527,7 @@
                         $("#startDate").val("");
                         $("#endDate").val("");
                         $("#deposit").val("");
+                        $("#totalMoney").val("");
                         getAllContract(0, "1000-01-01", "3000-01-01")
                     },
                     error: function (resultError) {
