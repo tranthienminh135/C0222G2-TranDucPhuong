@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common-html :: myCss"></head>
+<body id="page-top">
+<div th:replace="common-html :: nav"></div>
+<div class="container">
+    <!-- Contact-->
+    <section class="page-section" id="contract">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">management!</h2>
+                <a href="/contract/create" class="btn btn-outline-primary">Create new Contract</a>
+                <hr class="divider"/>
+            </div>
+        </div>
+        <div class="container mt-3">
+            <div th:if="${message}" class="alert alert-success w-25 text-center">
+                <div th:text="${message}"></div>
+            </div>
+            <table class="table table-hover text-center">
+                <thead>
+                <tr style="background-color: #f4623a" class="text-light">
+                    <th>Contract Code</th>
+                    <th>Room Code</th>
+                    <th>Name</th>
+                    <th>Cost Date</th>
+                    <th>Cost Time</th>
+                    <th>Total Money</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item, loop : ${contractList}">
+                    <td th:text="${item.contractCode}"></td>
+                    <td th:text="${item.room.roomCode}"></td>
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.costDate}"></td>
+                    <td th:text="${item.costTime}"></td>
+                    <td th:text="${item.totalMoney}"></td>
+                    <td>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                th:data-bs-target="'#staticBackdrop' + ${item.contractCode}">
+                            Delete
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" th:id="staticBackdrop + ${item.contractCode}" data-bs-backdrop="static"
+                             data-bs-keyboard="false"
+                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title fw-bold text-danger" id="staticBackdropLabel">FBI
+                                            Warning!</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to delete contract <span th:text="${item.contractCode}"></span> ?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a th:href="@{/contract/delete/{contractCode}(contractCode=${item.getContractCode()})}" type="button"
+                                           class="btn btn-outline-primary">Submit</a>
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+<!-- Footer-->
+<div th:replace="common-html :: footer"></div>
+<div th:replace="common-html :: myJs"></div>
+</body>
+</html>

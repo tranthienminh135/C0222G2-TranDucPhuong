@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common-html :: myCss"></head>
+<body id="page-top">
+<!-- Navigation-->
+<div th:replace="common-html :: nav"></div>
+<!-- Contact-->
+<section class="page-section" id="contract">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Create new Contract!</h2>
+                <hr class="divider"/>
+            </div>
+        </div>
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6">
+                <div class="text-danger" id="tableInputName"></div>
+                <form id="contactForm" method="post" action="/contract/create" th:object="${contractDto}">
+                    <!-- name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="contractCode" type="text" placeholder="Enter your contract code..."
+                               th:field="*{contractCode}"/>
+                        <label for="name">Contract Code</label>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('contractCode')}">
+                            <div th:errors="*{contractCode}"></div>
+                        </div>
+                    </div>
+                    <!-- facilityType input-->
+                    <div class="form-floating mb-3">
+                        <select class="form-select" aria-label="Default select example"
+                                style="padding-top: 0.625rem !important;"
+                                th:field="*{room}">
+                            <option value="" selected disabled>Choice Room Code</option>
+                            <option th:each="item, loop : ${roomList}" th:value="${item.id}" th:text="${item.roomCode}"></option>
+                        </select>
+<!--                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('customerType')}">-->
+<!--                            <div th:errors="*{customerType}"></div>-->
+<!--                        </div>-->
+                    </div>
+                    <!-- name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                               th:field="*{name}"/>
+                        <label for="name">Name</label>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('name')}">
+                            <div th:errors="*{name}"></div>
+                        </div>
+                    </div>
+                    <!-- name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="idCard" type="text" placeholder="Enter your id card..."
+                               th:field="*{idCard}"/>
+                        <label for="name">Id Card</label>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('idCard')}">
+                            <div th:errors="*{idCard}"></div>
+                        </div>
+                    </div>
+                    <!-- name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="costDate" type="date" placeholder="Enter your Cost Date..."
+                               th:field="*{costDate}"/>
+                        <label for="name">Cost Date</label>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('costDate')}">
+                            <div th:errors="*{costDate}"></div>
+                        </div>
+                    </div>
+                    <!-- facilityType input-->
+                    <div class="form-floating mb-3">
+                        <select class="form-select" aria-label="Default select example"
+                                style="padding-top: 0.625rem !important;"
+                                th:field="*{costTime}">
+                            <option value="" selected disabled>Choice Code Time</option>
+                            <option value="3 Tháng">3 Tháng</option>
+                            <option value="6 Tháng">6 Tháng</option>
+                            <option value="12 Tháng">12 Tháng</option>
+                        </select>
+                        <!--                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('customerType')}">-->
+                        <!--                            <div th:errors="*{customerType}"></div>-->
+                        <!--                        </div>-->
+                    </div>
+
+                    <!-- Submit Button-->
+                    <div class="d-grid">
+                        <button class="btn btn-primary btn-xl" id="submitButton" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+<div th:replace="common-html :: footer"></div>
+<div th:replace="common-html :: myJs"></div>
+</body>
+</html>
