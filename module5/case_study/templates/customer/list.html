@@ -68,8 +68,122 @@
             </div>
             <div class="col-lg-8 align-self-baseline">
                 <p class="text-white-75 mb-5">"Stop worrying about potholes on the road and enjoy that journey".</p>
-                                <a class="btn btn-primary btn-xl" href="#content">Get Started!</a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Create Customer
+                </button>
 
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Create Customer</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row g-3">
+
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="name" type="text" placeholder="Enter your name..."/>
+                                            <label for="name">Customer name</label>
+                                            <!--                                <div class="alert alert-danger" role="alert">-->
+                                            <!--                                    <div></div>-->
+                                            <!--                                </div>-->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-4">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="birthday" type="date"
+                                                   placeholder="Enter your birthday..."/>
+                                            <label for="birthday">Birthday</label>
+                                            <!--                                <div class="alert alert-danger" role="alert">-->
+                                            <!--                                    <div></div>-->
+                                            <!--                                </div>-->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-4">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="idCard" type="text"
+                                                   placeholder="Enter your id card..."/>
+                                            <label for="idCard">Gender</label>
+                                            <!--                                <div class="alert alert-danger" role="alert">-->
+                                            <!--                                    <div></div>-->
+                                            <!--                                </div>-->
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-4">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="phoneNumber" type="number"
+                                                   placeholder="Enter your phone number..."/>
+                                            <label for="phoneNumber">Id Card</label>
+                                            <!--                                <div class="alert alert-danger" role="alert" >-->
+                                            <!--                                    <div></div>-->
+                                            <!--                                </div>-->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="email" type="text" placeholder="Enter your email..."/>
+                                            <label for="email">Phone Number</label>
+                                            <!--                                <div class="alert alert-danger" role="alert" >-->
+                                            <!--                                    <div></div>-->
+                                            <!--                                </div>-->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="address" type="text"
+                                                   placeholder="Enter your address..."/>
+                                            <label for="address">Email</label>
+                                            <!--                                <div class="alert alert-danger" role="alert">-->
+                                            <!--                                    <div></div>-->
+                                            <!--                                </div>-->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" aria-label="Default select example"
+                                                    style="padding-top: 0.625rem !important;">
+                                                <option value="" selected disabled>Choice Customer Type</option>
+                                                <option value="">Diamond</option>
+                                                <option value="">Gold</option>
+                                                <option value="">Iron</option>
+                                            </select>
+                                            <!--                                <div class="alert alert-danger" role="alert">-->
+                                            <!--                                    <div></div>-->
+                                            <!--                                </div>-->
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="poolArea" type="text"
+                                                   placeholder="Enter your address..."/>
+                                            <label for="address">Address</label>
+                                            <!--                                <div class="alert alert-danger" role="alert">-->
+                                            <!--                                    <div></div>-->
+                                            <!--                                </div>-->
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Understood</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -216,4 +330,17 @@
         <p class="text-center text-muted">&copy; 2022 Company, Inc</p>
     </div>
 </footer>
+<!-- Bootstrap core JS-->
+<script src="../static/js/bundle.min.js"></script>
+<!-- SimpleLightbox plugin JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+<!-- Core theme JS-->
+<script src="../static/js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!--    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>-->
+
+<script src="../static/js/jquery.min.js"></script>
 </body>

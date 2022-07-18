@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Furama Resort</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico"/>
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+          rel="stylesheet" type="text/css"/>
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../static/css/styles.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <!-- Contact-->
+    <section class="page-section">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6 text-center">
+                <h2 class="mt-0">Contract management!</h2>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdropCreate">
+                    Create new Contract
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdropCreate" data-bs-backdrop="static" data-bs-keyboard="false"
+                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabelCreate">Create Contract</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="text-danger" id="tableInputNameEdit"></div>
+                                    <form id="contactFormEdit" method="post" action="/employee/create">
+                                        <!-- startDate input-->
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="startDate" type="date"
+                                                   placeholder="Enter your start date..."/>
+                                            <label for="startDate">Start Date</label>
+                                        </div>
+                                        <!-- endDate input-->
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="endDate" type="date"
+                                                   placeholder="Enter your end date..."/>
+                                            <label for="endDate">End Date</label>
+                                        </div>
+                                        <!-- deposit input-->
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="deposit" type="text"
+                                                   placeholder="Enter your deposit..."/>
+                                            <label for="deposit">Deposit</label>
+                                        </div>
+                                        <!-- phoneNumber input-->
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="totalMoney" type="text" readonly/>
+                                            <label for="totalMoney">Total Money</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" aria-label="Default select example"
+                                                    style="padding-top: 0.625rem !important;" id="customer">
+                                                <option selected disabled>Choice customer</option>
+                                                <option value="">Le Thi Tai</option>
+                                                <option value="">Le Thi Tai</option>
+                                                <option value="">Le Thi Tai</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" aria-label="Default select example"
+                                                    style="padding-top: 0.625rem !important;" id="employee">
+                                                <option selected disabled>Choice employee</option>
+                                                <option value="">Le Thi Tai</option>
+                                                <option value="">Le Thi Tai</option>
+                                                <option value="">Le Thi Tai</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" aria-label="Default select example"
+                                                    style="padding-top: 0.625rem !important;" id="facility">
+                                                <option selected disabled>Choice facility</option>
+                                                <option value="">House</option>
+                                                <option value="">House</option>
+                                                <option value="">House</option>
+                                            </select>
+                                        </div>
+                                        <input type="hidden" id="idAttachFacilityCreate">
+                                        <input type="hidden" id="quantityAttachFacilityCreate">
+                                        <div class="form-floating mb-3">
+                                            <div class="text-center m-2">Attach Facility</div>
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-outline-primary" id="target">
+                                                +
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-primary" id="btnSaveContract">Save</button>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdropAttachFacility"
+                     data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content border-primary mt-5">
+                            <div class="modal-header bg-primary text-white">
+                                <h5 class="modal-title"
+                                    id="staticBackdropLabelAttachFacility">List of
+                                    attach facility</h5>
+                                <button type="button" class="btn-close btnCloseModalAttachFacility"
+                                        data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-hover text-center">
+                                    <tbody>
+                                    <tr>
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" aria-label="Default select example"
+                                                    style="padding-top: 0.625rem !important;"
+                                                    id="selectAttachFacilityCreate">
+                                                <option value="">Solo yasuo</option>
+                                                <option value="">Solo yasuo</option>
+                                                <option value="">Solo yasuo</option>
+                                            </select>
+                                            <div class="form-floating mt-3" id="inputAttachFacilityCreate">
+                                                <input class="form-control" id="quantityCreate" type="text"/>
+                                                <label for="quantityCreate">Quantity</label>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-primary" id="btnSaveAttachFacility">Save
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary btnCloseModalAttachFacility"
+                                        data-bs-dismiss="modal">Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider"/>
+                <p class="text-muted mb-5">Ready to start your next project with us? Send us a messages and we will get
+                    back to you as soon as possible!</p>
+            </div>
+        </div>
+        <div class="d-flex w-75 float-end mb-2">
+            <div class="w-25">Start Date</div>
+            <div class="w-25">End Date</div>
+        </div>
+        <div class="d-flex w-75 float-end mb-2">
+            <input class="form-control me-2 w-25" type="date" id="startDateSearch" placeholder="Search"
+                   aria-label="Search">
+            <input class="form-control me-2 w-25" type="date" id="endDateSearch" placeholder="Search"
+                   aria-label="Search">
+            <button class="btn btn-outline-primary" id="btnSearch" type="button">Search</button>
+        </div>
+        <div class="container mt-3 overflow-auto">
+            <table class="table table-hover text-center">
+                <thead>
+                <tr style="background-color: #f4623a" class="text-light">
+                    <th>CN</th>
+                    <th>Facility Name</th>
+                    <th>Customer Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Deposit</th>
+                    <th>Total Money</th>
+                    <th>Attach Facility</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>ABC</td>
+                    <td>Le Thi Tai</td>
+                    <td>01/01/2000</td>
+                    <td>01/01/2020</td>
+                    <td>10000</td>
+                    <td>100000</td>
+                    <td>
+                        <button class="btn btn-outline-primary">Facility</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <ul class="pagination float-end" id="paginationTable">
+
+            </ul>
+        </div>
+    </section>
+</div>
+<!-- Bootstrap core JS-->
+<script src="../static/js/bundle.min.js"></script>
+<!-- SimpleLightbox plugin JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+<!-- Core theme JS-->
+<script src="../static/js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!--    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>-->
+
+<script src="../static/js/jquery.min.js"></script>
+</body>
+</html>
