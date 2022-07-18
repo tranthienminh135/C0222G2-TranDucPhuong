@@ -1,5 +1,5 @@
 {
-  "name": "typescript-variable",
+  "name": "typescript-is-shape",
   "version": "1.0.0",
   "dependencies": {
     "typescript": "^4.7.4"

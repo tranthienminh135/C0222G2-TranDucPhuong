@@ -1,27 +1,20 @@
-function isPrime(num) {
-    if (num < 2) {
-        return false;
-    }
-    else {
-        for (let i = 2; i < num; i++) {
-            if (num % i == 0) {
-                return false;
+let money = 10000;
+const buyACar = (car) => {
+    return new Promise(((resolve, reject) => {
+        setTimeout(() => {
+            if (money >= 10000) {
+                resolve("can buy " + car);
             }
-        }
-        return true;
-    }
-}
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-let array = new Array(100);
-for (let i = 0; i < array.length; i++) {
-    array[i] = Math.floor(Math.random() * 999);
-}
-for (let i = 0; i < array.length; i++) {
-    console.log(array[i]);
-}
-for (let number of arr) {
-    if (isPrime(number)) {
-        console.log(number);
-    }
-}
+            else {
+                reject("Do not enough money");
+            }
+        }, 100);
+    }));
+};
+money = 1000001;
+const promise = buyACar("Vinfast").then(value => {
+    console.log(value);
+}, error => {
+    console.log(error);
+});
 //# sourceMappingURL=main.js.map

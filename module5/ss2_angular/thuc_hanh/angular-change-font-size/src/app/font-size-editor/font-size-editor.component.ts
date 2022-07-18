@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FontSizeEditorComponent implements OnInit {
   fontSize = 14;
-  arr = ['Le Thi Tai Ngu', 'Tai ngu vl', 'Thang ngu tai'];
   constructor() { }
 
   ngOnInit() {

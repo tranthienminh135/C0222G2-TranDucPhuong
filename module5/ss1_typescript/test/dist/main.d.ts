@@ -1,3 +1,3 @@
-declare function isPrime(num: number): boolean;
-declare let arr: number[];
-declare let array: Array<number>;
+declare let money: number;
+declare const buyACar: (car: any) => Promise<unknown>;
+declare const promise: Promise<void>;
