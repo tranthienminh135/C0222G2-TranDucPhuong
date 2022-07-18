@@ -1,1 +1,25 @@
-<p>font-size-editor works!</p>
+<h2>Font size editor</h2>
+
+<div>
+  <label>Enter font size (px):</label>
+  <input #element type="range" min="9" max="72" value="18" (input)="changeFontSizeValue(element.value)">
+</div>
+<p class="output">
+  Font Size: {{fontSize}}
+</p>
+<p class="output" [style.fontSize.px]="fontSize">
+  This is a paragraph.
+</p>
+<table [style.fontSize.px]="fontSize">
+  <thead>
+  <tr>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of arr">
+    <td>{{item}}</td>
+  </tr>
+  </tbody>
+</table>
+
