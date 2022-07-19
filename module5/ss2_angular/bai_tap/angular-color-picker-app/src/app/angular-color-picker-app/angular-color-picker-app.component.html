@@ -1,4 +1,5 @@
-<p>angular-color-picker-app works!</p>
-
-<input type="color" (input)="setColor($event.target.value)">
-result: {{color}}
+<input type="range" min="0" max="255" (input)="setColor1($event.target.value)"> {{color1}} <br/>
+<input type="range" min="0" max="255" (input)="setColor2($event.target.value)"> {{color2}} <br/>
+<input type="range" min="0" max="255" (input)="setColor3($event.target.value)"> {{color3}}
+<div [style.background-color]="'rgb(' + color1 + ',' + color2 + ',' + color3 + ')'" [style.width]="'100px'" [style.height]="'100px'">
+</div>
