@@ -1,4 +1,4 @@
 <p>angular-color-picker-app works!</p>
 
-<input #element type="color" (input)="setColor(element.value)">
+<input type="color" (input)="setColor($event.target.value)">
 result: {{color}}
