@@ -64,124 +64,65 @@
             <div class="col-12">
               <div class="form-floating mb-3">
                 <select class="form-select" aria-label="Default select example"
-                        style="padding-top: 0.625rem !important;">
+                        style="padding-top: 0.625rem !important;" (change)="changeFacility($event.target.value)">
                   <option value="" selected disabled>Choice Facility Type</option>
-                  <option value="">House</option>
-                  <option value="">Room</option>
-                  <option value="">Villa</option>
+                  <option value="House">House</option>
+                  <option value="Room">Room</option>
+                  <option value="Villa">Villa</option>
                 </select>
-                <!--                                <div class="alert alert-danger" role="alert">-->
-                <!--                                    <div></div>-->
-                <!--                                </div>-->
               </div>
             </div>
 
-            <div class="col-12">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="name" type="text" placeholder="Enter your name..."/>
-                <label for="name">Facility name</label>
-                <!--                                <div class="alert alert-danger" role="alert">-->
-                <!--                                    <div></div>-->
-                <!--                                </div>-->
+            <div [class]="classInput + ' row'">
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="name" type="text" placeholder="Enter your name..."/>
+                  <label for="name">Facility name</label>
+                </div>
+              </div>
+
+              <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="birthday" type="text"
+                         placeholder="Enter your birthday..."/>
+                  <label for="birthday">Area</label>
+                </div>
+              </div>
+
+              <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="idCard" type="text"
+                         placeholder="Enter your id card..."/>
+                  <label for="idCard">Cost</label>
+                </div>
+              </div>
+
+
+              <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="phoneNumber" type="number"
+                         placeholder="Enter your phone number..."/>
+                  <label for="phoneNumber">Max People</label>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="email" type="text" placeholder="Enter your email..."/>
+                  <label for="email">Rent Type</label>
+                </div>
               </div>
             </div>
 
-            <div class="col-4">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="birthday" type="text"
-                       placeholder="Enter your birthday..."/>
-                <label for="birthday">Area</label>
-                <!--                                <div class="alert alert-danger" role="alert">-->
-                <!--                                    <div></div>-->
-                <!--                                </div>-->
-              </div>
+            <div *ngIf="facilityValue == 'Room'">
+              <app-room-input-edit></app-room-input-edit>
             </div>
-
-            <div class="col-4">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="idCard" type="text"
-                       placeholder="Enter your id card..."/>
-                <label for="idCard">Cost</label>
-                <!--                                <div class="alert alert-danger" role="alert">-->
-                <!--                                    <div></div>-->
-                <!--                                </div>-->
-              </div>
+            <div *ngIf="facilityValue == 'House'">
+              <app-house-input-edit></app-house-input-edit>
             </div>
-
-
-            <div class="col-4">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="phoneNumber" type="number"
-                       placeholder="Enter your phone number..."/>
-                <label for="phoneNumber">Max People</label>
-                <!--                                <div class="alert alert-danger" role="alert" >-->
-                <!--                                    <div></div>-->
-                <!--                                </div>-->
-              </div>
+            <div *ngIf="facilityValue == 'Villa'">
+              <app-villa-input-edit></app-villa-input-edit>
             </div>
-
-            <div class="col-6">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="email" type="text" placeholder="Enter your email..."/>
-                <label for="email">Rent Type</label>
-                <!--                                <div class="alert alert-danger" role="alert" >-->
-                <!--                                    <div></div>-->
-                <!--                                </div>-->
-              </div>
-            </div>
-
-            <div class="col-6">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="address" type="text"
-                       placeholder="Enter your address..."/>
-                <label for="address">Standard Room</label>
-                <!--                                <div class="alert alert-danger" role="alert">-->
-                <!--                                    <div></div>-->
-                <!--                                </div>-->
-              </div>
-            </div>
-
-            <div class="col-12">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="poolArea" type="text"
-                       placeholder="Enter your address..."/>
-                <label for="address">Pool area</label>
-                <!--                                <div class="alert alert-danger" role="alert">-->
-                <!--                                    <div></div>-->
-                <!--                                </div>-->
-              </div>
-            </div>
-
-            <div class="col-12">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="zip" type="text" placeholder="Enter your address..."/>
-                <label for="zip">Description other convenience</label>
-                <!--                                <div class="alert alert-danger" role="alert">-->
-                <!--                                    <div></div>-->
-                <!--                                </div>-->
-              </div>
-            </div>
-
-            <div class="col-12">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="numberOfFloors" type="text" placeholder="Enter your address..."/>
-                <label for="zip">Number of floors</label>
-                <!--                                <div class="alert alert-danger" role="alert">-->
-                <!--                                    <div></div>-->
-                <!--                                </div>-->
-              </div>
-            </div>
-
-            <div class="col-12">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="facilityFree" type="text" placeholder="Enter your address..."/>
-                <label for="zip">Facility Free</label>
-                <!--                                <div class="alert alert-danger" role="alert">-->
-                <!--                                    <div></div>-->
-                <!--                                </div>-->
-              </div>
-            </div>
-
           </div>
 
           <hr class="my-4">

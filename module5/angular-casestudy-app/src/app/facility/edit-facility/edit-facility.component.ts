@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditFacilityComponent implements OnInit {
 
+  facilityValue: string = '';
+  classInput = 'd-none';
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+  changeFacility(value: string) {
+    this.facilityValue = value;
+    this.classInput = 'block';
+  }
 }

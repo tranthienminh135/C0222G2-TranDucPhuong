@@ -10,6 +10,10 @@ import { ListFacilityComponent } from './facility/list-facility/list-facility.co
 import {HomePageRoutingModule} from './home-page/home-page-routing.module';
 import {FacilityRoutingModule} from './facility/facility-routing.module';
 import { EditFacilityComponent } from './facility/edit-facility/edit-facility.component';
+import { RoomInputEditComponent } from './facility/edit-facility/room-input-edit/room-input-edit.component';
+import { HouseInputEditComponent } from './facility/edit-facility/house-input-edit/house-input-edit.component';
+import { VillaInputEditComponent } from './facility/edit-facility/villa-input-edit/villa-input-edit.component';
+import { CustomerComponent } from './customer/customer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { EditFacilityComponent } from './facility/edit-facility/edit-facility.co
     HomePageComponent,
     NavigationComponent,
     ListFacilityComponent,
-    EditFacilityComponent
+    EditFacilityComponent,
+    RoomInputEditComponent,
+    HouseInputEditComponent,
+    VillaInputEditComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
