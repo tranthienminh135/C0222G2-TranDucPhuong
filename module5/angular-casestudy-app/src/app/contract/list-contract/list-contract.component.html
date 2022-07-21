@@ -1,0 +1,296 @@
+<app-navigation></app-navigation>
+<!-- Header -->
+<header class="masthead">
+  <div class="container px-4 px-lg-5 h-100">
+    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+      <div class="col-lg-8 align-self-end">
+        <h1 class="text-white font-weight-bold">CONTRACT</h1>
+        <hr class="divider"/>
+      </div>
+      <div class="col-lg-8 align-self-baseline">
+        <p class="text-white-75 mb-5">"Stop worrying about potholes on the road and enjoy that journey".</p>
+        <!--                <a class="btn btn-primary btn-xl" href="#content">Get Started!</a>-->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                data-bs-target="#staticBackdropCreate">
+          Create new Contract
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdropCreate" data-bs-backdrop="static" data-bs-keyboard="false"
+             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabelCreate">Create Contract</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="text-danger" id="tableInputNameEdit"></div>
+                  <form id="contactFormEdit" method="post" action="/employee/create">
+                    <!-- startDate input-->
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="startDate" type="date"
+                             placeholder="Enter your start date..."/>
+                      <label for="startDate">Start Date</label>
+                    </div>
+                    <!-- endDate input-->
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="endDate" type="date"
+                             placeholder="Enter your end date..."/>
+                      <label for="endDate">End Date</label>
+                    </div>
+                    <!-- deposit input-->
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="deposit" type="text"
+                             placeholder="Enter your deposit..."/>
+                      <label for="deposit">Deposit</label>
+                    </div>
+                    <!-- phoneNumber input-->
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="totalMoney" type="text" readonly/>
+                      <label for="totalMoney">Total Money</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <select class="form-select" aria-label="Default select example"
+                              style="padding-top: 0.625rem !important;" id="customer">
+                        <option selected disabled>Choice customer</option>
+                        <option value="">Le Thi Tai</option>
+                        <option value="">Le Thi Tai</option>
+                        <option value="">Le Thi Tai</option>
+                      </select>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <select class="form-select" aria-label="Default select example"
+                              style="padding-top: 0.625rem !important;" id="employee">
+                        <option selected disabled>Choice employee</option>
+                        <option value="">Le Thi Tai</option>
+                        <option value="">Le Thi Tai</option>
+                        <option value="">Le Thi Tai</option>
+                      </select>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <select class="form-select" aria-label="Default select example"
+                              style="padding-top: 0.625rem !important;" id="facility">
+                        <option selected disabled>Choice facility</option>
+                        <option value="">House</option>
+                        <option value="">House</option>
+                        <option value="">House</option>
+                      </select>
+                    </div>
+                    <input type="hidden" id="idAttachFacilityCreate">
+                    <input type="hidden" id="quantityAttachFacilityCreate">
+                    <div class="form-floating mb-3">
+                      <div class="text-center m-2">Attach Facility</div>
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-outline-primary" id="target">
+                        +
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" id="btnSaveContract">Save</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header bg-primary text-white fw-bold">
+                <h5 class="modal-title m-auto" id="staticBackdropLabel">Create Facility</h5>
+              </div>
+              <div class="modal-body">
+                <main>
+                  <div class="col-md-12 col-lg-12">
+                    <form class="needs-validation">
+                      <div class="row g-3">
+                        <div class="col-sm-6">
+                          <div class="form-floating mb-3">
+                            <input class="form-control" id="name" type="text"
+                                   placeholder="Enter your name..."/>
+                            <label for="name">Customer name</label>
+                            <!--                                <div class="alert alert-danger" role="alert">-->
+                            <!--                                    <div></div>-->
+                            <!--                                </div>-->
+                          </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                          <div class="form-floating mb-3">
+                            <input class="form-control" id="birthday" type="date"
+                                   placeholder="Enter your birthday..."/>
+                            <label for="birthday">Birthday</label>
+                            <!--                                <div class="alert alert-danger" role="alert">-->
+                            <!--                                    <div></div>-->
+                            <!--                                </div>-->
+                          </div>
+                        </div>
+
+                        <div class="col-12">
+                          <div class="form-floating mb-3">
+                            <input class="form-control" id="idCard" type="text"
+                                   placeholder="Enter your id card..."/>
+                            <label for="idCard">Id Card</label>
+                            <!--                                <div class="alert alert-danger" role="alert">-->
+                            <!--                                    <div></div>-->
+                            <!--                                </div>-->
+                          </div>
+                        </div>
+
+                        <div class="col-12">
+                          <div class="form-floating mb-3">
+                            <input class="form-control" id="phoneNumber" type="number"
+                                   placeholder="Enter your phone number..."/>
+                            <label for="phoneNumber">Phone Number</label>
+                            <!--                                <div class="alert alert-danger" role="alert" >-->
+                            <!--                                    <div></div>-->
+                            <!--                                </div>-->
+                          </div>
+                        </div>
+
+                        <div class="col-12">
+                          <div class="form-floating mb-3">
+                            <input class="form-control" id="email" type="text"
+                                   placeholder="Enter your email..."/>
+                            <label for="email">Email</label>
+                            <!--                                <div class="alert alert-danger" role="alert" >-->
+                            <!--                                    <div></div>-->
+                            <!--                                </div>-->
+                          </div>
+                        </div>
+
+                        <div class="col-12">
+                          <div class="form-floating mb-3">
+                            <input class="form-control" id="address" type="text"
+                                   placeholder="Enter your address..."/>
+                            <label for="address">Address</label>
+                            <!--                                <div class="alert alert-danger" role="alert">-->
+                            <!--                                    <div></div>-->
+                            <!--                                </div>-->
+                          </div>
+                        </div>
+
+                        <div class="col-md-5">
+                          <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Default select example"
+                                    style="padding-top: 0.625rem !important;">
+                              <option value="">Choice Customer Type</option>
+                              <option value="">Choice Customer Type</option>
+                              <option value="">Choice Customer Type</option>
+                            </select>
+                            <!--                                <div class="alert alert-danger" role="alert">-->
+                            <!--                                    <div></div>-->
+                            <!--                                </div>-->
+                          </div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="form-floating mb-3">
+                            <select class="form-select" aria-label="Default select example"
+                                    style="padding-top: 0.625rem !important;">
+                              <option value="">Choice Customer Type</option>
+                              <option value="">Choice Customer Type</option>
+                              <option value="">Choice Customer Type</option>
+                            </select>
+                            <!--                                <div class="alert alert-danger" role="alert">-->
+                            <!--                                    <div></div>-->
+                            <!--                                </div>-->
+                          </div>
+                        </div>
+
+                        <div class="col-md-3">
+                          <div class="form-floating mb-3">
+                            <input class="form-control" id="zip" type="text"
+                                   placeholder="Enter your address..."/>
+                            <label for="zip">zip</label>
+                            <!--                                <div class="alert alert-danger" role="alert">-->
+                            <!--                                    <div></div>-->
+                            <!--                                </div>-->
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </main>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary">Save</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Content -->
+<div class="row">
+  <div class="container col-12">
+    <!-- Contact-->
+    <section class="page-section">
+      <div class="row text-center">
+        <div class="col-4 m-auto">
+            <div class="col-5 float-start">
+              <label for="sd">Start Date</label>
+              <input id="sd" class="form-control me-2" type="date" placeholder="Search" aria-label="Search">
+            </div>
+            <div class="col-5 float-start">
+              <label for="ed">End Date</label>
+              <input id="ed" class="form-control me-2" type="date" placeholder="Search" aria-label="Search">
+            </div>
+            <div class="col-2 float-end">
+              <label for="ed">Search</label>
+              <button class="btn btn-outline-primary" type="submit">Search</button>
+            </div>
+        </div>
+      </div>
+      <div class="container-fluid mt-3 overflow-auto">
+        <table class="table table-hover text-center">
+          <thead>
+          <tr style="background-color: #f4623a" class="text-light">
+            <th>No.</th>
+            <th>Facility</th>
+            <th>Customer</th>
+            <th>Employee</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Deposit</th>
+            <th>Total Money</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of contract, index as i">
+            <td>{{i + 1}}</td>
+            <td>{{item.facility.name}}</td>
+            <td>{{item.customer.name}}</td>
+            <td>{{item.employee.name}}</td>
+            <td>{{item.startDate | date: 'dd-MM-yyyy'}}</td>
+            <td>{{item.endDate | date: 'dd-MM-yyyy'}}</td>
+            <td>{{item.deposit | currency }}</td>
+            <td>{{item.total | currency}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <ul class="pagination float-end">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
+<app-footer></app-footer>

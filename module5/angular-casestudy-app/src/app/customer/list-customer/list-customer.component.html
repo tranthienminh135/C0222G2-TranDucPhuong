@@ -1,0 +1,248 @@
+<app-navigation></app-navigation>
+<header class="masthead">
+  <div class="container px-4 px-lg-5 h-100">
+    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+      <div class="col-lg-8 align-self-end">
+        <h1 class="text-white font-weight-bold">Customer</h1>
+        <hr class="divider"/>
+      </div>
+      <div class="col-lg-8 align-self-baseline">
+        <p class="text-white-75 mb-5">"Stop worrying about potholes on the road and enjoy that journey".</p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">
+          Create Customer
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Create Customer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="row g-3">
+
+                  <div class="col-12">
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="name" type="text" placeholder="Enter your name..."/>
+                      <label for="name">Customer name</label>
+                    </div>
+                  </div>
+
+                  <div class="col-4">
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="birthday" type="date"
+                             placeholder="Enter your birthday..."/>
+                      <label for="birthday">Birthday</label>
+                    </div>
+                  </div>
+
+                  <div class="col-4">
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="idCard" type="text"
+                             placeholder="Enter your id card..."/>
+                      <label for="idCard">Gender</label>
+                    </div>
+                  </div>
+
+
+                  <div class="col-4">
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="phoneNumber" type="number"
+                             placeholder="Enter your phone number..."/>
+                      <label for="phoneNumber">Id Card</label>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="email" type="text" placeholder="Enter your email..."/>
+                      <label for="email">Phone Number</label>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="address" type="text"
+                             placeholder="Enter your address..."/>
+                      <label for="address">Email</label>
+                      <!--                                <div class="alert alert-danger" role="alert">-->
+                      <!--                                    <div></div>-->
+                      <!--                                </div>-->
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-floating mb-3">
+                      <select class="form-select" aria-label="Default select example"
+                              style="padding-top: 0.625rem !important;">
+                        <option value="" selected disabled>Choice Customer Type</option>
+                        <option value="">Diamond</option>
+                        <option value="">Gold</option>
+                        <option value="">Iron</option>
+                      </select>
+                      <!--                                <div class="alert alert-danger" role="alert">-->
+                      <!--                                    <div></div>-->
+                      <!--                                </div>-->
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-floating mb-3">
+                      <input class="form-control" id="poolArea" type="text"
+                             placeholder="Enter your address..."/>
+                      <label for="address">Address</label>
+                      <!--                                <div class="alert alert-danger" role="alert">-->
+                      <!--                                    <div></div>-->
+                      <!--                                </div>-->
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container-fluid">
+  <!--    <div class="card" style="width: 18rem; position: sticky; left: 0; top: 100px">-->
+  <!--        <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Deluxe-double-bed-F-370x239.jpg"-->
+  <!--             class="card-img-top" alt="...">-->
+  <!--        <div class="card-body">-->
+  <!--            <h5 class="card-title">Card title</h5>-->
+  <!--            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's-->
+  <!--                content.</p>-->
+  <!--            <a href="#" class="btn btn-primary">Go somewhere</a>-->
+  <!--        </div>-->
+  <!--    </div>-->
+  <div class="container-fluid" id="content">
+    <!-- Contact-->
+    <section class="page-section" id="facility">
+      <!--            <div class="row gx-4 gx-lg-5 justify-content-center"></div>-->
+      <table class="table table-hover">
+        <thead>
+        <tr class="bg-primary text-white text-center">
+          <th>No.</th>
+          <th>Name</th>
+          <th>Birthday</th>
+          <th>Gender</th>
+          <th>Id Card</th>
+          <th>Phone Number</th>
+          <th>Email</th>
+          <th>Type</th>
+          <th>Address</th>
+          <th colspan="2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="text-center" *ngFor="let item of customer, index as i">
+          <td>{{i + 1}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.birthday | date: 'dd-MM-yyyy'}}</td>
+          <td>
+            <span ngSwitch="{{item.gender}}">
+              <span *ngSwitchCase="1">
+                Nam
+              </span>
+              <span *ngSwitchCase="0">
+                Nữ
+              </span>
+              <span *ngSwitchDefault>
+                Tài
+              </span>
+            </span>
+          </td>
+          <td>{{item.idCard}}</td>
+          <td>{{item.phoneNumber}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.customerType.name}}</td>
+          <td>{{item.address}}</td>
+          <td>
+            <button type="button" class="btn btn-outline-danger">Delete</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-outline-warning" [routerLink]="['/customer-edit']">Edit</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="container-fluid mt-3">
+        <div>
+          <ul class="pagination float-end">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<!-- About-->
+<section class="page-section bg-primary" id="about">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="text-white mt-0">We've got what you need!</h2>
+        <hr class="divider divider-light"/>
+        <p class="text-white-75 mb-4">"Every now and then go away, have a little relaxation, for when you come
+          back to your work your judgment will be surer. Go some distance away because then the work appears
+          smaller and more of it can be taken in at a glance and a lack of harmony and proportion is more
+          readily seen". – Leonardo da Vinci.</p>
+        <a class="btn btn-light btn-xl" href="#services">Get Started!</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Services-->
+<section class="page-section" id="services">
+  <div class="container px-4 px-lg-5">
+    <h2 class="text-center mt-0">At Your Service</h2>
+    <hr class="divider"/>
+    <div class="row gx-4 gx-lg-5">
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="mt-5">
+          <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
+          <h3 class="h4 mb-2">Sturdy Themes</h3>
+          <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="mt-5">
+          <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
+          <h3 class="h4 mb-2">Up to Date</h3>
+          <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="mt-5">
+          <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
+          <h3 class="h4 mb-2">Ready to Publish</h3>
+          <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 text-center">
+        <div class="mt-5">
+          <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
+          <h3 class="h4 mb-2">Made with Love</h3>
+          <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
