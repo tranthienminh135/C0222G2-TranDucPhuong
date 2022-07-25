@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Contract} from '../../model/contract/contract';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-list-contract',

@@ -20,6 +20,8 @@ import { ListContractComponent } from './contract/list-contract/list-contract.co
 import {ContractRoutingModule} from './contract/contract-routing.module';
 import { ListEmployeeComponent } from './employee/list-employee/list-employee.component';
 import {EmployeeRoutingModule} from './employee/employee-routing.module';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,15 +39,17 @@ import {EmployeeRoutingModule} from './employee/employee-routing.module';
     ListContractComponent,
     ListEmployeeComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HomePageRoutingModule,
-    FacilityRoutingModule,
-    CustomerRoutingModule,
-    ContractRoutingModule,
-    EmployeeRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HomePageRoutingModule,
+        FacilityRoutingModule,
+        CustomerRoutingModule,
+        ContractRoutingModule,
+        EmployeeRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

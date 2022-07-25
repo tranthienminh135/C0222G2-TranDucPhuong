@@ -23,91 +23,86 @@
                 <h5 class="modal-title" id="staticBackdropLabel">Create Customer</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+              <form [formGroup]="customerFormCreate" (ngSubmit)="createCustomer()">
               <div class="modal-body">
                 <div class="row g-3">
-
-                  <div class="col-12">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="name" type="text" placeholder="Enter your name..."/>
-                      <label for="name">Customer name</label>
+                    <div class="col-12">
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text"
+                               placeholder="Enter your name..." formControlName="name" name="name"/>
+                        <label for="name">Customer name</label>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-4">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="birthday" type="date"
-                             placeholder="Enter your birthday..."/>
-                      <label for="birthday">Birthday</label>
+                    <div class="col-4">
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="birthday" type="date"
+                               placeholder="Enter your birthday..." formControlName="birthday" name="birthday"/>
+                        <label for="birthday">Birthday</label>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-4">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="idCard" type="text"
-                             placeholder="Enter your id card..."/>
-                      <label for="idCard">Gender</label>
+                    <div class="col-4">
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="idCard" type="text"
+                               placeholder="Enter your id card..." formControlName="idCard" name="idCard"/>
+                        <label for="idCard">Id Card</label>
+                      </div>
                     </div>
-                  </div>
 
-
-                  <div class="col-4">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="phoneNumber" type="number"
-                             placeholder="Enter your phone number..."/>
-                      <label for="phoneNumber">Id Card</label>
+                    <div class="col-4">
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="phoneNumber" type="number"
+                               placeholder="Enter your phone number..." formControlName="phoneNumber" name="phoneNumber"/>
+                        <label for="phoneNumber">Phone Number</label>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-6">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="email" type="text" placeholder="Enter your email..."/>
-                      <label for="email">Phone Number</label>
+                    <div class="col-6">
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="email" type="text"
+                               placeholder="Enter your email..." formControlName="email" name="email"/>
+                        <label for="email">Email</label>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-6">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="address" type="text"
-                             placeholder="Enter your address..."/>
-                      <label for="address">Email</label>
-                      <!--                                <div class="alert alert-danger" role="alert">-->
-                      <!--                                    <div></div>-->
-                      <!--                                </div>-->
+                    <div class="col-6">
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="address" type="text"
+                               placeholder="Enter your address..." formControlName="address" name="address"/>
+                        <label for="address">Address</label>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-12">
-                    <div class="form-floating mb-3">
-                      <select class="form-select" aria-label="Default select example"
-                              style="padding-top: 0.625rem !important;">
-                        <option value="" selected disabled>Choice Customer Type</option>
-                        <option value="">Diamond</option>
-                        <option value="">Gold</option>
-                        <option value="">Iron</option>
-                      </select>
-                      <!--                                <div class="alert alert-danger" role="alert">-->
-                      <!--                                    <div></div>-->
-                      <!--                                </div>-->
+                    <div class="col-12">
+                      <div class="form-floating mb-3">
+                        <select class="form-select" aria-label="Default select example"
+                                style="padding-top: 0.625rem !important;" formControlName="customerType" name="customerType">
+                          <option [ngValue]="null" [disabled]="true" [selected]="true" >Choice Customer Type</option>
+                          <option *ngFor="let type of customerType" [ngValue]="type">{{type.name}}</option>
+                        </select>
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-12">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="poolArea" type="text"
-                             placeholder="Enter your address..."/>
-                      <label for="address">Address</label>
-                      <!--                                <div class="alert alert-danger" role="alert">-->
-                      <!--                                    <div></div>-->
-                      <!--                                </div>-->
+                    <div class="col-12">
+                      <div class="form-floating mb-3">
+                        <select class="form-select" aria-label="Default select example"
+                                style="padding-top: 0.625rem !important;" formControlName="gender" name="gender">
+                          <option [disabled]="true" [selected]="true" >Choice Gender</option>
+                          <option value="1">Male</option>
+                          <option value="0">FeMale</option>
+                          <option value="2">Tài</option>
+                        </select>
+                      </div>
                     </div>
-                  </div>
 
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
+                <button type="submit" class="btn btn-outline-primary">Submit</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
               </div>
+              </form>
             </div>
           </div>
         </div>
@@ -117,20 +112,9 @@
 </header>
 
 <div class="container-fluid">
-  <!--    <div class="card" style="width: 18rem; position: sticky; left: 0; top: 100px">-->
-  <!--        <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Deluxe-double-bed-F-370x239.jpg"-->
-  <!--             class="card-img-top" alt="...">-->
-  <!--        <div class="card-body">-->
-  <!--            <h5 class="card-title">Card title</h5>-->
-  <!--            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's-->
-  <!--                content.</p>-->
-  <!--            <a href="#" class="btn btn-primary">Go somewhere</a>-->
-  <!--        </div>-->
-  <!--    </div>-->
   <div class="container-fluid" id="content">
     <!-- Contact-->
     <section class="page-section" id="facility">
-      <!--            <div class="row gx-4 gx-lg-5 justify-content-center"></div>-->
       <table class="table table-hover">
         <thead>
         <tr class="bg-primary text-white text-center">
@@ -147,7 +131,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="text-center" *ngFor="let item of customer, index as i">
+        <tr class="text-center" *ngFor="let item of customers, index as i">
           <td>{{i + 1}}</td>
           <td>{{item.name}}</td>
           <td>{{item.birthday | date: 'dd-MM-yyyy'}}</td>

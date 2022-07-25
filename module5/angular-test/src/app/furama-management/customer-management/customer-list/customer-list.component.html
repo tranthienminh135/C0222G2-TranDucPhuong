@@ -1,1 +1,36 @@
-<h1>customer-list works!</h1>
+
+
+<div class="container">
+  <h1>Customer-list works!</h1>
+  <button [routerLink]="['/customer-create']" class="btn btn-outline-success">Go Create!</button>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>No.</th>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Delete</th>
+      <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let element of customers; index as i">
+      <td>{{i+1}}</td>
+      <td>{{element.id}}</td>
+      <td>{{element.name}}</td>
+      <td>{{element.age}}</td>
+      <td>
+        <button class="btn btn-outline-danger" (click)="showModalDelete(element)">Delete</button>
+      </td>
+      <td>
+        <button class="btn btn-outline-warning" (click)="showModalEdit(element)">Edit</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <app-modal-create-customer [ctmd]="customerParent" (childIdChanged)="deleteCustomer($event)" ></app-modal-create-customer>
+  <app-modal-edit-customer [ctme]="customerParent" (childChanged)="editCustomer($event)"></app-modal-edit-customer>
+  <app-modal-message [mes]="message"></app-modal-message>
+</div>
+

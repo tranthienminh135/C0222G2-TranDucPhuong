@@ -52,6 +52,8 @@ export class ResisterFormComponent implements OnInit {
     }
     if (this.userForm.valid) {
       this.users.push(this.user);
+      this.errMessage = '';
+      this.userForm.reset();
     } else {
     this.errMessage = 'Enter plz!';
     }
