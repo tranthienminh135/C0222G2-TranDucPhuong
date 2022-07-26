@@ -59,80 +59,85 @@
       </div>
       <div class="col-md-7 col-lg-8">
         <div class="needs-validation">
-          <div class="row g-3">
-
-            <div class="col-12">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="name" type="text" placeholder="Enter your name..."/>
-                <label for="name">Customer name</label>
+          <form [formGroup]="customerFormEdit" (ngSubmit)="editCustomer()">
+            <div class="row g-3">
+              <input type="hidden" formControlName="id" name="id">
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <input class="form-control" formControlName="name" name="name"
+                         id="name" type="text" placeholder="Enter your name..."/>
+                  <label for="name">Customer name</label>
+                </div>
               </div>
-            </div>
 
-            <div class="col-4">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="birthday" type="date"
-                       placeholder="Enter your birthday..."/>
-                <label for="birthday">Birthday</label>
+              <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="birthday" type="date" formControlName="birthday" name="birthday"
+                         placeholder="Enter your birthday..."/>
+                  <label for="birthday">Birthday</label>
+                </div>
               </div>
-            </div>
 
-            <div class="col-4">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="idCard" type="text"
-                       placeholder="Enter your id card..."/>
-                <label for="idCard">Gender</label>
+              <div class="col-4">
+                <div class="form-floating mb-3">
+                  <select class="form-select" aria-label="Default select example" formControlName="gender" name="gender"
+                          style="padding-top: 0.625rem !important;" [compareWith]="compareGender" [(ngModel)]="customer.gender">
+                    <option [ngValue]="1">Male</option>
+                    <option [ngValue]="0">FeMale</option>
+                    <option [ngValue]="2">Tài</option>
+                  </select>
+                </div>
               </div>
-            </div>
 
-
-            <div class="col-4">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="phoneNumber" type="number"
-                       placeholder="Enter your phone number..."/>
-                <label for="phoneNumber">Id Card</label>
+              <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="idCard" type="number" formControlName="idCard" name="idCard"
+                         placeholder="Enter your phone idCard..."/>
+                  <label for="idCard">Id Card</label>
+                </div>
               </div>
-            </div>
 
-            <div class="col-6">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="email" type="text" placeholder="Enter your email..."/>
-                <label for="email">Phone Number</label>
+              <div class="col-6">
+                <div class="form-floating mb-3">
+                  <input class="form-control" formControlName="phoneNumber" name="phoneNumber"
+                         id="phoneNumber" type="text" placeholder="Enter your phoneNumber..."/>
+                  <label for="phoneNumber">Phone Number</label>
+                </div>
               </div>
-            </div>
 
-            <div class="col-6">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="address" type="text"
-                       placeholder="Enter your address..."/>
-                <label for="address">Email</label>
+              <div class="col-6">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="email" type="text" formControlName="email" name="email"
+                         placeholder="Enter your email..."/>
+                  <label for="email">Email</label>
+                </div>
               </div>
-            </div>
 
-            <div class="col-12">
-              <div class="form-floating mb-3">
-                <select class="form-select" aria-label="Default select example"
-                        style="padding-top: 0.625rem !important;">
-                  <option value="" selected disabled>Choice Customer Type</option>
-                  <option value="">Diamond</option>
-                  <option value="">Gold</option>
-                  <option value="">Iron</option>
-                </select>
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <select class="form-select" aria-label="Default select example" formControlName="customerType"
+                          name="customerType"
+                          style="padding-top: 0.625rem !important;" [compareWith]="compareCustomerType"
+                          [(ngModel)]="customer.customerType">
+                    <option *ngFor="let type of customerTypes" [ngValue]="type">{{type.name}}</option>
+                  </select>
+                </div>
               </div>
-            </div>
 
-            <div class="col-12">
-              <div class="form-floating mb-3">
-                <input class="form-control" id="poolArea" type="text"
-                       placeholder="Enter your address..."/>
-                <label for="poolArea">Address</label>
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="address" type="text" formControlName="address" name="address"
+                         placeholder="Enter your address..."/>
+                  <label for="address">Address</label>
+                </div>
               </div>
+
             </div>
+            <hr class="my-4">
 
-          </div>
+            <button class="w-100 btn btn-outline-primary btn-lg" type="submit">Continue to submit</button>
+          </form>
 
-          <hr class="my-4">
-
-          <button class="w-100 btn btn-outline-primary btn-lg" type="submit">Continue to submit</button>
         </div>
       </div>
     </div>

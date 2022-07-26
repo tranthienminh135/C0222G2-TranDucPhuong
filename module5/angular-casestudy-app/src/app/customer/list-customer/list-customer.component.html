@@ -10,17 +10,17 @@
         <p class="text-white-75 mb-5">"Stop worrying about potholes on the road and enjoy that journey".</p>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop">
+                data-bs-target="#staticBackdropCreate">
           Create Customer
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="staticBackdropCreate" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="staticBackdropLabelCreate" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Create Customer</h5>
+              <div class="modal-header bg-primary text-light">
+                <h5 class="modal-title" id="staticBackdropLabelCreate">Create Customer</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <form [formGroup]="customerFormCreate" (ngSubmit)="createCustomer()">
@@ -32,6 +32,11 @@
                                placeholder="Enter your name..." formControlName="name" name="name"/>
                         <label for="name">Customer name</label>
                       </div>
+                      <div *ngFor="let err of errName">
+                        <div ngSwitch="{{err}}">
+                          <div class="text-danger" *ngSwitchCase="'required'">Name is not empty!</div>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-4">
@@ -39,6 +44,11 @@
                         <input class="form-control" id="birthday" type="date"
                                placeholder="Enter your birthday..." formControlName="birthday" name="birthday"/>
                         <label for="birthday">Birthday</label>
+                      </div>
+                      <div *ngFor="let err of errBirthday">
+                        <div ngSwitch="{{err}}">
+                          <div class="text-danger" *ngSwitchCase="'required'">Birthday is not empty!</div>
+                        </div>
                       </div>
                     </div>
 
@@ -48,13 +58,24 @@
                                placeholder="Enter your id card..." formControlName="idCard" name="idCard"/>
                         <label for="idCard">Id Card</label>
                       </div>
+                      <div *ngFor="let err of errIdCard">
+                        <div ngSwitch="{{err}}">
+                          <div class="text-danger" *ngSwitchCase="'required'">Id Card is not empty!</div>
+                          <div class="text-danger" *ngSwitchCase="'idCardExists'">Id Card is exists!</div>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-4">
                       <div class="form-floating mb-3">
-                        <input class="form-control" id="phoneNumber" type="number"
+                        <input class="form-control" id="phoneNumber" type="text"
                                placeholder="Enter your phone number..." formControlName="phoneNumber" name="phoneNumber"/>
                         <label for="phoneNumber">Phone Number</label>
+                      </div>
+                      <div *ngFor="let err of errPhoneNumber">
+                        <div ngSwitch="{{err}}">
+                          <div class="text-danger" *ngSwitchCase="'required'">Phone Number is not empty</div>
+                        </div>
                       </div>
                     </div>
 
@@ -64,6 +85,12 @@
                                placeholder="Enter your email..." formControlName="email" name="email"/>
                         <label for="email">Email</label>
                       </div>
+                      <div *ngFor="let err of errEmail">
+                        <div ngSwitch="{{err}}">
+                          <div class="text-danger" *ngSwitchCase="'email'">Email invalid</div>
+                          <div class="text-danger" *ngSwitchCase="'required'">Email is not empty</div>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-6">
@@ -72,15 +99,25 @@
                                placeholder="Enter your address..." formControlName="address" name="address"/>
                         <label for="address">Address</label>
                       </div>
+                      <div *ngFor="let err of errAddress">
+                        <div ngSwitch="{{err}}">
+                          <div class="text-danger" *ngSwitchCase="'required'">Address is not empty!</div>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-12">
                       <div class="form-floating mb-3">
                         <select class="form-select" aria-label="Default select example"
                                 style="padding-top: 0.625rem !important;" formControlName="customerType" name="customerType">
-                          <option [ngValue]="null" [disabled]="true" [selected]="true" >Choice Customer Type</option>
-                          <option *ngFor="let type of customerType" [ngValue]="type">{{type.name}}</option>
+                          <option value="" [disabled]="true" [selected]="true">Choice Customer Type</option>
+                          <option *ngFor="let type of customerTypes" [ngValue]="type">{{type.name}}</option>
                         </select>
+                      </div>
+                      <div *ngFor="let err of errCustomerType">
+                        <div ngSwitch="{{err}}">
+                          <div class="text-danger" *ngSwitchCase="'required'">Choice customer type plz!</div>
+                        </div>
                       </div>
                     </div>
 
@@ -93,6 +130,11 @@
                           <option value="0">FeMale</option>
                           <option value="2">Tài</option>
                         </select>
+                      </div>
+                      <div *ngFor="let err of errGender">
+                        <div ngSwitch="{{err}}">
+                          <div class="text-danger" *ngSwitchCase="'required'">Choice gender plz!</div>
+                        </div>
                       </div>
                     </div>
 
@@ -154,10 +196,33 @@
           <td>{{item.customerType.name}}</td>
           <td>{{item.address}}</td>
           <td>
-            <button type="button" class="btn btn-outline-danger">Delete</button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" [attr.data-bs-target]="'#staticBackdropDelete' + item.id">
+              <i class="bi bi-trash"></i>
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdropDelete{{item.id}}" data-bs-backdrop="static"
+                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelDelete" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabelDelete">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Do you want delete customer <span class="text-danger">{{item.name}}</span> with id = <span class="text-danger">{{item.id}}</span> ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" (click)="deleteCustomer(item.id)">Delete</button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </td>
           <td>
-            <button type="button" class="btn btn-outline-warning" [routerLink]="['/customer-edit']">Edit</button>
+            <button type="button" class="btn btn-warning" [routerLink]="['/customer-edit', item.id]"><i class="bi bi-pencil"></i></button>
           </td>
         </tr>
         </tbody>

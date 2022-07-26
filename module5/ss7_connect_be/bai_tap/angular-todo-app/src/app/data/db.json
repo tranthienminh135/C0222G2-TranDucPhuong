@@ -1,0 +1,34 @@
+{
+  "todo": [
+    {
+      "id": 0,
+      "content": "Tick James",
+      "status": true
+    },
+    {
+      "id": 1,
+      "content": "Kéo Ken",
+      "status": false
+    },
+    {
+      "id": 2,
+      "content": "Làm Thực Hành",
+      "status": true
+    },
+    {
+      "content": "Làm Bài Tập",
+      "status": false,
+      "id": 3
+    },
+    {
+      "content": "Đi chơi",
+      "status": true,
+      "id": 4
+    },
+    {
+      "content": "Ăn bún đậu",
+      "status": false,
+      "id": 5
+    }
+  ]
+}

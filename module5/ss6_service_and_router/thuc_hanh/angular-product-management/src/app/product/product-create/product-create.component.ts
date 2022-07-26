@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 import {ActivatedRoute, Router} from "@angular/router";
 import {Product} from "../../model/product";
+import {Category} from "../../model/category";
 
 @Component({
   selector: 'app-product-create',
@@ -10,52 +11,36 @@ import {Product} from "../../model/product";
   styleUrls: ['./product-create.component.css']
 })
 export class ProductCreateComponent implements OnInit {
-  title: string = 'Thêm mới sản phẩm';
-  buttonName: string = 'Thêm';
-
+  categories: Category[] = [];
   product: Product = {};
-  productForm: FormGroup = new FormGroup({
-    id: new FormControl(),
-    name: new FormControl(),
-    price: new FormControl(),
-    description: new FormControl(),
-  });
+  productFormCreate: FormGroup;
+
 
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {
-    activatedRoute.paramMap.subscribe((paramMap) => {
-      let id = null;
-      if (paramMap.get('idEdit') !== null) {
-        id = parseInt(paramMap.get('idEdit'));
-        this.product = this.productService.findById(id);
-      }
-      if (id !== null) {
-        this.productForm = new FormGroup({
-          id: new FormControl(this.product.id),
-          name: new FormControl(this.product.name),
-          price: new FormControl(this.product.price),
-          description: new FormControl(this.product.description),
-        });
-        this.title = 'Chỉnh sửa sản phẩm';
-        this.buttonName = 'Sửa';
-      }
-    })
+
   }
 
   ngOnInit() {
+    this.productService.getAllCategories().subscribe(value => {
+      this.categories = value;
+    }, error => {}, () => {
+      this.productFormCreate = new FormGroup({
+        name: new FormControl(),
+        price: new FormControl(),
+        description: new FormControl(),
+        category: new FormControl()
+      });
+    })
   }
 
   submit() {
-    const product = this.productForm.value;
-    this.productService.saveProduct(product);
-    this.productForm.reset();
-    this.router.navigateByUrl('/product/list')
-      .then(value => {
-
-      }).catch(reason => {
-
-      }).finally(() => {
+    console.log(this.productFormCreate.value);
+    this.productService.saveProduct(this.productFormCreate.value).subscribe(value => {
+      this.router.navigateByUrl("/product/list").then(() => {
+        alert("Create success!");
+      })
     });
   }
 }

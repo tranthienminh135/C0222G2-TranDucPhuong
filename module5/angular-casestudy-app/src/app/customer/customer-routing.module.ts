@@ -12,6 +12,14 @@ const routes: Routes = [
   {
     path: 'customer-edit',
     component: EditCustomerComponent
+  },
+  {
+    path: 'customer-edit/:id',
+    component: EditCustomerComponent
+  },
+  {
+    path: 'customer-list/:id',
+    component: ListCustomerComponent
   }
 ];
 

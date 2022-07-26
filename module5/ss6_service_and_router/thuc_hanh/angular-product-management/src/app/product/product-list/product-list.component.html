@@ -7,6 +7,7 @@
       <th>Tên</th>
       <th>Giá</th>
       <th>Mô tả</th>
+      <th>Danh Mục</th>
       <th colspan="2">Action</th>
     </tr>
     </thead>
@@ -16,6 +17,7 @@
       <td>{{product.name}}</td>
       <td>{{product.price}}</td>
       <td>{{product.description}}</td>
+      <td>{{product.category.name}}</td>
       <td><button class="btn btn-outline-danger" [routerLink]="['/product/delete', product.id]">Delete</button></td>
       <td><button class="btn btn-outline-warning" [routerLink]="['/product/edit', product.id]">Edit</button></td>
     </tr>

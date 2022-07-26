@@ -1,0 +1,78 @@
+{
+  "customer": [
+    {
+      "id": 0,
+      "customerType": {
+        "id": 0,
+        "name": "Diamond"
+      },
+      "name": "Le Thi Tai",
+      "birthday": "2000-01-01",
+      "gender": 0,
+      "idCard": "197854624",
+      "phoneNumber": "0985654324",
+      "email": "lethitai@gmail.com",
+      "address": "Tung Của"
+    },
+    {
+      "id": 1,
+      "customerType": {
+        "id": 1,
+        "name": "Iron"
+      },
+      "name": "Le Thi Tai ngu",
+      "birthday": "2000-01-01",
+      "gender": 0,
+      "idCard": "197854624",
+      "phoneNumber": "0985654324",
+      "email": "lethitai@gmail.com",
+      "address": "Tung Của"
+    },
+    {
+      "id": 2,
+      "customerType": {
+        "id": 2,
+        "name": "Silver"
+      },
+      "name": "Le Thi Tai ngu vl 3",
+      "birthday": "2000-01-01",
+      "gender": 0,
+      "idCard": "197854624",
+      "phoneNumber": "0985654324",
+      "email": "lethitai@gmail.com",
+      "address": "Tung Của"
+    },
+    {
+      "id": 3,
+      "customerType": {
+        "id": 3,
+        "name": "Member"
+      },
+      "name": "Le Thi Tai",
+      "birthday": "2000-01-01",
+      "gender": 2,
+      "idCard": "197854624",
+      "phoneNumber": "0985654324",
+      "email": "lethitai@gmail.com",
+      "address": "Tung Của"
+    }
+  ],
+  "customerType": [
+    {
+      "id": 0,
+      "name": "Diamond"
+    },
+    {
+      "id": 1,
+      "name": "Iron"
+    },
+    {
+      "id": 2,
+      "name": "Silver"
+    },
+    {
+      "id": 3,
+      "name": "Member"
+    }
+  ]
+}
