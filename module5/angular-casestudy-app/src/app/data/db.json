@@ -6,21 +6,7 @@
         "id": 0,
         "name": "Diamond"
       },
-      "name": "Le Thi Tai",
-      "birthday": "2000-01-01",
-      "gender": 0,
-      "idCard": "197854624",
-      "phoneNumber": "0985654324",
-      "email": "lethitai@gmail.com",
-      "address": "Tung Của"
-    },
-    {
-      "id": 1,
-      "customerType": {
-        "id": 1,
-        "name": "Iron"
-      },
-      "name": "Le Thi Tai ngu",
+      "name": "Trần Đức Phương",
       "birthday": "2000-01-01",
       "gender": 0,
       "idCard": "197854624",
@@ -34,7 +20,7 @@
         "id": 2,
         "name": "Silver"
       },
-      "name": "Le Thi Tai ngu vl 3",
+      "name": "Trần Thiên Minh",
       "birthday": "2000-01-01",
       "gender": 0,
       "idCard": "197854624",
@@ -48,13 +34,153 @@
         "id": 3,
         "name": "Member"
       },
-      "name": "Le Thi Tai",
+      "name": "Le Thi Taiasd",
       "birthday": "2000-01-01",
       "gender": 2,
       "idCard": "197854624",
       "phoneNumber": "0985654324",
       "email": "lethitai@gmail.com",
       "address": "Tung Của"
+    },
+    {
+      "customerType": {
+        "id": 2,
+        "name": "Silver"
+      },
+      "name": "sdfsdfsdfsdf",
+      "birthday": "2022-07-14",
+      "gender": 0,
+      "idCard": "123123",
+      "phoneNumber": "0123456789",
+      "email": "taingu@gmail.com",
+      "address": "87 Cao Thắng",
+      "id": 4
+    },
+    {
+      "customerType": {
+        "id": 1,
+        "name": "Iron"
+      },
+      "name": "Trần Đức Phương",
+      "birthday": "2022-07-16",
+      "gender": 1,
+      "idCard": "123123",
+      "phoneNumber": "0985654324",
+      "email": "taingu@gmail.com",
+      "address": "Tung Của",
+      "id": 6
+    },
+    {
+      "customerType": {
+        "id": 1,
+        "name": "Iron"
+      },
+      "name": "Trần Đức Phương",
+      "birthday": "2022-07-16",
+      "gender": 1,
+      "idCard": "123123",
+      "phoneNumber": "0985654324",
+      "email": "taingu@gmail.com",
+      "address": "Tung Của",
+      "id": 7
+    },
+    {
+      "customerType": {
+        "id": 1,
+        "name": "Iron"
+      },
+      "name": "Trần Đức Phương",
+      "birthday": "2022-07-16",
+      "gender": 1,
+      "idCard": "123123",
+      "phoneNumber": "0985654324",
+      "email": "taingu@gmail.com",
+      "address": "Tung Của",
+      "id": 8
+    },
+    {
+      "customerType": {
+        "id": 1,
+        "name": "Iron"
+      },
+      "name": "Trần Đức Phương",
+      "birthday": "2022-07-16",
+      "gender": 1,
+      "idCard": "123123",
+      "phoneNumber": "0985654324",
+      "email": "taingu@gmail.com",
+      "address": "Tung Của",
+      "id": 9
+    },
+    {
+      "customerType": {
+        "id": 1,
+        "name": "Iron"
+      },
+      "name": "Trần Đức Phương",
+      "birthday": "2022-07-16",
+      "gender": 1,
+      "idCard": "123123",
+      "phoneNumber": "0985654324",
+      "email": "taingu@gmail.com",
+      "address": "Tung Của",
+      "id": 10
+    },
+    {
+      "customerType": {
+        "id": 1,
+        "name": "Iron"
+      },
+      "name": "Trần Đức Phương",
+      "birthday": "2022-07-16",
+      "gender": 1,
+      "idCard": "123123",
+      "phoneNumber": "0985654324",
+      "email": "taingu@gmail.com",
+      "address": "Tung Của",
+      "id": 11
+    },
+    {
+      "customerType": {
+        "id": 1,
+        "name": "Iron"
+      },
+      "name": "Trần Đức Phương",
+      "birthday": "2022-07-16",
+      "gender": 1,
+      "idCard": "123123",
+      "phoneNumber": "0985654324",
+      "email": "taingu@gmail.com",
+      "address": "Tung Của",
+      "id": 12
+    },
+    {
+      "customerType": {
+        "id": 1,
+        "name": "Iron"
+      },
+      "name": "Trần Đức Phương",
+      "birthday": "2022-07-16",
+      "gender": 1,
+      "idCard": "123123",
+      "phoneNumber": "0985654324",
+      "email": "taingu@gmail.com",
+      "address": "Tung Của",
+      "id": 13
+    },
+    {
+      "customerType": {
+        "id": 1,
+        "name": "Iron"
+      },
+      "name": "Trần Đức Phương",
+      "birthday": "2022-07-16",
+      "gender": 1,
+      "idCard": "123123",
+      "phoneNumber": "0985654324",
+      "email": "taingu@gmail.com",
+      "address": "Tung Của",
+      "id": 14
     }
   ],
   "customerType": [

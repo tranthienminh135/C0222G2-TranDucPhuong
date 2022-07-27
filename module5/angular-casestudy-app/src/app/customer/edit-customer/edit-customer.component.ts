@@ -57,10 +57,15 @@ export class EditCustomerComponent implements OnInit {
   }
 
   editCustomer() {
-    this.customerService.update(this.customerFormEdit.value).subscribe(value => {
-      this.toastrService.success("Success!", "Edit");
-      this.router.navigateByUrl("/customer-list").then();
-    });
+    if (this.customerFormEdit.valid) {
+      this.customerService.update(this.customerFormEdit.value).subscribe(value => {
+        this.router.navigateByUrl("/customer-list").then(() => {
+          this.toastrService.success("Success!", "Edit")
+        });
+      });
+    } else {
+      this.toastrService.error("Something wrong!", "Error");
+    }
   }
 
   compareCustomerType(c1: CustomerType, c2: CustomerType): boolean {

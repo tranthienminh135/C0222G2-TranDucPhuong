@@ -68,6 +68,11 @@
                          id="name" type="text" placeholder="Enter your name..."/>
                   <label for="name">Customer name</label>
                 </div>
+                <div
+                  class="text-danger"
+                  *ngIf="customerFormEdit.controls.name.hasError('required') && customerFormEdit.controls.name.touched">
+                  Name is not empty!
+                </div>
               </div>
 
               <div class="col-4">
@@ -75,6 +80,11 @@
                   <input class="form-control" id="birthday" type="date" formControlName="birthday" name="birthday"
                          placeholder="Enter your birthday..."/>
                   <label for="birthday">Birthday</label>
+                </div>
+                <div
+                  class="text-danger"
+                  *ngIf="customerFormEdit.controls.birthday.hasError('required') && customerFormEdit.controls.birthday.touched">
+                  Name is not empty!
                 </div>
               </div>
 
@@ -87,6 +97,11 @@
                     <option [ngValue]="2">Tài</option>
                   </select>
                 </div>
+                <div
+                  class="text-danger"
+                  *ngIf="customerFormEdit.controls.gender.hasError('required') && customerFormEdit.controls.gender.touched">
+                  Name is not empty!
+                </div>
               </div>
 
               <div class="col-4">
@@ -94,6 +109,12 @@
                   <input class="form-control" id="idCard" type="number" formControlName="idCard" name="idCard"
                          placeholder="Enter your phone idCard..."/>
                   <label for="idCard">Id Card</label>
+                </div>
+                <div
+                  class="text-danger"
+                  *ngIf="customerFormEdit.controls.idCard.hasError('required')
+                   && customerFormEdit.controls.idCard.touched">
+                  Name is not empty!
                 </div>
               </div>
 
@@ -103,6 +124,12 @@
                          id="phoneNumber" type="text" placeholder="Enter your phoneNumber..."/>
                   <label for="phoneNumber">Phone Number</label>
                 </div>
+                <div
+                  class="text-danger"
+                  *ngIf="customerFormEdit.controls.phoneNumber.hasError('required')
+                  && customerFormEdit.controls.phoneNumber.touched">
+                  Name is not empty!
+                </div>
               </div>
 
               <div class="col-6">
@@ -110,6 +137,12 @@
                   <input class="form-control" id="email" type="text" formControlName="email" name="email"
                          placeholder="Enter your email..."/>
                   <label for="email">Email</label>
+                </div>
+                <div
+                  class="text-danger"
+                  *ngIf="customerFormEdit.controls.email.hasError('required')
+                   && customerFormEdit.controls.email.touched">
+                  Name is not empty!
                 </div>
               </div>
 
@@ -122,6 +155,12 @@
                     <option *ngFor="let type of customerTypes" [ngValue]="type">{{type.name}}</option>
                   </select>
                 </div>
+                <div
+                  class="text-danger"
+                  *ngIf="customerFormEdit.controls.customerType.hasError('required')
+                   && customerFormEdit.controls.customerType.touched">
+                  Name is not empty!
+                </div>
               </div>
 
               <div class="col-12">
@@ -130,6 +169,12 @@
                          placeholder="Enter your address..."/>
                   <label for="address">Address</label>
                 </div>
+                <div
+                  class="text-danger"
+                  *ngIf="customerFormEdit.controls.address.hasError('required')
+                   && customerFormEdit.controls.address.touched">
+                  Name is not empty!
+                </div>
               </div>
 
             </div>
@@ -137,7 +182,6 @@
 
             <button class="w-100 btn btn-outline-primary btn-lg" type="submit">Continue to submit</button>
           </form>
-
         </div>
       </div>
     </div>

@@ -1,0 +1,209 @@
+<app-navigation></app-navigation>
+<!-- Content -->
+<div class="container page-section">
+  <main>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="../../assets/image/icon/vinpearl.png" alt="" width="72" height="57">
+      <h2>Edit Customer</h2>
+      <p class="lead">
+        "Stop worrying about potholes on the road and enjoy that journey".</p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">AD block</span>
+          <span class="badge bg-primary rounded-pill">3</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Product name</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$12</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Second product</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$8</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Third item</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>EXAMPLECODE</small>
+            </div>
+            <span class="text-success">−$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (USD)</span>
+            <strong>$20</strong>
+          </li>
+        </ul>
+
+        <div class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 col-lg-8">
+        <div class="needs-validation">
+          <form [formGroup]="employeeForm" (ngSubmit)="editEmployee()">
+            <div class="row g-3">
+              <input type="hidden" [hidden]="true" [readOnly]="true" formControlName="id" name="id">
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="name"
+                         formControlName="name" name="name"
+                         type="text" placeholder="Enter your name..."/>
+                  <label for="name">Employee name</label>
+                </div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.name.hasError('required')
+                          && employeeForm.controls.name.touched">Name is not empty</div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.name.hasError('errName')">Name invalid
+                </div>
+              </div>
+
+              <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="birthday" type="date"
+                         placeholder="Enter your birthday..."
+                         formControlName="birthday" name="birthday"/>
+                  <label for="birthday">Birthday</label>
+                </div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.birthday.hasError('required')
+                          && employeeForm.controls.birthday.touched">Birthday is not empty</div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.birthday.hasError('age18')">FBI warning: Your age must be over 18!
+                </div>
+              </div>
+
+              <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="address" type="text"
+                         placeholder="Enter your id card..." formControlName="address" name="address"/>
+                  <label for="address">Address</label>
+                </div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.address.hasError('required')
+                          && employeeForm.controls.address.touched">Address is not empty</div>
+              </div>
+
+              <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="idCard" type="number"
+                         placeholder="Enter your phone number..." formControlName="idCard" name="idCard"/>
+                  <label for="idCard">Id Card</label>
+                </div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.idCard.hasError('required')
+                          && employeeForm.controls.idCard.touched">Id Card is not empty</div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.idCard.hasError('idCardExists')">Id Card is exists!
+                </div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.idCard.hasError('invalidIdCard')">Id Card must have 9 or 12 numbers !
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="phoneNumber"
+                         formControlName="phoneNumber" name="phoneNumber"
+                         type="text" placeholder="Enter your email..."/>
+                  <label for="phoneNumber">Phone Number</label>
+                </div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.phoneNumber.hasError('required')
+                          && employeeForm.controls.phoneNumber.touched">Phone Number is not empty</div>
+              </div>
+
+              <div class="col-6">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="salary"
+                         formControlName="salary" name="salary"
+                         type="text" placeholder="Enter your salary..."/>
+                  <label for="salary">Salary</label>
+                </div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.salary.hasError('required')
+                          && employeeForm.controls.salary.touched">Salary is not empty</div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <input class="form-control" id="email" type="text"
+                         formControlName="email" name="email"
+                         placeholder="Enter your address..."/>
+                  <label for="email">Email</label>
+                </div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.email.hasError('required')
+                          && employeeForm.controls.email.touched">Email is not empty</div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.email.hasError('emailExists')">Email is exists!
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <select class="form-select" aria-label="Default select example" formControlName="educationDegree" name="educationDegree"
+                          style="padding-top: 0.625rem !important;" [compareWith]="compareEducationDegree" [(ngModel)]="employee.educationDegree">
+                    <option *ngFor="let element of educationDegrees" [ngValue]="element">{{element.name}}</option>
+                  </select>
+                </div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.educationDegree.hasError('required')
+                          && employeeForm.controls.educationDegree.touched">Choice education degree plz!</div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <select class="form-select" aria-label="Default select example" formControlName="division" name="division"
+                          style="padding-top: 0.625rem !important;" [compareWith]="compareDivision" [(ngModel)]="employee.division">
+                    <option *ngFor="let element of divisions" [ngValue]="element">{{element.name}}</option>
+                  </select>
+                </div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.division.hasError('required')
+                          && employeeForm.controls.division.touched">Choice division plz!</div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <select class="form-select" aria-label="Default select example" formControlName="position" name="position"
+                          style="padding-top: 0.625rem !important;" [compareWith]="comparePosition" [(ngModel)]="employee.position">
+                    <option *ngFor="let element of positions" [ngValue]="element">{{element.name}}</option>
+                  </select>
+                </div>
+                <div class="text-danger"
+                     *ngIf="employeeForm.controls.position.hasError('required')
+                          && employeeForm.controls.position.touched">Choice position plz!</div>
+              </div>
+
+            </div>
+            <hr class="my-4">
+
+            <button class=" w-100 btn btn-outline-primary btn-lg" type="submit">Submit here baby!</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<app-footer></app-footer>

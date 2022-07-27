@@ -9,18 +9,17 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 public interface IEmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    @Query(value = " select * from employee where name like :searchParam ", nativeQuery = true,
-            countQuery = " select count(*) from (select * from employee where name like :searchParam) temp_table ")
+    @Query(value = " select * from employee where name like :searchParam and is_deleted = 0 ", nativeQuery = true,
+            countQuery = " select count(*) from (select * from employee where name like :searchParam and is_deleted = 0 ) temp_table ")
     Page<Employee> findAll(Pageable pageable,@Param("searchParam") String searchParam);
 
-    @Modifying
-    @Transactional
-    @Query(value = " INSERT INTO `employee` (`birthday`, `email`, `id_card`, `name`, " +
-            " `phone_number`, `salary`, `division_id`, `education_degree_id`, `position_id`, `username`) " +
-            " VALUES (:#{#employee.birthday}, :#{#employee.email}, :#{#employee.idCard}, :#{#employee.name}, " +
-            " :#{#employee.phoneNumber}, :#{#employee.salary}, :#{#employee.division.id}, :#{#employee.educationDegree.id}, " +
-            " :#{#employee.position}, :#{#employee.email}); ", nativeQuery = true)
-    void saveEmployee(@Param("employee") Employee employee);
+    @Query(value = " select * from employee where id = :idEdit and is_deleted = 0 ", nativeQuery = true)
+    Employee findById(@Param("idEdit") String idEdit);
+
+    @Query(value = " select * from employee where is_deleted = 0 ", nativeQuery = true)
+    List<Employee> findAllEmployee();
 }

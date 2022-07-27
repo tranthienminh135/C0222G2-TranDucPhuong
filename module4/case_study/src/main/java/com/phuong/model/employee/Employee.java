@@ -2,6 +2,8 @@ package com.phuong.model.employee;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.phuong.model.contract.Contract;
+import net.bytebuddy.implementation.bind.annotation.Default;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -27,6 +29,9 @@ public class Employee {
 
     private Double salary;
 
+    @Column(columnDefinition = "bit(1) default 0")
+    private Boolean isDeleted;
+
     @ManyToOne
     @JoinColumn(name = "education_degree_id", referencedColumnName = "id")
     private EducationDegree educationDegree;
@@ -39,10 +44,6 @@ public class Employee {
     @JoinColumn(name = "division_id", referencedColumnName = "id")
     private Division division;
 
-    @ManyToOne
-    @JoinColumn(name = "username", referencedColumnName = "username")
-    private User user;
-
     @OneToMany(mappedBy = "employee")
     @JsonBackReference
     private List<Contract> contractList;
@@ -51,8 +52,8 @@ public class Employee {
     }
 
     public Employee(Integer id, String name, Date birthday, String idCard, String phoneNumber, String email,
-                    String address, Double salary, EducationDegree educationDegree, Position position,
-                    Division division, User user, List<Contract> contractList) {
+                    String address, Double salary, Boolean isDeleted, EducationDegree educationDegree,
+                    Position position, Division division, List<Contract> contractList) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
@@ -61,11 +62,19 @@ public class Employee {
         this.email = email;
         this.address = address;
         this.salary = salary;
+        this.isDeleted = isDeleted;
         this.educationDegree = educationDegree;
         this.position = position;
         this.division = division;
-        this.user = user;
         this.contractList = contractList;
+    }
+
+    public Boolean getDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
     }
 
     public Integer getId() {
@@ -154,14 +163,6 @@ public class Employee {
 
     public void setDivision(Division division) {
         this.division = division;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public List<Contract> getContractList() {

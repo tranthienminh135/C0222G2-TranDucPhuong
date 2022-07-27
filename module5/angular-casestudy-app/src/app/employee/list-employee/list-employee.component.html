@@ -10,95 +10,185 @@
         <p class="text-white-75 mb-5">"Stop worrying about potholes on the road and enjoy that journey".</p>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop">
+                data-bs-target="#staticBackdropCreate">
           Create Employee
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        <div class="modal fade" id="staticBackdropCreate" data-bs-backdrop="static" data-bs-keyboard="false"
+             tabindex="-1"
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Create Customer</h5>
+              <div class="modal-header bg-primary text-light">
+                <h5 class="modal-title" id="staticBackdropLabelCreate">Create Customer</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
-                <div class="row g-3">
+              <form [formGroup]="employeeForm" *ngIf="employeeForm" (ngSubmit)="createEmployee()">
+                <div class="modal-body">
+                  <div class="row g-3">
 
-                  <div class="col-12">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="name" type="text" placeholder="Enter your name..."/>
-                      <label for="name">Customer name</label>
+                    <div class="col-12">
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="name"
+                               formControlName="name" name="name"
+                               type="text" placeholder="Enter your name..."/>
+                        <label for="name">Employee name</label>
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.name.hasError('required')
+                          && employeeForm.controls.name.touched">Name is not empty
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.name.hasError('errName')
+                          && employeeForm.controls.name.touched">Name invalid
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-4">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="birthday" type="date"
-                             placeholder="Enter your birthday..."/>
-                      <label for="birthday">Birthday</label>
+                    <div class="col-4">
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="birthday" type="date"
+                               placeholder="Enter your birthday..."
+                               formControlName="birthday" name="birthday"/>
+                        <label for="birthday">Birthday</label>
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.birthday.hasError('required')
+                          && employeeForm.controls.birthday.touched">Birthday is not empty
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.birthday.hasError('age18')
+                          && employeeForm.controls.birthday.touched">FBI warning: Your age must be over 18!
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-4">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="idCard" type="text"
-                             placeholder="Enter your id card..."/>
-                      <label for="idCard">Gender</label>
+                    <div class="col-4">
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="address" type="text"
+                               placeholder="Enter your id card..." formControlName="address" name="address"/>
+                        <label for="address">Address</label>
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.address.hasError('required')
+                          && employeeForm.controls.address.touched">Address is not empty
+                      </div>
                     </div>
-                  </div>
 
-
-                  <div class="col-4">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="phoneNumber" type="number"
-                             placeholder="Enter your phone number..."/>
-                      <label for="phoneNumber">Id Card</label>
+                    <div class="col-4">
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="idCard" type="number"
+                               placeholder="Enter your phone number..." formControlName="idCard" name="idCard"/>
+                        <label for="idCard">Id Card</label>
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.idCard.hasError('required')
+                          && employeeForm.controls.idCard.touched">Id Card is not empty
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.idCard.hasError('idCardExists')
+                          && employeeForm.controls.idCard.touched">Id Card is exists!
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.idCard.hasError('invalidIdCard')
+                          && employeeForm.controls.idCard.touched">Id Card must have 9 or 12 numbers !
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-6">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="email" type="text" placeholder="Enter your email..."/>
-                      <label for="email">Phone Number</label>
+                    <div class="col-6">
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="phoneNumber"
+                               formControlName="phoneNumber" name="phoneNumber"
+                               type="text" placeholder="Enter your email..."/>
+                        <label for="phoneNumber">Phone Number</label>
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.phoneNumber.hasError('required')
+                          && employeeForm.controls.phoneNumber.touched">Phone Number is not empty
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-6">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="address" type="text"
-                             placeholder="Enter your address..."/>
-                      <label for="address">Email</label>
+                    <div class="col-6">
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="salary"
+                               formControlName="salary" name="salary"
+                               type="number" placeholder="Enter your salary..."/>
+                        <label for="salary">Salary</label>
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.salary.hasError('required')
+                          && employeeForm.controls.salary.touched">Salary is not empty
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-12">
-                    <div class="form-floating mb-3">
-                      <select class="form-select" aria-label="Default select example"
-                              style="padding-top: 0.625rem !important;">
-                        <option value="" selected disabled>Choice Customer Type</option>
-                        <option value="">Diamond</option>
-                        <option value="">Gold</option>
-                        <option value="">Iron</option>
-                      </select>
+                    <div class="col-12">
+                      <div class="form-floating mb-3">
+                        <input class="form-control" id="email" type="text"
+                               formControlName="email" name="email"
+                               placeholder="Enter your address..."/>
+                        <label for="email">Email</label>
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.email.hasError('required')
+                          && employeeForm.controls.email.touched">Email is not empty
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.email.hasError('emailExists')
+                          && employeeForm.controls.email.touched">Email is exists!
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-12">
-                    <div class="form-floating mb-3">
-                      <input class="form-control" id="poolArea" type="text"
-                             placeholder="Enter your address..."/>
-                      <label for="address">Address</label>
+                    <div class="col-12">
+                      <div class="form-floating mb-3">
+                        <select class="form-select" aria-label="Default select example"
+                                formControlName="educationDegree" name="educationDegree"
+                                style="padding-top: 0.625rem !important;">
+                          <option value="" [selected]="true" [disabled]="true">Choice Education Degree</option>
+                          <option *ngFor="let element of educationDegrees" [ngValue]="element">{{element.name}}</option>
+                        </select>
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.educationDegree.hasError('required')
+                          && employeeForm.controls.educationDegree.touched">Choice education degree plz!
+                      </div>
                     </div>
-                  </div>
 
+                    <div class="col-12">
+                      <div class="form-floating mb-3">
+                        <select class="form-select" aria-label="Default select example" formControlName="division"
+                                name="division"
+                                style="padding-top: 0.625rem !important;">
+                          <option value="" [selected]="true" [disabled]="true">Choice Division</option>
+                          <option *ngFor="let element of divisions" [ngValue]="element">{{element.name}}</option>
+                        </select>
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.division.hasError('required')
+                          && employeeForm.controls.division.touched">Choice division plz!
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="form-floating mb-3">
+                        <select class="form-select" aria-label="Default select example" formControlName="position"
+                                name="position"
+                                style="padding-top: 0.625rem !important;">
+                          <option value="" [selected]="true" [disabled]="true">Choice Position</option>
+                          <option *ngFor="let element of positions" [ngValue]="element">{{element.name}}</option>
+                        </select>
+                      </div>
+                      <div class="text-danger"
+                           *ngIf="employeeForm.controls.position.hasError('required')
+                          && employeeForm.controls.position.touched">Choice position plz!
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
-              </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-outline-primary">Save</button>
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -112,37 +202,128 @@
     <!-- Contact-->
     <section class="page-section" id="facility">
       <!--            <div class="row gx-4 gx-lg-5 justify-content-center"></div>-->
-      <table class="table table-hover">
+      <form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="d-flex w-25 mb-3 m-auto">
+        <input class="form-control me-2" type="search" formControlName="name" name="name"
+               placeholder="Search by name" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </form>
+      <table class="table table-hover text-center">
         <thead>
-        <tr class="bg-primary text-white text-center">
+        <tr class="bg-primary text-white">
           <th>No.</th>
           <th>Name</th>
           <th>Birthday</th>
-          <th>Id Card</th>
-          <th>Phone Number</th>
           <th>Email</th>
           <th>Education Degree</th>
           <th>Division</th>
           <th>Position</th>
-          <th colspan="2">Action</th>
+          <th colspan="3">Action</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of employee; index as i" class="text-center">
-          <td>{{i+1}}</td>
+        <tr *ngFor="let item of employeeList; index as i">
+          <td>{{(i + 1) + size * pageNumber}}</td>
           <td>{{item.name}}</td>
           <td>{{item.birthday | date: 'dd-MM-yyyy'}}</td>
-          <td>{{item.idCard}}</td>
-          <td>{{item.phoneNumber}}</td>
           <td>{{item.email}}</td>
           <td>{{item.educationDegree.name}}</td>
           <td>{{item.division.name}}</td>
           <td>{{item.position.name}}</td>
           <td>
-            <button type="button" class="btn btn-outline-danger">Delete</button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                    [attr.data-bs-target]="'#staticBackdropDelete' + item.id">
+              Delete
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdropDelete{{item.id}}" data-bs-backdrop="static"
+                 data-bs-keyboard="false"
+                 tabindex="-1" aria-labelledby="staticBackdropLabelDelete" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="staticBackdropLabelDelete">FBI warning!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Do you want delete employee <span class="text-primary">{{item.name}}</span> ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" (click)="deleteEmployee(item.id)">Delete
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </td>
           <td>
-            <button type="button" class="btn btn-outline-warning" [routerLink]="['/customer-edit']">Edit</button>
+            <button type="button" class="btn btn-outline-warning" [routerLink]="['/employee-edit', item.id]">Edit
+            </button>
+          </td>
+          <td>
+            <!-- Offcanvas Sidebar -->
+            <div class="offcanvas offcanvas-end" id="demo{{item.id}}">
+              <div class="offcanvas-header bg-info text-light">
+                <h3 class="offcanvas-title">Detail</h3>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+              </div>
+              <div class="offcanvas-body">
+                <table class="table-borderless w-100">
+                  <tr>
+                    <th>Id:</th>
+                    <td>{{item.id}}</td>
+                  </tr>
+                  <tr>
+                    <th>Name:</th>
+                    <td>{{item.name}}</td>
+                  </tr>
+                  <tr>
+                    <th>Birthday:</th>
+                    <td>{{item.birthday | date: 'dd-MM-yyyy'}}</td>
+                  </tr>
+                  <tr>
+                    <th>Address:</th>
+                    <td>{{item.address}}</td>
+                  </tr>
+                  <tr>
+                    <th>Id Card:</th>
+                    <td>{{item.idCard}}</td>
+                  </tr>
+                  <tr>
+                    <th>PhoneNumber:</th>
+                    <td>{{item.phoneNumber}}</td>
+                  </tr>
+                  <tr>
+                    <th>Email:</th>
+                    <td>{{item.email}}</td>
+                  </tr>
+                  <tr>
+                    <th>Salary:</th>
+                    <td>{{item.salary}}</td>
+                  </tr>
+                  <tr>
+                    <th>EducationDegree:</th>
+                    <td>{{item.educationDegree.name}}</td>
+                  </tr>
+                  <tr>
+                    <th>Division:</th>
+                    <td>{{item.division.name}}</td>
+                  </tr>
+                  <tr>
+                    <th>Position:</th>
+                    <td>{{item.position.name}}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- Button to open the offcanvas sidebar -->
+            <button class="btn btn-outline-info" type="button" data-bs-toggle="offcanvas"
+                    [attr.data-bs-target]="'#demo' + item.id">
+              Detail
+            </button>
           </td>
         </tr>
         </tbody>
@@ -150,11 +331,43 @@
       <div class="container-fluid mt-3">
         <div>
           <ul class="pagination float-end">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            <div [ngSwitch]="pageNumber">
+              <div *ngSwitchCase="0">
+                <li class="page-item disabled">
+                  <button type="button" class="page-link">Previous</button>
+                </li>
+              </div>
+              <div *ngSwitchDefault>
+                <li class="page-item">
+                  <button type="button" class="page-link disabled" (click)="previousPage()">Previous</button>
+                </li>
+              </div>
+            </div>
+            <div *ngFor="let e of totalPages; index as i">
+              <div ngSwitch="{{i}}">
+                <div *ngSwitchCase="pageNumber">
+                  <li class="page-item active"><button type="button" class="page-link" (click)="changePage(i)">{{i + 1}}</button></li>
+                </div>
+                <div *ngSwitchDefault>
+                  <li class="page-item"><button type="button" class="page-link" (click)="changePage(i)">{{i + 1}}</button></li>
+                </div>
+              </div>
+            </div>
+
+            <div [ngSwitch]="pageNumber">
+              <div *ngIf="totalPages">
+                <div *ngSwitchCase="totalPages.length - 1">
+                  <li class="page-item disabled">
+                    <button type="button" class="page-link">Next</button>
+                  </li>
+                </div>
+              </div>
+              <div *ngSwitchDefault>
+                <li class="page-item">
+                  <button type="button" class="page-link" (click)="nextPage()">Next</button>
+                </li>
+              </div>
+            </div>
           </ul>
         </div>
       </div>

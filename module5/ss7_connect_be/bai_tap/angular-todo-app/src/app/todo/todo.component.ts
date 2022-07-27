@@ -11,6 +11,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class TodoComponent implements OnInit {
   todos: Todo[] = [];
   todoForm: FormGroup;
+  p: number = 0;
 
   constructor(private todoService: TodoService) { }
 

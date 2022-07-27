@@ -3,23 +3,27 @@ package com.phuong.model.employee.dto;
 import com.phuong.model.contract.Contract;
 import com.phuong.model.employee.Division;
 import com.phuong.model.employee.EducationDegree;
+import com.phuong.model.employee.Employee;
 import com.phuong.model.employee.Position;
-import com.phuong.model.employee.User;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.validation.constraints.Pattern;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class EmployeeDto implements Validator {
     private Integer id;
 
-    @Pattern(regexp = "^[A-Za-z]+$", message = "Name invalid")
+    @Pattern(regexp = "^([\\p{Lu}][\\p{Ll}]{1,8})(\\s([\\p{Lu}]|[\\p{Lu}][\\p{Ll}]{1,10})){0,5}$", message = "invalidName")
     private String name;
 
     private Date birthday;
 
+    @Pattern(regexp = "([1-9][0-9]{8})|([1-9][0-9]{11})", message = "invalidIdCard")
     private String idCard;
 
     private String phoneNumber;
@@ -36,16 +40,19 @@ public class EmployeeDto implements Validator {
 
     private Division division;
 
-    private User user;
-
     private List<Contract> contractList;
+
+    private List<Employee> employeeList;
+
+    private List<String> idCardList;
 
     public EmployeeDto() {
     }
 
     public EmployeeDto(Integer id, String name, Date birthday, String idCard, String phoneNumber, String email,
-                       String address, Double salary, EducationDegree educationDegree, Position position,
-                       Division division, User user, List<Contract> contractList) {
+                       String address, Double salary, EducationDegree educationDegree,
+                       Position position, Division division, List<Contract> contractList,
+                       List<Employee> employeeList, List<String> idCardList) {
         this.id = id;
         this.name = name;
         this.birthday = birthday;
@@ -57,8 +64,25 @@ public class EmployeeDto implements Validator {
         this.educationDegree = educationDegree;
         this.position = position;
         this.division = division;
-        this.user = user;
         this.contractList = contractList;
+        this.employeeList = employeeList;
+        this.idCardList = idCardList;
+    }
+
+    public List<String> getIdCardList() {
+        return idCardList;
+    }
+
+    public void setIdCardList(List<String> idCardList) {
+        this.idCardList = idCardList;
+    }
+
+    public List<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
+    public void setEmployeeList(List<Employee> employeeList) {
+        this.employeeList = employeeList;
     }
 
     public Integer getId() {
@@ -149,14 +173,6 @@ public class EmployeeDto implements Validator {
         this.division = division;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public List<Contract> getContractList() {
         return contractList;
     }
@@ -173,8 +189,30 @@ public class EmployeeDto implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         EmployeeDto employeeDto = (EmployeeDto) target;
-        if (employeeDto.salary < 1000) {
-            errors.rejectValue("errSalary", "Salary < 1000");
+        List<Employee> employeeList = this.getEmployeeList();
+        List<String> idCardList = this.getIdCardList();
+        if (!idCardList.isEmpty()) {
+            for (String idCard: idCardList) {
+                if (employeeDto.getIdCard().equals(idCard)) {
+                    errors.rejectValue("idCard", "", "idCardExists");
+                }
+            }
+        }
+        if (!employeeList.isEmpty()) {
+            for (Employee employee: employeeList) {
+                if (employee.getEmail().equals(employeeDto.getEmail())) {
+                    errors.rejectValue("email", "", "emailExists!");
+                    break;
+                }
+            }
+        }
+        String pattern = "yyyy-MM-dd";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+        LocalDate birthday = LocalDate.parse(employeeDto.getBirthday().toString(), formatter);
+        LocalDate now = LocalDate.now();
+        int age = Period.between(birthday, now).getYears();
+        if (age < 18) {
+            errors.rejectValue("birthday", "", "age18");
         }
     }
 }

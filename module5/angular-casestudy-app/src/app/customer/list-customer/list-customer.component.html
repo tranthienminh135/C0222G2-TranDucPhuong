@@ -157,6 +157,12 @@
   <div class="container-fluid" id="content">
     <!-- Contact-->
     <section class="page-section" id="facility">
+        <form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="pagination d-flex mb-3">
+          <input class="form-control me-2" type="search"
+                 formControlName="name" name="name"
+                 placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
       <table class="table table-hover">
         <thead>
         <tr class="bg-primary text-white text-center">
@@ -173,7 +179,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr class="text-center" *ngFor="let item of customers, index as i">
+        <tr class="text-center" *ngFor="let item of customers | paginate: { itemsPerPage: 5, currentPage: p }, index as i">
           <td>{{i + 1}}</td>
           <td>{{item.name}}</td>
           <td>{{item.birthday | date: 'dd-MM-yyyy'}}</td>
@@ -204,10 +210,10 @@
             <!-- Modal -->
             <div class="modal fade" id="staticBackdropDelete{{item.id}}" data-bs-backdrop="static"
                  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelDelete" aria-hidden="true">
-              <div class="modal-dialog">
+              <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabelDelete">Modal title</h5>
+                    <h4 class="modal-title text-danger" id="staticBackdropLabelDelete">Delete Customer</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -228,14 +234,8 @@
         </tbody>
       </table>
       <div class="container-fluid mt-3">
-        <div>
-          <ul class="pagination float-end">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
+        <div class="pagination float-end">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
       </div>
     </section>

@@ -1,7 +1,6 @@
 package com.phuong.service.employee.impl;
 
 import com.phuong.model.employee.Employee;
-import com.phuong.model.employee.User;
 import com.phuong.repository.employee.IEmployeeRepository;
 import com.phuong.service.employee.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,21 +22,30 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public void save(Employee employee) {
-        this.employeeRepository.saveEmployee(employee);
+        employee.setDeleted(false);
+        this.employeeRepository.save(employee);
     }
 
     @Override
     public void delete(String idDelete) {
-        this.employeeRepository.delete(this.employeeRepository.getById(Integer.valueOf(idDelete)));
+        Employee employee = this.employeeRepository.getById(Integer.valueOf(idDelete));
+        employee.setDeleted(true);
+        this.employeeRepository.save(employee);
     }
 
     @Override
     public Employee getById(String idEdit) {
-        return this.employeeRepository.findById(Integer.valueOf(idEdit)).orElse(null);
+        return this.employeeRepository.findById(idEdit);
     }
 
     @Override
     public List<Employee> findAll() {
-        return this.employeeRepository.findAll();
+        return this.employeeRepository.findAllEmployee();
+    }
+
+    @Override
+    public void saveEmployee(Employee employee) {
+        employee.setDeleted(false);
+        this.employeeRepository.save(employee);
     }
 }

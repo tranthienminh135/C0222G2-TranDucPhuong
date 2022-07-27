@@ -38,4 +38,8 @@ export class CustomerService {
   update(customer: Customer): Observable<Customer> {
     return this.httpClient.patch<Customer>(this.URL_CUSTOMER + '/' + customer.id, customer);
   }
+
+  searchByName(name: string): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.URL_CUSTOMER + '?name_like=' + name);
+  }
 }

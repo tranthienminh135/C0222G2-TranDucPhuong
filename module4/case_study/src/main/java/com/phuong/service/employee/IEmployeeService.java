@@ -16,4 +16,6 @@ public interface IEmployeeService {
     Employee getById(String idEdit);
 
     List<Employee> findAll();
+
+    void saveEmployee(Employee employee);
 }

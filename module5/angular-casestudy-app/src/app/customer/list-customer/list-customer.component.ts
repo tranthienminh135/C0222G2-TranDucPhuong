@@ -13,6 +13,7 @@ import {ActivatedRoute} from '@angular/router';
   providers: [CustomerService]
 })
 export class ListCustomerComponent implements OnInit {
+  p: number = 0;
   customers: Customer[] = [];
   customerTypes: CustomerType[] = [];
   customerFormCreate: FormGroup;
@@ -24,6 +25,7 @@ export class ListCustomerComponent implements OnInit {
   errPhoneNumber: string[]
   errEmail: string[];
   errAddress: string[];
+  searchForm: FormGroup;
 
   constructor(private customerService: CustomerService, private toastrService: ToastrService, private activatedRoute: ActivatedRoute) {
     this.customerFormCreate = new FormGroup({
@@ -36,6 +38,9 @@ export class ListCustomerComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       address: new FormControl('', [Validators.required])
     });
+    this.searchForm = new FormGroup({
+      name: new FormControl()
+    })
   }
 
   findAllCustomer() {
@@ -115,6 +120,12 @@ export class ListCustomerComponent implements OnInit {
       $('#staticBackdropDelete' + id).modal('hide');
       this.toastrService.success("Success!", "Delete");
       this.findAllCustomer();
+    });
+  }
+
+  searchByName() {
+    this.customerService.searchByName(this.searchForm.value.name).subscribe(value => {
+      this.customers = value;
     });
   }
 }

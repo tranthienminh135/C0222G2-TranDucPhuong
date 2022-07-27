@@ -23,7 +23,9 @@ import {EmployeeRoutingModule} from './employee/employee-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgxPaginationModule} from 'ngx-pagination';
 import {ToastrModule} from 'ngx-toastr';
+import { EditEmployeeComponent } from './employee/edit-employee/edit-employee.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +42,10 @@ import {ToastrModule} from 'ngx-toastr';
     EditCustomerComponent,
     ListContractComponent,
     ListEmployeeComponent,
+    EditEmployeeComponent,
   ],
   imports: [
+    [BrowserModule, NgxPaginationModule],
     BrowserModule,
     AppRoutingModule,
     HomePageRoutingModule,
