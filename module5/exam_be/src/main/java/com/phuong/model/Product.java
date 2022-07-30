@@ -1,5 +1,7 @@
 package com.phuong.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,6 +20,7 @@ public class Product {
     private String unit;
 
     @OneToMany(mappedBy = "product")
+    @JsonBackReference
     private List<Consignment> consignmentList;
 
     public Product() {

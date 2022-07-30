@@ -46,7 +46,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let element of consignments | paginate: { itemsPerPage: 5, currentPage: p }; index as i">
+        <tr *ngFor="let element of consignments; index as i">
           <td>{{element.code}}</td>
           <td>{{element.product.name}}</td>
           <td>{{element.product.price | currency: 'VND'}}</td>
@@ -84,13 +84,20 @@
               </div>
             </div>
           </td>
+          <td>
+            <button type="button" class="btn btn-warning" [routerLink]="['/edit', element.id]"><i class="bi bi-pencil"></i></button>
+          </td>
         </tr>
         </tbody>
       </table>
       <div class="container-fluid mt-3">
-        <div class="pagination float-end">
-          <pagination-controls (pageChange)="p = $event"></pagination-controls>
-        </div>
+        <ul class="pagination float-end">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
       </div>
     </div>
   </section>

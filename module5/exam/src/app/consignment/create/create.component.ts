@@ -41,7 +41,7 @@ export class CreateComponent implements OnInit {
 
   createConsignment() {
     if (this.consignmentForm.valid) {
-      this.consignmentService.saveConsignment(this.consignmentForm.value).subscribe(value => {
+      this.consignmentService.createConsignment(this.consignmentForm.value).subscribe(value => {
 
       }, error => {}, () => {
         this.consignmentForm.reset();

@@ -32,7 +32,8 @@ export class ConsignmentComponent implements OnInit {
 
   getAllConsignment() {
     this.consignmentService.findAllConsignment().subscribe((data: Consignment[]) => {
-      this.consignments = data;
+      // @ts-ignore
+      this.consignments = data.content;
     });
   }
 
@@ -49,7 +50,8 @@ export class ConsignmentComponent implements OnInit {
 
   searchConsignment() {
     this.consignmentService.searchConsignment(this.searchForm.value).subscribe(value => {
-      this.consignments = value;
+      // @ts-ignore
+      this.consignments = value.content;
     });
   }
 }
