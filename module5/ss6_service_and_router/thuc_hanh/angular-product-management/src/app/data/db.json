@@ -1,14 +1,24 @@
 {
   "product": [
     {
-      "name": "111",
-      "price": 111,
-      "description": "111",
+      "name": "Trần Thiên Minh",
+      "price": 123213,
+      "description": "123123",
       "category": {
         "id": 1,
-        "name": "SamSung"
+        "name": "Samsung"
       },
       "id": 1
+    },
+    {
+      "name": "123123",
+      "price": 123,
+      "description": "213123",
+      "category": {
+        "id": 0,
+        "name": "Iphone"
+      },
+      "id": 2
     }
   ],
   "category": [

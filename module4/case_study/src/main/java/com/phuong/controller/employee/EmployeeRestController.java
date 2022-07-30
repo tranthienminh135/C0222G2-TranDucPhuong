@@ -42,9 +42,10 @@ public class EmployeeRestController {
     private IEducationDegreeService educationDegreeService;
 
     @GetMapping("/employee")
-    public ResponseEntity<Page<Employee>> getAllEmployee(@PageableDefault(7) Pageable pageable, Optional<String> searchValue) {
+    public ResponseEntity<Page<Employee>> getAllEmployee(@PageableDefault(5) Pageable pageable, Optional<String> searchValue) {
         String searchParam = searchValue.orElse("");
         Page<Employee> employees = this.employeeService.findAll(pageable, searchParam);
+        System.out.println(employees.getTotalElements());
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 

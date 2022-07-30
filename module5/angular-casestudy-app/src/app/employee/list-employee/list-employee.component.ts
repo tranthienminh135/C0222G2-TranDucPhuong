@@ -24,6 +24,7 @@ export class ListEmployeeComponent implements OnInit {
   pageNumber: number = 0;
   size: number;
   searchForm: FormGroup;
+  isLoad: boolean = false;
 
   constructor(private employeeService: EmployeeService,
               private toastrService: ToastrService,
@@ -37,7 +38,7 @@ export class ListEmployeeComponent implements OnInit {
     this.getAllEducationDegree();
     this.searchForm = new FormGroup({
       name: new FormControl('')
-    })
+    });
     this.employeeForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       birthday: new FormControl('', [Validators.required]),
@@ -57,11 +58,23 @@ export class ListEmployeeComponent implements OnInit {
       // @ts-ignore
       this.employeeList = value.content;
       this.employeePage = value;
-      console.log(value);
       // @ts-ignore
       this.totalPages = new Array(this.employeePage.totalPages);
       // @ts-ignore
       this.size = this.employeePage.size;
+    }, error => {}, () => {
+      // @ts-ignore
+      if (this.employeePage.content.length != 0) {
+        this.isLoad = false;
+      }
+      setTimeout(() => {
+        // @ts-ignore
+        if (this.employeePage.content.length == 0) {
+          this.isLoad = null;
+        } else {
+          this.isLoad = true;
+        }
+      }, 1000);
     });
   }
 
@@ -104,10 +117,10 @@ export class ListEmployeeComponent implements OnInit {
               break;
             case 'idCard':
               switch (e.defaultMessage) {
-                case "invalidIdCard":
+                case 'invalidIdCard':
                   this.employeeForm.controls.idCard.setErrors({'invalidIdCard': true});
                   break;
-                case "idCardExists":
+                case 'idCardExists':
                   this.employeeForm.controls.idCard.setErrors({'idCardExists': true});
                   break;
               }
@@ -152,7 +165,7 @@ export class ListEmployeeComponent implements OnInit {
   }
 
   searchByName() {
-    this.getAllEmployee(0 , this.searchForm.value.name);
+    this.getAllEmployee(0, this.searchForm.value.name);
     console.log(this.pageNumber);
     console.log(this.totalPages.length);
   }

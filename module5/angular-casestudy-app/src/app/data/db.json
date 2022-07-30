@@ -152,20 +152,6 @@
       "phoneNumber": "0985654324",
       "email": "taingu@gmail.com",
       "address": "Tung Của",
-      "id": 12
-    },
-    {
-      "customerType": {
-        "id": 1,
-        "name": "Iron"
-      },
-      "name": "Trần Đức Phương",
-      "birthday": "2022-07-16",
-      "gender": 1,
-      "idCard": "123123",
-      "phoneNumber": "0985654324",
-      "email": "taingu@gmail.com",
-      "address": "Tung Của",
       "id": 13
     },
     {

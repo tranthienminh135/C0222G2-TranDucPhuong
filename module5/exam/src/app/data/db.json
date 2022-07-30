@@ -1,0 +1,155 @@
+{
+  "consignment": [
+    {
+      "id": 0,
+      "code": "LH-1230",
+      "product": {
+        "id": 0,
+        "name": "IPhone",
+        "madeIn": "China",
+        "price": 1000,
+        "unit": "Box"
+      },
+      "quantity": 10,
+      "dateIn": "2020-01-01",
+      "dateOut": "2020-02-02",
+      "dateEnd": "2020-03-03"
+    },
+    {
+      "id": 1,
+      "code": "LH-1231",
+      "product": {
+        "id": 0,
+        "name": "IPhone",
+        "madeIn": "China",
+        "price": 1000,
+        "unit": "Box"
+      },
+      "quantity": 10,
+      "dateIn": "2020-01-01",
+      "dateOut": "2020-02-02",
+      "dateEnd": "2020-03-03"
+    },
+    {
+      "id": 2,
+      "code": "LH-1232",
+      "product": {
+        "id": 0,
+        "name": "IPhone",
+        "madeIn": "China",
+        "price": 1000,
+        "unit": "Box"
+      },
+      "quantity": 10,
+      "dateIn": "2020-01-01",
+      "dateOut": "2020-02-02",
+      "dateEnd": "2020-03-03"
+    },
+    {
+      "id": 3,
+      "code": "LH-1233",
+      "product": {
+        "id": 0,
+        "name": "IPhone",
+        "madeIn": "China",
+        "price": 1000,
+        "unit": "Box"
+      },
+      "quantity": 10,
+      "dateIn": "2020-01-01",
+      "dateOut": "2020-02-02",
+      "dateEnd": "2020-03-03"
+    },
+    {
+      "id": 6,
+      "code": "LH-1236",
+      "product": {
+        "id": 0,
+        "name": "IPhone",
+        "madeIn": "China",
+        "price": 1000,
+        "unit": "Box"
+      },
+      "quantity": 10,
+      "dateIn": "2020-01-01",
+      "dateOut": "2020-02-02",
+      "dateEnd": "2020-03-03"
+    },
+    {
+      "code": "LH-1234",
+      "product": {
+        "id": 1,
+        "name": "Nokia",
+        "madeIn": "VN",
+        "price": 2000,
+        "unit": "Box"
+      },
+      "quantity": 5,
+      "dateIn": "2022-06-30",
+      "dateOut": "2022-06-30",
+      "dateEnd": "2022-07-05",
+      "id": 8
+    },
+    {
+      "code": "LH-1234",
+      "product": {
+        "id": 1,
+        "name": "Nokia",
+        "madeIn": "VN",
+        "price": 2000,
+        "unit": "Box"
+      },
+      "quantity": 123,
+      "dateIn": "2022-07-16",
+      "dateOut": "2022-07-07",
+      "dateEnd": "2022-07-07",
+      "id": 9
+    },
+    {
+      "code": "LH-1212",
+      "product": {
+        "id": 1,
+        "name": "Nokia",
+        "madeIn": "VN",
+        "price": 2000,
+        "unit": "Box"
+      },
+      "quantity": 10,
+      "dateIn": "2022-07-08",
+      "dateOut": "2022-07-08",
+      "dateEnd": "2022-07-07",
+      "id": 10
+    },
+    {
+      "code": "LH-1234",
+      "product": {
+        "id": 0,
+        "name": "IPhone",
+        "madeIn": "China",
+        "price": 1000,
+        "unit": "Box"
+      },
+      "quantity": 5,
+      "dateIn": "2022-07-02",
+      "dateOut": "2022-07-03",
+      "dateEnd": "2022-07-02",
+      "id": 11
+    }
+  ],
+  "product": [
+    {
+      "id": 0,
+      "name": "IPhone",
+      "madeIn": "China",
+      "price": 1000,
+      "unit": "Box"
+    },
+    {
+      "id": 1,
+      "name": "Nokia",
+      "madeIn": "VN",
+      "price": 2000,
+      "unit": "Box"
+    }
+  ]
+}

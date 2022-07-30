@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit {
   products: Product[] = [];
   categories: Category[] = [];
 
-  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute,private router: Router) {
+  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.activatedRoute.paramMap.subscribe(value => {
       if (value.get('idDelete') != null) {
         const idDelete = parseInt(value.get('idDelete'));
@@ -39,5 +39,4 @@ export class ProductListComponent implements OnInit {
   getAllCategories() {
     this.productService.getAllCategories();
   }
-
 }

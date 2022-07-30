@@ -11,7 +11,7 @@
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal"
                 data-bs-target="#staticBackdropCreate">
-          Create Employee
+          <i class="bi bi-plus-circle-fill"></i>
         </button>
 
         <!-- Modal -->
@@ -21,7 +21,7 @@
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header bg-primary text-light">
-                <h5 class="modal-title" id="staticBackdropLabelCreate">Create Customer</h5>
+                <h5 class="modal-title" id="staticBackdropLabelCreate">Create Employee</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <form [formGroup]="employeeForm" *ngIf="employeeForm" (ngSubmit)="createEmployee()">
@@ -205,151 +205,193 @@
       <form [formGroup]="searchForm" (ngSubmit)="searchByName()" class="d-flex w-25 mb-3 m-auto">
         <input class="form-control me-2" type="search" formControlName="name" name="name"
                placeholder="Search by name" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit">Search</button>
+        <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
       </form>
-      <table class="table table-hover text-center">
-        <thead>
-        <tr class="bg-primary text-white">
-          <th>No.</th>
-          <th>Name</th>
-          <th>Birthday</th>
-          <th>Email</th>
-          <th>Education Degree</th>
-          <th>Division</th>
-          <th>Position</th>
-          <th colspan="3">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let item of employeeList; index as i">
-          <td>{{(i + 1) + size * pageNumber}}</td>
-          <td>{{item.name}}</td>
-          <td>{{item.birthday | date: 'dd-MM-yyyy'}}</td>
-          <td>{{item.email}}</td>
-          <td>{{item.educationDegree.name}}</td>
-          <td>{{item.division.name}}</td>
-          <td>{{item.position.name}}</td>
-          <td>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                    [attr.data-bs-target]="'#staticBackdropDelete' + item.id">
-              Delete
-            </button>
+      <div *ngIf="isLoad == true">
+        <table class="table table-hover text-center">
+          <thead>
+          <tr class="bg-primary text-white">
+            <th>No.</th>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Salary</th>
+            <th>Email</th>
+            <th>Education Degree</th>
+            <th>Division</th>
+            <th>Position</th>
+            <th colspan="3">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of employeeList; index as i">
+            <td>{{(i + 1) + size * pageNumber}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.birthday | date: 'dd-MM-yyyy'}}</td>
+            <td>{{item.salary | currency: 'VND'}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.educationDegree.name}}</td>
+            <td>{{item.division.name}}</td>
+            <td>{{item.position.name}}</td>
+            <td>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" title="Delete"
+                      [attr.data-bs-target]="'#staticBackdropDelete' + item.id">
+                <i class="bi bi-trash-fill"></i>
+              </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdropDelete{{item.id}}" data-bs-backdrop="static"
-                 data-bs-keyboard="false"
-                 tabindex="-1" aria-labelledby="staticBackdropLabelDelete" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title text-danger" id="staticBackdropLabelDelete">FBI warning!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    Do you want delete employee <span class="text-primary">{{item.name}}</span> ?
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-primary" (click)="deleteEmployee(item.id)">Delete
-                    </button>
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdropDelete{{item.id}}" data-bs-backdrop="static"
+                   data-bs-keyboard="false"
+                   tabindex="-1" aria-labelledby="staticBackdropLabelDelete" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title text-danger" id="staticBackdropLabelDelete">FBI warning!</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Do you want delete employee <span class="text-primary">{{item.name}}</span> ?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-primary" (click)="deleteEmployee(item.id)">Delete
+                      </button>
+                      <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </td>
-          <td>
-            <button type="button" class="btn btn-outline-warning" [routerLink]="['/employee-edit', item.id]">Edit
-            </button>
-          </td>
-          <td>
-            <!-- Offcanvas Sidebar -->
-            <div class="offcanvas offcanvas-end" id="demo{{item.id}}">
-              <div class="offcanvas-header bg-info text-light">
-                <h3 class="offcanvas-title">Detail</h3>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+            </td>
+            <td>
+              <button class="btn btn-outline-warning" [routerLink]="['/employee-edit', item.id]"><i
+                class="bi bi-pencil-fill"></i>
+              </button>
+            </td>
+            <td>
+              <!-- Offcanvas Sidebar -->
+              <div class="offcanvas offcanvas-end" id="demo{{item.id}}">
+                <div class="offcanvas-header bg-info text-light">
+                  <h3 class="offcanvas-title">Detail</h3>
+                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <div class="card w-100" style="width: 18rem;">
+                    <img
+                      src="https://img.wattpad.com/7445666620289c3a53608229a3ad105dd5665c9f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f4b4e47583765466f5130547177513d3d2d313032313936373233352e313636313062346466656439303039633437313539363139373538302e6a7067?s=fit&w=720&h=720"
+                      class="card-img-top" alt="...">
+                    <br class="breadcrumb-item">
+                    <div class="card-title"><h3>{{item.name}}</h3></div>
+                    <div class="card-body">
+                      <table class="table-borderless">
+                        <tr>
+                          <th>Id:</th>
+                          <td>{{item.id}}</td>
+                        </tr>
+                        <tr>
+                          <th>Birthday:</th>
+                          <td>{{item.birthday | date: 'dd-MM-yyyy'}}</td>
+                        </tr>
+                        <tr>
+                          <th>Address:</th>
+                          <td>{{item.address}}</td>
+                        </tr>
+                        <tr>
+                          <th>Id Card:</th>
+                          <td>{{item.idCard}}</td>
+                        </tr>
+                        <tr>
+                          <th>PhoneNumber:</th>
+                          <td>{{item.phoneNumber}}</td>
+                        </tr>
+                        <tr>
+                          <th>Email:</th>
+                          <td>{{item.email}}</td>
+                        </tr>
+                        <tr>
+                          <th>Salary:</th>
+                          <td>{{item.salary}}</td>
+                        </tr>
+                        <tr>
+                          <th>EducationDegree:</th>
+                          <td>{{item.educationDegree.name}}</td>
+                        </tr>
+                        <tr>
+                          <th>Division:</th>
+                          <td>{{item.division.name}}</td>
+                        </tr>
+                        <tr>
+                          <th>Position:</th>
+                          <td>{{item.position.name}}</td>
+                        </tr>
+                      </table>
+                      <button class="btn btn-outline-secondary" type="button" data-bs-dismiss="offcanvas">Close</button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="offcanvas-body">
-                <table class="table-borderless w-100">
-                  <tr>
-                    <th>Id:</th>
-                    <td>{{item.id}}</td>
-                  </tr>
-                  <tr>
-                    <th>Name:</th>
-                    <td>{{item.name}}</td>
-                  </tr>
-                  <tr>
-                    <th>Birthday:</th>
-                    <td>{{item.birthday | date: 'dd-MM-yyyy'}}</td>
-                  </tr>
-                  <tr>
-                    <th>Address:</th>
-                    <td>{{item.address}}</td>
-                  </tr>
-                  <tr>
-                    <th>Id Card:</th>
-                    <td>{{item.idCard}}</td>
-                  </tr>
-                  <tr>
-                    <th>PhoneNumber:</th>
-                    <td>{{item.phoneNumber}}</td>
-                  </tr>
-                  <tr>
-                    <th>Email:</th>
-                    <td>{{item.email}}</td>
-                  </tr>
-                  <tr>
-                    <th>Salary:</th>
-                    <td>{{item.salary}}</td>
-                  </tr>
-                  <tr>
-                    <th>EducationDegree:</th>
-                    <td>{{item.educationDegree.name}}</td>
-                  </tr>
-                  <tr>
-                    <th>Division:</th>
-                    <td>{{item.division.name}}</td>
-                  </tr>
-                  <tr>
-                    <th>Position:</th>
-                    <td>{{item.position.name}}</td>
-                  </tr>
-                </table>
-              </div>
-            </div>
 
-            <!-- Button to open the offcanvas sidebar -->
-            <button class="btn btn-outline-info" type="button" data-bs-toggle="offcanvas"
-                    [attr.data-bs-target]="'#demo' + item.id">
-              Detail
-            </button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+              <!-- Button to open the offcanvas sidebar -->
+              <button type="button" class="btn btn-outline-info" data-bs-toggle="offcanvas"
+                      [attr.data-bs-target]="'#demo' + item.id">
+                <i class="bi bi-info-circle-fill"></i>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="isLoad == false">
+        <div class="container-fluid m-auto text-center">
+          <div class="spinner-border text-primary"></div>
+        </div>
+      </div>
+      <div *ngIf="isLoad == null">
+        <div class="container-fluid m-auto text-center">
+          <table class="table table-hover">
+            <tr class="bg-primary text-light">
+              <th>No.</th>
+              <th>Name</th>
+              <th>Birthday</th>
+              <th>Salary</th>
+              <th>Email</th>
+              <th>Education Degree</th>
+              <th>Division</th>
+              <th>Position</th>
+              <th colspan="3">Action</th>
+            </tr>
+            <tr>
+            </tr>
+          </table>
+          <div class="text-center">No data in table</div>
+        </div>
+      </div>
       <div class="container-fluid mt-3">
         <div>
           <ul class="pagination float-end">
             <div [ngSwitch]="pageNumber">
               <div *ngSwitchCase="0">
                 <li class="page-item disabled">
-                  <button type="button" class="page-link">Previous</button>
+                  <button type="button" class="page-link btn-outline-primary"><i
+                    class="bi bi-caret-left-fill"></i></button>
                 </li>
               </div>
               <div *ngSwitchDefault>
                 <li class="page-item">
-                  <button type="button" class="page-link disabled" (click)="previousPage()">Previous</button>
+                  <button type="button" class="page-link btn-outline-primary disabled" (click)="previousPage()"><i
+                    class="bi bi-caret-left-fill"></i></button>
                 </li>
               </div>
             </div>
             <div *ngFor="let e of totalPages; index as i">
               <div ngSwitch="{{i}}">
                 <div *ngSwitchCase="pageNumber">
-                  <li class="page-item active"><button type="button" class="page-link" (click)="changePage(i)">{{i + 1}}</button></li>
+                  <li class="page-item active">
+                    <button type="button" class="page-link" (click)="changePage(i)">{{i + 1}}</button>
+                  </li>
                 </div>
                 <div *ngSwitchDefault>
-                  <li class="page-item"><button type="button" class="page-link" (click)="changePage(i)">{{i + 1}}</button></li>
+                  <li class="page-item">
+                    <button type="button" class="page-link" (click)="changePage(i)">{{i + 1}}</button>
+                  </li>
                 </div>
               </div>
             </div>
@@ -358,13 +400,15 @@
               <div *ngIf="totalPages">
                 <div *ngSwitchCase="totalPages.length - 1">
                   <li class="page-item disabled">
-                    <button type="button" class="page-link">Next</button>
+                    <button type="button" class="page-link btn-outline-primary"><i class="bi bi-caret-right-fill"></i>
+                    </button>
                   </li>
                 </div>
               </div>
               <div *ngSwitchDefault>
                 <li class="page-item">
-                  <button type="button" class="page-link" (click)="nextPage()">Next</button>
+                  <button type="button" class="page-link btn-outline-primary" (click)="nextPage()"><i
+                    class="bi bi-caret-right-fill"></i></button>
                 </li>
               </div>
             </div>

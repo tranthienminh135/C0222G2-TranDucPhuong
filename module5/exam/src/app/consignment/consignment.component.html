@@ -1,0 +1,97 @@
+<div class="page-section">
+  <!-- About-->
+  <section class="page-section" id="about">
+    <div class="container">
+      <button class="btn btn-success m-auto" [routerLink]="['/create']">Create new consignment</button>
+      <div class="row text-center p-5">
+        <form [formGroup]="searchForm" (ngSubmit)="searchConsignment()" class="col-10 m-auto">
+          <div class="col-2 float-start">
+            <label for="name">Product Name</label>
+            <input id="name" class="form-control me-2" type="text" placeholder="Search" aria-label="Search"
+                   name="nameSearch" formControlName="nameSearch">
+          </div>
+          <div class="col-3 float-start">
+            <label for="date">End Date</label>
+            <input id="date" class="form-control me-2" type="date" placeholder="Search" aria-label="Search"
+                   formControlName="dateEndSearch" name="dateEndSearch">
+          </div>
+          <div class="col-3 float-start">
+            <label for="sd">Date in Start</label>
+            <input id="sd" class="form-control me-2" type="date" placeholder="Search" aria-label="Search"
+                   formControlName="startDate" name="startDate">
+          </div>
+          <div class="col-3 float-start">
+            <label for="ed">Date in End</label>
+            <input id="ed" class="form-control me-2" type="date" placeholder="Search" aria-label="Search"
+                   formControlName="endDate" name="endDate">
+          </div>
+          <div class="col-1 float-end">
+            <label for="search">Search</label>
+            <button id="search" class="btn btn-outline-primary" type="submit">Search</button>
+          </div>
+        </form>
+      </div>
+      <table class="table table-hover text-black">
+        <thead>
+        <tr class="bg-primary text-light">
+          <th>Code</th>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Unit</th>
+          <th>Quantity</th>
+          <th>Date In</th>
+          <th>Date Out</th>
+          <th>Date End</th>
+          <th colspan="2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let element of consignments | paginate: { itemsPerPage: 5, currentPage: p }; index as i">
+          <td>{{element.code}}</td>
+          <td>{{element.product.name}}</td>
+          <td>{{element.product.price | currency: 'VND'}}</td>
+          <td>{{element.product.unit}}</td>
+          <td>{{element.quantity}}</td>
+          <td>{{element.dateIn | date: 'dd-MM-yyyy'}}</td>
+          <td>{{element.dateOut | date: 'dd-MM-yyyy'}}</td>
+          <td>{{element.dateEnd | date: 'dd-MM-yyyy'}}</td>
+          <td>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                    [attr.data-bs-target]="'#staticBackdropDelete' + element.id">
+              <i class="bi bi-trash"></i>
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdropDelete{{element.id}}" data-bs-backdrop="static"
+                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelDelete" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title text-danger" id="staticBackdropLabelDelete">Delete Consignment</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    Do you want delete consignment <span class="text-primary">{{element.product.name}}</span> date in
+                    <span class="text-primary">{{element.dateIn}}</span> ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" (click)="deleteConsignment(element.id)">Delete
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="container-fluid mt-3">
+        <div class="pagination float-end">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
