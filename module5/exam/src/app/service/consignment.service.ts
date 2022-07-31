@@ -11,8 +11,8 @@ export class ConsignmentService {
 
   constructor(private httpClient: HttpClient) { }
 
-  findAllConsignment(): Observable<Consignment[]> {
-    return this.httpClient.get<Consignment[]>(this.URL_CONSIGNMENT + "/page");
+  findAllConsignment(page: number): Observable<Consignment[]> {
+    return this.httpClient.get<Consignment[]>(this.URL_CONSIGNMENT + "/page?page=" + page);
   }
 
   deleteConsignment(id: number): Observable<Consignment> {

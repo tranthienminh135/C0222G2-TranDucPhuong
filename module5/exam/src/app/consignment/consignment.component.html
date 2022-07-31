@@ -4,7 +4,7 @@
     <div class="container">
       <button class="btn btn-success m-auto" [routerLink]="['/create']">Create new consignment</button>
       <div class="row text-center p-5">
-        <form [formGroup]="searchForm" (ngSubmit)="searchConsignment()" class="col-10 m-auto">
+        <form [formGroup]="searchForm" (ngSubmit)="searchConsignment()" class="col-12 m-auto">
           <div class="col-2 float-start">
             <label for="name">Product Name</label>
             <input id="name" class="form-control me-2" type="text" placeholder="Search" aria-label="Search"
@@ -85,18 +85,46 @@
             </div>
           </td>
           <td>
-            <button type="button" class="btn btn-warning" [routerLink]="['/edit', element.id]"><i class="bi bi-pencil"></i></button>
+            <button type="button" class="btn btn-warning" [routerLink]="['/edit', element.id]"><i
+              class="bi bi-pencil"></i></button>
           </td>
         </tr>
         </tbody>
       </table>
       <div class="container-fluid mt-3">
         <ul class="pagination float-end">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          <div *ngIf="number == 0">
+            <li class="page-item disabled">
+              <button class="page-link" (click)="goPrevious()">Previous</button>
+            </li>
+          </div>
+          <div *ngIf="number != 0">
+            <li class="page-item">
+              <button class="page-link" (click)="goPrevious()">Previous</button>
+            </li>
+          </div>
+          <div *ngFor="let count of countTotalPages; index as i">
+            <div *ngIf="i == number">
+              <li class="page-item active">
+                <button class="page-link" (click)="goItem(i)">{{i + 1}}</button>
+              </li>
+            </div>
+            <div *ngIf="i != number">
+              <li class="page-item">
+                <button class="page-link" (click)="goItem(i)">{{i + 1}}</button>
+              </li>
+            </div>
+          </div>
+          <div *ngIf="number == totalPages - 1">
+            <li class="page-item disabled">
+              <button class="page-link" (click)="goNext()">Next</button>
+            </li>
+          </div>
+          <div *ngIf="number != totalPages - 1">
+            <li class="page-item">
+              <button class="page-link" (click)="goNext()">Next</button>
+            </li>
+          </div>
         </ul>
       </div>
     </div>

@@ -21,7 +21,7 @@ public class ConsignmentRestController {
     private IConsignmentService consignmentService;
 
     @GetMapping("/page")
-    public ResponseEntity<Page<Consignment>> getAllConsignment(@PageableDefault(5) Pageable pageable,
+    public ResponseEntity<Page<Consignment>> getAllConsignment(@PageableDefault(8) Pageable pageable,
                                                                Optional<String> productNameSearch,
                                                                Optional<String> endDateSearch,
                                                                Optional<String> dateInStartSearch,
@@ -44,10 +44,6 @@ public class ConsignmentRestController {
         if (dateInEnd.equals("null")) {
             dateInEnd = "8000-01-01";
         }
-        System.out.println("productName: " + productName);
-        System.out.println("endDate: " + endDate);
-        System.out.println("dateInStart: " + dateInStart);
-        System.out.println("dateInEnd: " + dateInEnd);
         Page<Consignment> consignmentPage = this.consignmentService.findAll(pageable, productName, endDate, dateInStart, dateInEnd);
         if (consignmentPage.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
