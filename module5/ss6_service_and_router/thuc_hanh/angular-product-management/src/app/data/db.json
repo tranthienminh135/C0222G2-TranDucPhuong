@@ -2,23 +2,14 @@
   "product": [
     {
       "name": "Trần Thiên Minh",
-      "price": 123213,
-      "description": "123123",
+      "price": 22222,
+      "description": "123",
+      "imgUrl": "https://firebasestorage.googleapis.com/v0/b/crafty-tracker-241600.appspot.com/o/01-08-2022101635PMHermione%20Granger%2010.png?alt=media&token=db36ab1a-830e-46c7-93d8-b003aa31bb4f",
       "category": {
         "id": 1,
         "name": "Samsung"
       },
       "id": 1
-    },
-    {
-      "name": "123123",
-      "price": 123,
-      "description": "213123",
-      "category": {
-        "id": 0,
-        "name": "Iphone"
-      },
-      "id": 2
     }
   ],
   "category": [

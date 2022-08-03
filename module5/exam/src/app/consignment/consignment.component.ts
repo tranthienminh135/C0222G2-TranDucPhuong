@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ConsignmentService} from '../service/consignment.service';
 import {Consignment} from '../../model/consignment';
 import {ToastrService} from 'ngx-toastr';
 import {FormControl, FormGroup} from '@angular/forms';
+import {AngularFireStorage} from '@angular/fire/storage';
+import {formatDate} from '@angular/common';
+import {finalize} from 'rxjs/operators';
 
 @Component({
   selector: 'app-consignment',
@@ -16,8 +19,12 @@ export class ConsignmentComponent implements OnInit {
   totalPages: number;
   number: number;
   countTotalPages: number[];
+  testImg: FormGroup;
+  selectedImage: any;
 
-  constructor(private consignmentService: ConsignmentService, private toastrService: ToastrService) { }
+  constructor(private consignmentService: ConsignmentService,
+              private toastrService: ToastrService) {
+  }
 
   ngOnInit(): void {
     this.getAllConsignment(0);
@@ -30,7 +37,10 @@ export class ConsignmentComponent implements OnInit {
       startDate: new FormControl(),
       endDate: new FormControl(),
       dateEndSearch: new FormControl()
-    })
+    });
+    this.testImg = new FormGroup({
+      imgUrl: new FormControl()
+    });
   }
 
   getAllConsignment(page: number) {
@@ -43,16 +53,19 @@ export class ConsignmentComponent implements OnInit {
       this.number = data.number;
       // @ts-ignore
       this.consignments = data.content;
+    }, error => {
+      console.log(error);
     });
   }
 
   deleteConsignment(id: number) {
     this.consignmentService.deleteConsignment(id).subscribe(value => {
-    }, error => {}, () => {
+    }, error => {
+    }, () => {
       // @ts-ignore
-      $("#staticBackdropDelete" + id).modal('hide');
+      $('#staticBackdropDelete' + id).modal('hide');
       this.getAllConsignment(0);
-      this.toastrService.success("Delete success!");
+      this.toastrService.success('Delete success!');
     });
   }
 

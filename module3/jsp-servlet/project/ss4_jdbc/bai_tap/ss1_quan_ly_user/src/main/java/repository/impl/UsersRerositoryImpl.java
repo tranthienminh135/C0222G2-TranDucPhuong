@@ -47,12 +47,19 @@ public class UsersRerositoryImpl implements IUsersRepository {
     public void saveUsers(Users users) {
         Connection connection = dbConnect.getConnection();
         try {
+            connection.setAutoCommit(false);
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL);
             preparedStatement.setString(1, users.getName());
             preparedStatement.setString(2, users.getCountry());
             preparedStatement.executeUpdate();
+            connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         } finally {
             try {
                 connection.close();

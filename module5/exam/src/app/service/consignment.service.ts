@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Consignment} from '../../model/consignment';
+
+let headers = new Headers();
+headers.append('Content-Type', 'application/json');
+headers.append('authentication', `${localStorage.getItem("token")}`);
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +24,7 @@ export class ConsignmentService {
   }
 
   createConsignment(consignment: Consignment): Observable<Consignment> {
-    return this.httpClient.post(this.URL_CONSIGNMENT + "/create", consignment);
+    return this.httpClient.post(this.URL_CONSIGNMENT + "/create", consignment, { headers: new HttpHeaders({'json': localStorage.getItem("token")}) });
   }
 
   searchConsignment(searchObj: any): Observable<Consignment[]> {

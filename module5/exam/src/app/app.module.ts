@@ -11,13 +11,20 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { ConsignmentComponent } from './consignment/consignment.component';
 import { EditComponent } from './consignment/edit/edit.component';
 import { CreateComponent } from './consignment/create/create.component';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import { LoginComponent } from './login/login.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConsignmentComponent,
     EditComponent,
-    CreateComponent
+    CreateComponent,
+    LoginComponent,
+    NavBarComponent
   ],
   imports: [
     [BrowserModule, NgxPaginationModule],
@@ -25,7 +32,9 @@ import { CreateComponent } from './consignment/create/create.component';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]

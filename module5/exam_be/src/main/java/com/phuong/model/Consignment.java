@@ -23,8 +23,12 @@ public class Consignment {
     
     private Date dateEnd;
 
-    public Consignment(Integer id, String code, Product product, Integer quantity,
-                       Date dateIn, Date dateOut, Date dateEnd) {
+    private String imgUrl;
+
+    public Consignment() {
+    }
+
+    public Consignment(Integer id, String code, Product product, Integer quantity, Date dateIn, Date dateOut, Date dateEnd, String imgUrl) {
         this.id = id;
         this.code = code;
         this.product = product;
@@ -32,10 +36,7 @@ public class Consignment {
         this.dateIn = dateIn;
         this.dateOut = dateOut;
         this.dateEnd = dateEnd;
-    }
-
-    public Consignment() {
-
+        this.imgUrl = imgUrl;
     }
 
     public Integer getId() {
@@ -92,5 +93,13 @@ public class Consignment {
 
     public void setDateEnd(Date dateEnd) {
         this.dateEnd = dateEnd;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

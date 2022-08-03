@@ -3,6 +3,9 @@ import {Routes, RouterModule} from '@angular/router';
 import {ConsignmentComponent} from './consignment/consignment.component';
 import {CreateComponent} from './consignment/create/create.component';
 import {EditComponent} from './consignment/edit/edit.component';
+import {LoginComponent} from './login/login.component';
+import {AuthUserGuard} from './service/auth-user.guard';
+import {AuthAdminGuard} from './service/auth-admin.guard';
 
 const routes: Routes = [
   {
@@ -12,15 +15,22 @@ const routes: Routes = [
   },
   {
     path: 'list',
-    component: ConsignmentComponent
+    component: ConsignmentComponent,
+    canActivate: [AuthUserGuard]
   },
   {
     path: 'create',
-    component: CreateComponent
+    component: CreateComponent,
+    canActivate: [AuthAdminGuard]
   },
   {
     path: "edit/:id",
-    component: EditComponent
+    component: EditComponent,
+    canActivate: [AuthAdminGuard]
+  },
+  {
+    path: "login",
+    component: LoginComponent
   }
 ];
 

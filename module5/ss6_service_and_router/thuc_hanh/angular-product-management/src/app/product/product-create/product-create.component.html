@@ -16,6 +16,12 @@
         <td><input type="text" formControlName="description" name="description"></td>
       </tr>
       <tr>
+        <th>Img: </th>
+        <td>
+          <input type="file" name="imgUrl" class="form-control-file" formControlName="imgUrl" (change)="showPreview($event)">
+        </td>
+      </tr>
+      <tr>
         <td>Danh Mục</td>
         <td>
           <select formControlName="category" name="category" id="" style="width: 100%">
@@ -30,5 +36,4 @@
       </thead>
     </table>
   </form>
-
 </div>

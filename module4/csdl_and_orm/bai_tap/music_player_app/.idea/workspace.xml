@@ -5,30 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e758489f-cb8d-43bf-82fa-fee1309a2327" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/java/com/phuong/controller/BookController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/java/com/phuong/model/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/java/com/phuong/model/DetailBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/java/com/phuong/repository/IBookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/java/com/phuong/service/IBookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/java/com/phuong/service/impl/BookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/resources/templates/error.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../AOP/bai_tap/book_manager/src/main/resources/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../AOP/thuc_hanh/aspect/src/main/java/com/phuong/Logger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../AOP/thuc_hanh/aspect/src/main/java/com/phuong/controller/showInformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../AOP/thuc_hanh/aspect/src/main/java/com/phuong/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../AOP/thuc_hanh/aspect/src/main/java/com/phuong/service/ICustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../AOP/thuc_hanh/aspect/src/main/java/com/phuong/service/impl/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module2/out/production/module2/phuong/giai_thuat/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/out/production/module2/phuong/giai_thuat/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module2/src/phuong/giai_thuat/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/src/phuong/giai_thuat/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module2/src/phuong/homework/controller/VehicleControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/src/phuong/homework/controller/VehicleControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../module2/src/phuong/homework/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module2/src/phuong/homework/view/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/model/ProductDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/IProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/IProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/impl/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/impl/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/impl/ICategoryService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/impl/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Validation/bai_tap/product_manager/src/main/java/com/phuong/service/impl/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Validation/thuc_hanh/register_form/src/main/java/com/phuong/model/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Validation/thuc_hanh/register_form/src/main/java/com/phuong/model/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ajax_jquery/bai_tap/blog_jquery_ajax/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ajax_jquery/bai_tap/blog_jquery_ajax/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ajax_jquery/bai_tap/blog_jquery_ajax/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ajax_jquery/bai_tap/blog_jquery_ajax/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../ajax_jquery/bai_tap/blog_jquery_ajax/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/model/AppRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/model/AppUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/model/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/repository/AppUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/repository/UserRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/util/EncrytedPasswordUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/util/WebUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../jpa/thuc_hanh/customer_management/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/customer_manager/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring_controller/thuc_hanh/customer_manager/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../spring_security/thuc_hanh/demo_spring_security/src/main/java/com/phuong/model/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring_security/thuc_hanh/demo_spring_security/src/main/java/com/phuong/model/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../thymeleaf/thuc_hanh/customer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../thymeleaf/thuc_hanh/customer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam/src/app/consignment/consignment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam/src/app/consignment/consignment.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam/src/app/consignment/consignment.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam/src/app/consignment/consignment.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam/src/app/consignment/create/create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam/src/app/consignment/create/create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam/src/app/consignment/create/create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam/src/app/consignment/create/create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam/src/model/consignment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam/src/model/consignment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam_be/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam_be/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/controller/ConsignmentRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/controller/ConsignmentRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/model/Consignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam_be/src/main/java/com/phuong/model/Consignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/data/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/data/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/model/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/model/product.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-create/product-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-create/product-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-create/product-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-create/product-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-list/product-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-list/product-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +121,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../data_binding_form/bai_tap/medical_declaration" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../thuc_hanh/customer_management" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -222,6 +239,7 @@
       <workItem from="1655909048288" duration="74000" />
       <workItem from="1656148016844" duration="33000" />
       <workItem from="1656405146938" duration="18000" />
+      <workItem from="1659358850050" duration="9000" />
     </task>
     <servers />
   </component>

@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyCch6VZ_u0OtJhHtEB89D02m0EX4Akpzt8",
+    authDomain: "crafty-tracker-241600.firebaseapp.com",
+    projectId: "crafty-tracker-241600",
+    storageBucket: "crafty-tracker-241600.appspot.com",
+    messagingSenderId: "700686530577",
+    appId: "1:700686530577:web:5142544f303a4a9a3599b0",
+    measurementId: "G-V215CL4YY3"
+  }
 };
 
 /*

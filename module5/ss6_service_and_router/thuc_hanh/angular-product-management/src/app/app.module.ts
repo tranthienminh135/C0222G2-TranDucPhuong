@@ -7,22 +7,35 @@ import {ProductListComponent} from './product/product-list/product-list.componen
 import {ProductCreateComponent} from './product/product-create/product-create.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {AngularFireModule} from "@angular/fire";
+import {environment} from "../environments/environment";
+import {AngularFireStorageModule} from "@angular/fire/storage";
+import { LoginComponent } from './login/login.component';
+import {RouterModule} from "@angular/router";
+import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ProductCreateComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
-  providers: [],
+  providers: [
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

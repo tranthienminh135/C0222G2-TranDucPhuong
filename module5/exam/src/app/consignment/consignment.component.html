@@ -42,7 +42,7 @@
           <th>Date In</th>
           <th>Date Out</th>
           <th>Date End</th>
-          <th colspan="2">Action</th>
+          <th colspan="3">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -85,8 +85,27 @@
             </div>
           </td>
           <td>
-            <button type="button" class="btn btn-warning" [routerLink]="['/edit', element.id]"><i
-              class="bi bi-pencil"></i></button>
+            <button type="button" class="btn btn-warning" [routerLink]="['/edit', element.id]"><i class="bi bi-pencil"></i></button>
+          </td>
+          <td>
+            <!-- Offcanvas Sidebar -->
+            <div class="offcanvas offcanvas-end" id="demo{{element.id}}">
+              <div class="offcanvas-header">
+                <h1 class="offcanvas-title">Heading</h1>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+              </div>
+              <div class="offcanvas-body">
+                <p>
+                  <img src="{{element.imgUrl}}" alt="" width="100%">
+                </p>
+                <button class="btn btn-secondary" type="button">A Button</button>
+              </div>
+            </div>
+
+            <!-- Button to open the offcanvas sidebar -->
+            <button class="btn btn-info" type="button" data-bs-toggle="offcanvas" [attr.data-bs-target]="'#demo' + element.id">
+              Detail
+            </button>
           </td>
         </tr>
         </tbody>
@@ -95,7 +114,7 @@
         <ul class="pagination float-end">
           <div *ngIf="number == 0">
             <li class="page-item disabled">
-              <button class="page-link" (click)="goPrevious()">Previous</button>
+              <button class="page-link" hidden>Previous</button>
             </li>
           </div>
           <div *ngIf="number != 0">
@@ -117,7 +136,7 @@
           </div>
           <div *ngIf="number == totalPages - 1">
             <li class="page-item disabled">
-              <button class="page-link" (click)="goNext()">Next</button>
+              <button class="page-link" hidden>Next</button>
             </li>
           </div>
           <div *ngIf="number != totalPages - 1">

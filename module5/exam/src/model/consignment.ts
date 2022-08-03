@@ -7,5 +7,6 @@ export interface Consignment {
   quantity?: number,
   dateIn?: string,
   dateOut?: string,
-  dateEnd?: string
+  dateEnd?: string,
+  imgUrl?: string
 }

@@ -141,6 +141,16 @@
                 </div>
               </div>
 
+              <div class="col-12">
+                <div class="mb-3">
+                  <input class="form-control" type="file" id="imgUrl" formControlName="imgUrl" name="imgUrl" (change)="showPreview($event)">
+                </div>
+                <div class="text-danger"
+                     *ngIf="consignmentForm.controls.imgUrl.hasError('required') && consignmentForm.controls.imgUrl.touched">
+                  Choice please!
+                </div>
+              </div>
+
             </div>
             <hr class="my-4">
             <button class="w-50 btn btn-outline-secondary btn-lg" type="button" [routerLink]="['/list']">Back</button>

@@ -2,6 +2,7 @@ package com.phuong.controller;
 
 import com.phuong.model.Consignment;
 import com.phuong.service.IConsignmentService;
+import com.phuong.util.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,8 +21,11 @@ public class ConsignmentRestController {
     @Autowired
     private IConsignmentService consignmentService;
 
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+
     @GetMapping("/page")
-    public ResponseEntity<Page<Consignment>> getAllConsignment(@PageableDefault(8) Pageable pageable,
+    public ResponseEntity<Page<Consignment>> getAllConsignment(@PageableDefault(5) Pageable pageable,
                                                                Optional<String> productNameSearch,
                                                                Optional<String> endDateSearch,
                                                                Optional<String> dateInStartSearch,
@@ -59,7 +63,8 @@ public class ConsignmentRestController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<Void> createConsignment(@RequestBody Consignment consignment) {
+    public ResponseEntity<Void> createConsignment(@RequestBody Consignment consignment, @RequestHeader String json) {
+        System.out.println(this.jwtTokenUtil.getUsernameFromToken(json));
         this.consignmentService.save(consignment);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
