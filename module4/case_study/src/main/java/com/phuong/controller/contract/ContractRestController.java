@@ -1,6 +1,5 @@
 package com.phuong.controller.contract;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.phuong.model.contract.*;
 import com.phuong.model.facility.Facility;
 import com.phuong.service.attach_facility.IAttachFacilityService;
@@ -16,8 +15,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +36,7 @@ public class ContractRestController {
     private IFacilityService facilityService;
 
     @GetMapping("/contract")
-    public ResponseEntity<ContractPageAndAttachFacilityListDto> getAllContract(@PageableDefault(10) Pageable pageable,
+    public ResponseEntity<ContractPageAndAttachFacilityListDto> getAllContract(@PageableDefault(3) Pageable pageable,
                                                                                Optional<String> startDateValue, Optional<String> endDateValue) {
         String startDate = startDateValue.orElse("1000-01-01");
         String endDate = endDateValue.orElse("3000-01-01");
