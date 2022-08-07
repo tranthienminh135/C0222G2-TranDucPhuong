@@ -27,6 +27,10 @@ export class HomePageComponent implements OnInit {
   }
 
   onLogout() {
-    localStorage.clear();
+    localStorage.removeItem('role')
+    localStorage.removeItem('status')
+    localStorage.removeItem('username')
+    localStorage.removeItem('token')
+    this.toastrService.success("Đăng xuất thành công!")
   }
 }

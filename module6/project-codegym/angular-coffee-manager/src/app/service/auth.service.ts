@@ -9,7 +9,6 @@ export class AuthService {
   }
 
   isLogin(value: any) {
-    console.log(value.grantList)
     if (this.isAdmin(value.grantList)){
       localStorage.setItem('role', 'ROLE_ADMIN');
     } else if (this.isStaff(value.grantList)) {

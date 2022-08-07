@@ -16,11 +16,17 @@
             <input type="email" class="form-control" id="floatingInput" placeholder="Username"
                    formControlName="username">
             <label for="floatingInput">Tên tài khoản: </label>
+            <div *ngIf="loginForm.controls.username.hasError('required') && loginForm.controls.username.touched">
+              <div class="text-danger">Tên tài khoản không được để trống!</div>
+            </div>
           </div>
-          <div class="form-floating mb-3 w-50 text-center m-auto">
+          <div class=" form-floating mb-3 w-50 text-center m-auto">
             <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
                    formControlName="password">
             <label for="floatingPassword">Mật khẩu</label>
+            <div *ngIf="loginForm.controls.password.hasError('required') && loginForm.controls.password.touched">
+              <div class="text-danger">Mật khẩu không được để trống!</div>
+            </div>
           </div>
 
           <div class="checkbox mb-3">
@@ -52,22 +58,25 @@
                   <h5 class="modal-title h3 fw-bold text-brown" id="staticBackdropLabel">Tìm tài khoản của bạn</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                  <div class="container-fluid">
-                    <div>
-                      <p class="mb-3 fw-normal">Nhập email cần khôi phục</p>
+                <form [formGroup]="forgotPasswordForm" (ngSubmit)="onForgotPassword()">
+                  <div class="modal-body">
+                    <div class="container-fluid" id="content-fp">
+                      <div>
+                        <p class="mb-3 fw-normal">Nhập tài khoản cần khôi phục</p>
 
-                      <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="username" placeholder="name@example.com">
-                        <label for="username">Enter email </label>
+                        <div class="form-floating mb-3">
+                          <input type="text" class="form-control" id="username" placeholder="username"
+                                 formControlName="username">
+                          <label for="username">Enter username</label>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-yellow">Gửi</button>
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-yellow">Gửi</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

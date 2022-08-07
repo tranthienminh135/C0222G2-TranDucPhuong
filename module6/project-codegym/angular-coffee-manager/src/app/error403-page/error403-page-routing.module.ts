@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {Error403PageComponent} from "./error403-page.component";
 
 
 const routes: Routes = [
   {
     path: 'error403',
-    component:
+    component: Error403PageComponent
   }
 ];
 
@@ -13,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class Error403RoutingModule { }
+export class Error403PageRoutingModule { }

@@ -16,6 +16,10 @@ public class JwtResponse implements Serializable {
         this.username = username;
     }
 
+    public JwtResponse(String jwttoken) {
+        this.jwttoken = jwttoken;
+    }
+
     public List<String> getGrantList() {
         return grantList;
     }

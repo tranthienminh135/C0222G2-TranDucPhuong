@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree} from '@angular/router';
+import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {AuthService} from "../service/auth.service";
 import {ToastrService} from "ngx-toastr";
@@ -8,7 +8,7 @@ import {ToastrService} from "ngx-toastr";
   providedIn: 'root'
 })
 export class AdminGuard implements CanActivate {
-  constructor(private authService: AuthService, private toastrService: ToastrService) {
+  constructor(private authService: AuthService, private toastrService: ToastrService, private router: Router) {
   }
 
   canActivate(
@@ -17,7 +17,9 @@ export class AdminGuard implements CanActivate {
     if (localStorage.getItem('role') === 'ROLE_ADMIN') {
       return true;
     } else {
-      this.toastrService.warning("You don't have permission!");
+      this.router.navigateByUrl('/error403').then(() => {
+        this.toastrService.error("Sorry! you don't have permission!");
+      });
       return false;
     }
   }

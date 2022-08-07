@@ -13,6 +13,8 @@ import {environment} from '../environments/environment';
 import {EmployeeModule} from "./employee/employee.module";
 import {HomePageModule} from "./home-page/home-page.module";
 import {LoginModule} from "./login/login.module";
+import {Error403PageModule} from "./error403-page/error403-page.module";
+import {ForgotPasswordModule} from "./forgot-password/forgot-password.module";
 
 @NgModule({
   declarations: [
@@ -22,14 +24,24 @@ import {LoginModule} from "./login/login.module";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot(
+      {
+        timeOut: 2000,
+        closeButton: true,
+        progressBar: true,
+        positionClass: 'toast-top-right',
+        preventDuplicates: true,
+      }
+    ),
     HttpClientModule,
     ReactiveFormsModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     EmployeeModule,
     HomePageModule,
-    LoginModule
+    LoginModule,
+    Error403PageModule,
+    ForgotPasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent]

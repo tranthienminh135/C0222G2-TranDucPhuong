@@ -10,7 +10,7 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item" *ngIf="status === null">
-          <a class="nav-link" [routerLink]="['/login']">Login</a>
+          <a class="nav-link" [routerLink]="['/login']">Đăng Nhập</a>
         </li>
         <li class="nav-item" *ngIf="role === 'ROLE_ADMIN'">
           <a href="" class="nav-link">Admin Management</a>
@@ -19,7 +19,7 @@
           <a href="" class="nav-link">Staff Management</a>
         </li>
         <li class="nav-item" *ngIf="status === 'isLogin'">
-          <a href="" class="nav-link" (click)="onLogout()">Logout</a>
+          <a href="" class="nav-link" (click)="onLogout()">Đăng Xuất</a>
         </li>
         <li class="nav-item" *ngIf="status === 'isLogin'">
           <a class="nav-link" href="">Hello {{username}}!</a>
@@ -27,7 +27,7 @@
         <li class="nav-item" *ngIf="role === 'ROLE_ADMIN'">
           <a class="nav-link" href="" [routerLink]="['/employee']">Employee</a>
         </li>
-      </ul>
+       </ul>
     </div>
   </div>
 </nav>
