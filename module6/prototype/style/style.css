@@ -35,3 +35,8 @@
     background-color: #efb403;
     color: white;
 }
+@media (min-width: 1200px) {
+ .pt-xl-13 {
+     padding-top: 13rem !important;
+ }
+}

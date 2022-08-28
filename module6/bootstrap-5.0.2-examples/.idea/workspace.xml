@@ -20,94 +20,193 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adc73e13-4f6b-47b4-8d75-156effe3873e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../module3/jsp-servlet/project/ss4_jdbc/thuc_hanh/ss1_quan_ly_user/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module3/jsp-servlet/project/ss4_jdbc/thuc_hanh/ss1_quan_ly_user/.idea/ss1_quan_ly_user.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/blog_jquery_ajax/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/blog_jquery_ajax/.idea/blog_jquery_ajax.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/blog_jquery_ajax/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/blog_jquery_ajax/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/blog_jquery_ajax/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module4/ajax_jquery/bai_tap/blog_jquery_ajax/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam/src/model/isRole.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam/src/model/user.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/authentication/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/config/WebSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/controller/JwtAuthenticationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/filter/JwtRequestFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/model/AppRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/model/AppUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/model/JwtRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/model/JwtResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/model/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/repository/AppUserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/repository/UserRoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/service/JwtUserDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/util/JwtTokenUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/model/user.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/bootstrap-5.0.2-examples.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../prototype/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../prototype/.idea/prototype.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../prototype/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../prototype/style/bootstrap/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../prototype/style/bootstrap/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../prototype/style/bootstrap/normalize/normalize.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../prototype/style/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module3/jsp-servlet/project/ss4_jdbc/bai_tap/ss1_quan_ly_user/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module3/jsp-servlet/project/ss4_jdbc/bai_tap/ss1_quan_ly_user/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module3/jsp-servlet/project/ss4_jdbc/bai_tap/ss1_quan_ly_user/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module3/jsp-servlet/project/ss4_jdbc/bai_tap/ss1_quan_ly_user/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module3/jsp-servlet/project/ss4_jdbc/bai_tap/ss1_quan_ly_user/src/main/java/repository/impl/UsersRerositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module3/jsp-servlet/project/ss4_jdbc/bai_tap/ss1_quan_ly_user/src/main/java/repository/impl/UsersRerositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module3/jsp-servlet/project/ss4_jdbc/thuc_hanh/ss1_quan_ly_user/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module3/jsp-servlet/project/ss4_jdbc/thuc_hanh/ss1_quan_ly_user/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module3/jsp-servlet/project/ss4_jdbc/thuc_hanh/ss1_quan_ly_user/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module3/jsp-servlet/project/ss4_jdbc/thuc_hanh/ss1_quan_ly_user/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/templates/facility/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/case_study/src/main/resources/templates/facility/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/csdl_and_orm/bai_tap/music_player_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/csdl_and_orm/bai_tap/music_player_app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/mail_managerment/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/bai_tap/mail_managerment/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/login/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/login/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/login/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/login/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/login/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/login/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/upload_file/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/upload_file/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/upload_file/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/upload_file/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/upload_file/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/upload_file/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/upload_file/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/upload_file/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/upload_file/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/data_binding_form/thuc_hanh/upload_file/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/jpa/thuc_hanh/customer_management/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/jpa/thuc_hanh/customer_management/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/jpa/thuc_hanh/customer_management/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/jpa/thuc_hanh/customer_management/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/spring_controller/thuc_hanh/customer_manager/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/spring_controller/thuc_hanh/customer_manager/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/spring_security/thuc_hanh/demo_spring_security/src/main/java/com/phuong/model/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/spring_security/thuc_hanh/demo_spring_security/src/main/java/com/phuong/model/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/app/product-management/model/order.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/app/product-management/model/product.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/app/product-management/model/productType.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/assets/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/assets/bootstrap/jquery/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/assets/bootstrap/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/assets/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/assets/img/background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/assets/img/phuongtd-background.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/assets/img/phuongtd-coffee-house-logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/assets/img/phuongtd-coffee.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/assets/js/bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/assets/js/jquery-custom-create.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/assets/js/jquery-custom-edit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/assets/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final-exam/src/assets/js/scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final_exam_be/src/main/java/com/phuong/controller/ProductRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final_exam_be/src/main/java/com/phuong/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final_exam_be/src/main/java/com/phuong/model/EmpPosition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final_exam_be/src/main/java/com/phuong/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final_exam_be/src/main/java/com/phuong/model/OrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final_exam_be/src/main/java/com/phuong/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final_exam_be/src/main/java/com/phuong/model/ProductType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final_exam_be/src/main/java/com/phuong/model/dto/ProductDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final_exam_be/src/main/java/com/phuong/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final_exam_be/src/main/java/com/phuong/repository/IProductTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final_exam_be/src/main/java/com/phuong/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../FinalExam/final_exam_be/src/main/java/com/phuong/service/impl/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/authentication/JwtAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/controller/jwt/JwtAuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/filter/JwtRequestFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/model/account/AppRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/model/account/AppUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/model/account/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/model/jwt/JwtRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/model/jwt/JwtResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/repository/account/IAppUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/repository/account/IUserRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/service/account/IAppUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/service/account/impl/AppUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/service/jwt/JwtUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/util/EncrytedPasswordUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/util/JwtTokenUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jwt_demo/demo-jwt/src/main/java/com/example/util/TokenUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module4/spring_security/thuc_hanh/demo_spring_security/src/main/java/com/phuong/util/EncrytedPasswordUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/spring_security/thuc_hanh/demo_spring_security/src/main/java/com/phuong/util/EncrytedPasswordUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module4/thymeleaf/thuc_hanh/customer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/thymeleaf/thuc_hanh/customer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam/src/app/consignment/consignment.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam/src/app/consignment/consignment.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam/src/app/consignment/consignment.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam/src/app/consignment/consignment.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam/src/app/consignment/create/create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam/src/app/consignment/create/create.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam/src/app/consignment/create/create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam/src/app/consignment/create/create.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam/src/app/service/consignment.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam/src/app/service/consignment.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam/src/environments/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam/src/model/consignment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam/src/model/consignment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam_be/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam_be/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/controller/ConsignmentRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/controller/ConsignmentRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/model/Consignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/java/com/phuong/model/Consignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/exam_be/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/exam_be/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module5/angular-casestudy-app/src/app/customer/list-customer/list-customer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/angular-casestudy-app/src/app/customer/list-customer/list-customer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/youtube-player/youtube-player.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/youtube-player/youtube-player.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/youtube-player/youtube-player.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/youtube-player/youtube-player.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/youtube-playlist/youtube-playlist.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/youtube-playlist/youtube-playlist.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/data/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/data/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/model/product.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/model/product.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-create/product-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-create/product-create.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-create/product-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-create/product-create.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-list/product-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-list/product-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-list/product-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/product/product-list/product-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/environments/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sign-in/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/sign-in/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sign-in/signin.css" beforeDir="false" afterPath="$PROJECT_DIR$/sign-in/signin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../detail-design/[C0222G2]_DetailDesign_PhuongTD.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../detail-design/[C0222G2]_DetailDesign_PhuongTD.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../detail-design/forgot-password-sequece-diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../detail-design/forgot-password-sequece-diagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../detail-design/forgot-password-sequece-diagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/../detail-design/forgot-password-sequece-diagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../detail-design/login-forgot-password-class-diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../detail-design/login-forgot-password-class-diagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../detail-design/login-forgot-password-class-diagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/../detail-design/login-forgot-password-class-diagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../detail-design/login-sequence-diagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../detail-design/login-sequence-diagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../detail-design/login-sequence-diagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/../detail-design/login-sequence-diagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/browserslist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/e2e/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/e2e/src/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/e2e/src/app.po.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/e2e/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/app-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/app.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/employee/employee-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/employee/employee.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/employee/employee.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/employee/employee.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/employee/employee.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/error403-page/error403-page-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/error403-page/error403-page.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/error403-page/error403-page.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/error403-page/error403-page.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/error403-page/error403-page.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/forgot-password/forgot-password-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/forgot-password/forgot-password.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/forgot-password/forgot-password.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/forgot-password/forgot-password.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/forgot-password/forgot-password.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/guard/admin.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/guard/is-login.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/guard/staff.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/home-page/home-page-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/home-page/home-page.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/home-page/home-page.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/home-page/home-page.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/home-page/home-page.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/login/login-routing.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/login/login.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/login/login.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/login/login.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/login/login.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/service/auth.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/service/forgot-password.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/app/service/login.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/assets/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/assets/img/403-error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/assets/img/background.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/assets/img/coffee-house-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/assets/img/coffee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/assets/img/error-403.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/assets/style/bootstrap/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/assets/style/bootstrap/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/assets/style/bootstrap/normalize/normalize.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/assets/style/jquery/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/assets/style/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/environments/environment.prod.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/environments/environment.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/polyfills.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/src/test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/angular-coffee-manager/tslint.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/CoffeeManagerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/authentication/JwtAuthenticationEntryPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/config/AppConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/config/WebSecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/controller/JwtAuthenticationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/controller/simple_email/SimpleEmailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/filter/JwtRequestFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/model/account/AppRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/model/account/AppUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/model/account/UserRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/model/bill/Bill.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/model/coffee_table/CoffeeTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/model/dish/Dish.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/model/dish/DishType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/model/dish_order/DishOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/model/employee/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/model/employee/Position.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/model/feedback/FeedBack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/model/jwt/JwtRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/model/jwt/JwtResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/repository/IAppUserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/repository/IUserRoleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/service/impl/IAppUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/service/impl/JwtUserDetailsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/service/impl/impl/AppUserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/util/EncrytedPasswordUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/java/com/coffee/util/JwtTokenUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project-codegym/coffee-manager/src/test/java/com/coffee/CoffeeManagerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../prototype/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../prototype/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../prototype/error-403.html" beforeDir="false" afterPath="$PROJECT_DIR$/../prototype/error-403.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../prototype/forgot-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/../prototype/forgot-password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../prototype/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../prototype/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../prototype/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../prototype/style/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +241,7 @@
       <updated>1659490358029</updated>
       <workItem from="1659490360451" duration="1274000" />
       <workItem from="1659498107812" duration="608000" />
+      <workItem from="1661476482534" duration="1021000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,163 @@
+<header class="masthead">
+  <div class="container px-4 px-lg-5 h-100">
+    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+      <div class="col-lg-8 align-self-end">
+        <h1 class="text-white font-weight-bold">Quản lý sản phẩm</h1>
+        <hr class="divider"/>
+      </div>
+      <div class="col-lg-8 align-self-baseline">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-primary btn-lg" [routerLink]="['/product/create']">
+          Thêm mới
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container-fluid">
+  <div class="container" id="content">
+    <section class="page-section overflow-auto">
+      <table class="table table-hover">
+        <thead>
+        <tr class="bg-primary text-light text-center">
+          <th>STT</th>
+          <th>Mã Sản Phẩm</th>
+          <th>Tên Sản Phẩm</th>
+          <th>Đơn Giá</th>
+          <th>Tình Trạng</th>
+          <th>Ngày Nhập Hàng</th>
+          <th>Loại sản phẩm</th>
+          <th colspan="2">Hành động</th>
+        </tr>
+        </thead>
+        <tbody *ngIf="products.length > 0">
+        <tr *ngFor="let product of products | paginate: { itemsPerPage: 5, currentPage: p }, index as i"
+            class="text-center">
+          <td>{{i + 1}}</td>
+          <td>
+            <a href="" class="link-primary nav-link" data-bs-toggle="offcanvas" style="height: 35px"
+               [attr.data-bs-target]="'#demo' + product.id">
+              {{product.code}}
+            </a>
+          </td>
+          <td>{{product.name}}</td>
+          <td>{{product.price | currency: 'VND':'' }} vnđ</td>
+          <td *ngIf="!product.status">Còn Hàng</td>
+          <td *ngIf="product.status">Hết Hàng</td>
+          <td>{{product.dateIn | date: "dd-MM-yyyy"}}</td>
+          <td>{{product.productType.name}}</td>
+          <td>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                    [attr.data-bs-target]="'#staticBackdropDelete' + product.id">
+              Xóa
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdropDelete{{product.id}}" data-bs-backdrop="static"
+                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelDelete" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title text-danger" id="staticBackdropLabelDelete">Xóa sản phẩm</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Bạn có muốn xóa sản phẩm <span class="text-danger">{{product.name}}</span> với mã sản phẩm = <span
+                    class="text-danger">{{product.code}}</span> không?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" (click)="deleteProduct(product.id)">Xóa
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Hủy</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="offcanvas offcanvas-start" id="demo{{product.id}}">
+              <div class="offcanvas-header row text-center">
+                <h1 class="offcanvas-title">Chi tiết Sản Phẩm</h1></div>
+              <div class="offcanvas-body">
+                <div class="container m-auto text-center">
+                  <table class="m-auto text-center" border="1" cellpadding="8">
+                    <tr>
+                      <td>Mã sản phẩm:</td>
+                      <td>{{product.code}}</td>
+                    </tr>
+                    <tr>
+                      <td>Tên:</td>
+                      <td>{{product.name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="">Giá:</td>
+                      <td class="">{{product.price}}</td>
+                    </tr>
+                    <tr>
+                      <td class="">Trạng thái:</td>
+                      <td class="" *ngIf="product.status">Hết Hàng</td>
+                      <td class="" *ngIf="!product.status">Còn Hàng</td>
+                    </tr>
+                    <tr>
+                      <td class="">Ngày nhập hàng:</td>
+                      <td class="">{{product.dateIn}}</td>
+                    </tr>
+                    <tr *ngIf="product.productType.id == 1">
+                      <td class="">Xuất xứ:</td>
+                      <td class="">{{product.origin}}</td>
+                    </tr>
+                    <tr *ngIf="product.productType.id == 1">
+                      <td class="">Loại nước:</td>
+                      <td class="" *ngIf="!product.gas">Có gas</td>
+                      <td class="" *ngIf="product.gas">Không có gas</td>
+                    </tr>
+                    <tr *ngIf="product.productType.id == 2">
+                      <td class="">Xuất xứ:</td>
+                      <td class="">{{product.origin}}</td>
+                    </tr>
+                    <tr *ngIf="product.productType.id == 2">
+                      <td class="">Loại Bánh:</td>
+                      <td class="" *ngIf="!product.sweet">Bánh Ngọt</td>
+                      <td class="" *ngIf="product.sweet">Bánh Mặn</td>
+                    </tr>
+                    <tr *ngIf="product.productType.id == 3">
+                      <td class="">Tác giả:</td>
+                      <td class="">{{product.author}}</td>
+                    </tr>
+                    <tr *ngIf="product.productType.id == 3">
+                      <td class="">Thể loại:</td>
+                      <td class="">{{product.category}}</td>
+                    </tr>
+                    <tr *ngIf="product.productType.id == 3">
+                      <td class="">Ngày xuất bản:</td>
+                      <td class="">{{product.publicDate}}</td>
+                    </tr>
+                    <tr>
+                      <td>Số lần được đặt:</td>
+                      <td>{{product.totalMoney}}</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="text-center m-auto mt-3">
+                  <button class="btn btn-secondary" type="button" data-bs-dismiss="offcanvas">Đóng</button>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+        <tbody *ngIf="products.length <= 0">
+        <tr class="text-center m-auto">
+          <th colspan="9">Không có dữ liệu</th>
+        </tr>
+        </tbody>
+      </table>
+      <div class="container-fluid mt-3" *ngIf="products.length > 0">
+        <div class="pagination float-end">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
