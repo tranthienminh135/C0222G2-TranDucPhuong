@@ -234,7 +234,7 @@ public class DanhSachHocSinh {
     private static void writeBanA(String pathFile, List<BanA> banAList) {
         List<String> strings = new ArrayList<>();
         for (BanA banA : banAList) {
-            strings.add(banA.getMaHocSinh() + COMMA + banA.getName()
+            strings.add(banA.getMaHocSi nh() + COMMA + banA.getName()
                     + COMMA + banA.getDayOfBirth() + COMMA + banA.getGender()
                     + COMMA + banA.getClazz() + COMMA + banA.getMath()
                     + COMMA + banA.getChemistry() + COMMA + banA.getPhysical());

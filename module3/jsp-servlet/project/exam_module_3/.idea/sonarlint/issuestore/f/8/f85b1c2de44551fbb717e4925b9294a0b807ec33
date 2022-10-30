@@ -1,0 +1,29 @@
+
+a
+java:S1192,"KDefine a constant instead of duplicating this literal "trangThais" 3 times.(À¤ğ¼
+g
+java:S1192""LDefine a constant instead of duplicating this literal "ngayKetThuc" 3 times.(†¢ÕÉşÿÿÿÿ
+a
+java:S1192!"KDefine a constant instead of duplicating this literal "ngayBatDau" 3 times.(²–òô
+d
+java:S1192-"NDefine a constant instead of duplicating this literal "loaiVanPhongs" 3 times.(Ï™«´
+f
+java:S1301["KReplace this "switch" statement by "if" statements to increase readability.(ë´åİşÿÿÿÿ
+o
+java:S1989"YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(¢à¨‹
+o
+java:S1989 "YHandle the following exception that could be thrown by "parseInt": NumberFormatException.(Õâ‡ı
+|
+java:S1989."aHandle the following exceptions that could be thrown by "forward": ServletException, IOException.(ë£õşÿÿÿÿ
+~
+java:S19891"hHandle the following exceptions that could be thrown by "showFormCreate": ServletException, IOException.(›ÁÊÆ
+j
+java:S19894"THandle the following exception that could be thrown by "deleteMatBang": IOException.(ìşâú
+„
+java:S19897"iHandle the following exceptions that could be thrown by "showListMatBang": ServletException, IOException.(ÊØÙúÿÿÿÿ
+v
+java:S1989]"`Handle the following exceptions that could be thrown by "create": IOException, ServletException.(â»©
+„
+java:S1989`"iHandle the following exceptions that could be thrown by "showListMatBang": ServletException, IOException.(ÊØÙúÿÿÿÿ
+n
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(¤Üİ’

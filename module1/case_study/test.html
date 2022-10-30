@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let A = [1, 2, 3, 4, 10];
+    let B = [2, 6, 12, 6, 5];
+
+    let max = A[0] / B[0];
+    let i = 0
+    let index
+    while (i < A.length - 1) {
+        i++;
+        console.log("Lần " + i + " => Phan so: " + phanSo)
+        let phanSo = A[i] / B[i]
+        if (phanSo > max) {
+            index = i
+            max = phanSo
+        } else {
+            phanSo = 0;
+        }
+    }
+    console.log("Vi tri lon nhat: " + index)
+</script>
+</body>
+</html>

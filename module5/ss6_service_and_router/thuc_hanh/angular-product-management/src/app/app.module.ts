@@ -14,6 +14,7 @@ import {AngularFireStorageModule} from "@angular/fire/storage";
 import { LoginComponent } from './login/login.component';
 import {RouterModule} from "@angular/router";
 import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
+import {CookieService} from "angular2-cookie/core";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    JwtHelperService
+    JwtHelperService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

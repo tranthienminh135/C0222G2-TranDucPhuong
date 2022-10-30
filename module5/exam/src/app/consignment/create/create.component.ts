@@ -71,8 +71,8 @@ export class CreateComponent implements OnInit {
         });
       })
     ).subscribe();
-
   }
+
   showPreview(event: any) {
     this.selectedImage = event.target.files[0];
   }

@@ -1,0 +1,35 @@
+
+i
+java:S1192("NDefine a constant instead of duplicating this literal "ma_trang_thai" 3 times.(Ëâæ£ùÿÿÿÿ
+h
+java:S1192*"RDefine a constant instead of duplicating this literal "ma_loai_van_phong" 3 times.(ÖÖ¬Ú
+j
+java:S2095D"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ïëñÑúÿÿÿÿ
+k
+java:S2095 "OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(É¢ş¬şÿÿÿÿ
+e
+java:S2095s"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(¹œ‘§
+k
+java:S2095…"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ƒÄ¸¹ùÿÿÿÿ
+e
+java:S2095#"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(»üÎ–
+e
+java:S2095\"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(•ŠÊç
+s	java:S116"^Rename this field "SELECT_ALL_MAT_BANG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯õ´
+u	java:S116"`Rename this field "SELECT_ALL_TRANG_THAI" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜¥†Â
+y	java:S116"dRename this field "SELECT_ALL_LOAI_VAN_PHONG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªã—­
+t	java:S116"ZRename this field "DELETE_MAT_BANG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•·ªÕùÿÿÿÿ
+n	java:S116"ZRename this field "INSERT_MAT_BANG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Í­œ
+t	java:S116"ZRename this field "SEARCH_MAT_BANG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıø™ùÿÿÿÿ
+7
+java:S1170"!Make this final field static too.(¯õ´
+7
+java:S1170"!Make this final field static too.(˜¥†Â
+7
+java:S1170"!Make this final field static too.(ªã—­
+<
+java:S1170"!Make this final field static too.(•·ªÕùÿÿÿÿ
+6
+java:S1170"!Make this final field static too.(Í­œ
+<
+java:S1170"!Make this final field static too.(ıø™ùÿÿÿÿ

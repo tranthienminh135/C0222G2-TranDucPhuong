@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="75fc9f24-69ae-4d43-a80f-726dafa11788" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module4/csdl_and_orm/thuc_hanh/customer_management/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module4/spring_security/thuc_hanh/demo_spring_security/src/main/java/com/phuong/util/EncrytedPasswordUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module4/spring_security/thuc_hanh/demo_spring_security/src/main/java/com/phuong/util/EncrytedPasswordUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/angular-casestudy-app/src/app/customer/list-customer/list-customer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/angular-casestudy-app/src/app/customer/list-customer/list-customer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam/src/app/consignment/create/create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam/src/app/consignment/create/create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/exam/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/exam/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/youtube-player/youtube-player.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/youtube-player/youtube-player.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/youtube-player/youtube-player.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/youtube-player/youtube-player.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/youtube-playlist/youtube-playlist.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-playlist-app/src/app/youtube-playlist/youtube-playlist.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module5/ss6_service_and_router/thuc_hanh/angular-product-management/src/app/app.module.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="2EUIAuZLhwRaqlTYzfxFcz4BRQU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/furama_manager" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="75fc9f24-69ae-4d43-a80f-726dafa11788" name="Changes" comment="" />
+      <created>1662643596178</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1662643596178</updated>
+      <workItem from="1662643597664" duration="9000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -26,8 +26,8 @@ public class SS1RemoveElementInArray {
         boolean flag = false;
         int count = 0;
 
-        for (int i = 0; i < arr.length; i++) {
-            if (x == arr[i]) {
+        for (int j : arr) {
+            if (x == j) {
                 count++;
             }
         }
@@ -40,9 +40,7 @@ public class SS1RemoveElementInArray {
         }
         if (flag) {
             while (count > 0) {
-                for (int i = temp; i < arr.length - 1; i++) {
-                    arr[i] = arr[i + 1];
-                }
+                if (arr.length - 1 - temp >= 0) System.arraycopy(arr, temp + 1, arr, temp, arr.length - 1 - temp);
                 arr[arr.length - 1] = 0;
                 count--;
             }

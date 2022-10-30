@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyCch6VZ_u0OtJhHtEB89D02m0EX4Akpzt8",
-    authDomain: "crafty-tracker-241600.firebaseapp.com",
-    projectId: "crafty-tracker-241600",
-    storageBucket: "crafty-tracker-241600.appspot.com",
-    messagingSenderId: "700686530577",
-    appId: "1:700686530577:web:5142544f303a4a9a3599b0",
-    measurementId: "G-V215CL4YY3"
+    apiKey: "AIzaSyBbs9jFi8HHLLMB7hyC_1_VHlznJGNs9d0",
+    authDomain: "marine-equinox-236204.firebaseapp.com",
+    databaseURL: "https://marine-equinox-236204-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "marine-equinox-236204",
+    storageBucket: "marine-equinox-236204.appspot.com",
+    messagingSenderId: "997925204096",
+    appId: "1:997925204096:web:2662721f2d5bc46d29f665"
   }
 };
 
